@@ -8,6 +8,7 @@ import (
 	"testing"
 
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 )
 
 func TestNewClient_NormalRequestContent(t *testing.T) {
@@ -34,7 +35,7 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Stats()
+	_, err := client.Meta().Stats()
 	if err != nil {
 		t.Errorf("Unexpected error = %s", err)
 	}
@@ -49,14 +50,14 @@ func TestNewClient_RequestError(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Stats()
+	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
 		return
 	}
 
-	expected := misskey.RequestError{
-		Message: misskey.ResponseReadError,
+	expected := core.RequestError{
+		Message: core.ResponseReadError,
 		Origin:  errors.New("bad"), //nolint:goerr113
 	}
 	if err.Error() != expected.Error() {
@@ -76,14 +77,14 @@ func TestNewClient_ReadError(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Stats()
+	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
 		return
 	}
 
-	expected := misskey.RequestError{
-		Message: misskey.ResponseReadBodyError,
+	expected := core.RequestError{
+		Message: core.ResponseReadBodyError,
 		Origin:  errors.New("Read error"), //nolint:goerr113
 	}
 	if err.Error() != expected.Error() {
@@ -101,14 +102,14 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Stats()
+	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
 		return
 	}
 
-	expected := misskey.RequestError{
-		Message: misskey.ErrorResponseParseError,
+	expected := core.RequestError{
+		Message: core.ErrorResponseParseError,
 		Origin:  errors.New("invalid character 's' looking for beginning of value"), //nolint:goerr113
 	}
 	if err.Error() != expected.Error() {
@@ -126,15 +127,15 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Stats()
+	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
 		return
 	}
 
-	expected := misskey.RequestError{
-		Message: misskey.ErrorResponseParseError,
-		Origin:  errors.New("json: cannot unmarshal bool into Go value of type misskey.ErrorResponse"), //nolint:goerr113
+	expected := core.RequestError{
+		Message: core.ErrorResponseParseError,
+		Origin:  errors.New("json: cannot unmarshal bool into Go value of type core.ErrorResponse"), //nolint:goerr113
 	}
 	if err.Error() != expected.Error() {
 		t.Errorf("Expected error = %s, got = %s", expected.Error(), err.Error())
@@ -158,17 +159,18 @@ func TestNewClient_ValidErrorResponse(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Stats()
+	_, err := client.Meta().Stats()
+
 	if err == nil {
 		t.Error("Expected error, but never happened")
 		return
 	}
 
-	expectedResponse := misskey.ErrorResponse{}
+	expectedResponse := core.ErrorResponse{}
 	expectedResponse.Info.Param = "field"
 	expectedResponse.Info.Reason = "this is the reason"
 
-	expected := misskey.UnknownError{
+	expected := core.UnknownError{
 		Response: expectedResponse,
 	}
 	if err.Error() != expected.Error() {

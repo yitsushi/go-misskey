@@ -9,7 +9,8 @@ import (
 	"time"
 
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/meta"
+	"github.com/yitsushi/go-misskey/services/antennas"
+	"github.com/yitsushi/go-misskey/services/meta"
 	"golang.org/x/net/context"
 )
 
@@ -21,9 +22,8 @@ type HTTPClient interface {
 // ClientInterface is an interface to describe how a Client looks like.
 // Mostly for Mocking. Or later if Misskey gets multiple API versions.
 type ClientInterface interface {
-	Announcements(options *AnnouncementOptions) (meta.AnnouncementsResponse, error)
-	Meta(details bool) (meta.InstanceMetaResponse, error)
-	Stats() (meta.StatsResponse, error)
+	Meta() *meta.Service
+	Antennas() *antennas.Service
 }
 
 // Client is the main Misskey client struct.
@@ -74,32 +74,33 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
-		return RequestError{Message: ResponseReadError, Origin: err}
+		return core.RequestError{Message: core.ResponseReadError, Origin: err}
 	}
 
 	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return RequestError{Message: ResponseReadBodyError, Origin: err}
+		return core.RequestError{Message: core.ResponseReadBodyError, Origin: err}
 	}
 
 	if resp.StatusCode == http.StatusOK {
+		// log.Printf("%s", body)
 		err = json.Unmarshal(body, respose)
 		return err
 	}
 
-	var errorWrapper errorResponseWrapper
+	var errorWrapper core.ErrorResponseWrapper
 
 	err = json.Unmarshal(body, &errorWrapper)
 	if err != nil {
-		return RequestError{Message: ErrorResponseParseError, Origin: err}
+		return core.RequestError{Message: core.ErrorResponseParseError, Origin: err}
 	}
 
-	var errorResponse ErrorResponse
+	var errorResponse core.ErrorResponse
 	if err := json.Unmarshal(errorWrapper.Error, &errorResponse); err != nil {
-		return RequestError{Message: ErrorResponseParseError, Origin: err}
+		return core.RequestError{Message: core.ErrorResponseParseError, Origin: err}
 	}
 
-	return UnknownError{Response: errorResponse}
+	return core.UnknownError{Response: errorResponse}
 }
