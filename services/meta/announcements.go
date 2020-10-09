@@ -31,11 +31,10 @@ func (s *Service) Announcements(options *AnnouncementOptions) (AnnouncementsResp
 	}
 
 	var response AnnouncementsResponse
-	s.Call(
+	err := s.Call(
 		&core.BaseRequest{Request: request, Path: "/announcements"},
 		&response,
 	)
 
-	return response, nil
+	return response, err
 }
-

@@ -18,4 +18,6 @@ func StringValue(s String) string {
 	return *s
 }
 
-type RequestHandlerFunc func (*BaseRequest, interface{}) error
+// RequestHandlerFunc is the function signature for request
+// handlers called by services to make requests.
+type RequestHandlerFunc func(*BaseRequest, interface{}) error

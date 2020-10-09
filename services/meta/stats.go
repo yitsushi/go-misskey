@@ -18,6 +18,7 @@ type StatsResponse struct {
 	Instances          uint64 `json:"instances"`
 }
 
+// Stats endpoint.
 func (s *Service) Stats() (StatsResponse, error) {
 	var response StatsResponse
 

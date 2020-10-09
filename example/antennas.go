@@ -12,7 +12,7 @@ func createAntenna(c *misskey.Client) {
 		Name:            "test",
 		Source:          antennas.AllSrc,
 		UserListID:      nil,
-		UserGroupId:     nil,
+		UserGroupID:     nil,
 		Keywords:        []string{"update what", "stuff"},
 		ExcludeKeywords: []string{},
 		Users:           []string{},
@@ -21,7 +21,6 @@ func createAntenna(c *misskey.Client) {
 		WithOnlyFile:    true,
 		Notify:          false,
 	})
-
 	if err != nil {
 		log.Printf("[Antennas/Create] %s", err)
 		return

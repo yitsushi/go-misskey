@@ -22,8 +22,8 @@ type HTTPClient interface {
 // ClientInterface is an interface to describe how a Client looks like.
 // Mostly for Mocking. Or later if Misskey gets multiple API versions.
 type ClientInterface interface {
-	Meta() (*meta.Service)
-	Antennas() (*antennas.Service)
+	Meta() *meta.Service
+	Antennas() *antennas.Service
 }
 
 // Client is the main Misskey client struct.

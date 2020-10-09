@@ -2,13 +2,19 @@ package antennas
 
 import "github.com/yitsushi/go-misskey/core"
 
+// AntennaSource is just an "enum" like type alias.
 type AntennaSource string
 
 const (
-	HomeSrc  AntennaSource = "home"
-	AllSrc   AntennaSource = "all"
+	// HomeSrc is "home" as source for an Antenna.
+	HomeSrc AntennaSource = "home"
+	// AllSrc is "all" as source for an Antenna.
+	AllSrc AntennaSource = "all"
+	// UsersSrc is "users" as source for an Antenna.
 	UsersSrc AntennaSource = "users"
-	ListSrc  AntennaSource = "list"
+	// ListSrc is "list" as source for an Antenna.
+	ListSrc AntennaSource = "list"
+	// GroupSrc is "group" as source for an Antenna.
 	GroupSrc AntennaSource = "group"
 )
 
@@ -18,7 +24,7 @@ type CreateRequest struct {
 	Name            string        `json:"name"`
 	Source          AntennaSource `json:"src"`
 	UserListID      core.String   `json:"userListId"`
-	UserGroupId     core.String   `json:"userGroupId"`
+	UserGroupID     core.String   `json:"userGroupId"`
 	Keywords        [][]string    `json:"keywords"`
 	ExcludeKeywords [][]string    `json:"excludeKeywords"`
 	Users           []string      `json:"users"`
@@ -38,7 +44,7 @@ type CreateOptions struct {
 	Name        string
 	Source      AntennaSource
 	UserListID  core.String
-	UserGroupId core.String
+	UserGroupID core.String
 	// Keywords is a simple array of strings,
 	// but in the background it's an array of arrays.
 	// The outer array has an OR condition,
@@ -62,12 +68,13 @@ type CreateOptions struct {
 	Notify          bool
 }
 
+// Create antenna endpoint.
 func (s *Service) Create(options *CreateOptions) (CreateResponse, error) {
 	request := &CreateRequest{
 		Name:            options.Name,
 		Source:          options.Source,
 		UserListID:      options.UserListID,
-		UserGroupId:     options.UserGroupId,
+		UserGroupID:     options.UserGroupID,
 		Keywords:        [][]string{options.Keywords, options.Keywords},
 		ExcludeKeywords: [][]string{options.ExcludeKeywords},
 		Users:           options.Users,

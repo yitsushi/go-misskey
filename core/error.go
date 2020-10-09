@@ -27,7 +27,7 @@ func (e RequestError) Error() string {
 	return fmt.Sprintf("%s: %s", e.Message, e.Origin.Error())
 }
 
-// ErrorResponseWrapper is the wrapper for error responses
+// ErrorResponseWrapper is the wrapper for error responses.
 type ErrorResponseWrapper struct {
 	Error json.RawMessage `json:"error"`
 }

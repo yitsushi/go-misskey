@@ -7,13 +7,7 @@ type Service struct {
 	Call core.RequestHandlerFunc
 }
 
-var service *Service
-
-// NewService creates a new Service or use an existing one (singleton).
+// NewService creates a new Service instance.
 func NewService(requestHandler core.RequestHandlerFunc) *Service {
-	if service == nil {
-		service = &Service{Call: requestHandler}
-	}
-	return service
+	return &Service{Call: requestHandler}
 }
-

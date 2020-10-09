@@ -76,6 +76,7 @@ type Features struct {
 	MiAuth         bool `json:"miauth"`
 }
 
+// InstanceMeta is the endpoint to get metadata about the instance.
 func (s *Service) InstanceMeta(details bool) (InstanceMetaResponse, error) {
 	request := &InstanceMetaRequest{
 		Detail: details,
@@ -89,4 +90,3 @@ func (s *Service) InstanceMeta(details bool) (InstanceMetaResponse, error) {
 
 	return response, err
 }
-
