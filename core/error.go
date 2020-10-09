@@ -1,4 +1,4 @@
-package misskey
+package core
 
 import (
 	"encoding/json"
@@ -27,7 +27,8 @@ func (e RequestError) Error() string {
 	return fmt.Sprintf("%s: %s", e.Message, e.Origin.Error())
 }
 
-type errorResponseWrapper struct {
+// ErrorResponseWrapper is the wrapper for error responses
+type ErrorResponseWrapper struct {
 	Error json.RawMessage `json:"error"`
 }
 

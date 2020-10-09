@@ -75,3 +75,18 @@ type Features struct {
 	ServiceWorker  bool `json:"serviceWorker"`
 	MiAuth         bool `json:"miauth"`
 }
+
+func (s *Service) InstanceMeta(details bool) (InstanceMetaResponse, error) {
+	request := &InstanceMetaRequest{
+		Detail: details,
+	}
+
+	var response InstanceMetaResponse
+	err := s.Call(
+		&core.BaseRequest{Request: request, Path: "/meta"},
+		&response,
+	)
+
+	return response, err
+}
+

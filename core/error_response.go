@@ -1,4 +1,4 @@
-package misskey
+package core
 
 // ErrorResponse represents any kind of Error responses from Misskey.
 type ErrorResponse struct {

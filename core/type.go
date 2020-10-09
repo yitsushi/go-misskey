@@ -8,6 +8,8 @@ func NewString(value string) String {
 	return &value
 }
 
+// StringValue returns the value of a core.String as string.
+// If th value is nil, it returns with an empty string.
 func StringValue(s String) string {
 	if s == nil {
 		return ""
@@ -15,3 +17,5 @@ func StringValue(s String) string {
 
 	return *s
 }
+
+type RequestHandlerFunc func (*BaseRequest, interface{}) error
