@@ -7,8 +7,8 @@ import (
 	"github.com/yitsushi/go-misskey/services/antennas"
 )
 
-func createAntenna(c *misskey.Client) {
-	resp, err := c.Antennas().Create(&antennas.CreateOptions{
+func antenna(c *misskey.Client) {
+	antenna, err := c.Antennas().Create(&antennas.CreateOptions{
 		Name:            "test",
 		Source:          antennas.AllSrc,
 		UserListID:      nil,
@@ -26,5 +26,17 @@ func createAntenna(c *misskey.Client) {
 		return
 	}
 
-	log.Printf("[Antennas/Create] %s created", resp.Name)
+	log.Printf("[Antennas/Create] %s created", antenna.Name)
+
+	antennas, _ := c.Antennas().List()
+	for _, ant := range antennas {
+		log.Printf("[Antennas/List] %s", ant.Name)
+	}
+
+	_, err = c.Antennas().Delete(antenna.ID)
+	if err == nil {
+		log.Printf("[Antennas/Delete] %s deleted, no errors", antenna.ID)
+	} else {
+		log.Printf("[Antennas/Delete] Can't delete resource: %s (%s)", err, antenna.ID)
+	}
 }

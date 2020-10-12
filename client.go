@@ -85,9 +85,15 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 	}
 
 	if resp.StatusCode == http.StatusOK {
-		// log.Printf("%s", body)
 		err = json.Unmarshal(body, respose)
 		return err
+	}
+
+	if resp.StatusCode == http.StatusNoContent {
+		// Status code 204 considered as valid status code
+		// if given operation was processed, no error occurred
+		// but nothing to return, like delete resources.
+		return nil
 	}
 
 	var errorWrapper core.ErrorResponseWrapper

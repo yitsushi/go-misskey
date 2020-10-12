@@ -2,13 +2,14 @@ package main
 
 import (
 	"log"
+	"strings"
 
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/meta"
 )
 
-func listAnnouncements(client *misskey.Client) {
+func announcements(client *misskey.Client) {
 	announcements, err := client.Meta().Announcements(
 		&meta.AnnouncementOptions{
 			WithUnreads: true,
@@ -26,7 +27,7 @@ func listAnnouncements(client *misskey.Client) {
 	}
 }
 
-func printMeta(client *misskey.Client) {
+func instanceMeta(client *misskey.Client) {
 	meta, err := client.Meta().InstanceMeta(true)
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
@@ -35,9 +36,12 @@ func printMeta(client *misskey.Client) {
 
 	log.Printf("[InstanceMeta/Name] %s", core.StringValue(meta.Name))
 
+	emojiList := []string{}
 	for _, emoji := range meta.Emojis {
-		log.Printf("[InstanceMeta/Emoji] %s", core.StringValue(emoji.Name))
+		emojiList = append(emojiList, core.StringValue(emoji.Name))
 	}
+
+	log.Printf("[InstanceMeta/Emoji] %s", strings.Join(emojiList, ", "))
 
 	log.Printf("[InstanceMeta/Feature] Registration:   %s", boolStatusToString(meta.Features.Registration))
 	log.Printf("[InstanceMeta/Feature] LocalTimeLine:  %s", boolStatusToString(meta.Features.LocalTimeLine))
@@ -53,7 +57,7 @@ func printMeta(client *misskey.Client) {
 	log.Printf("[InstanceMeta/Feature] MiAuth:         %s", boolStatusToString(meta.Features.MiAuth))
 }
 
-func printStats(client *misskey.Client) {
+func stats(client *misskey.Client) {
 	stats, err := client.Meta().Stats()
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
