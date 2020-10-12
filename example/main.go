@@ -9,13 +9,11 @@ import (
 func main() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	if false {
-		createAntenna(client)
-	}
+	antenna(client)
 
-	listAnnouncements(client)
-	printMeta(client)
-	printStats(client)
+	announcements(client)
+	instanceMeta(client)
+	stats(client)
 }
 
 func boolStatusToString(v bool) string {
