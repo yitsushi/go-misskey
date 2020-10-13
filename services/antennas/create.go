@@ -1,6 +1,9 @@
 package antennas
 
-import "github.com/yitsushi/go-misskey/core"
+import (
+	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/entities"
+)
 
 // AntennaSource is just an "enum" like type alias.
 type AntennaSource string
@@ -35,9 +38,7 @@ type CreateRequest struct {
 }
 
 // CreateResponse represents the response on an antennas/create request.
-type CreateResponse struct {
-	*Antenna
-}
+type CreateResponse entities.Antenna
 
 // CreateOptions contains all values that can be used to create an Antenna.
 type CreateOptions struct {

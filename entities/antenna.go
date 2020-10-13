@@ -1,4 +1,4 @@
-package antennas
+package entities
 
 import (
 	"time"

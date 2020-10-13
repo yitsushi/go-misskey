@@ -11,9 +11,11 @@ func main() {
 
 	antenna(client)
 
-	announcements(client)
-	instanceMeta(client)
-	stats(client)
+	if false {
+		announcements(client)
+		instanceMeta(client)
+		stats(client)
+	}
 }
 
 func boolStatusToString(v bool) string {

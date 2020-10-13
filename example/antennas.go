@@ -8,6 +8,23 @@ import (
 )
 
 func antenna(c *misskey.Client) {
+	ants, _ := c.Antennas().List()
+	for _, ant := range ants {
+		log.Printf("[Antennas/List] <%s> %s", ant.ID, ant.Name)
+	}
+
+	notes, err := c.Antennas().Notes(&antennas.NotesOptions{
+		AntennaID: "8dbpybhulw",
+	})
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	for _, note := range notes {
+		log.Printf("%+v", note.User)
+	}
+
 	antenna, err := c.Antennas().Create(&antennas.CreateOptions{
 		Name:            "test",
 		Source:          antennas.AllSrc,
