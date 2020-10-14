@@ -1,4 +1,4 @@
-package antennas
+package models
 
 import (
 	"time"
