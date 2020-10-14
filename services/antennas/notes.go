@@ -18,14 +18,6 @@ type NotesRequest struct {
 	UntilID   string `json:"untilId"`
 }
 
-// NotesResponse represents the response for note list.
-type NotesResponse []models.Note
-
-// Notes unwraps notes from the response.
-func (r *NotesResponse) Notes() []models.Note {
-	return []models.Note(*r)
-}
-
 // NotesOptions are all the options available for a Notes request.
 type NotesOptions struct {
 	AntennaID string
@@ -35,7 +27,7 @@ type NotesOptions struct {
 }
 
 // Notes is the endpoint to get Notes for an Antenna.
-func (s *Service) Notes(options *NotesOptions) (NotesResponse, error) {
+func (s *Service) Notes(options *NotesOptions) ([]models.Note, error) {
 	request := &NotesRequest{
 		AntennaID: options.AntennaID,
 		Limit:     options.Limit,
@@ -47,7 +39,7 @@ func (s *Service) Notes(options *NotesOptions) (NotesResponse, error) {
 		request.Limit = NoteListDefaultLimit
 	}
 
-	var response NotesResponse
+	var response []models.Note
 	err := s.Call(
 		&core.BaseRequest{Request: request, Path: "/antennas/notes"},
 		&response,

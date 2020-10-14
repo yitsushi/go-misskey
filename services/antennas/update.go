@@ -21,14 +21,6 @@ type UpdateRequest struct {
 	Notify          bool                 `json:"notify"`
 }
 
-// UpdateResponse is the response object for a Update response.
-type UpdateResponse models.Antenna
-
-// Antenna returns a single Antenna resource from the response.
-func (r *UpdateResponse) Antenna() models.Antenna {
-	return models.Antenna(*r)
-}
-
 // UpdateOptions contains all values that can be used to update an Antenna.
 type UpdateOptions struct {
 	AntennaID       string
@@ -46,7 +38,7 @@ type UpdateOptions struct {
 }
 
 // Update is the endpoint to update an Antenna.
-func (s *Service) Update(options *UpdateOptions) (UpdateResponse, error) {
+func (s *Service) Update(options *UpdateOptions) (models.Antenna, error) {
 	request := &UpdateRequest{
 		AntennaID:       options.AntennaID,
 		Name:            options.Name,
@@ -62,7 +54,7 @@ func (s *Service) Update(options *UpdateOptions) (UpdateResponse, error) {
 		Notify:          options.Notify,
 	}
 
-	var response UpdateResponse
+	var response models.Antenna
 	err := s.Call(
 		&core.BaseRequest{Request: request, Path: "/antennas/update"},
 		&response,
@@ -72,7 +64,7 @@ func (s *Service) Update(options *UpdateOptions) (UpdateResponse, error) {
 }
 
 // UpdateAntenna updates an antenna from struct.
-func (s *Service) UpdateAntenna(antenna *models.Antenna) (UpdateResponse, error) {
+func (s *Service) UpdateAntenna(antenna *models.Antenna) (models.Antenna, error) {
 	return s.Update(&UpdateOptions{
 		AntennaID:       antenna.ID,
 		Name:            antenna.Name,

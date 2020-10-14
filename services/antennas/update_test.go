@@ -16,10 +16,9 @@ func ExampleService_Update() {
 		return
 	}
 
-	update := antenna.Antenna()
-	update.Keywords = append(update.Keywords, []string{"addition"})
+	antenna.Keywords = append(antenna.Keywords, []string{"addition"})
 
-	_, err = client.Antennas().UpdateAntenna(&update)
+	_, err = client.Antennas().UpdateAntenna(&antenna)
 	if err != nil {
 		log.Println(err)
 		return

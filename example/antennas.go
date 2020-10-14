@@ -48,7 +48,7 @@ func createAntenna(c *misskey.Client) models.Antenna {
 
 	log.Printf("[Antennas/Create] %s created", antenna.Name)
 
-	return antenna.Antenna()
+	return antenna
 }
 
 func deleteAntenna(c *misskey.Client, id string) {

@@ -20,14 +20,6 @@ type CreateRequest struct {
 	Notify          bool                 `json:"notify"`
 }
 
-// CreateResponse represents the response on an antennas/create request.
-type CreateResponse models.Antenna
-
-// Antenna returns a single Antenna resource from the response.
-func (r *CreateResponse) Antenna() models.Antenna {
-	return models.Antenna(*r)
-}
-
 // CreateOptions contains all values that can be used to create an Antenna.
 type CreateOptions struct {
 	Name        string
@@ -48,7 +40,7 @@ type CreateOptions struct {
 }
 
 // Create antenna endpoint.
-func (s *Service) Create(options *CreateOptions) (CreateResponse, error) {
+func (s *Service) Create(options *CreateOptions) (models.Antenna, error) {
 	request := &CreateRequest{
 		Name:            options.Name,
 		Source:          options.Source,
@@ -63,7 +55,7 @@ func (s *Service) Create(options *CreateOptions) (CreateResponse, error) {
 		Notify:          options.Notify,
 	}
 
-	var response CreateResponse
+	var response models.Antenna
 	err := s.Call(
 		&core.BaseRequest{Request: request, Path: "/antennas/create"},
 		&response,

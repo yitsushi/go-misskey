@@ -10,21 +10,13 @@ type ShowRequest struct {
 	AntennaID string `json:"antennaId"`
 }
 
-// ShowResponse is the response object for a Show request.
-type ShowResponse models.Antenna
-
-// Antenna returns a single Antenna resource from the response.
-func (r *ShowResponse) Antenna() models.Antenna {
-	return models.Antenna(*r)
-}
-
 // Show is the endpoint to get an Antenna.
-func (s *Service) Show(antennaID string) (ShowResponse, error) {
+func (s *Service) Show(antennaID string) (models.Antenna, error) {
 	request := &ShowRequest{
 		AntennaID: antennaID,
 	}
 
-	var response ShowResponse
+	var response models.Antenna
 	err := s.Call(
 		&core.BaseRequest{Request: request, Path: "/antennas/show"},
 		&response,
