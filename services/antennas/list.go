@@ -2,7 +2,7 @@ package antennas
 
 import (
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/entities"
+	"github.com/yitsushi/go-misskey/models"
 )
 
 // ListRequest is empty, but keep it as it is for consistency.
@@ -10,7 +10,7 @@ type ListRequest struct {
 }
 
 // ListResponse is an array of Antennas from the list response.
-type ListResponse []entities.Antenna
+type ListResponse []models.Antenna
 
 // List is the endpoint to list all existing antennas.
 func (s *Service) List() (ListResponse, error) {

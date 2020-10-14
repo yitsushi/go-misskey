@@ -1,4 +1,4 @@
-package entities
+package models
 
 import "github.com/yitsushi/go-misskey/core"
 

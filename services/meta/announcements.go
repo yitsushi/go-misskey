@@ -2,6 +2,7 @@ package meta
 
 import (
 	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/models"
 )
 
 // AnnouncementsRequest represents an Announcement request.
@@ -13,7 +14,7 @@ type AnnouncementsRequest struct {
 }
 
 // AnnouncementsResponse represents an Announcement response.
-type AnnouncementsResponse []Announcement
+type AnnouncementsResponse []models.Announcement
 
 // AnnouncementOptions is the options list for Announcement().
 type AnnouncementOptions struct {

@@ -2,7 +2,7 @@ package antennas
 
 import (
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/entities"
+	"github.com/yitsushi/go-misskey/models"
 )
 
 const (
@@ -19,7 +19,7 @@ type NotesRequest struct {
 }
 
 // NotesResponse represents the response for note list.
-type NotesResponse []entities.Note
+type NotesResponse []models.Note
 
 // NotesOptions are all the options available for a Notes request.
 type NotesOptions struct {

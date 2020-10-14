@@ -2,7 +2,7 @@ package antennas
 
 import (
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/entities"
+	"github.com/yitsushi/go-misskey/models"
 )
 
 // AntennaSource is just an "enum" like type alias.
@@ -38,7 +38,7 @@ type CreateRequest struct {
 }
 
 // CreateResponse represents the response on an antennas/create request.
-type CreateResponse entities.Antenna
+type CreateResponse models.Antenna
 
 // CreateOptions contains all values that can be used to create an Antenna.
 type CreateOptions struct {
