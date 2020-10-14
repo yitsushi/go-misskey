@@ -10,7 +10,7 @@ Official Misskey API Documentation: https://misskey.io/api-doc
 |--------|----------------|----------------------|------|
 | :x: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) ||
 | :white_check_mark: | [meta](https://misskey.io/api-doc#tag/meta) | ||
-| :warning: | [antennas](https://misskey.io/api-doc#tag/antennas) | [#3](https://github.com/yitsushi/go-misskey/issues/3) | Done: Create, List, Delete, Notes |
+| :white_check_mark: | [antennas](https://misskey.io/api-doc#tag/antennas) | [#3](https://github.com/yitsushi/go-misskey/issues/3) ||
 | :x: | [federation](https://misskey.io/api-doc#tag/federation) | [#4](https://github.com/yitsushi/go-misskey/issues/4) ||
 | :x: | [app](https://misskey.io/api-doc#tag/app) | [#5](https://github.com/yitsushi/go-misskey/issues/5) ||
 | :x: | [auth](https://misskey.io/api-doc#tag/auth) |||

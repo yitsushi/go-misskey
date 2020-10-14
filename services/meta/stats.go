@@ -6,7 +6,6 @@ import (
 
 // StatsRequest represents an Stats request.
 type StatsRequest struct {
-	*core.BaseRequest
 }
 
 // StatsResponse represents the response to a stats request.

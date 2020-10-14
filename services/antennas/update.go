@@ -5,8 +5,9 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// CreateRequest represents an antennas/create request.
-type CreateRequest struct {
+// UpdateRequest is the request object for a Update request.
+type UpdateRequest struct {
+	AntennaID       string               `json:"antennaId"`
 	Name            string               `json:"name"`
 	Source          models.AntennaSource `json:"src"`
 	UserListID      core.String          `json:"userListId"`
@@ -20,17 +21,14 @@ type CreateRequest struct {
 	Notify          bool                 `json:"notify"`
 }
 
-// CreateOptions contains all values that can be used to create an Antenna.
-type CreateOptions struct {
-	Name        string
-	Source      models.AntennaSource
-	UserListID  core.String
-	UserGroupID core.String
-	// The outer array has an OR condition,
-	// the inner one has AND condition.
-	Keywords [][]string
-	// The outer array has an OR condition,
-	// the inner one has AND condition.
+// UpdateOptions contains all values that can be used to update an Antenna.
+type UpdateOptions struct {
+	AntennaID       string
+	Name            string
+	Source          models.AntennaSource
+	UserListID      core.String
+	UserGroupID     core.String
+	Keywords        [][]string
 	ExcludeKeywords [][]string
 	Users           []string
 	CaseSensitive   bool
@@ -39,9 +37,10 @@ type CreateOptions struct {
 	Notify          bool
 }
 
-// Create antenna endpoint.
-func (s *Service) Create(options *CreateOptions) (models.Antenna, error) {
-	request := &CreateRequest{
+// Update is the endpoint to update an Antenna.
+func (s *Service) Update(options *UpdateOptions) (models.Antenna, error) {
+	request := &UpdateRequest{
+		AntennaID:       options.AntennaID,
 		Name:            options.Name,
 		Source:          options.Source,
 		UserListID:      options.UserListID,
@@ -57,9 +56,27 @@ func (s *Service) Create(options *CreateOptions) (models.Antenna, error) {
 
 	var response models.Antenna
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/create"},
+		&core.BaseRequest{Request: request, Path: "/antennas/update"},
 		&response,
 	)
 
 	return response, err
+}
+
+// UpdateAntenna updates an antenna from struct.
+func (s *Service) UpdateAntenna(antenna *models.Antenna) (models.Antenna, error) {
+	return s.Update(&UpdateOptions{
+		AntennaID:       antenna.ID,
+		Name:            antenna.Name,
+		Source:          antenna.Source,
+		UserListID:      antenna.UserListID,
+		UserGroupID:     antenna.UserGroupID,
+		Keywords:        antenna.Keywords,
+		ExcludeKeywords: antenna.ExcludeKeywords,
+		Users:           antenna.Users,
+		CaseSensitive:   antenna.CaseSensitive,
+		WithReplies:     antenna.WithReplies,
+		WithOnlyFile:    antenna.WithOnlyFile,
+		Notify:          antenna.Notify,
+	})
 }

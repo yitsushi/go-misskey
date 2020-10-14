@@ -9,14 +9,11 @@ import (
 type ListRequest struct {
 }
 
-// ListResponse is an array of Antennas from the list response.
-type ListResponse []models.Antenna
-
 // List is the endpoint to list all existing antennas.
-func (s *Service) List() (ListResponse, error) {
+func (s *Service) List() ([]models.Antenna, error) {
 	request := &ListRequest{}
 
-	var response ListResponse
+	var response []models.Antenna
 	err := s.Call(
 		&core.BaseRequest{Request: request, Path: "/antennas/list"},
 		&response,

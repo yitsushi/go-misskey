@@ -7,7 +7,6 @@ import (
 
 // InstanceMetaRequest represents an Announcement request.
 type InstanceMetaRequest struct {
-	*core.BaseRequest
 	Detail bool `json:"detail"`
 }
 
