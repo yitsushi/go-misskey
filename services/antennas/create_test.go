@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/models"
 	"github.com/yitsushi/go-misskey/services/antennas"
 )
 
@@ -13,11 +14,11 @@ func ExampleService_Create() {
 
 	resp, err := client.Antennas().Create(&antennas.CreateOptions{
 		Name:            "test",
-		Source:          antennas.AllSrc,
+		Source:          models.AllSrc,
 		UserListID:      nil,
 		UserGroupID:     nil,
-		Keywords:        []string{"update what", "stuff"},
-		ExcludeKeywords: []string{},
+		Keywords:        [][]string{{"update", "what"}, {"stuff"}},
+		ExcludeKeywords: [][]string{},
 		Users:           []string{},
 		CaseSensitive:   false,
 		WithReplies:     true,

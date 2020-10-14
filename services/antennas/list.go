@@ -12,6 +12,11 @@ type ListRequest struct {
 // ListResponse is an array of Antennas from the list response.
 type ListResponse []models.Antenna
 
+// Antennas unwraps the antenna list from the response.
+func (r *ListResponse) Antennas() []models.Antenna {
+	return []models.Antenna(*r)
+}
+
 // List is the endpoint to list all existing antennas.
 func (s *Service) List() (ListResponse, error) {
 	request := &ListRequest{}

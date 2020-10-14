@@ -21,6 +21,11 @@ type NotesRequest struct {
 // NotesResponse represents the response for note list.
 type NotesResponse []models.Note
 
+// Notes unwraps notes from the response.
+func (r *NotesResponse) Notes() []models.Note {
+	return []models.Note(*r)
+}
+
 // NotesOptions are all the options available for a Notes request.
 type NotesOptions struct {
 	AntennaID string

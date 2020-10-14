@@ -7,7 +7,6 @@ import (
 
 // AnnouncementsRequest represents an Announcement request.
 type AnnouncementsRequest struct {
-	*core.BaseRequest
 	WithUnreads bool   `json:"withUnreads"`
 	SinceID     string `json:"sinceId"`
 	UntilID     string `json:"untilId"`
