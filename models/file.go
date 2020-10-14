@@ -7,6 +7,8 @@ import (
 )
 
 // File is a file.
+// Folder and User is defined as an interface{} because
+// I have no idea how it looks like.
 type File struct {
 	ID           string         `json:"id"`
 	CreatedAt    time.Time      `json:"createdAt"`
