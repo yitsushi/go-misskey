@@ -1,12 +1,8 @@
 package main
 
 import (
-	"context"
-	"io/ioutil"
 	"log"
-	"net/http"
 	"os"
-	"time"
 
 	"github.com/sirupsen/logrus"
 	"github.com/yitsushi/go-misskey"
@@ -52,10 +48,10 @@ func driveMutableFlow() {
 }
 
 func driveMutableCreateFile(c *misskey.Client, folder models.Folder) (models.File, error) {
-	file, err := c.Drive().File().Create(&files.CreateOptions{
+	file, err := c.Drive().File().CreateFromURL(&files.CreateFromURLOptions{
 		Name:     "test-filename",
 		FolderID: folder.ID,
-		Content:  downloadFile("https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235641/862478b1ad52546192af60ff03efbde9-700.jpg"), //nolint:lll
+		URL:      "https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235641/862478b1ad52546192af60ff03efbde9-700.jpg", //nolint:lll
 	})
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
@@ -125,29 +121,4 @@ func driveMutableUpdateFolder(c *misskey.Client, folder models.Folder) (models.F
 	log.Printf("[Drive] %s folder updated.", folder.ID)
 
 	return folder, err
-}
-
-func downloadFile(url string) []byte {
-	req, err := http.NewRequestWithContext(context.Background(), "GET", url, nil)
-	if err != nil {
-		return []byte{}
-	}
-
-	client := &http.Client{
-		Timeout: time.Minute,
-	}
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return []byte{}
-	}
-
-	defer resp.Body.Close()
-
-	content, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return []byte{}
-	}
-
-	return content
 }
