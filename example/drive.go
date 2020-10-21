@@ -6,14 +6,16 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/drive"
 )
 
 func driveEndpoints() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
-	client.LogLevel(logrus.DebugLevel)
+	client.LogLevel(logrus.ErrorLevel)
 
 	driveInformation(client)
+	driveFolders(client)
 	driveFiles(client)
 }
 
@@ -28,9 +30,24 @@ func driveInformation(client *misskey.Client) {
 	log.Printf("Usage:    %.2f MB", information.Usage.Megabytes())
 }
 
+func driveFolders(client *misskey.Client) {
+	folders, err := client.Drive().Folders(&drive.FoldersOptions{
+		Limit: 100,
+	})
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+		return
+	}
+
+	for _, folder := range folders {
+		log.Printf("<%s> [%s] %s", folder.ID, core.StringValue(folder.ParentID), folder.Name)
+	}
+}
+
 func driveFiles(client *misskey.Client) {
 	files, err := client.Drive().Files(&drive.FilesOptions{
-		Limit: 100,
+		Limit:    100,
+		FolderID: core.NewString("8dmwq3bhtw"),
 	})
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
