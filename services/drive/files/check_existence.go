@@ -4,12 +4,14 @@ import (
 	"github.com/yitsushi/go-misskey/core"
 )
 
-// CheckExistenceRequest list all notes where a given file has reference.
+// CheckExistenceRequest is the request to check
+// if a given file with md5 hash exists or not.
 type CheckExistenceRequest struct {
 	MD5 string `json:"md5"`
 }
 
-// CheckExistence gets drive information.
+// CheckExistence check if a file exists or not with given md5.
+// md5 hash of the file, not its name.
 func (s *Service) CheckExistence(md5 string) (bool, error) {
 	request := &CheckExistenceRequest{
 		MD5: md5,
