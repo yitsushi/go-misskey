@@ -60,10 +60,8 @@ func (c Client) url(path string) string {
 	return fmt.Sprintf("%s/api%s", c.BaseURL, path)
 }
 
-func (c Client) sendJSONRequest(request *core.BaseRequest, response interface{}) error {
-	request.SetAPIToken(c.Token)
-
-	requestBody, err := request.ToJSON()
+func (c Client) sendRequest(request core.Request, response interface{}) error {
+	requestBody, contentType, err := request.ToBody(c.Token)
 	if err != nil {
 		return err
 	}
@@ -71,14 +69,14 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, response interface{})
 	req, err := http.NewRequestWithContext(
 		context.Background(),
 		"POST",
-		c.url(request.Path),
+		c.url(request.EndpointPath()),
 		bytes.NewBuffer(requestBody),
 	)
 	if err != nil {
 		return err
 	}
 
-	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("User-Agent", "Misskey Go SDK")
 	c.logger.WithField("_type", "request").Debugf("%s %s", req.Method, req.URL)
 

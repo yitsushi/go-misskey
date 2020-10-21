@@ -20,7 +20,7 @@ func StringValue(s String) string {
 
 // RequestHandlerFunc is the function signature for request
 // handlers called by services to make requests.
-type RequestHandlerFunc func(*BaseRequest, interface{}) error
+type RequestHandlerFunc func(Request, interface{}) error
 
 // DataSize is an alias for uint64 with extra functions for easier
 // conversion between sizes. The value should contains bytes.
