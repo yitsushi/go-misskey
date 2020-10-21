@@ -10,9 +10,8 @@ import (
 //
 // Actually it seems, even if the API documentation says
 // it returns with the number of sub-folders and files,
-// it doesn't return with them. I'll leave them there,
-// as they may appear in the response later, but keep
-// in mind, they will be always 0.
+// it doesn't return always with them. Some of the endpoints return
+// with the values like Show, but mostly not.
 type Folder struct {
 	ID           string      `json:"id"`
 	ParentID     core.String `json:"parentId"`

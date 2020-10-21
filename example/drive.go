@@ -26,6 +26,7 @@ func driveEndpoints() {
 	driveFileFindByHash(client)
 	driveFileFind(client)
 	driveFolderFind(client)
+	driveFolderShow(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -153,9 +154,27 @@ func driveFolderFind(c *misskey.Client) {
 
 	for _, folder := range folderList {
 		log.Printf(
-			"<%s> Name: %s",
+			"<%s> [%s] %s",
 			folder.CreatedAt,
+			folder.ID,
 			folder.Name,
 		)
 	}
+}
+
+func driveFolderShow(c *misskey.Client) {
+	folder, err := c.Drive().Folder().Show("8dmwisynnu")
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+
+		return
+	}
+
+	log.Printf(
+		"<%s> %s (%d files and %d folders)",
+		folder.CreatedAt,
+		folder.Name,
+		folder.FilesCount,
+		folder.FoldersCount,
+	)
 }
