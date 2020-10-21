@@ -30,6 +30,7 @@ func driveInformation(client *misskey.Client) {
 	information, err := client.Drive().Information()
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
@@ -43,6 +44,7 @@ func driveFolders(client *misskey.Client) {
 	})
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
@@ -58,6 +60,7 @@ func driveFiles(client *misskey.Client) {
 	})
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
@@ -74,6 +77,7 @@ func driveFileAttachedNotes(c *misskey.Client) {
 	notes, err := c.Drive().File().AttachedNotes("8a0snrdwsy")
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
@@ -89,12 +93,14 @@ func driveFileCheckExistence(c *misskey.Client) {
 	found, err := c.Drive().File().CheckExistence(checkFound)
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
 	notFound, err := c.Drive().File().CheckExistence(checkNotFound)
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
@@ -108,6 +114,7 @@ func driveFileFindByHash(c *misskey.Client) {
 	fileList, err := c.Drive().File().FindByHash(check)
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 
@@ -123,6 +130,7 @@ func driveFileFind(c *misskey.Client) {
 	})
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
+
 		return
 	}
 

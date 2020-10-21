@@ -13,6 +13,7 @@ func ExampleService_Stats() {
 	stats, err := client.Meta().Stats()
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
+
 		return
 	}
 

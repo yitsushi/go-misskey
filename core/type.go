@@ -30,6 +30,7 @@ type RequestHandlerFunc func(*BaseRequest, interface{}) error
 // extra functionality on it or not.
 type DataSize uint64
 
+// Bytes returns with its value as a uint64.
 func (d DataSize) Bytes() uint64 {
 	return uint64(d)
 }

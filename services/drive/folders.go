@@ -26,7 +26,7 @@ type FoldersOptions struct {
 	FolderID core.String
 }
 
-// Information gets drive information.
+// Folders lists all folders in drive.
 func (s *Service) Folders(options *FoldersOptions) ([]models.Folder, error) {
 	request := &FoldersRequest{
 		Limit:    options.Limit,

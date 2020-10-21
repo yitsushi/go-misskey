@@ -14,6 +14,7 @@ func ExampleService_InstanceMeta() {
 	meta, err := client.Meta().InstanceMeta(true)
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
+
 		return
 	}
 

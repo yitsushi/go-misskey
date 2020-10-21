@@ -14,6 +14,7 @@ func ExampleService_Delete() {
 	_, err := client.Antennas().Delete("antenna-id")
 	if err != nil {
 		log.Printf("[Antennas/Delete] %s", err)
+
 		return
 	}
 

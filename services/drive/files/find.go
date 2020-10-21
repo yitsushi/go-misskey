@@ -11,6 +11,7 @@ type FindRequest struct {
 	FolderID core.String `json:"folderId"`
 }
 
+// FindOptions are the possible parameters for a Find request.
 type FindOptions struct {
 	Name     string
 	FolderID core.String

@@ -51,6 +51,7 @@ func NewClient(baseURL, token string) *Client {
 	}
 }
 
+// LogLevel sets logger level.
 func (c *Client) LogLevel(level logrus.Level) {
 	c.logger.SetLevel(level)
 }
@@ -80,7 +81,6 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, response interface{})
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("User-Agent", "Misskey Go SDK")
 	c.logger.WithField("_type", "request").Debugf("%s %s", req.Method, req.URL)
-	c.logger.WithField("_type", "request").Debugf("%s", requestBody)
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
@@ -98,6 +98,7 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, response interface{})
 
 	if resp.StatusCode == http.StatusOK {
 		err = json.Unmarshal(body, response)
+
 		return err
 	}
 
@@ -108,9 +109,13 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, response interface{})
 		return nil
 	}
 
+	return unwrapError(body)
+}
+
+func unwrapError(body []byte) error {
 	var errorWrapper core.ErrorResponseWrapper
 
-	err = json.Unmarshal(body, &errorWrapper)
+	err := json.Unmarshal(body, &errorWrapper)
 	if err != nil {
 		return core.RequestError{Message: core.ErrorResponseParseError, Origin: err}
 	}

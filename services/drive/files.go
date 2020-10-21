@@ -28,7 +28,7 @@ type FilesOptions struct {
 	Type     core.String
 }
 
-// Information gets drive information.
+// Files lists all files in drive.
 func (s *Service) Files(options *FilesOptions) ([]models.File, error) {
 	request := &FilesRequest{
 		Limit:    options.Limit,

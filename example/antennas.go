@@ -22,6 +22,7 @@ func notesAntennas(c *misskey.Client, antennaID string) {
 	})
 	if err != nil {
 		log.Printf("[Antennas/Notes] %s", err)
+
 		return
 	}
 
@@ -44,6 +45,7 @@ func createAntenna(c *misskey.Client) models.Antenna {
 	})
 	if err != nil {
 		log.Printf("[Antennas/Create] %s", err)
+
 		return models.Antenna{}
 	}
 

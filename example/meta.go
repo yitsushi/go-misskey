@@ -22,6 +22,7 @@ func announcements() {
 	)
 	if err != nil {
 		log.Printf("[Announcements] Error happened: %s", err)
+
 		return
 	}
 
@@ -36,6 +37,7 @@ func instanceMeta() {
 	meta, err := client.Meta().InstanceMeta(true)
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
+
 		return
 	}
 
@@ -68,6 +70,7 @@ func stats() {
 	stats, err := client.Meta().Stats()
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
+
 		return
 	}
 

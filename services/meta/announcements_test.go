@@ -21,6 +21,7 @@ func ExampleService_Announcements() {
 	)
 	if err != nil {
 		log.Printf("[Announcements] Error happened: %s", err)
+
 		return
 	}
 

@@ -13,6 +13,7 @@ func ExampleService_Update() {
 	antenna, err := client.Antennas().Show("8dbpybhulw")
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 
@@ -21,6 +22,7 @@ func ExampleService_Update() {
 	_, err = client.Antennas().UpdateAntenna(&antenna)
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 }

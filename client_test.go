@@ -22,6 +22,7 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 		err := json.Unmarshal(body, &statsRequest)
 		if err != nil {
 			t.Errorf("Unable to parse request: %s", err)
+
 			return NewMockResponse(http.StatusInternalServerError, []byte{}, err)
 		}
 
@@ -53,6 +54,7 @@ func TestNewClient_RequestError(t *testing.T) {
 	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
+
 		return
 	}
 
@@ -80,6 +82,7 @@ func TestNewClient_ReadError(t *testing.T) {
 	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
+
 		return
 	}
 
@@ -96,6 +99,7 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 	mockClient := NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		content := []byte("something")
+
 		return NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
@@ -105,6 +109,7 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
+
 		return
 	}
 
@@ -121,6 +126,7 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 	mockClient := NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		content := []byte("{\"error\": true}")
+
 		return NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
@@ -130,6 +136,7 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 	_, err := client.Meta().Stats()
 	if err == nil {
 		t.Error("Expected error, but never happened")
+
 		return
 	}
 
@@ -153,6 +160,7 @@ func TestNewClient_ValidErrorResponse(t *testing.T) {
 				}
 			}
 		}`)
+
 		return NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
@@ -163,6 +171,7 @@ func TestNewClient_ValidErrorResponse(t *testing.T) {
 
 	if err == nil {
 		t.Error("Expected error, but never happened")
+
 		return
 	}
 

@@ -8,6 +8,7 @@ import (
 // No payload, but that way requests stay consistent.
 type InformationRequest struct{}
 
+// InformationResponse is the representation of the /drive/files request.
 type InformationResponse struct {
 	Capacity core.DataSize `json:"capacity"`
 	Usage    core.DataSize `json:"usage"`

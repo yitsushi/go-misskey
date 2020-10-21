@@ -15,7 +15,7 @@ func NewService(requestHandler core.RequestHandlerFunc) *Service {
 	return &Service{Call: requestHandler}
 }
 
-// Drive contains all endpoints under /drive.
+// File contains all endpoints under /drive/files.
 func (s *Service) File() *files.Service {
 	return files.NewService(s.Call)
 }
