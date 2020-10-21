@@ -3,6 +3,7 @@ package drive
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/drive/files"
+	"github.com/yitsushi/go-misskey/services/drive/folders"
 )
 
 // Service is the base for all the endpoints on this service.
@@ -18,4 +19,9 @@ func NewService(requestHandler core.RequestHandlerFunc) *Service {
 // File contains all endpoints under /drive/files.
 func (s *Service) File() *files.Service {
 	return files.NewService(s.Call)
+}
+
+// Folder contains all endpoints under /drive/folders.
+func (s *Service) Folder() *folders.Service {
+	return folders.NewService(s.Call)
 }

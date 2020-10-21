@@ -9,6 +9,7 @@ import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/drive"
 	"github.com/yitsushi/go-misskey/services/drive/files"
+	"github.com/yitsushi/go-misskey/services/drive/folders"
 )
 
 const driveQueryLimit = 3
@@ -24,6 +25,7 @@ func driveEndpoints() {
 	driveFileCheckExistence(client)
 	driveFileFindByHash(client)
 	driveFileFind(client)
+	driveFolderFind(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -119,7 +121,7 @@ func driveFileFindByHash(c *misskey.Client) {
 	}
 
 	for _, file := range fileList {
-		log.Printf("Filename: %s/%s", *file.FolderID, *file.Name)
+		log.Printf("Filename (find by hash): %s/%s", *file.FolderID, *file.Name)
 	}
 }
 
@@ -135,6 +137,25 @@ func driveFileFind(c *misskey.Client) {
 	}
 
 	for _, file := range fileList {
-		log.Printf("Filename (with folder): %s/%s", *file.FolderID, *file.Name)
+		log.Printf("Filename (find by name): %s/%s", *file.FolderID, *file.Name)
+	}
+}
+
+func driveFolderFind(c *misskey.Client) {
+	folderList, err := c.Drive().Folder().Find(&folders.FindOptions{
+		Name: "Board Games",
+	})
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+
+		return
+	}
+
+	for _, folder := range folderList {
+		log.Printf(
+			"<%s> Name: %s",
+			folder.CreatedAt,
+			folder.Name,
+		)
 	}
 }
