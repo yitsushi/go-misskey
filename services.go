@@ -3,6 +3,7 @@ package misskey
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/antennas"
+	"github.com/yitsushi/go-misskey/services/federation"
 	"github.com/yitsushi/go-misskey/services/meta"
 )
 
@@ -24,4 +25,9 @@ func (c *Client) Meta() *meta.Service {
 // Antennas contains all endpoints under /antennas.
 func (c *Client) Antennas() *antennas.Service {
 	return antennas.NewService(c.requestHandler)
+}
+
+// Federation contains all endpoints under /federation.
+func (c *Client) Federation() *federation.Service {
+	return federation.NewService(c.requestHandler)
 }

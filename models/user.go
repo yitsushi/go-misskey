@@ -12,4 +12,10 @@ type User struct {
 	AvatarBlurhash core.String `json:"avatarBlurhash"`
 	AvatarColor    core.String `json:"avatarColor"`
 	Emojis         []Emoji     `json:"emojis"`
+	IsCat          bool        `json:"iscat"`
+	IsBot          bool        `json:"isbot"`
+	IsAdmin        bool        `json:"isadmin"`
+	IsModerator    bool        `json:"ismoderator"`
+	IsLocked       bool        `json:"islocked"`
+	Birthday       string      `json:"birthday"`
 }
