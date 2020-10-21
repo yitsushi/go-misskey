@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"strings"
 
 	"github.com/yitsushi/go-misskey"
@@ -9,7 +10,9 @@ import (
 	"github.com/yitsushi/go-misskey/services/meta"
 )
 
-func announcements(client *misskey.Client) {
+func announcements() {
+	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+
 	announcements, err := client.Meta().Announcements(
 		&meta.AnnouncementOptions{
 			WithUnreads: true,
@@ -27,7 +30,9 @@ func announcements(client *misskey.Client) {
 	}
 }
 
-func instanceMeta(client *misskey.Client) {
+func instanceMeta() {
+	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+
 	meta, err := client.Meta().InstanceMeta(true)
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)
@@ -57,7 +62,9 @@ func instanceMeta(client *misskey.Client) {
 	log.Printf("[InstanceMeta/Feature] MiAuth:         %s", boolStatusToString(meta.Features.MiAuth))
 }
 
-func stats(client *misskey.Client) {
+func stats() {
+	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+
 	stats, err := client.Meta().Stats()
 	if err != nil {
 		log.Printf("[Meta] Error happened: %s", err)

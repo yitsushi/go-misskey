@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/models"
@@ -78,16 +79,18 @@ func showAntenna(c *misskey.Client, id string) {
 	}
 }
 
-func antenna(c *misskey.Client) {
-	antenna := createAntenna(c)
+func antenna() {
+	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	listAntennas(c)
-	showAntenna(c, antenna.ID)
-	notesAntennas(c, antenna.ID)
+	antenna := createAntenna(client)
+
+	listAntennas(client)
+	showAntenna(client, antenna.ID)
+	notesAntennas(client, antenna.ID)
 
 	antenna.Keywords = append(antenna.Keywords, []string{"thisone"})
-	updateAntenna(c, &antenna)
-	showAntenna(c, antenna.ID)
+	updateAntenna(client, &antenna)
+	showAntenna(client, antenna.ID)
 
-	deleteAntenna(c, antenna.ID)
+	deleteAntenna(client, antenna.ID)
 }

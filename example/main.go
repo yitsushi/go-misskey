@@ -1,19 +1,15 @@
 package main
 
-import (
-	"os"
-
-	"github.com/yitsushi/go-misskey"
-)
-
 func main() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	if false {
+		announcements()
+		instanceMeta()
+		stats()
 
-	announcements(client)
-	instanceMeta(client)
-	stats(client)
+		antenna()
+	}
 
-	antenna(client)
+	driveEndpoints()
 }
 
 func boolStatusToString(v bool) string {

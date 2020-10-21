@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/sirupsen/logrus"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/antennas"
 	"github.com/yitsushi/go-misskey/services/meta"
@@ -31,6 +32,8 @@ type Client struct {
 	BaseURL    string
 	Token      string
 	HTTPClient HTTPClient
+
+	logger *logrus.Logger
 }
 
 // RequestTimout is the timeout of a request in seconds.
@@ -44,14 +47,19 @@ func NewClient(baseURL, token string) *Client {
 		HTTPClient: &http.Client{
 			Timeout: time.Second * RequestTimout,
 		},
+		logger: logrus.New(),
 	}
+}
+
+func (c *Client) LogLevel(level logrus.Level) {
+	c.logger.SetLevel(level)
 }
 
 func (c Client) url(path string) string {
 	return fmt.Sprintf("%s/api%s", c.BaseURL, path)
 }
 
-func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) error {
+func (c Client) sendJSONRequest(request *core.BaseRequest, response interface{}) error {
 	request.SetAPIToken(c.Token)
 
 	requestBody, err := request.ToJSON()
@@ -71,6 +79,8 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("User-Agent", "Misskey Go SDK")
+	c.logger.WithField("_type", "request").Debugf("%s %s", req.Method, req.URL)
+	c.logger.WithField("_type", "request").Debugf("%s", requestBody)
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
@@ -84,8 +94,10 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 		return core.RequestError{Message: core.ResponseReadBodyError, Origin: err}
 	}
 
+	c.logger.WithField("_type", "response").WithField("from", req.URL).Debugf("%s", body)
+
 	if resp.StatusCode == http.StatusOK {
-		err = json.Unmarshal(body, respose)
+		err = json.Unmarshal(body, response)
 		return err
 	}
 
