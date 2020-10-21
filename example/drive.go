@@ -20,6 +20,7 @@ func driveEndpoints() {
 	driveFolders(client)
 	driveFiles(client)
 	driveFileAttachedNotes(client)
+	driveFileCheckExistence(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -76,4 +77,24 @@ func driveFileAttachedNotes(c *misskey.Client) {
 	for _, note := range notes {
 		log.Printf("[%s] <%s> %s", note.CreatedAt, note.User.Name, note.Text)
 	}
+}
+
+func driveFileCheckExistence(c *misskey.Client) {
+	checkFound := "e960345a4fd3d8413ade5bf1104b1480"
+	checkNotFound := "ffffffffffffffffffffffffffffffff"
+
+	found, err := c.Drive().File().CheckExistence(checkFound)
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+		return
+	}
+
+	notFound, err := c.Drive().File().CheckExistence(checkNotFound)
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+		return
+	}
+
+	log.Println(found)
+	log.Println(notFound)
 }
