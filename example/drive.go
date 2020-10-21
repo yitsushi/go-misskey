@@ -10,6 +10,8 @@ import (
 	"github.com/yitsushi/go-misskey/services/drive"
 )
 
+const driveQueryLimit = 3
+
 func driveEndpoints() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 	client.LogLevel(logrus.ErrorLevel)
@@ -17,6 +19,7 @@ func driveEndpoints() {
 	driveInformation(client)
 	driveFolders(client)
 	driveFiles(client)
+	driveFileAttachedNotes(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -32,7 +35,7 @@ func driveInformation(client *misskey.Client) {
 
 func driveFolders(client *misskey.Client) {
 	folders, err := client.Drive().Folders(&drive.FoldersOptions{
-		Limit: 100,
+		Limit: driveQueryLimit,
 	})
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
@@ -46,7 +49,7 @@ func driveFolders(client *misskey.Client) {
 
 func driveFiles(client *misskey.Client) {
 	files, err := client.Drive().Files(&drive.FilesOptions{
-		Limit:    100,
+		Limit:    driveQueryLimit,
 		FolderID: core.NewString("8dmwq3bhtw"),
 	})
 	if err != nil {
@@ -56,9 +59,21 @@ func driveFiles(client *misskey.Client) {
 
 	for _, file := range files {
 		if file.FolderID != nil {
-			log.Printf("[%s] <%s> %s", *file.FolderID, file.Type, *file.Name)
+			log.Printf("<%s> [%s] <%s> %s", file.ID, *file.FolderID, file.Type, *file.Name)
 		} else {
-			log.Printf("[    ] <%s> %s", file.Type, *file.Name)
+			log.Printf("<%s> [    ] <%s> %s", file.ID, file.Type, *file.Name)
 		}
+	}
+}
+
+func driveFileAttachedNotes(c *misskey.Client) {
+	notes, err := c.Drive().File().AttachedNotes("8a0snrdwsy")
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+		return
+	}
+
+	for _, note := range notes {
+		log.Printf("[%s] <%s> %s", note.CreatedAt, note.User.Name, note.Text)
 	}
 }
