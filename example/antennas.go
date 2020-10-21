@@ -55,7 +55,7 @@ func createAntenna(c *misskey.Client) models.Antenna {
 }
 
 func deleteAntenna(c *misskey.Client, id string) {
-	_, err := c.Antennas().Delete(id)
+	err := c.Antennas().Delete(id)
 	if err == nil {
 		log.Printf("[Antennas/Delete] %s deleted, no errors", id)
 	} else {

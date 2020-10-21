@@ -10,8 +10,7 @@ import (
 func ExampleService_Delete() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	// Non-error response is empty.
-	_, err := client.Antennas().Delete("antenna-id")
+	err := client.Antennas().Delete("antenna-id")
 	if err != nil {
 		log.Printf("[Antennas/Delete] %s", err)
 

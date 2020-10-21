@@ -7,9 +7,11 @@ func main() {
 		stats()
 
 		antenna()
+
+		driveEndpoints()
 	}
 
-	driveEndpoints()
+	driveMutableFlow()
 }
 
 func boolStatusToString(v bool) string {
