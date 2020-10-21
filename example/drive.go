@@ -21,6 +21,7 @@ func driveEndpoints() {
 	driveInformation(client)
 	driveFolders(client)
 	driveFiles(client)
+	driveStream(client)
 	driveFileAttachedNotes(client)
 	driveFileCheckExistence(client)
 	driveFileFindByHash(client)
@@ -73,6 +74,22 @@ func driveFiles(client *misskey.Client) {
 		} else {
 			log.Printf("<%s> [    ] <%s> %s", file.ID, file.Type, *file.Name)
 		}
+	}
+}
+
+func driveStream(client *misskey.Client) {
+	fileList, err := client.Drive().Stream(&drive.StreamOptions{
+		Limit: driveQueryLimit,
+		Type:  "image/gif",
+	})
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+
+		return
+	}
+
+	for _, file := range fileList {
+		log.Printf("<%s> [%s] <%s> %s", file.ID, core.StringValue(file.FolderID), file.Type, *file.Name)
 	}
 }
 

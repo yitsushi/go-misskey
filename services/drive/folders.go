@@ -5,11 +5,6 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-const (
-	// DefaultFolderListLimit is the default value for the limit parameter in FolderRequest.
-	DefaultFolderListLimit = 10
-)
-
 // FoldersRequest gets a list of folders available in drive.
 type FoldersRequest struct {
 	Limit    uint        `json:"limit"`
@@ -36,7 +31,7 @@ func (s *Service) Folders(options *FoldersOptions) ([]models.Folder, error) {
 	}
 
 	if request.Limit < 1 {
-		request.Limit = DefaultFolderListLimit
+		request.Limit = DefaultListLimit
 	}
 
 	var response []models.Folder

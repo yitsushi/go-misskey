@@ -5,11 +5,6 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-const (
-	// DefaultFileListLimit is the default value for the limit parameter in FileRequest.
-	DefaultFileListLimit = 10
-)
-
 // FilesRequest gets a list of files available in drive.
 type FilesRequest struct {
 	Limit    uint        `json:"limit"`
@@ -39,7 +34,7 @@ func (s *Service) Files(options *FilesOptions) ([]models.File, error) {
 	}
 
 	if request.Limit < 1 {
-		request.Limit = DefaultFileListLimit
+		request.Limit = DefaultListLimit
 	}
 
 	var response []models.File

@@ -6,6 +6,11 @@ import (
 	"github.com/yitsushi/go-misskey/services/drive/folders"
 )
 
+const (
+	// DefaultListLimit is the default value for the limit lists.
+	DefaultListLimit = 10
+)
+
 // Service is the base for all the endpoints on this service.
 type Service struct {
 	Call core.RequestHandlerFunc
