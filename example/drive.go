@@ -21,6 +21,7 @@ func driveEndpoints() {
 	driveFiles(client)
 	driveFileAttachedNotes(client)
 	driveFileCheckExistence(client)
+	driveFileFindByHash(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -97,4 +98,18 @@ func driveFileCheckExistence(c *misskey.Client) {
 
 	log.Println(found)
 	log.Println(notFound)
+}
+
+func driveFileFindByHash(c *misskey.Client) {
+	check := "e960345a4fd3d8413ade5bf1104b1480"
+
+	files, err := c.Drive().File().FindByHash(check)
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+		return
+	}
+
+	for _, file := range files {
+		log.Printf("Filename: %s/%s", *file.FolderID, *file.Name)
+	}
 }
