@@ -28,6 +28,7 @@ func driveEndpoints() {
 	driveFileFind(client)
 	driveFolderFind(client)
 	driveFolderShow(client)
+	driveFileShow(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -193,5 +194,44 @@ func driveFolderShow(c *misskey.Client) {
 		folder.Name,
 		folder.FilesCount,
 		folder.FoldersCount,
+	)
+}
+
+func driveFileShow(c *misskey.Client) {
+	driveFileShowByID(c)
+	driveFileShowByURL(c)
+}
+
+func driveFileShowByID(c *misskey.Client) {
+	file, err := c.Drive().File().Show(&files.ShowOptions{
+		FileID: "8a0snrdwsy",
+	})
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+
+		return
+	}
+
+	log.Printf(
+		"<%s> %s",
+		file.CreatedAt,
+		*file.Name,
+	)
+}
+
+func driveFileShowByURL(c *misskey.Client) {
+	file, err := c.Drive().File().Show(&files.ShowOptions{
+		URL: "https://slippy.xyz/files/21fe9ecf-20f1-40e6-a92c-11b9d9072d88",
+	})
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+
+		return
+	}
+
+	log.Printf(
+		"<%s> %s",
+		file.CreatedAt,
+		*file.Name,
 	)
 }
