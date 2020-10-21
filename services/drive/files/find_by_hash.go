@@ -10,7 +10,7 @@ type FindByHashRequest struct {
 	MD5 string `json:"md5"`
 }
 
-// FindByHash gets a file(s) by its md5 hash.
+// FindByHash gets file(s) by their md5 hash.
 // If there is no file with given md5 hash, it returns with
 // an empty list without error.
 func (s *Service) FindByHash(md5 string) ([]models.File, error) {

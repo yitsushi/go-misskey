@@ -8,6 +8,7 @@ import (
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/drive"
+	"github.com/yitsushi/go-misskey/services/drive/files"
 )
 
 const driveQueryLimit = 3
@@ -22,6 +23,7 @@ func driveEndpoints() {
 	driveFileAttachedNotes(client)
 	driveFileCheckExistence(client)
 	driveFileFindByHash(client)
+	driveFileFind(client)
 }
 
 func driveInformation(client *misskey.Client) {
@@ -36,7 +38,7 @@ func driveInformation(client *misskey.Client) {
 }
 
 func driveFolders(client *misskey.Client) {
-	folders, err := client.Drive().Folders(&drive.FoldersOptions{
+	folderList, err := client.Drive().Folders(&drive.FoldersOptions{
 		Limit: driveQueryLimit,
 	})
 	if err != nil {
@@ -44,13 +46,13 @@ func driveFolders(client *misskey.Client) {
 		return
 	}
 
-	for _, folder := range folders {
+	for _, folder := range folderList {
 		log.Printf("<%s> [%s] %s", folder.ID, core.StringValue(folder.ParentID), folder.Name)
 	}
 }
 
 func driveFiles(client *misskey.Client) {
-	files, err := client.Drive().Files(&drive.FilesOptions{
+	fileList, err := client.Drive().Files(&drive.FilesOptions{
 		Limit:    driveQueryLimit,
 		FolderID: core.NewString("8dmwq3bhtw"),
 	})
@@ -59,7 +61,7 @@ func driveFiles(client *misskey.Client) {
 		return
 	}
 
-	for _, file := range files {
+	for _, file := range fileList {
 		if file.FolderID != nil {
 			log.Printf("<%s> [%s] <%s> %s", file.ID, *file.FolderID, file.Type, *file.Name)
 		} else {
@@ -103,13 +105,28 @@ func driveFileCheckExistence(c *misskey.Client) {
 func driveFileFindByHash(c *misskey.Client) {
 	check := "e960345a4fd3d8413ade5bf1104b1480"
 
-	files, err := c.Drive().File().FindByHash(check)
+	fileList, err := c.Drive().File().FindByHash(check)
 	if err != nil {
 		log.Printf("[Drive] Error happened: %s", err)
 		return
 	}
 
-	for _, file := range files {
+	for _, file := range fileList {
 		log.Printf("Filename: %s/%s", *file.FolderID, *file.Name)
+	}
+}
+
+func driveFileFind(c *misskey.Client) {
+	fileList, err := c.Drive().File().Find(&files.FindOptions{
+		Name:     "IMG_20200722_123302.jpg",
+		FolderID: core.NewString("8dmwq3bhtw"),
+	})
+	if err != nil {
+		log.Printf("[Drive] Error happened: %s", err)
+		return
+	}
+
+	for _, file := range fileList {
+		log.Printf("Filename (with folder): %s/%s", *file.FolderID, *file.Name)
 	}
 }
