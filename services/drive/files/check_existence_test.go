@@ -2,10 +2,34 @@ package files_test
 
 import (
 	"log"
+	"net/http"
 	"os"
+	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/services/drive/files"
+	"github.com/yitsushi/go-misskey/test"
 )
+
+func TestService_CheckExistence(t *testing.T) {
+	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+		Endpoint:     "/api/drive/files/check-existence",
+		RequestData:  &files.CheckExistenceRequest{},
+		ResponseFile: "boolean",
+		StatusCode:   http.StatusOK,
+	})
+
+	client := misskey.NewClient("https://localhost", "thisistoken")
+	client.HTTPClient = mockClient
+
+	found, err := client.Drive().File().CheckExistence("test")
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	assert.True(t, found)
+}
 
 func ExampleService_CheckExistence() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
