@@ -17,6 +17,7 @@ func ExampleService_Notes() {
 	})
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 

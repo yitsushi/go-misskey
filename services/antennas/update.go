@@ -5,7 +5,7 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// UpdateRequest is the request object for a Update request.
+// UpdateRequest is the request object for an Update request.
 type UpdateRequest struct {
 	AntennaID       string               `json:"antennaId"`
 	Name            string               `json:"name"`

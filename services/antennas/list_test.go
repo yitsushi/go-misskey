@@ -13,6 +13,7 @@ func ExampleService_List() {
 	antennas, err := client.Antennas().List()
 	if err != nil {
 		log.Printf("[Antennas/List] %s", err)
+
 		return
 	}
 

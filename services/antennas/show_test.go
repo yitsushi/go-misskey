@@ -13,6 +13,7 @@ func ExampleService_Show() {
 	antenna, err := client.Antennas().Show("8dbpybhulw")
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 

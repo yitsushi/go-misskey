@@ -27,6 +27,7 @@ func ExampleService_Create() {
 	})
 	if err != nil {
 		log.Printf("[Antennas/Create] %s", err)
+
 		return
 	}
 
