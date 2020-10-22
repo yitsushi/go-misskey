@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/yitsushi/go-misskey)](https://goreportcard.com/report/github.com/yitsushi/go-misskey)
+
 # Misskey Go SDK
 
 WIP ;)
