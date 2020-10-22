@@ -1,4 +1,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/yitsushi/go-misskey)](https://goreportcard.com/report/github.com/yitsushi/go-misskey)
+[![Coverage Status](https://coveralls.io/repos/github/yitsushi/go-misskey/badge.svg?branch=coverage)](https://coveralls.io/github/yitsushi/go-misskey?branch=coverage)
+[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/yitsushi/go-misskey)
 
 # Misskey Go SDK
 
