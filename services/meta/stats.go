@@ -10,11 +10,13 @@ type StatsRequest struct {
 
 // StatsResponse represents the response to a stats request.
 type StatsResponse struct {
-	NotesCount         uint64 `json:"notesCount"`
-	OriginalNotesCount uint64 `json:"originalNotesCount"`
-	UsersCount         uint64 `json:"usersCount"`
-	OriginalUsersCount uint64 `json:"originalUsersCount"`
-	Instances          uint64 `json:"instances"`
+	NotesCount         uint64        `json:"notesCount"`
+	OriginalNotesCount uint64        `json:"originalNotesCount"`
+	UsersCount         uint64        `json:"usersCount"`
+	OriginalUsersCount uint64        `json:"originalUsersCount"`
+	Instances          uint64        `json:"instances"`
+	DriveUsageLocal    core.DataSize `json:"driveUsageLocal"`
+	DriveUsageRemote   core.DataSize `json:"driveUsageRemote"`
 }
 
 // Stats endpoint.

@@ -9,10 +9,11 @@ import (
 
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestNewClient_NormalRequestContent(t *testing.T) {
-	mockClient := NewMockHTTPClient()
+	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		defer request.Body.Close()
 		body, _ := ioutil.ReadAll(request.Body)
@@ -23,14 +24,14 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 		if err != nil {
 			t.Errorf("Unable to parse request: %s", err)
 
-			return NewMockResponse(http.StatusInternalServerError, []byte{}, err)
+			return test.NewMockResponse(http.StatusInternalServerError, []byte{}, err)
 		}
 
 		if statsRequest["i"] != "thisistoken" {
 			t.Errorf("expected api token = thisistoken; got = %s", statsRequest["i"])
 		}
 
-		return NewMockResponse(http.StatusOK, []byte("{}"), nil)
+		return test.NewMockResponse(http.StatusOK, []byte("{}"), nil)
 	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
@@ -43,9 +44,9 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 }
 
 func TestNewClient_RequestError(t *testing.T) {
-	mockClient := NewMockHTTPClient()
+	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
-		return NewMockResponse(http.StatusNotImplemented, []byte{}, errors.New("bad")) //nolint:goerr113
+		return test.NewMockResponse(http.StatusNotImplemented, []byte{}, errors.New("bad")) //nolint:goerr113
 	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
@@ -68,11 +69,11 @@ func TestNewClient_RequestError(t *testing.T) {
 }
 
 func TestNewClient_ReadError(t *testing.T) {
-	mockClient := NewMockHTTPClient()
+	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		return &http.Response{
 			StatusCode: http.StatusOK,
-			Body:       BadReadCloser{},
+			Body:       test.BadReadCloser{},
 		}, nil
 	})
 
@@ -96,11 +97,11 @@ func TestNewClient_ReadError(t *testing.T) {
 }
 
 func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
-	mockClient := NewMockHTTPClient()
+	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		content := []byte("something")
 
-		return NewMockResponse(http.StatusInternalServerError, content, nil)
+		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
@@ -123,11 +124,11 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 }
 
 func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
-	mockClient := NewMockHTTPClient()
+	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		content := []byte("{\"error\": true}")
 
-		return NewMockResponse(http.StatusInternalServerError, content, nil)
+		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
@@ -150,7 +151,7 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 }
 
 func TestNewClient_ValidErrorResponse(t *testing.T) {
-	mockClient := NewMockHTTPClient()
+	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		content := []byte(`{
 			"error": {
@@ -161,7 +162,7 @@ func TestNewClient_ValidErrorResponse(t *testing.T) {
 			}
 		}`)
 
-		return NewMockResponse(http.StatusInternalServerError, content, nil)
+		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")

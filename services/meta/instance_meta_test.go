@@ -3,10 +3,58 @@ package meta_test
 import (
 	"log"
 	"os"
+	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/services/meta"
+	"github.com/yitsushi/go-misskey/test"
 )
+
+func TestService_InstanceMeta(t *testing.T) {
+	mockClient := test.SimpleMockEndpoint(
+		"/api/meta",
+		&meta.InstanceMetaRequest{},
+		"anon/instance_meta.json",
+	)
+
+	client := misskey.NewClient("https://localhost", "thisistoken")
+	client.HTTPClient = mockClient
+
+	response, err := client.Meta().InstanceMeta(false)
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	if !assert.Len(t, response.Emojis, 36) {
+		return
+	}
+
+	assert.False(t, response.Features.Registration)
+}
+
+func TestService_InstanceMeta_detailed(t *testing.T) {
+	mockClient := test.SimpleMockEndpoint(
+		"/api/meta",
+		&meta.InstanceMetaRequest{},
+		"anon/instance_meta_detailed.json",
+	)
+
+	client := misskey.NewClient("https://localhost", "thisistoken")
+	client.HTTPClient = mockClient
+
+	response, err := client.Meta().InstanceMeta(true)
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	if !assert.Len(t, response.Emojis, 36) {
+		return
+	}
+
+	assert.True(t, response.Features.Registration)
+}
 
 func ExampleService_InstanceMeta() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))

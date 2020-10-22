@@ -1,0 +1,331 @@
+{
+    "maintainerName": "efertone",
+    "maintainerEmail": "admin@slippy.xyz",
+    "version": "12.49.0",
+    "name": "Slippy",
+    "uri": "https://slippy.xyz",
+    "description": "<p> 👉 Explicit content allowed, but only with CW.</p>\n<p>\nAvailable addressed:<br>\n 👉 Clear web: https://slippy.xyz/<br />\n 👉 Onion: https://jvgw4homncw3brd6.onion/\n</p>\n<p>☣ It seems with TorBrowser, the onion does not work anymore after a few updates because Misskey tries to use some APIs that does not work in Private Browsing. It's still listening and maybe it will be available at some point, but it's out of my control (fix required on browser or on Misskey side)</p>",
+    "langs": [],
+    "tosUrl": null,
+    "repositoryUrl": "https://github.com/syuilo/misskey",
+    "feedbackUrl": "https://github.com/syuilo/misskey/issues/new",
+    "secure": false,
+    "disableRegistration": false,
+    "disableLocalTimeline": false,
+    "disableGlobalTimeline": false,
+    "driveCapacityPerLocalUserMb": 2048,
+    "driveCapacityPerRemoteUserMb": 32,
+    "cacheRemoteFiles": true,
+    "proxyRemoteFiles": false,
+    "enableHcaptcha": false,
+    "hcaptchaSiteKey": null,
+    "enableRecaptcha": true,
+    "recaptchaSiteKey": "6LdFV9sUAAAAAL9NlQxU2jnWL7gVZJ2AjDE_NmQI",
+    "swPublickey": "BLGNbRMgg5t35ecwRF1UbVCWX7aqCrfTIKISic0a9NJ2bSHzmw2tDh90Ow8DLLbr2Z9lFXdnnYqPwepkf61Tjxs",
+    "mascotImageUrl": "/assets/ai.png",
+    "bannerUrl": null,
+    "errorImageUrl": "https://xn--931a.moe/aiart/yubitun.png",
+    "iconUrl": null,
+    "maxNoteTextLength": 1000,
+    "emojis": [
+        {
+            "id": "83tu7t8ylv",
+            "aliases": [
+                ""
+            ],
+            "name": "heart_trans",
+            "category": "",
+            "host": null,
+            "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b"
+        },
+        {
+            "id": "84dsa17xaj",
+            "aliases": [],
+            "name": "18only",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/689953f8-fc0e-456d-a9c1-b499ba39902d"
+        },
+        {
+            "id": "86dyzx14ap",
+            "aliases": [],
+            "name": "2001",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/6952956c-77e6-4d0b-9acf-90f63a4e5ade"
+        },
+        {
+            "id": "84dyjs8r76",
+            "aliases": [],
+            "name": "MADeline",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/ca8d4690-9440-433d-b4ca-8d2619351b7b"
+        },
+        {
+            "id": "86dyzzetb1",
+            "aliases": [],
+            "name": "a_plus",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/784b6a5d-497f-4199-9c55-317d42f747a2"
+        },
+        {
+            "id": "84ds8hjja5",
+            "aliases": [],
+            "name": "ad",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/36cb885c-aa82-4da4-8d13-97b34c79b099"
+        },
+        {
+            "id": "83tuabhdnp",
+            "aliases": [],
+            "name": "agender_flag",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/13b195dd-6c95-4b9a-8004-656e1a6a9237"
+        },
+        {
+            "id": "84dykgnk7h",
+            "aliases": [],
+            "name": "anartrans_symbol",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/79b165c5-da58-4971-8398-93fce8fa1c37"
+        },
+        {
+            "id": "86dz014fb9",
+            "aliases": [],
+            "name": "annoyingdog",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/2fa9c0e6-5154-4af3-9e2e-c1e686463624"
+        },
+        {
+            "id": "83tux51pq0",
+            "aliases": [],
+            "name": "arch",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/3897c3c6-b786-4fd1-aa7f-abd9d1bbce9f"
+        },
+        {
+            "id": "84dsbojpb7",
+            "aliases": [],
+            "name": "boost_ok",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/9e68ebd1-656a-44c4-b450-40e31949e96f"
+        },
+        {
+            "id": "83tux8g8qe",
+            "aliases": [],
+            "name": "borglove",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/9218319f-4cc9-491d-9e2e-5a00fed9c23f"
+        },
+        {
+            "id": "83tuxbkfqn",
+            "aliases": [],
+            "name": "bun",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/c163b117-db02-4fcf-a088-ae07799f8ab2"
+        },
+        {
+            "id": "83tuxdhgqy",
+            "aliases": [],
+            "name": "empty_heart",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/88107347-8e40-4ac1-b81b-1f0c2f627ec4"
+        },
+        {
+            "id": "83tu8zwzm6",
+            "aliases": [],
+            "name": "ffxiv",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/43c13a84-4c54-47d2-97ef-a6a3be47e1b7"
+        },
+        {
+            "id": "83tu9572mh",
+            "aliases": [],
+            "name": "ffxivmsq_comp",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb"
+        },
+        {
+            "id": "83tuxfumr9",
+            "aliases": [],
+            "name": "haskell",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/293037dd-e2a1-42f0-be8c-53cb8027c8e0"
+        },
+        {
+            "id": "83tu7nesl8",
+            "aliases": [],
+            "name": "heart_ace",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/0ae5785d-4416-4b72-b727-3d3e87d1a0fe"
+        },
+        {
+            "id": "83tu7q2nlk",
+            "aliases": [],
+            "name": "heart_bi",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51"
+        },
+        {
+            "id": "83tuxi5rrk",
+            "aliases": [],
+            "name": "heart_fire",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/00a1cb0b-3a5e-4282-9f9d-e6cb87c5100c"
+        },
+        {
+            "id": "83tuxk0mrv",
+            "aliases": [],
+            "name": "heart_gq",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/df5d5497-0c64-47b3-9975-a43f0ea72a91"
+        },
+        {
+            "id": "83tu9i78ms",
+            "aliases": [],
+            "name": "heart_lesbian",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/7f615d94-06fe-4515-9ff5-7d5543ac0b00"
+        },
+        {
+            "id": "83tuxnd8s6",
+            "aliases": [],
+            "name": "heart_nb",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/a29c2c69-13df-4abf-9602-f20e73275a5a"
+        },
+        {
+            "id": "83tu9q0tn3",
+            "aliases": [],
+            "name": "heart_pan",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/0061a975-f519-43a4-8936-f764f1239660"
+        },
+        {
+            "id": "83tuxpy2sh",
+            "aliases": [],
+            "name": "heart_pride",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/596eff4e-d6ce-46b5-a45e-6dfc0214c639"
+        },
+        {
+            "id": "83tuxrwvss",
+            "aliases": [],
+            "name": "misskey",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/b0077811-a672-409c-8ec8-5c365d128d72"
+        },
+        {
+            "id": "85c9e2hx6w",
+            "aliases": [],
+            "name": "misskey_v12",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/142d30a9-b96a-4e1e-b167-1131b8841335"
+        },
+        {
+            "id": "84dso9a0ec",
+            "aliases": [],
+            "name": "nsfw",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/43b22caa-9015-4d35-8edf-400d6aa27577"
+        },
+        {
+            "id": "83tuycqdt3",
+            "aliases": [],
+            "name": "opensource",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/1613f717-8e1d-44a4-b17a-4a979f25ad7e"
+        },
+        {
+            "id": "83tu9x45ne",
+            "aliases": [],
+            "name": "patreon",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/cb573ae8-f046-4cc7-98d6-ae5bc23470c2"
+        },
+        {
+            "id": "83tuyfj7tc",
+            "aliases": [],
+            "name": "rainbowthink",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/04744ec5-8963-41dc-bf7d-cd6d3a2c1788"
+        },
+        {
+            "id": "8a6mmg9x6n",
+            "aliases": [],
+            "name": "trans_catburger",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/7d307d5c-d381-408e-8735-2fcd46b5e2eb"
+        },
+        {
+            "id": "8805xo6wll",
+            "aliases": [
+                ""
+            ],
+            "name": "transknife",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/5ae2a947-17f6-4e9c-8d4f-2f1c017fcc99"
+        },
+        {
+            "id": "83tuyhz7tn",
+            "aliases": [],
+            "name": "trollface",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/7ab64a15-8708-4220-b84f-c04521759b76"
+        },
+        {
+            "id": "83tuykdnty",
+            "aliases": [],
+            "name": "underheart",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/f3a9b68b-2318-418a-b771-e422f4e19e09"
+        },
+        {
+            "id": "84dsbl52aw",
+            "aliases": [],
+            "name": "verified",
+            "category": null,
+            "host": null,
+            "url": "https://slippy.xyz/files/168948e3-7d8f-4574-adf5-c194e9ef3789"
+        }
+    ],
+    "requireSetup": false,
+    "enableEmail": true,
+    "enableTwitterIntegration": false,
+    "enableGithubIntegration": true,
+    "enableDiscordIntegration": true,
+    "enableServiceWorker": true,
+    "proxyAccountName": null
+}
