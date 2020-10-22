@@ -35,4 +35,10 @@ jobs:
         run: golint -set_exit_status ./...
 
       - name: go test
-        run: go test -v ./...
+        run: go test -v -covermode=count -coverprofile=coverage.out ./...
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: coverage.out
