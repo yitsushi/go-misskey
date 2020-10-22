@@ -19,7 +19,7 @@ Official Misskey API Documentation: https://misskey.io/api-doc
 | :x: | [notes](https://misskey.io/api-doc#tag/notes) | [#6](https://github.com/yitsushi/go-misskey/issues/6) ||
 | :x: | [charts](https://misskey.io/api-doc#tag/charts) | [#7](https://github.com/yitsushi/go-misskey/issues/7) ||
 | :x: | [clips](https://misskey.io/api-doc#tag/clips) | [#8](https://github.com/yitsushi/go-misskey/issues/8) ||
-| :x: | [drive](https://misskey.io/api-doc#tag/drive) | [#9](https://github.com/yitsushi/go-misskey/issues/9) ||
+| :white_check_mark: | [drive](https://misskey.io/api-doc#tag/drive) | [#9](https://github.com/yitsushi/go-misskey/issues/9) ||
 | :x: | [following](https://misskey.io/api-doc#tag/following) | [#10](https://github.com/yitsushi/go-misskey/issues/10) ||
 | :x: | [games](https://misskey.io/api-doc#tag/games) | [#11](https://github.com/yitsushi/go-misskey/issues/11) ||
 | :x: | [hashtags](https://misskey.io/api-doc#tag/hashtags) | [#12](https://github.com/yitsushi/go-misskey/issues/12) ||
@@ -43,6 +43,7 @@ package main
 import (
   "log"
 
+  "github.com/sirupsen/logrus"
   "github.com/yitsushi/go-misskey"
   "github.com/yitsushi/go-misskey/core"
   "github.com/yitsushi/go-misskey/services/meta"
@@ -50,6 +51,7 @@ import (
 
 func main() {
   client := misskey.NewClient("https://slippy.xyz", "my misskey token")
+  client.LogLevel(logrus.DebugLevel)
 
   stats, err := client.Meta().Stats()
   if err != nil {
