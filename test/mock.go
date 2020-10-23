@@ -78,16 +78,24 @@ func (r BadReadCloser) Close() error {
 	return errors.New("Close error") //nolint:goerr113
 }
 
+// SimpleMockOptions is the parameter list for SimpleMockEndpoint.
+type SimpleMockOptions struct {
+	Endpoint     string
+	ResponseFile string
+	RequestData  interface{}
+	StatusCode   int
+}
+
 // SimpleMockEndpoint creates a simple MockHTTPClient that
 // returns with an error if it was not able to pasre the request
 // or returns with the content of the provided fixture file.
-func SimpleMockEndpoint(endpoint string, requestData interface{}, responseFile string) *MockHTTPClient {
+func SimpleMockEndpoint(options *SimpleMockOptions) *MockHTTPClient {
 	mockClient := NewMockHTTPClient()
-	mockClient.MockRequest(endpoint, func(request *http.Request) (*http.Response, error) {
+	mockClient.MockRequest(options.Endpoint, func(request *http.Request) (*http.Response, error) {
 		defer request.Body.Close()
 		body, _ := ioutil.ReadAll(request.Body)
 
-		err := json.Unmarshal(body, requestData)
+		err := json.Unmarshal(body, options.RequestData)
 		if err != nil {
 			return NewMockResponse(
 				http.StatusInternalServerError,
@@ -102,8 +110,8 @@ func SimpleMockEndpoint(endpoint string, requestData interface{}, responseFile s
 		}
 
 		return NewMockResponse(
-			http.StatusOK,
-			Must(LoadFixture(responseFile)),
+			options.StatusCode,
+			Must(LoadFixture(options.ResponseFile)),
 			nil,
 		)
 	})

@@ -2,6 +2,7 @@ package meta_test
 
 import (
 	"log"
+	"net/http"
 	"os"
 	"testing"
 
@@ -12,18 +13,19 @@ import (
 )
 
 func TestService_Stats(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(
-		"/api/stats",
-		&meta.StatsRequest{},
-		"auth/stats.json",
-	)
+	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+		Endpoint:     "/api/stats",
+		RequestData:  &meta.StatsRequest{},
+		ResponseFile: "auth/stats.json",
+		StatusCode:   http.StatusOK,
+	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
 	response, err := client.Meta().Stats()
-	if err != nil {
-		t.Errorf("Unexpected error = %s", err)
+	if !assert.NoError(t, err) {
+		return
 	}
 
 	assert.EqualValues(t, 1990, response.Instances)

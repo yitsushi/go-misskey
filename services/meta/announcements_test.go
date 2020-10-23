@@ -2,6 +2,7 @@ package meta_test
 
 import (
 	"log"
+	"net/http"
 	"os"
 	"testing"
 
@@ -13,11 +14,12 @@ import (
 )
 
 func TestService_Announcements_auth(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(
-		"/api/announcements",
-		&meta.AnnouncementsRequest{},
-		"auth/announcements.json",
-	)
+	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+		Endpoint:     "/api/announcements",
+		RequestData:  &meta.AnnouncementsRequest{},
+		ResponseFile: "auth/announcements.json",
+		StatusCode:   http.StatusOK,
+	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
@@ -42,11 +44,12 @@ func TestService_Announcements_auth(t *testing.T) {
 }
 
 func TestService_Announcements_anon(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(
-		"/api/announcements",
-		&meta.AnnouncementsRequest{},
-		"anon/announcements.json",
-	)
+	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+		Endpoint:     "/api/announcements",
+		RequestData:  &meta.AnnouncementsRequest{},
+		ResponseFile: "anon/announcements.json",
+		StatusCode:   http.StatusOK,
+	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient

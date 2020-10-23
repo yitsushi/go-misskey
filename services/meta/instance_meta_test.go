@@ -2,6 +2,7 @@ package meta_test
 
 import (
 	"log"
+	"net/http"
 	"os"
 	"testing"
 
@@ -13,11 +14,12 @@ import (
 )
 
 func TestService_InstanceMeta(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(
-		"/api/meta",
-		&meta.InstanceMetaRequest{},
-		"anon/instance_meta.json",
-	)
+	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+		Endpoint:     "/api/meta",
+		RequestData:  &meta.InstanceMetaRequest{},
+		ResponseFile: "anon/instance_meta.json",
+		StatusCode:   http.StatusOK,
+	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
@@ -35,11 +37,12 @@ func TestService_InstanceMeta(t *testing.T) {
 }
 
 func TestService_InstanceMeta_detailed(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(
-		"/api/meta",
-		&meta.InstanceMetaRequest{},
-		"anon/instance_meta_detailed.json",
-	)
+	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+		Endpoint:     "/api/meta",
+		RequestData:  &meta.InstanceMetaRequest{},
+		ResponseFile: "anon/instance_meta_detailed.json",
+		StatusCode:   http.StatusOK,
+	})
 
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
