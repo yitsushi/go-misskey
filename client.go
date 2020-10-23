@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/sirupsen/logrus"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/antennas"
 	"github.com/yitsushi/go-misskey/services/meta"
@@ -31,6 +32,8 @@ type Client struct {
 	BaseURL    string
 	Token      string
 	HTTPClient HTTPClient
+
+	logger *logrus.Logger
 }
 
 // RequestTimout is the timeout of a request in seconds.
@@ -44,17 +47,21 @@ func NewClient(baseURL, token string) *Client {
 		HTTPClient: &http.Client{
 			Timeout: time.Second * RequestTimout,
 		},
+		logger: logrus.New(),
 	}
+}
+
+// LogLevel sets logger level.
+func (c *Client) LogLevel(level logrus.Level) {
+	c.logger.SetLevel(level)
 }
 
 func (c Client) url(path string) string {
 	return fmt.Sprintf("%s/api%s", c.BaseURL, path)
 }
 
-func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) error {
-	request.SetAPIToken(c.Token)
-
-	requestBody, err := request.ToJSON()
+func (c Client) sendRequest(request core.Request, response interface{}) error {
+	requestBody, contentType, err := request.ToBody(c.Token)
 	if err != nil {
 		return err
 	}
@@ -62,15 +69,16 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 	req, err := http.NewRequestWithContext(
 		context.Background(),
 		"POST",
-		c.url(request.Path),
+		c.url(request.EndpointPath()),
 		bytes.NewBuffer(requestBody),
 	)
 	if err != nil {
 		return err
 	}
 
-	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("User-Agent", "Misskey Go SDK")
+	c.logger.WithField("_type", "request").Debugf("%s %s", req.Method, req.URL)
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
@@ -84,8 +92,11 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 		return core.RequestError{Message: core.ResponseReadBodyError, Origin: err}
 	}
 
+	c.logger.WithField("_type", "response").WithField("from", req.URL).Debugf("%s", body)
+
 	if resp.StatusCode == http.StatusOK {
-		err = json.Unmarshal(body, respose)
+		err = json.Unmarshal(body, response)
+
 		return err
 	}
 
@@ -96,9 +107,13 @@ func (c Client) sendJSONRequest(request *core.BaseRequest, respose interface{}) 
 		return nil
 	}
 
+	return unwrapError(body)
+}
+
+func unwrapError(body []byte) error {
 	var errorWrapper core.ErrorResponseWrapper
 
-	err = json.Unmarshal(body, &errorWrapper)
+	err := json.Unmarshal(body, &errorWrapper)
 	if err != nil {
 		return core.RequestError{Message: core.ErrorResponseParseError, Origin: err}
 	}
