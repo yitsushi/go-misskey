@@ -79,6 +79,7 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("User-Agent", "Misskey Go SDK")
 	c.logger.WithField("_type", "request").Debugf("%s %s", req.Method, req.URL)
+	c.logger.WithField("_type", "request").Debugf("%s", requestBody)
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {

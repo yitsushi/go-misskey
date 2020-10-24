@@ -1,44 +1,9 @@
 package hashtags
 
 import (
-	"fmt"
-
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/models"
 )
-
-// SortFlag is used for sorting on the List endpoint.
-// Here there are two functions on it, Ascending and Descending,
-// and they specify how the tags should be sorted.
-//
-// In the background, the endpoint expect a string
-// with a + or a - sign.
-type SortFlag string
-
-const (
-	// SortMentionedUsers sorts hashtags by user mentions.
-	SortMentionedUsers SortFlag = "mentionedUsers"
-	// SortMentionedLocalUsers sorts hashtags by local only user mentions.
-	SortMentionedLocalUsers SortFlag = "mentionedLocalUsers"
-	// SortMentionedRemoteUsers sorts hashtags by remote only user mentions.
-	SortMentionedRemoteUsers SortFlag = "mentionedRemoteUsers"
-	// SortAttachedUsers sorts hashtags by user attachment.
-	SortAttachedUsers SortFlag = "attachedUsers"
-	// SortAttachedLocalUsers sorts hashtags by local only user attachment.
-	SortAttachedLocalUsers SortFlag = "attachedLocalUsers"
-	// SortAttachedRemoteUsers sorts hashtags by remote only user attachment.
-	SortAttachedRemoteUsers SortFlag = "attachedRemoteUsers"
-)
-
-// Descending order.
-func (s SortFlag) Descending() string {
-	return fmt.Sprintf("-%s", s)
-}
-
-// Ascending order.
-func (s SortFlag) Ascending() string {
-	return fmt.Sprintf("+%s", s)
-}
 
 // ListRequest represents an List request.
 type ListRequest struct {

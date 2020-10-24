@@ -25,7 +25,7 @@ func TestService_List(t *testing.T) {
 	client.HTTPClient = mockClient
 
 	tags, err := client.Hashtags().List(&hashtags.ListOptions{
-		Sort: hashtags.SortAttachedLocalUsers.Ascending(),
+		Sort: hashtags.SortTagsByAttachedUsers.Ascending(),
 	})
 	if !assert.NoError(t, err) {
 		return
@@ -59,7 +59,7 @@ func ExampleService_List() {
 
 	tags, err := client.Hashtags().List(&hashtags.ListOptions{
 		Limit: 10,
-		Sort:  hashtags.SortAttachedLocalUsers.Ascending(),
+		Sort:  hashtags.SortTagsByAttachedUsers.Ascending(),
 	})
 	if err != nil {
 		log.Printf("[Hashtags] Error happened: %s", err)
