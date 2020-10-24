@@ -92,7 +92,11 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 		return core.RequestError{Message: core.ResponseReadBodyError, Origin: err}
 	}
 
-	c.logger.WithField("_type", "response").WithField("from", req.URL).Debugf("%s", body)
+	c.logger.WithFields(logrus.Fields{
+		"_type": "response",
+		"from":  "req.URL",
+		"code":  resp.StatusCode,
+	}).Debugf("%s", body)
 
 	if resp.StatusCode == http.StatusOK {
 		err = json.Unmarshal(body, response)

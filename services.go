@@ -5,6 +5,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/antennas"
 	"github.com/yitsushi/go-misskey/services/drive"
 	"github.com/yitsushi/go-misskey/services/meta"
+	"github.com/yitsushi/go-misskey/services/notifications"
 )
 
 func (c *Client) requestHandler(request core.Request, response interface{}) error {
@@ -20,6 +21,11 @@ func (c *Client) Meta() *meta.Service {
 // Antennas contains all endpoints under /antennas.
 func (c *Client) Antennas() *antennas.Service {
 	return antennas.NewService(c.requestHandler)
+}
+
+// Notifications contains all endpoints under /notifications.
+func (c *Client) Notifications() *notifications.Service {
+	return notifications.NewService(c.requestHandler)
 }
 
 // Drive contains all endpoints under /drive.

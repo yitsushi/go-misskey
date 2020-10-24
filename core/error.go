@@ -3,6 +3,7 @@ package core
 import (
 	"encoding/json"
 	"fmt"
+	"strings"
 )
 
 const (
@@ -55,5 +56,30 @@ func (e InvalidFieldReferenceError) Error() string {
 		e.Reference,
 		e.Type,
 		e.Reference,
+	)
+}
+
+// MissingOptionsError occues when we options are not provided or some
+// mandatory fields are empty.
+type MissingOptionsError struct {
+	Endpoint      string
+	Struct        string
+	MissingFields []string
+}
+
+func (e MissingOptionsError) Error() string {
+	if len(e.MissingFields) == 0 {
+		return fmt.Sprintf(
+			"%s requires options as %s, but it's not provided.",
+			e.Endpoint,
+			e.Struct,
+		)
+	}
+
+	return fmt.Sprintf(
+		"Some of the required fields were not defined in %s for the %s endpoint: %s",
+		e.Struct,
+		e.Endpoint,
+		strings.Join(e.MissingFields, ", "),
 	)
 }
