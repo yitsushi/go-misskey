@@ -18,15 +18,23 @@ type followingRequest struct {
 	Limit   int    `json:"limit"`
 }
 
+// FollowingOptions contains options passed to the following call.
+type FollowingOptions struct {
+	Host    string
+	SinceID string
+	UntilID string
+	Limit   int
+}
+
 // Following lists all followings.
-func (s *Service) Following(host, sinceID, untilID string, limit int) ([]models.Following, error) {
+func (s *Service) Following(options FollowingOptions) ([]models.Following, error) {
 	var response followingResponse
 
 	request := followingRequest{
-		Host:    host,
-		SinceID: sinceID,
-		UntilID: untilID,
-		Limit:   limit,
+		Host:    options.Host,
+		SinceID: options.SinceID,
+		UntilID: options.UntilID,
+		Limit:   options.Limit,
 	}
 
 	err := s.Call(

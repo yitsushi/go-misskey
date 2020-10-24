@@ -18,15 +18,23 @@ type followersRequest struct {
 	Limit   int    `json:"limit"`
 }
 
+// FollowersOptions contains options passed to the followers call.
+type FollowersOptions struct {
+	Host    string
+	SinceID string
+	UntilID string
+	Limit   int
+}
+
 // Followers lists all followers.
-func (s *Service) Followers(host, sinceID, untilID string, limit int) ([]models.Followers, error) {
+func (s *Service) Followers(options FollowersOptions) ([]models.Followers, error) {
 	var response followersResponse
 
 	request := followersRequest{
-		Host:    host,
-		SinceID: sinceID,
-		UntilID: untilID,
-		Limit:   limit,
+		Host:    options.Host,
+		SinceID: options.SinceID,
+		UntilID: options.UntilID,
+		Limit:   options.Limit,
 	}
 
 	err := s.Call(
