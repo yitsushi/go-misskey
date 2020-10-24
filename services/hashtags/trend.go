@@ -15,12 +15,17 @@ type Trend struct {
 	UsersCount uint64   `json:"usersCount"`
 }
 
+// Validate the request.
+func (r TrendRequest) Validate() error {
+	return nil
+}
+
 // Trend endpoint.
 func (s *Service) Trend() ([]Trend, error) {
 	var response []Trend
 
 	err := s.Call(
-		&core.BaseRequest{Request: &TrendRequest{}, Path: "/hashtags/trend"},
+		&core.JSONRequest{Request: &TrendRequest{}, Path: "/hashtags/trend"},
 		&response,
 	)
 

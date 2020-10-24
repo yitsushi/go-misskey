@@ -24,7 +24,7 @@ func TestService_List(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	tags, err := client.Hashtags().List(&hashtags.ListOptions{
+	tags, err := client.Hashtags().List(hashtags.ListRequest{
 		Sort: hashtags.SortTagsByAttachedUsers.Ascending(),
 	})
 	if !assert.NoError(t, err) {
@@ -45,19 +45,19 @@ func TestService_List_missingSort(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Hashtags().List(&hashtags.ListOptions{
+	_, err := client.Hashtags().List(hashtags.ListRequest{
 		Limit: 10,
 	})
 
 	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "endpoint: Sort")
+	assert.Contains(t, err.Error(), "[Sort]")
 }
 
 func ExampleService_List() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 	client.LogLevel(logrus.DebugLevel)
 
-	tags, err := client.Hashtags().List(&hashtags.ListOptions{
+	tags, err := client.Hashtags().List(hashtags.ListRequest{
 		Limit: 10,
 		Sort:  hashtags.SortTagsByAttachedUsers.Ascending(),
 	})

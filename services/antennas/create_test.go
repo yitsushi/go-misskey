@@ -12,7 +12,7 @@ import (
 func ExampleService_Create() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	resp, err := client.Antennas().Create(&antennas.CreateOptions{
+	resp, err := client.Antennas().Create(antennas.CreateRequest{
 		Name:            "test",
 		Source:          models.AllSrc,
 		UserListID:      nil,

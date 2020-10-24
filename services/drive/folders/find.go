@@ -11,22 +11,16 @@ type FindRequest struct {
 	ParentID core.String `json:"parentId"`
 }
 
-// FindOptions are the possible parameters for a Find request.
-type FindOptions struct {
-	Name     string
-	ParentID core.String
+// Validate the request.
+func (r FindRequest) Validate() error {
+	return nil
 }
 
 // Find gets folder(s) by their name and parent folder.
-func (s *Service) Find(options *FindOptions) ([]models.Folder, error) {
-	request := &FindRequest{
-		Name:     options.Name,
-		ParentID: options.ParentID,
-	}
-
+func (s *Service) Find(request FindRequest) ([]models.Folder, error) {
 	var response []models.Folder
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/folders/find"},
+		&core.JSONRequest{Request: &request, Path: "/drive/folders/find"},
 		&response,
 	)
 

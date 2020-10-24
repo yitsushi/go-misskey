@@ -28,7 +28,7 @@ type CreateFromURLOptions struct {
 // And of course, because something stinks to me around that endpoint.
 // Why? Check the comment on UploadFromURL.
 func (s *Service) CreateFromURL(options *CreateFromURLOptions) (models.File, error) {
-	return s.Create(&CreateOptions{
+	return s.Create(CreateRequest{
 		FolderID:    options.FolderID,
 		Name:        options.Name,
 		IsSensitive: options.IsSensitive,

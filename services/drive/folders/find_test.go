@@ -11,7 +11,7 @@ import (
 func ExampleService_Find() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	folderList, err := client.Drive().Folder().Find(&folders.FindOptions{
+	folderList, err := client.Drive().Folder().Find(folders.FindRequest{
 		Name: "Board Games",
 	})
 	if err != nil {

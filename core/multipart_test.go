@@ -12,6 +12,11 @@ type ExampleMultipartRequest struct {
 	Content []byte `multipart:"ref=name,type=file"`
 }
 
+// Validate the request.
+func (r ExampleMultipartRequest) Validate() error {
+	return nil
+}
+
 func TestMultipartRequest(t *testing.T) {
 	request := core.MultipartRequest{
 		Path: "/test/endpoint",

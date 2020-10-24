@@ -10,6 +10,11 @@ type InstanceMetaRequest struct {
 	Detail bool `json:"detail"`
 }
 
+// Validate the request.
+func (r InstanceMetaRequest) Validate() error {
+	return nil
+}
+
 // InstanceMetaResponse represents the response from the meta endpoint.
 type InstanceMetaResponse struct {
 	MaintainerName               core.String    `json:"maintainerName"`
@@ -68,13 +73,14 @@ type Features struct {
 
 // InstanceMeta is the endpoint to get metadata about the instance.
 func (s *Service) InstanceMeta(details bool) (InstanceMetaResponse, error) {
-	request := &InstanceMetaRequest{
-		Detail: details,
-	}
-
 	var response InstanceMetaResponse
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/meta"},
+		&core.JSONRequest{
+			Request: &InstanceMetaRequest{
+				Detail: details,
+			},
+			Path: "/meta",
+		},
 		&response,
 	)
 

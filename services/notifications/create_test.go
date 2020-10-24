@@ -24,7 +24,7 @@ func TestService_Create(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	err := client.Notifications().Create(&notifications.CreateOptions{
+	err := client.Notifications().Create(notifications.CreateRequest{
 		Body:   "This is the body",
 		Header: core.NewString("This is the header"),
 	})
@@ -36,7 +36,7 @@ func TestService_Create(t *testing.T) {
 func ExampleService_Create() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	err := client.Notifications().Create(&notifications.CreateOptions{
+	err := client.Notifications().Create(notifications.CreateRequest{
 		Header: core.NewString("Thi is the header"),
 		Body:   "Example notification",
 	})

@@ -24,7 +24,7 @@ func TestService_Users(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	users, err := client.Hashtags().Users(&hashtags.UsersOptions{
+	users, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Tag:   "vim",
 		Sort:  hashtags.SortUsersByFollowers.Descending(),
 		Limit: 7,
@@ -47,7 +47,7 @@ func TestService_Users_auth(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	users, err := client.Hashtags().Users(&hashtags.UsersOptions{
+	users, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Tag:   "vim",
 		Sort:  hashtags.SortUsersByFollowers.Descending(),
 		Limit: 7,
@@ -70,13 +70,13 @@ func TestService_Users_missingSort(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Hashtags().Users(&hashtags.UsersOptions{
+	_, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Limit: 7,
 		Tag:   "vim",
 	})
 
 	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "endpoint: Sort")
+	assert.Contains(t, err.Error(), "[Sort]")
 }
 
 func TestService_Users_missingTag(t *testing.T) {
@@ -90,13 +90,13 @@ func TestService_Users_missingTag(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Hashtags().Users(&hashtags.UsersOptions{
+	_, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Limit: 7,
 		Sort:  hashtags.SortUsersByFollowers.Descending(),
 	})
 
 	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "endpoint: Tag")
+	assert.Contains(t, err.Error(), "[Tag]")
 }
 
 func TestService_Users_missingSortAndTag(t *testing.T) {
@@ -110,21 +110,22 @@ func TestService_Users_missingSortAndTag(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Hashtags().Users(&hashtags.UsersOptions{
+	_, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Limit: 7,
 	})
 
 	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "endpoint: Sort, Tag")
+	assert.Contains(t, err.Error(), "[Sort]")
 }
 
 func ExampleService_Users() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 	client.LogLevel(logrus.DebugLevel)
 
-	users, err := client.Hashtags().Users(&hashtags.UsersOptions{
+	users, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Tag:    "vim",
 		Limit:  20,
+		State:  hashtags.DefaultState,
 		Origin: hashtags.OriginCombined,
 		Sort:   hashtags.SortUsersByFollowers.Descending(),
 	})

@@ -25,7 +25,7 @@ func TestService_Announcements_auth(t *testing.T) {
 	client.HTTPClient = mockClient
 	// client.LogLevel(logrus.DebugLevel)
 
-	response, err := client.Meta().Announcements(&meta.AnnouncementOptions{})
+	response, err := client.Meta().Announcements(meta.AnnouncementsRequest{})
 	if !assert.NoError(t, err) {
 		return
 	}
@@ -54,7 +54,7 @@ func TestService_Announcements_anon(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	response, err := client.Meta().Announcements(&meta.AnnouncementOptions{})
+	response, err := client.Meta().Announcements(meta.AnnouncementsRequest{})
 	if !assert.NoError(t, err) {
 		return
 	}
@@ -70,7 +70,7 @@ func ExampleService_Announcements() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
 	announcements, err := client.Meta().Announcements(
-		&meta.AnnouncementOptions{
+		meta.AnnouncementsRequest{
 			WithUnreads: true,
 			SinceID:     "",
 			UntilID:     "",

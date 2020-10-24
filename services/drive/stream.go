@@ -14,30 +14,24 @@ type StreamRequest struct {
 	Type    string `json:"type"`
 }
 
-// StreamOptions holds all values that can be passed as a parameter for StreamRequest.
-type StreamOptions struct {
-	Limit   uint
-	SinceID string
-	UntilID string
-	Type    string
+// Validate the request.
+func (r StreamRequest) Validate() error {
+	if r.Limit < 1 || r.Limit > 100 {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.NewRangeError(1, 100),
+			Field:   "Limit",
+		}
+	}
+
+	return nil
 }
 
 // Stream lists all folders in drive.
-func (s *Service) Stream(options *StreamOptions) ([]models.File, error) {
-	request := &StreamRequest{
-		Limit:   options.Limit,
-		SinceID: options.SinceID,
-		UntilID: options.UntilID,
-		Type:    options.Type,
-	}
-
-	if request.Limit < 1 {
-		request.Limit = DefaultListLimit
-	}
-
+func (s *Service) Stream(request StreamRequest) ([]models.File, error) {
 	var response []models.File
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/stream"},
+		&core.JSONRequest{Request: &request, Path: "/drive/stream"},
 		&response,
 	)
 

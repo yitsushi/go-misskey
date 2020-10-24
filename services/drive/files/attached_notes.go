@@ -10,15 +10,21 @@ type AttachedNotesRequest struct {
 	FileID string `json:"fileId"`
 }
 
+// Validate the request.
+func (r AttachedNotesRequest) Validate() error {
+	return nil
+}
+
 // AttachedNotes gets drive information.
 func (s *Service) AttachedNotes(fileID string) ([]models.Note, error) {
-	request := &AttachedNotesRequest{
-		FileID: fileID,
-	}
-
 	var response []models.Note
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/files/attached-notes"},
+		&core.JSONRequest{
+			Request: &AttachedNotesRequest{
+				FileID: fileID,
+			},
+			Path: "/drive/files/attached-notes",
+		},
 		&response,
 	)
 

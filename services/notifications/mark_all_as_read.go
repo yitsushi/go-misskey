@@ -7,10 +7,18 @@ import (
 // MarkAllAsReadRequest represents an MarkAllAsRead request.
 type MarkAllAsReadRequest struct{}
 
+// Validate the request.
+func (r MarkAllAsReadRequest) Validate() error {
+	return nil
+}
+
 // MarkAllAsRead endpoint.
 func (s *Service) MarkAllAsRead() error {
 	err := s.Call(
-		&core.BaseRequest{Request: &MarkAllAsReadRequest{}, Path: "/notifications/mark-all-as-read"},
+		&core.JSONRequest{
+			Request: &MarkAllAsReadRequest{},
+			Path:    "/notifications/mark-all-as-read",
+		},
 		&core.DummyResponse{},
 	)
 

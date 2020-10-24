@@ -10,6 +10,11 @@ type ShowRequest struct {
 	Tag string `json:"tag"`
 }
 
+// Validate the request.
+func (r ShowRequest) Validate() error {
+	return nil
+}
+
 // Show endpoint.
 func (s *Service) Show(tag string) (models.Hashtag, error) {
 	var response models.Hashtag
@@ -17,7 +22,7 @@ func (s *Service) Show(tag string) (models.Hashtag, error) {
 	request := ShowRequest{Tag: tag}
 
 	err := s.Call(
-		&core.BaseRequest{Request: &request, Path: "/hashtags/show"},
+		&core.JSONRequest{Request: &request, Path: "/hashtags/show"},
 		&response,
 	)
 
