@@ -1,0 +1,92 @@
+[
+    {
+        "tag": "automation",
+        "mentionedUsersCount": 3,
+        "mentionedLocalUsersCount": 0,
+        "mentionedRemoteUsersCount": 3,
+        "attachedUsersCount": 2,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 1
+    },
+    {
+        "tag": "cloud",
+        "mentionedUsersCount": 5,
+        "mentionedLocalUsersCount": 0,
+        "mentionedRemoteUsersCount": 5,
+        "attachedUsersCount": 5,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 4
+    },
+    {
+        "tag": "ffxiv",
+        "mentionedUsersCount": 45,
+        "mentionedLocalUsersCount": 2,
+        "mentionedRemoteUsersCount": 43,
+        "attachedUsersCount": 8,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 7
+    },
+    {
+        "tag": "vim",
+        "mentionedUsersCount": 13,
+        "mentionedLocalUsersCount": 0,
+        "mentionedRemoteUsersCount": 13,
+        "attachedUsersCount": 14,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 13
+    },
+    {
+        "tag": "engineering",
+        "mentionedUsersCount": 5,
+        "mentionedLocalUsersCount": 0,
+        "mentionedRemoteUsersCount": 5,
+        "attachedUsersCount": 8,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 7
+    },
+    {
+        "tag": "security",
+        "mentionedUsersCount": 34,
+        "mentionedLocalUsersCount": 1,
+        "mentionedRemoteUsersCount": 33,
+        "attachedUsersCount": 40,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 39
+    },
+    {
+        "tag": "gaming",
+        "mentionedUsersCount": 43,
+        "mentionedLocalUsersCount": 0,
+        "mentionedRemoteUsersCount": 43,
+        "attachedUsersCount": 22,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 21
+    },
+    {
+        "tag": "golang",
+        "mentionedUsersCount": 23,
+        "mentionedLocalUsersCount": 2,
+        "mentionedRemoteUsersCount": 21,
+        "attachedUsersCount": 20,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 19
+    },
+    {
+        "tag": "haskell",
+        "mentionedUsersCount": 13,
+        "mentionedLocalUsersCount": 1,
+        "mentionedRemoteUsersCount": 12,
+        "attachedUsersCount": 10,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 9
+    },
+    {
+        "tag": "python",
+        "mentionedUsersCount": 46,
+        "mentionedLocalUsersCount": 1,
+        "mentionedRemoteUsersCount": 45,
+        "attachedUsersCount": 59,
+        "attachedLocalUsersCount": 1,
+        "attachedRemoteUsersCount": 58
+    }
+]

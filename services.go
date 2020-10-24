@@ -4,6 +4,7 @@ import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/antennas"
 	"github.com/yitsushi/go-misskey/services/drive"
+	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/services/meta"
 	"github.com/yitsushi/go-misskey/services/notifications"
 )
@@ -26,6 +27,11 @@ func (c *Client) Antennas() *antennas.Service {
 // Notifications contains all endpoints under /notifications.
 func (c *Client) Notifications() *notifications.Service {
 	return notifications.NewService(c.requestHandler)
+}
+
+// Hashtags contains all endpoints under /hashtags.
+func (c *Client) Hashtags() *hashtags.Service {
+	return hashtags.NewService(c.requestHandler)
 }
 
 // Drive contains all endpoints under /drive.
