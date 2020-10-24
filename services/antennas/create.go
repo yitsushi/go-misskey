@@ -22,6 +22,46 @@ type CreateRequest struct {
 
 // Validate the request.
 func (r CreateRequest) Validate() error {
+	if r.Name == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Name",
+		}
+	}
+
+	if r.Source == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Source",
+		}
+	}
+
+	if r.Keywords == nil {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Keywords",
+		}
+	}
+
+	if r.ExcludeKeywords == nil {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "ExcludeKeywords",
+		}
+	}
+
+	if r.Users == nil {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Users",
+		}
+	}
+
 	return nil
 }
 
