@@ -95,7 +95,7 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 
 	c.logger.WithFields(logrus.Fields{
 		"_type": "response",
-		"from":  "req.URL",
+		"from":  req.URL,
 		"code":  resp.StatusCode,
 	}).Debugf("%s", body)
 
