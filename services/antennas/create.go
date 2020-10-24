@@ -20,44 +20,56 @@ type CreateRequest struct {
 	Notify          bool                 `json:"notify"`
 }
 
-// CreateOptions contains all values that can be used to create an Antenna.
-type CreateOptions struct {
-	Name        string
-	Source      models.AntennaSource
-	UserListID  core.String
-	UserGroupID core.String
-	// The outer array has an OR condition,
-	// the inner one has AND condition.
-	Keywords [][]string
-	// The outer array has an OR condition,
-	// the inner one has AND condition.
-	ExcludeKeywords [][]string
-	Users           []string
-	CaseSensitive   bool
-	WithReplies     bool
-	WithOnlyFile    bool
-	Notify          bool
+// Validate the request.
+func (r CreateRequest) Validate() error {
+	if r.Name == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Name",
+		}
+	}
+
+	if r.Source == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Source",
+		}
+	}
+
+	if r.Keywords == nil {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Keywords",
+		}
+	}
+
+	if r.ExcludeKeywords == nil {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "ExcludeKeywords",
+		}
+	}
+
+	if r.Users == nil {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Users",
+		}
+	}
+
+	return nil
 }
 
 // Create antenna endpoint.
-func (s *Service) Create(options *CreateOptions) (models.Antenna, error) {
-	request := &CreateRequest{
-		Name:            options.Name,
-		Source:          options.Source,
-		UserListID:      options.UserListID,
-		UserGroupID:     options.UserGroupID,
-		Keywords:        options.Keywords,
-		ExcludeKeywords: options.ExcludeKeywords,
-		Users:           options.Users,
-		CaseSensitive:   options.CaseSensitive,
-		WithReplies:     options.WithReplies,
-		WithOnlyFile:    options.WithOnlyFile,
-		Notify:          options.Notify,
-	}
-
+func (s *Service) Create(request CreateRequest) (models.Antenna, error) {
 	var response models.Antenna
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/create"},
+		&core.JSONRequest{Request: &request, Path: "/antennas/create"},
 		&response,
 	)
 

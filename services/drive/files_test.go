@@ -11,7 +11,9 @@ import (
 func ExampleService_Files() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	fileList, err := client.Drive().Files(&drive.FilesOptions{})
+	fileList, err := client.Drive().Files(drive.FilesRequest{
+		Limit: drive.DefaultListLimit,
+	})
 	if err != nil {
 		log.Printf("[Drive/Files] %s", err)
 

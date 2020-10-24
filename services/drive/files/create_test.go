@@ -14,7 +14,7 @@ func ExampleService_Create() {
 
 	fileContent := []byte{}
 
-	file, err := client.Drive().File().Create(&files.CreateOptions{
+	file, err := client.Drive().File().Create(files.CreateRequest{
 		FolderID:    "",
 		Name:        "this is the name",
 		IsSensitive: false,

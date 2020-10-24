@@ -24,7 +24,7 @@ func TestService_Search(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	tags, err := client.Hashtags().Search(&hashtags.SearchOptions{
+	tags, err := client.Hashtags().Search(hashtags.SearchRequest{
 		Query: "hack%",
 	})
 	if !assert.NoError(t, err) {
@@ -45,19 +45,19 @@ func TestService_Search_missingQuery(t *testing.T) {
 	client := misskey.NewClient("https://localhost", "thisistoken")
 	client.HTTPClient = mockClient
 
-	_, err := client.Hashtags().Search(&hashtags.SearchOptions{
+	_, err := client.Hashtags().Search(hashtags.SearchRequest{
 		Limit: 10,
 	})
 
 	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "endpoint: Query")
+	assert.Contains(t, err.Error(), "[Query] Undefined required field")
 }
 
 func ExampleService_Search() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 	client.LogLevel(logrus.DebugLevel)
 
-	tags, err := client.Hashtags().Search(&hashtags.SearchOptions{
+	tags, err := client.Hashtags().Search(hashtags.SearchRequest{
 		Limit: 10,
 		Query: "hack%",
 	})

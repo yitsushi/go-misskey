@@ -13,6 +13,11 @@ type UpdateRequest struct {
 	IsSensitive bool        `json:"isSensitive"`
 }
 
+// Validate the request.
+func (r UpdateRequest) Validate() error {
+	return nil
+}
+
 // Update a file.
 //
 // The request uses only the ID, Name and FolderID values.
@@ -23,7 +28,7 @@ type UpdateRequest struct {
 // current value, if you leave it as null or false,
 // it will be moved to the root of the drive and marked as SFW.
 func (s *Service) Update(file models.File) (models.File, error) {
-	request := &UpdateRequest{
+	request := UpdateRequest{
 		FileID:      file.ID,
 		Name:        file.Name,
 		FolderID:    file.FolderID,
@@ -32,7 +37,7 @@ func (s *Service) Update(file models.File) (models.File, error) {
 
 	var response models.File
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/files/update"},
+		&core.JSONRequest{Request: &request, Path: "/drive/files/update"},
 		&response,
 	)
 

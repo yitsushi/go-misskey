@@ -8,6 +8,11 @@ import (
 type StatsRequest struct {
 }
 
+// Validate the request.
+func (r StatsRequest) Validate() error {
+	return nil
+}
+
 // StatsResponse represents the response to a stats request.
 type StatsResponse struct {
 	NotesCount         uint64        `json:"notesCount"`
@@ -24,7 +29,7 @@ func (s *Service) Stats() (StatsResponse, error) {
 	var response StatsResponse
 
 	err := s.Call(
-		&core.BaseRequest{Request: &StatsRequest{}, Path: "/stats"},
+		&core.JSONRequest{Request: &StatsRequest{}, Path: "/stats"},
 		&response,
 	)
 

@@ -39,72 +39,40 @@ type UsersRequest struct {
 	Origin UserOrigin `json:"origin"`
 }
 
-// UsersOptions are all the options you can play with.
-type UsersOptions struct {
-	Tag    string
-	Limit  uint
-	Sort   string
-	State  UserState
-	Origin UserOrigin
-}
-
 // Validate options.
-func (options *UsersOptions) Validate() error {
-	missingError := core.MissingOptionsError{
-		Endpoint:      "Hashtags/Users",
-		Struct:        "UsersOptions",
-		MissingFields: []string{},
-	}
-
-	if options.Sort == "" {
-		missingError.MissingFields = append(missingError.MissingFields, "Sort")
-	}
-
-	if options.Tag == "" {
-		missingError.MissingFields = append(missingError.MissingFields, "Tag")
-	}
-
-	if len(missingError.MissingFields) == 0 {
-		return nil
-	}
-
-	return missingError
-}
-
-// Users endpoint.
-func (s *Service) Users(options *UsersOptions) ([]models.User, error) {
-	var response []models.User
-
-	if options == nil {
-		return response, core.MissingOptionsError{
-			Endpoint: "Hashtags/Users",
-			Struct:   "UsersOptions",
+func (r UsersRequest) Validate() error {
+	if r.Sort == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Sort",
 		}
 	}
 
-	err := options.Validate()
-	if err != nil {
-		return response, err
+	if r.Tag == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Tag",
+		}
 	}
 
-	if options.State == "" {
-		options.State = DefaultState
+	if r.Limit < 1 || r.Limit > 100 {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.NewRangeError(1, 100),
+			Field:   "Limit",
+		}
 	}
 
-	if options.Origin == "" {
-		options.Origin = DefaultOrigin
-	}
+	return nil
+}
 
-	request := UsersRequest{
-		Limit:  options.Limit,
-		Sort:   options.Sort,
-		Tag:    options.Tag,
-		State:  options.State,
-		Origin: options.Origin,
-	}
-
-	err = s.Call(
-		&core.BaseRequest{Request: &request, Path: "/hashtags/users"},
+// Users endpoint.
+func (s *Service) Users(request UsersRequest) ([]models.User, error) {
+	var response []models.User
+	err := s.Call(
+		&core.JSONRequest{Request: &request, Path: "/hashtags/users"},
 		&response,
 	)
 

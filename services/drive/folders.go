@@ -13,30 +13,24 @@ type FoldersRequest struct {
 	FolderID core.String `json:"folderId"`
 }
 
-// FoldersOptions holds all values that can be passed as a parameter for FolderRequest.
-type FoldersOptions struct {
-	Limit    uint
-	SinceID  string
-	UntilID  string
-	FolderID core.String
+// Validate the request.
+func (r FoldersRequest) Validate() error {
+	if r.Limit < 1 || r.Limit > 100 {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.NewRangeError(1, 100),
+			Field:   "Limit",
+		}
+	}
+
+	return nil
 }
 
 // Folders lists all folders in drive.
-func (s *Service) Folders(options *FoldersOptions) ([]models.Folder, error) {
-	request := &FoldersRequest{
-		Limit:    options.Limit,
-		SinceID:  options.SinceID,
-		UntilID:  options.UntilID,
-		FolderID: options.FolderID,
-	}
-
-	if request.Limit < 1 {
-		request.Limit = DefaultListLimit
-	}
-
+func (s *Service) Folders(request FoldersRequest) ([]models.Folder, error) {
 	var response []models.Folder
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/folders"},
+		&core.JSONRequest{Request: &request, Path: "/drive/folders"},
 		&response,
 	)
 

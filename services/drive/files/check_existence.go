@@ -10,16 +10,22 @@ type CheckExistenceRequest struct {
 	MD5 string `json:"md5"`
 }
 
+// Validate the request.
+func (r CheckExistenceRequest) Validate() error {
+	return nil
+}
+
 // CheckExistence check if a file exists or not with given md5.
 // md5 hash of the file, not its name.
 func (s *Service) CheckExistence(md5 string) (bool, error) {
-	request := &CheckExistenceRequest{
-		MD5: md5,
-	}
-
 	var response bool
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/files/check-existence"},
+		&core.JSONRequest{
+			Request: &CheckExistenceRequest{
+				MD5: md5,
+			},
+			Path: "/drive/files/check-existence",
+		},
 		&response,
 	)
 

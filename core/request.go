@@ -4,4 +4,5 @@ package core
 type Request interface {
 	ToBody(token string) (body []byte, contentType string, err error)
 	EndpointPath() string
+	Validate() error
 }

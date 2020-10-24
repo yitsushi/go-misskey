@@ -3,7 +3,6 @@ package core
 import (
 	"encoding/json"
 	"fmt"
-	"strings"
 )
 
 const (
@@ -16,7 +15,18 @@ const (
 	// ErrorResponseParseError occues when the response was an error,
 	// but something went wrong with parsing it as an Error.
 	ErrorResponseParseError = "Error response parse error"
+	// UndefinedRequiredField occures when a mandatory field is not defined
+	// in a request.
+	UndefinedRequiredField = "Undefined required field"
+	// OutOfRangeErrorTemplate is a template error where a given value
+	// has to be in a given range.
+	OutOfRangeErrorTemplate = "Out of range [%d..%d]"
 )
+
+// NewRangeError generates an error message for a an OutOfRangeError.
+func NewRangeError(from, to int64) string {
+	return fmt.Sprintf(OutOfRangeErrorTemplate, from, to)
+}
 
 // RequestError happens when something went wrong with the request.
 type RequestError struct {
@@ -59,27 +69,25 @@ func (e InvalidFieldReferenceError) Error() string {
 	)
 }
 
-// MissingOptionsError occues when we options are not provided or some
-// mandatory fields are empty.
-type MissingOptionsError struct {
-	Endpoint      string
-	Struct        string
-	MissingFields []string
+// RequestValidationError occues when we one of more
+// mandatory fields are missing.
+type RequestValidationError struct {
+	Request BaseRequest
+	Message string
+	Field   string
 }
 
-func (e MissingOptionsError) Error() string {
-	if len(e.MissingFields) == 0 {
-		return fmt.Sprintf(
-			"%s requires options as %s, but it's not provided.",
-			e.Endpoint,
-			e.Struct,
-		)
-	}
+// FieldError is the detailed error on a given field in a request.
+type FieldError struct {
+	Name  string
+	Issue string
+}
 
+func (e RequestValidationError) Error() string {
 	return fmt.Sprintf(
-		"Some of the required fields were not defined in %s for the %s endpoint: %s",
-		e.Struct,
-		e.Endpoint,
-		strings.Join(e.MissingFields, ", "),
+		"%T request validation failed: [%s] %s",
+		e.Request,
+		e.Field,
+		e.Message,
 	)
 }

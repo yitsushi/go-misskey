@@ -12,6 +12,11 @@ type UpdateRequest struct {
 	ParentID core.String `json:"parentId"`
 }
 
+// Validate the request.
+func (r UpdateRequest) Validate() error {
+	return nil
+}
+
 // Update a folder.
 //
 // The request uses only the ID, Name and ParentID values.
@@ -21,7 +26,7 @@ type UpdateRequest struct {
 // with its current value, if you leave it as null, it will
 // be moved to the root of the drive.
 func (s *Service) Update(folder models.Folder) (models.Folder, error) {
-	request := &UpdateRequest{
+	request := UpdateRequest{
 		FolderID: folder.ID,
 		Name:     folder.Name,
 		ParentID: folder.ParentID,
@@ -29,7 +34,7 @@ func (s *Service) Update(folder models.Folder) (models.Folder, error) {
 
 	var response models.Folder
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/folders/update"},
+		&core.JSONRequest{Request: &request, Path: "/drive/folders/update"},
 		&response,
 	)
 

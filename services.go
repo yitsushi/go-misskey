@@ -10,6 +10,10 @@ import (
 )
 
 func (c *Client) requestHandler(request core.Request, response interface{}) error {
+	if err := request.Validate(); err != nil {
+		return err
+	}
+
 	return c.sendRequest(request, response)
 }
 

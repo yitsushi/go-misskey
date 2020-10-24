@@ -14,14 +14,9 @@ type UploadFromURLRequest struct {
 	IsSensitive bool        `json:"isSensitive"`
 }
 
-// UploadFromURLOptions are the possible parameters for a UploadFromURL request.
-type UploadFromURLOptions struct {
-	URL         string
-	Name        string
-	Comment     core.String
-	Marker      core.String
-	Force       bool
-	IsSensitive bool
+// Validate the request.
+func (r UploadFromURLRequest) Validate() error {
+	return nil
 }
 
 // UploadFromURL asks the server to download an image from an external URL.
@@ -34,20 +29,9 @@ type UploadFromURLOptions struct {
 // supported with v11 and it was never re-implemented in v12.
 //
 // Advise: Use CreateFromURL instead of UploadFromURL.
-func (s *Service) UploadFromURL(options *UploadFromURLOptions) error {
-	request := &UploadFromURLRequest{
-		URL:         options.URL,
-		Name:        options.Name,
-		Comment:     options.Comment,
-		Marker:      options.Marker,
-		Force:       options.Force,
-		IsSensitive: options.IsSensitive,
-	}
-
-	var response core.DummyResponse
-
+func (s *Service) UploadFromURL(request UploadFromURLRequest) error {
 	return s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/files/upload-from-url"},
-		&response,
+		&core.JSONRequest{Request: &request, Path: "/drive/files/upload-from-url"},
+		&core.DummyResponse{},
 	)
 }

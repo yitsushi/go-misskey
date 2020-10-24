@@ -11,6 +11,11 @@ type CreateRequest struct {
 	ParentID core.String `json:"parentId"`
 }
 
+// Validate the request.
+func (r CreateRequest) Validate() error {
+	return nil
+}
+
 // CreateOptions are the possible parameters for a Create request.
 type CreateOptions struct {
 	Name     string
@@ -18,15 +23,10 @@ type CreateOptions struct {
 }
 
 // Create a folder.
-func (s *Service) Create(options *CreateOptions) (models.Folder, error) {
-	request := &CreateRequest{
-		Name:     options.Name,
-		ParentID: options.ParentID,
-	}
-
+func (s *Service) Create(request CreateRequest) (models.Folder, error) {
 	var response models.Folder
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/folders/create"},
+		&core.JSONRequest{Request: &request, Path: "/drive/folders/create"},
 		&response,
 	)
 

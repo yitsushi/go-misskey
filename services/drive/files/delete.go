@@ -9,17 +9,20 @@ type DeleteRequest struct {
 	FileID string `json:"fileId"`
 }
 
+// Validate the request.
+func (r DeleteRequest) Validate() error {
+	return nil
+}
+
 // Delete a file.
 func (s *Service) Delete(fileID string) error {
-	request := &DeleteRequest{
-		FileID: fileID,
-	}
-
-	var response core.DummyResponse
-	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/files/delete"},
-		&response,
+	return s.Call(
+		&core.JSONRequest{
+			Request: &DeleteRequest{
+				FileID: fileID,
+			},
+			Path: "/drive/files/delete",
+		},
+		&core.DummyResponse{},
 	)
-
-	return err
 }

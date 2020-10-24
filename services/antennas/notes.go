@@ -18,30 +18,24 @@ type NotesRequest struct {
 	UntilID   string `json:"untilId"`
 }
 
-// NotesOptions are all the options available for a Notes request.
-type NotesOptions struct {
-	AntennaID string
-	Limit     uint64
-	SinceID   string
-	UntilID   string
+// Validate the request.
+func (r NotesRequest) Validate() error {
+	if r.Limit < 1 || r.Limit > 100 {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.NewRangeError(1, 100),
+			Field:   "Limit",
+		}
+	}
+
+	return nil
 }
 
 // Notes is the endpoint to get Notes for an Antenna.
-func (s *Service) Notes(options *NotesOptions) ([]models.Note, error) {
-	request := &NotesRequest{
-		AntennaID: options.AntennaID,
-		Limit:     options.Limit,
-		SinceID:   options.SinceID,
-		UntilID:   options.UntilID,
-	}
-
-	if request.Limit < 1 || options.Limit > 100 {
-		request.Limit = NoteListDefaultLimit
-	}
-
+func (s *Service) Notes(request NotesRequest) ([]models.Note, error) {
 	var response []models.Note
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/notes"},
+		&core.JSONRequest{Request: &request, Path: "/antennas/notes"},
 		&response,
 	)
 

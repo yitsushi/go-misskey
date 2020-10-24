@@ -11,32 +11,16 @@ type CreateRequest struct {
 	Icon   core.String `json:"icon"`
 }
 
-// CreateOptions are all the options you can play with.
-type CreateOptions struct {
-	Body   string
-	Header core.String
-	Icon   core.String
+// Validate the request.
+func (r CreateRequest) Validate() error {
+	return nil
 }
 
 // Create endpoint.
-func (s *Service) Create(options *CreateOptions) error {
+func (s *Service) Create(request CreateRequest) error {
 	var response core.DummyResponse
-
-	if options == nil {
-		return core.MissingOptionsError{
-			Endpoint: "Notifications/Create",
-			Struct:   "CreateOptions",
-		}
-	}
-
-	request := CreateRequest{
-		Body:   options.Body,
-		Header: options.Header,
-		Icon:   options.Icon,
-	}
-
 	err := s.Call(
-		&core.BaseRequest{Request: &request, Path: "/notifications/create"},
+		&core.JSONRequest{Request: &request, Path: "/notifications/create"},
 		&response,
 	)
 

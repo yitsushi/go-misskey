@@ -10,15 +10,21 @@ type ShowRequest struct {
 	AntennaID string `json:"antennaId"`
 }
 
+// Validate the request.
+func (r ShowRequest) Validate() error {
+	return nil
+}
+
 // Show is the endpoint to get an Antenna.
 func (s *Service) Show(antennaID string) (models.Antenna, error) {
-	request := &ShowRequest{
-		AntennaID: antennaID,
-	}
-
 	var response models.Antenna
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/show"},
+		&core.JSONRequest{
+			Request: &ShowRequest{
+				AntennaID: antennaID,
+			},
+			Path: "/antennas/show",
+		},
 		&response,
 	)
 

@@ -12,7 +12,7 @@ type multipartField struct {
 	Ref   string
 }
 
-func parseMultipartFields(r interface{}) map[string]multipartField {
+func parseMultipartFields(r BaseRequest) map[string]multipartField {
 	fields := map[string]multipartField{}
 
 	v := reflect.ValueOf(r)

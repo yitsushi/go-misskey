@@ -14,32 +14,24 @@ type FilesRequest struct {
 	Type     core.String `json:"type"`
 }
 
-// FilesOptions holds all values that can be passed as a parameter for FileRequest.
-type FilesOptions struct {
-	Limit    uint
-	SinceID  string
-	UntilID  string
-	FolderID core.String
-	Type     core.String
+// Validate the request.
+func (r FilesRequest) Validate() error {
+	if r.Limit < 1 || r.Limit > 100 {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.NewRangeError(1, 100),
+			Field:   "Limit",
+		}
+	}
+
+	return nil
 }
 
 // Files lists all files in drive.
-func (s *Service) Files(options *FilesOptions) ([]models.File, error) {
-	request := &FilesRequest{
-		Limit:    options.Limit,
-		SinceID:  options.SinceID,
-		UntilID:  options.UntilID,
-		FolderID: options.FolderID,
-		Type:     options.Type,
-	}
-
-	if request.Limit < 1 {
-		request.Limit = DefaultListLimit
-	}
-
+func (s *Service) Files(request FilesRequest) ([]models.File, error) {
 	var response []models.File
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/files"},
+		&core.JSONRequest{Request: &request, Path: "/drive/files"},
 		&response,
 	)
 

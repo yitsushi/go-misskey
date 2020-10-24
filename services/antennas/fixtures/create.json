@@ -1,0 +1,20 @@
+{
+    "id": "8drtemg2ww",
+    "createdAt": "2020-10-24T22:24:21.026Z",
+    "name": "Test name",
+    "keywords": [
+        [
+            "test"
+        ]
+    ],
+    "excludeKeywords": [],
+    "src": "all",
+    "userListId": null,
+    "userGroupId": null,
+    "users": [],
+    "caseSensitive": false,
+    "notify": false,
+    "withReplies": false,
+    "withFile": false,
+    "hasUnreadNote": false
+}

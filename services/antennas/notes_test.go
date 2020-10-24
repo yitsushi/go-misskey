@@ -11,9 +11,9 @@ import (
 func ExampleService_Notes() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	notes, err := client.Antennas().Notes(&antennas.NotesOptions{
+	notes, err := client.Antennas().Notes(antennas.NotesRequest{
 		AntennaID: "8dbpybhulw",
-		Limit:     100,
+		Limit:     antennas.NoteListDefaultLimit,
 	})
 	if err != nil {
 		log.Println(err)
