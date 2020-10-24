@@ -10,8 +10,8 @@ type followingResponse struct {
 	Followings []models.Following
 }
 
-// FollowingRequest contains request information for the followings call.
-type FollowingRequest struct {
+// followingRequest contains request information for the followings call.
+type followingRequest struct {
 	Host    string `json:"host"`
 	SinceID string `json:"sinceId"`
 	UntilID string `json:"untilId"`
@@ -22,7 +22,7 @@ type FollowingRequest struct {
 func (s *Service) Following(host, sinceID, untilID string, limit int) ([]models.Following, error) {
 	var response followingResponse
 
-	request := FollowingRequest{
+	request := followingRequest{
 		Host:    host,
 		SinceID: sinceID,
 		UntilID: untilID,
