@@ -18,6 +18,19 @@ type SearchOptions struct {
 	Offset int64
 }
 
+// Validate options.
+func (options *SearchOptions) Validate() error {
+	if options.Query == "" {
+		return core.MissingOptionsError{
+			Endpoint:      "Hashtags/Search",
+			Struct:        "SearchOptions",
+			MissingFields: []string{"Query"},
+		}
+	}
+
+	return nil
+}
+
 // Search endpoint.
 //
 // The Query parameter is an SQL LIKE query.
@@ -33,12 +46,9 @@ func (s *Service) Search(options *SearchOptions) ([]string, error) {
 		}
 	}
 
-	if options.Query == "" {
-		return response, core.MissingOptionsError{
-			Endpoint:      "Hashtags/Search",
-			Struct:        "SearchOptions",
-			MissingFields: []string{"Query"},
-		}
+	err := options.Validate()
+	if err != nil {
+		return response, err
 	}
 
 	request := SearchRequest{
@@ -47,7 +57,7 @@ func (s *Service) Search(options *SearchOptions) ([]string, error) {
 		Offset: options.Offset,
 	}
 
-	err := s.Call(
+	err = s.Call(
 		&core.BaseRequest{Request: &request, Path: "/hashtags/search"},
 		&response,
 	)

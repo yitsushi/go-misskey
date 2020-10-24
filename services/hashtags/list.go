@@ -23,6 +23,19 @@ type ListOptions struct {
 	Sort                     string
 }
 
+// Validate options.
+func (options *ListOptions) Validate() error {
+	if options.Sort == "" {
+		return core.MissingOptionsError{
+			Endpoint:      "Hashtags/List",
+			Struct:        "ListOptions",
+			MissingFields: []string{"Sort"},
+		}
+	}
+
+	return nil
+}
+
 // List endpoint.
 func (s *Service) List(options *ListOptions) ([]models.Hashtag, error) {
 	var response []models.Hashtag
@@ -34,12 +47,9 @@ func (s *Service) List(options *ListOptions) ([]models.Hashtag, error) {
 		}
 	}
 
-	if options.Sort == "" {
-		return response, core.MissingOptionsError{
-			Endpoint:      "Hashtags/List",
-			Struct:        "ListOptions",
-			MissingFields: []string{"Sort"},
-		}
+	err := options.Validate()
+	if err != nil {
+		return response, err
 	}
 
 	request := ListRequest{
@@ -50,7 +60,7 @@ func (s *Service) List(options *ListOptions) ([]models.Hashtag, error) {
 		Sort:                     options.Sort,
 	}
 
-	err := s.Call(
+	err = s.Call(
 		&core.BaseRequest{Request: &request, Path: "/hashtags/list"},
 		&response,
 	)

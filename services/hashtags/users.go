@@ -48,6 +48,29 @@ type UsersOptions struct {
 	Origin UserOrigin
 }
 
+// Validate options.
+func (options *UsersOptions) Validate() error {
+	missingError := core.MissingOptionsError{
+		Endpoint:      "Hashtags/Users",
+		Struct:        "UsersOptions",
+		MissingFields: []string{},
+	}
+
+	if options.Sort == "" {
+		missingError.MissingFields = append(missingError.MissingFields, "Sort")
+	}
+
+	if options.Tag == "" {
+		missingError.MissingFields = append(missingError.MissingFields, "Tag")
+	}
+
+	if len(missingError.MissingFields) == 0 {
+		return nil
+	}
+
+	return missingError
+}
+
 // Users endpoint.
 func (s *Service) Users(options *UsersOptions) ([]models.User, error) {
 	var response []models.User
@@ -59,22 +82,9 @@ func (s *Service) Users(options *UsersOptions) ([]models.User, error) {
 		}
 	}
 
-	if options.Sort == "" || options.Tag == "" {
-		missingError := core.MissingOptionsError{
-			Endpoint:      "Hashtags/Users",
-			Struct:        "UsersOptions",
-			MissingFields: []string{},
-		}
-
-		if options.Sort == "" {
-			missingError.MissingFields = append(missingError.MissingFields, "Sort")
-		}
-
-		if options.Tag == "" {
-			missingError.MissingFields = append(missingError.MissingFields, "Tag")
-		}
-
-		return response, missingError
+	err := options.Validate()
+	if err != nil {
+		return response, err
 	}
 
 	if options.State == "" {
@@ -93,7 +103,7 @@ func (s *Service) Users(options *UsersOptions) ([]models.User, error) {
 		Origin: options.Origin,
 	}
 
-	err := s.Call(
+	err = s.Call(
 		&core.BaseRequest{Request: &request, Path: "/hashtags/users"},
 		&response,
 	)
