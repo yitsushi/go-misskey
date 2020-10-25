@@ -39,7 +39,7 @@ func (c *Client) Hashtags() *hashtags.Service {
 	return hashtags.NewService(c.requestHandler)
 }
 
-// Hashtags contains all endpoints under /hashtags.
+// Clips contains all endpoints under /clips.
 func (c *Client) Clips() *clips.Service {
 	return clips.NewService(c.requestHandler)
 }
