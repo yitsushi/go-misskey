@@ -8,6 +8,8 @@ WIP ;)
 
 Official Misskey API Documentation: https://misskey.io/api-doc
 
+Check the `docs` directory for more information.
+
 ## Progress
 
 | Status | Endpoint Group | Implementation Issue | Note |
