@@ -1,4 +1,4 @@
-# Patterns
+# Patterns and Structure
 
 ## Overview
 
