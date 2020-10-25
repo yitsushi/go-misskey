@@ -1,14 +1,7 @@
 package models
 
-// Following is a single following record.
-// Technically it's the same as Followers but we keep it separate
-// for easy tracking.
-type Following struct {
-	Followers
-}
-
-// Followers is a single follower record.
-type Followers struct {
+// FollowStatus defines the status of followers and followees.
+type FollowStatus struct {
 	ID         string `json:"id"`
 	CreatedAt  string `json:"createdAt"`
 	FolloweeID string `json:"followeeId"`
