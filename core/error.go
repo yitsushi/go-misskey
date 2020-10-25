@@ -18,14 +18,17 @@ const (
 	// UndefinedRequiredField occures when a mandatory field is not defined
 	// in a request.
 	UndefinedRequiredField = "Undefined required field"
-	// OutOfRangeErrorTemplate is a template error where a given value
+	// OutOfRangeError is a template error where a given value
 	// has to be in a given range.
-	OutOfRangeErrorTemplate = "Out of range [%d..%d]"
+	OutOfRangeError = "Out of range [%d..%d]"
+	// ExceedMaximumLengthError occures when a parameter is longer
+	// than accepted on an endpoint.
+	ExceedMaximumLengthError = "Valus is too long"
 )
 
 // NewRangeError generates an error message for a an OutOfRangeError.
 func NewRangeError(from, to int64) string {
-	return fmt.Sprintf(OutOfRangeErrorTemplate, from, to)
+	return fmt.Sprintf(OutOfRangeError, from, to)
 }
 
 // RequestError happens when something went wrong with the request.
