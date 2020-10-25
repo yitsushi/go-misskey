@@ -9,13 +9,16 @@ import (
 type ListRequest struct {
 }
 
+// Validate the request.
+func (r ListRequest) Validate() error {
+	return nil
+}
+
 // List is the endpoint to list all existing antennas.
 func (s *Service) List() ([]models.Antenna, error) {
-	request := &ListRequest{}
-
 	var response []models.Antenna
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/list"},
+		&core.JSONRequest{Request: &ListRequest{}, Path: "/antennas/list"},
 		&response,
 	)
 

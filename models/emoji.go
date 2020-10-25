@@ -2,7 +2,7 @@ package models
 
 import "github.com/yitsushi/go-misskey/core"
 
-// Emoji is a simple reprosentation of an Emoji.
+// Emoji is a simple representation of an Emoji.
 type Emoji struct {
 	ID       core.String   `json:"id"`
 	Aliases  []core.String `json:"aliases"`

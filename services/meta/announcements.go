@@ -12,24 +12,16 @@ type AnnouncementsRequest struct {
 	UntilID     string `json:"untilId"`
 }
 
-// AnnouncementOptions is the options list for Announcement().
-type AnnouncementOptions struct {
-	WithUnreads bool
-	SinceID     string
-	UntilID     string
+// Validate the request.
+func (r AnnouncementsRequest) Validate() error {
+	return nil
 }
 
 // Announcements lists all announcements.
-func (s *Service) Announcements(options *AnnouncementOptions) ([]models.Announcement, error) {
-	request := &AnnouncementsRequest{
-		WithUnreads: options.WithUnreads,
-		SinceID:     options.SinceID,
-		UntilID:     options.UntilID,
-	}
-
+func (s *Service) Announcements(request AnnouncementsRequest) ([]models.Announcement, error) {
 	var response []models.Announcement
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/announcements"},
+		&core.JSONRequest{Request: &request, Path: "/announcements"},
 		&response,
 	)
 

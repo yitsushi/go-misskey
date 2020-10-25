@@ -7,15 +7,21 @@ type DeleteRequest struct {
 	AntennaID string `json:"antennaId"`
 }
 
+// Validate the request.
+func (r DeleteRequest) Validate() error {
+	return nil
+}
+
 // Delete is the endpoint to delete an existing antenna.
 func (s *Service) Delete(antennaID string) error {
-	request := &DeleteRequest{
-		AntennaID: antennaID,
-	}
-
 	var response core.DummyResponse
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/delete"},
+		&core.JSONRequest{
+			Request: &DeleteRequest{
+				AntennaID: antennaID,
+			},
+			Path: "/antennas/delete",
+		},
 		&response,
 	)
 

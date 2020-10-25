@@ -8,7 +8,12 @@ import (
 // MultipartRequest is the base multipart form request.
 type MultipartRequest struct {
 	Path    string
-	Request interface{}
+	Request BaseRequest
+}
+
+// Validate the request.
+func (r MultipartRequest) Validate() error {
+	return r.Request.Validate()
 }
 
 // EndpointPath returns with the path for the endpoint.

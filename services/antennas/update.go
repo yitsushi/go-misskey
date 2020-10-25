@@ -21,42 +21,16 @@ type UpdateRequest struct {
 	Notify          bool                 `json:"notify"`
 }
 
-// UpdateOptions contains all values that can be used to update an Antenna.
-type UpdateOptions struct {
-	AntennaID       string
-	Name            string
-	Source          models.AntennaSource
-	UserListID      core.String
-	UserGroupID     core.String
-	Keywords        [][]string
-	ExcludeKeywords [][]string
-	Users           []string
-	CaseSensitive   bool
-	WithReplies     bool
-	WithOnlyFile    bool
-	Notify          bool
+// Validate the request.
+func (r UpdateRequest) Validate() error {
+	return nil
 }
 
 // Update is the endpoint to update an Antenna.
-func (s *Service) Update(options *UpdateOptions) (models.Antenna, error) {
-	request := &UpdateRequest{
-		AntennaID:       options.AntennaID,
-		Name:            options.Name,
-		Source:          options.Source,
-		UserListID:      options.UserListID,
-		UserGroupID:     options.UserGroupID,
-		Keywords:        options.Keywords,
-		ExcludeKeywords: options.ExcludeKeywords,
-		Users:           options.Users,
-		CaseSensitive:   options.CaseSensitive,
-		WithReplies:     options.WithReplies,
-		WithOnlyFile:    options.WithOnlyFile,
-		Notify:          options.Notify,
-	}
-
+func (s *Service) Update(request UpdateRequest) (models.Antenna, error) {
 	var response models.Antenna
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/antennas/update"},
+		&core.JSONRequest{Request: &request, Path: "/antennas/update"},
 		&response,
 	)
 
@@ -65,7 +39,7 @@ func (s *Service) Update(options *UpdateOptions) (models.Antenna, error) {
 
 // UpdateAntenna updates an antenna from struct.
 func (s *Service) UpdateAntenna(antenna *models.Antenna) (models.Antenna, error) {
-	return s.Update(&UpdateOptions{
+	return s.Update(UpdateRequest{
 		AntennaID:       antenna.ID,
 		Name:            antenna.Name,
 		Source:          antenna.Source,

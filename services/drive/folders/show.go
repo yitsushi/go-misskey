@@ -10,15 +10,21 @@ type ShowRequest struct {
 	FolderID string `json:"folderId"`
 }
 
+// Validate the request.
+func (r ShowRequest) Validate() error {
+	return nil
+}
+
 // Show gets a folder by its ID.
 func (s *Service) Show(folderID string) (models.Folder, error) {
-	request := &ShowRequest{
-		FolderID: folderID,
-	}
-
 	var response models.Folder
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive/folders/show"},
+		&core.JSONRequest{
+			Request: &ShowRequest{
+				FolderID: folderID,
+			},
+			Path: "/drive/folders/show",
+		},
 		&response,
 	)
 

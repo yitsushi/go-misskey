@@ -15,7 +15,21 @@ const (
 	// ErrorResponseParseError occues when the response was an error,
 	// but something went wrong with parsing it as an Error.
 	ErrorResponseParseError = "Error response parse error"
+	// UndefinedRequiredField occures when a mandatory field is not defined
+	// in a request.
+	UndefinedRequiredField = "Undefined required field"
+	// OutOfRangeError is a template error where a given value
+	// has to be in a given range.
+	OutOfRangeError = "Out of range [%d..%d]"
+	// ExceedMaximumLengthError occures when a parameter is longer
+	// than accepted on an endpoint.
+	ExceedMaximumLengthError = "Valus is too long"
 )
+
+// NewRangeError generates an error message for a an OutOfRangeError.
+func NewRangeError(from, to int64) string {
+	return fmt.Sprintf(OutOfRangeError, from, to)
+}
 
 // RequestError happens when something went wrong with the request.
 type RequestError struct {
@@ -55,5 +69,28 @@ func (e InvalidFieldReferenceError) Error() string {
 		e.Reference,
 		e.Type,
 		e.Reference,
+	)
+}
+
+// RequestValidationError occues when we one of more
+// mandatory fields are missing.
+type RequestValidationError struct {
+	Request BaseRequest
+	Message string
+	Field   string
+}
+
+// FieldError is the detailed error on a given field in a request.
+type FieldError struct {
+	Name  string
+	Issue string
+}
+
+func (e RequestValidationError) Error() string {
+	return fmt.Sprintf(
+		"%T request validation failed: [%s] %s",
+		e.Request,
+		e.Field,
+		e.Message,
 	)
 }

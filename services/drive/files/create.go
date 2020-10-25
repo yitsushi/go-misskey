@@ -14,28 +14,16 @@ type CreateRequest struct {
 	Content     []byte `multipart:"ref=name,type=file"`
 }
 
-// CreateOptions has all the values you can play with.
-type CreateOptions struct {
-	FolderID    string
-	Name        string
-	IsSensitive bool
-	Force       bool
-	Content     []byte
+// Validate the request.
+func (r CreateRequest) Validate() error {
+	return nil
 }
 
 // Create a file.
-func (s *Service) Create(options *CreateOptions) (models.File, error) {
-	request := CreateRequest{
-		FolderID:    options.FolderID,
-		Name:        options.Name,
-		IsSensitive: options.IsSensitive,
-		Force:       options.Force,
-		Content:     options.Content,
-	}
-
+func (s *Service) Create(request CreateRequest) (models.File, error) {
 	var response models.File
 	err := s.Call(
-		&core.MultipartRequest{Request: request, Path: "/drive/files/create"},
+		&core.MultipartRequest{Request: &request, Path: "/drive/files/create"},
 		&response,
 	)
 

@@ -8,6 +8,8 @@ WIP ;)
 
 Official Misskey API Documentation: https://misskey.io/api-doc
 
+Check the `docs` directory for more information.
+
 ## Progress
 
 | Status | Endpoint Group | Implementation Issue | Note |
@@ -22,14 +24,14 @@ Official Misskey API Documentation: https://misskey.io/api-doc
 | :x: | [channels](https://misskey.io/api-doc#tag/channels) |||
 | :x: | [notes](https://misskey.io/api-doc#tag/notes) | [#6](https://github.com/yitsushi/go-misskey/issues/6) ||
 | :x: | [charts](https://misskey.io/api-doc#tag/charts) | [#7](https://github.com/yitsushi/go-misskey/issues/7) ||
-| :x: | [clips](https://misskey.io/api-doc#tag/clips) | [#8](https://github.com/yitsushi/go-misskey/issues/8) ||
+| :white_check_mark: | [clips](https://misskey.io/api-doc#tag/clips) | [#8](https://github.com/yitsushi/go-misskey/issues/8) ||
 | :white_check_mark: | [drive](https://misskey.io/api-doc#tag/drive) | [#9](https://github.com/yitsushi/go-misskey/issues/9) ||
 | :x: | [following](https://misskey.io/api-doc#tag/following) | [#10](https://github.com/yitsushi/go-misskey/issues/10) ||
 | :x: | [games](https://misskey.io/api-doc#tag/games) | [#11](https://github.com/yitsushi/go-misskey/issues/11) ||
-| :x: | [hashtags](https://misskey.io/api-doc#tag/hashtags) | [#12](https://github.com/yitsushi/go-misskey/issues/12) ||
+| :white_check_mark: | [hashtags](https://misskey.io/api-doc#tag/hashtags) | [#12](https://github.com/yitsushi/go-misskey/issues/12) ||
 | :x: | [messaging](https://misskey.io/api-doc#tag/messaging) | [#13](https://github.com/yitsushi/go-misskey/issues/13) ||
 | :x: | [reactions](https://misskey.io/api-doc#tag/reactions) | [#14](https://github.com/yitsushi/go-misskey/issues/14) ||
-| :x: | [notifications](https://misskey.io/api-doc#tag/notifications) | [#15](https://github.com/yitsushi/go-misskey/issues/15) ||
+| :white_check_mark: | [notifications](https://misskey.io/api-doc#tag/notifications) | [#15](https://github.com/yitsushi/go-misskey/issues/15) ||
 | :x: | [pages](https://misskey.io/api-doc#tag/pages) | [#16](https://github.com/yitsushi/go-misskey/issues/16) ||
 | :x: | [users](https://misskey.io/api-doc#tag/users) | [#17](https://github.com/yitsushi/go-misskey/issues/17) ||
 | :x: | [room](https://misskey.io/api-doc#tag/room) | [#18](https://github.com/yitsushi/go-misskey/issues/18) ||
@@ -69,4 +71,29 @@ func main() {
   log.Printf("[Stats] OriginalNotesCount: %d", stats.OriginalNotesCount)
   log.Printf("[Stats] OriginalUsersCount: %d", stats.OriginalUsersCount)
 }
+```
+
+## How can I get a Misskey Token?
+
+Navigate to `Settings > API` and there you generate a new token.
+
+## How can I debug what's wrong?
+
+There is a logging system, right now it's not very wide spread
+in the codebase, but if you turn it on, you will be able to see:
+ - all request with method, endpoint and body
+ - all responds with status code, from what endpoint told and the body
+
+To enable debug mode, just change the `LogLevel` to `DebugLevel`:
+
+```go
+client := misskey.NewClient("https://slippy.xyz", "my misskey token")
+client.LogLevel(logrus.DebugLevel)
+```
+
+The output should look like this:
+```
+DEBU[0000] POST https://slippy.xyz/api/antennas/show     _type=request
+DEBU[0000] {"antennaId":"8dbpybhulw","i":"my misskey token"}  _type=request
+DEBU[0000] {"id":"8dbpybhulw","createdAt":"2020-10-13T16:03:22.674Z","name":"Genshin Impact","keywords":[["genshin"]],"excludeKeywords":[[""]],"src":"all","userListId":null,"userGroupId":null,"users":[""],"caseSensitive":false,"notify":false,"withReplies":true,"withFile":false,"hasUnreadNote":false}  _type=response code=200 from="https://slippy.xyz/api/antennas/show"
 ```

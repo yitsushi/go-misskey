@@ -14,13 +14,16 @@ type InformationResponse struct {
 	Usage    core.DataSize `json:"usage"`
 }
 
+// Validate the request.
+func (r InformationRequest) Validate() error {
+	return nil
+}
+
 // Information gets drive information.
 func (s *Service) Information() (InformationResponse, error) {
-	request := &InformationRequest{}
-
 	var response InformationResponse
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/drive"},
+		&core.JSONRequest{Request: &InformationRequest{}, Path: "/drive"},
 		&response,
 	)
 

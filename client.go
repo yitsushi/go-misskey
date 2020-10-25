@@ -79,6 +79,7 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("User-Agent", "Misskey Go SDK")
 	c.logger.WithField("_type", "request").Debugf("%s %s", req.Method, req.URL)
+	c.logger.WithField("_type", "request").Debugf("%s", requestBody)
 
 	resp, err := c.HTTPClient.Do(req)
 	if err != nil {
@@ -92,7 +93,11 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 		return core.RequestError{Message: core.ResponseReadBodyError, Origin: err}
 	}
 
-	c.logger.WithField("_type", "response").WithField("from", req.URL).Debugf("%s", body)
+	c.logger.WithFields(logrus.Fields{
+		"_type": "response",
+		"from":  req.URL,
+		"code":  resp.StatusCode,
+	}).Debugf("%s", body)
 
 	if resp.StatusCode == http.StatusOK {
 		err = json.Unmarshal(body, response)

@@ -3,12 +3,19 @@ package misskey
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/antennas"
+	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/services/drive"
 	"github.com/yitsushi/go-misskey/services/federation"
+	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/services/meta"
+	"github.com/yitsushi/go-misskey/services/notifications"
 )
 
 func (c *Client) requestHandler(request core.Request, response interface{}) error {
+	if err := request.Validate(); err != nil {
+		return err
+	}
+
 	return c.sendRequest(request, response)
 }
 
@@ -21,6 +28,21 @@ func (c *Client) Meta() *meta.Service {
 // Antennas contains all endpoints under /antennas.
 func (c *Client) Antennas() *antennas.Service {
 	return antennas.NewService(c.requestHandler)
+}
+
+// Notifications contains all endpoints under /notifications.
+func (c *Client) Notifications() *notifications.Service {
+	return notifications.NewService(c.requestHandler)
+}
+
+// Hashtags contains all endpoints under /hashtags.
+func (c *Client) Hashtags() *hashtags.Service {
+	return hashtags.NewService(c.requestHandler)
+}
+
+// Clips contains all endpoints under /clips.
+func (c *Client) Clips() *clips.Service {
+	return clips.NewService(c.requestHandler)
 }
 
 // Drive contains all endpoints under /drive.
