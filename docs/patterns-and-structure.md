@@ -105,7 +105,7 @@ import (
 
 // HelloRequest is doing something.
 type HelloRequest struct{
-    Name string `json:"id"`
+    Name string `json:"name"`
 }
 
 // HelloResponse is the representation of the /drive/files request.
@@ -138,6 +138,47 @@ func (s *Service) Hello(request HelloRequest) (HelloResponse, error) {
 }
 ```
 
+If the endpoint returns with an array, the return value should be an array too,
+expect if it's reasonable to return with a single struct, for example, the 
+struct has functions like aggregator or filter, but based on the Misskey API,
+all request limit values has a upper bound of 100.
+
+Example endpoint with array:
+
+```go
+package something
+
+import (
+	"github.com/yitsushi/go-misskey/core"
+)
+
+// HelloRequest is doing something.
+type HelloRequest struct{
+    Names []string `json:"id"`
+}
+
+// Hello is the representation of a Hello object.
+type Hello struct {
+	Message string `json:"message"`
+  Language string `json:"lang"`
+}
+
+// Validate the request.
+func (r HelloRequest) Validate() error {
+	return nil
+}
+
+// Hello welcomes you.
+func (s *Service) Hello(request HelloRequest) ([]Hello, error) {
+	var response []Hello
+	err := s.Call(
+		&core.JSONRequest{Request: &request, Path: "/something/hello"},
+		&response,
+	)
+
+	return response, err
+}
+```
 An Endpoint function can have a request argument or a single value, like on
 delete, it's easier to use if we just ask for an ID, instead of a DeleteRequest
 with only an ID field. In the function, we still create a DeleteRequest, but
