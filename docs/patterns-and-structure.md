@@ -105,7 +105,7 @@ import (
 
 // HelloRequest is doing something.
 type HelloRequest struct{
-    Name string `json:"name"`
+	Name string `json:"name"`
 }
 
 // HelloResponse is the representation of the /drive/files request.
@@ -160,7 +160,7 @@ type HelloRequest struct{
 // Hello is the representation of a Hello object.
 type Hello struct {
 	Message string `json:"message"`
-  Language string `json:"lang"`
+	Language string `json:"lang"`
 }
 
 // Validate the request.
