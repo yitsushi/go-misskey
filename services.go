@@ -3,6 +3,7 @@ package misskey
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/antennas"
+	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/services/drive"
 	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/services/meta"
@@ -36,6 +37,11 @@ func (c *Client) Notifications() *notifications.Service {
 // Hashtags contains all endpoints under /hashtags.
 func (c *Client) Hashtags() *hashtags.Service {
 	return hashtags.NewService(c.requestHandler)
+}
+
+// Hashtags contains all endpoints under /hashtags.
+func (c *Client) Clips() *clips.Service {
+	return clips.NewService(c.requestHandler)
 }
 
 // Drive contains all endpoints under /drive.
