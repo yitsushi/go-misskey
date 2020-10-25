@@ -10,11 +10,6 @@ const (
 	followersPath = "/federation/followers"
 )
 
-// FollowStatusList contains a list of status informations.
-type FollowStatusList struct {
-	Items []models.FollowStatus
-}
-
 // FollowStatusRequest contains request information obtain the status of followers or followees.
 type FollowStatusRequest struct {
 	Host    string `json:"host"`
@@ -36,18 +31,18 @@ func (r *FollowStatusRequest) Validate() error {
 }
 
 // Followers lists all followers.
-func (s *Service) Followers(request FollowStatusRequest) (FollowStatusList, error) {
+func (s *Service) Followers(request FollowStatusRequest) ([]models.FollowStatus, error) {
 	return s.call(request, followersPath)
 }
 
 // Following lists all followings.
-func (s *Service) Following(request FollowStatusRequest) (FollowStatusList, error) {
+func (s *Service) Following(request FollowStatusRequest) ([]models.FollowStatus, error) {
 	return s.call(request, followingPath)
 }
 
 // call will make the call to the service with the given path and request.
-func (s *Service) call(request FollowStatusRequest, path string) (FollowStatusList, error) {
-	var response FollowStatusList
+func (s *Service) call(request FollowStatusRequest, path string) ([]models.FollowStatus, error) {
+	var response []models.FollowStatus
 
 	err := s.Call(
 		&core.JSONRequest{Request: &request, Path: path},
