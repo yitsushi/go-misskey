@@ -226,3 +226,42 @@ will fail on parsing the response JSON data, but with
 `client.LogLevel(logrus.DebugLevel)`, you can see what was the response body.
 Same it as a fixture file and you can write test for it and you can create an
 accurate Response struct.
+
+## Manual testing
+
+You can create a simple program with a single `main` function where you can
+call an endpoint.
+
+```go
+package main
+
+import (
+	"log"
+	"os"
+
+	"github.com/sirupsen/logrus"
+	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/services/clips"
+)
+
+func main() {
+	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client.LogLevel(logrus.DebugLevel)
+
+	clips, err := client.Clips().Update(clips.UpdateRequest{
+		ClipID: "8drxu3ckca",
+		Name:   "new test",
+	})
+	if err != nil {
+		log.Printf("[Clips] Error happened: %s", err)
+
+		return
+	}
+
+	log.Println(clips)
+}
+```
+
+This way, you can see (because of the LogLevel) the request body, the request
+URL, the respnse body and response status code. It's an easy way to check if
+everything is ok.
