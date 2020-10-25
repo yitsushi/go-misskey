@@ -22,6 +22,15 @@ func (r *FollowersRequest) Validate() error {
 			Field:   "Host",
 		}
 	}
+
+	if r.Limit < 1 || r.Limit > 100 {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.NewRangeError(1, 100),
+			Field:   "Limit",
+		}
+	}
+
 	return nil
 }
 
