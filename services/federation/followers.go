@@ -10,35 +10,25 @@ type followersResponse struct {
 	Followers []models.Followers
 }
 
-// followersRequest contains request information for the followers call.
-type followersRequest struct {
+// FollowersRequest contains request information for the followers call.
+type FollowersRequest struct {
 	Host    string `json:"host"`
 	SinceID string `json:"sinceId"`
 	UntilID string `json:"untilId"`
 	Limit   int    `json:"limit"`
 }
 
-// FollowersOptions contains options passed to the followers call.
-type FollowersOptions struct {
-	Host    string
-	SinceID string
-	UntilID string
-	Limit   int
+// Validate the request.
+func (r *FollowersRequest) Validate() error {
+	return nil
 }
 
 // Followers lists all followers.
-func (s *Service) Followers(options FollowersOptions) ([]models.Followers, error) {
+func (s *Service) Followers(request *FollowersRequest) ([]models.Followers, error) {
 	var response followersResponse
 
-	request := followersRequest{
-		Host:    options.Host,
-		SinceID: options.SinceID,
-		UntilID: options.UntilID,
-		Limit:   options.Limit,
-	}
-
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/federation/followers"},
+		&core.JSONRequest{Request: request, Path: "/federation/followers"},
 		&response,
 	)
 

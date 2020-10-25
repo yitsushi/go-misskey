@@ -11,7 +11,7 @@ import (
 func ExampleService_Followers() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	resp, err := client.Federation().Followers(federation.FollowersOptions{
+	resp, err := client.Federation().Followers(&federation.FollowersRequest{
 		Limit: 100,
 	})
 	if err != nil {

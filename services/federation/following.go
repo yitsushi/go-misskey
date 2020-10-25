@@ -10,35 +10,25 @@ type followingResponse struct {
 	Followings []models.Following
 }
 
-// followingRequest contains request information for the followings call.
-type followingRequest struct {
+// FollowingRequest contains request information for the followings call.
+type FollowingRequest struct {
 	Host    string `json:"host"`
 	SinceID string `json:"sinceId"`
 	UntilID string `json:"untilId"`
 	Limit   int    `json:"limit"`
 }
 
-// FollowingOptions contains options passed to the following call.
-type FollowingOptions struct {
-	Host    string
-	SinceID string
-	UntilID string
-	Limit   int
+// Validate the request.
+func (r *FollowingRequest) Validate() error {
+	return nil
 }
 
 // Following lists all followings.
-func (s *Service) Following(options FollowingOptions) ([]models.Following, error) {
+func (s *Service) Following(request *FollowingRequest) ([]models.Following, error) {
 	var response followingResponse
 
-	request := followingRequest{
-		Host:    options.Host,
-		SinceID: options.SinceID,
-		UntilID: options.UntilID,
-		Limit:   options.Limit,
-	}
-
 	err := s.Call(
-		&core.BaseRequest{Request: request, Path: "/federation/following"},
+		&core.JSONRequest{Request: request, Path: "/federation/following"},
 		&response,
 	)
 
