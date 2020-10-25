@@ -27,15 +27,15 @@ func ExampleService_Followers() {
 func ExampleService_Following() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	resp, err := client.Federation().Followers(federation.FollowStatusRequest{
+	resp, err := client.Federation().Following(federation.FollowStatusRequest{
 		Limit: 100,
 		Host:  "slippy.xyz",
 	})
 	if err != nil {
-		log.Printf("[Federation/Followers] %s", err)
+		log.Printf("[Federation/Following] %s", err)
 
 		return
 	}
 
-	log.Printf("[Federation/Followers] %v listed", resp)
+	log.Printf("[Federation/Following] %v listed", resp)
 }
