@@ -39,9 +39,7 @@ func TestShowInstanceRequest_Validate(t *testing.T) {
 	testCase := federation.ShowInstanceRequest{}
 	assert.Error(t, testCase.Validate())
 
-	testCase = federation.ShowInstanceRequest{
-		Host: "slippy.xyz",
-	}
+	testCase = federation.ShowInstanceRequest{}
 	assert.Error(t, testCase.Validate())
 
 	testCase = federation.ShowInstanceRequest{
