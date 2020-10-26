@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_Information(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/drive",
 		RequestData:  &drive.InformationRequest{},
 		ResponseFile: "information.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	info, err := client.Drive().Information()
 	if !assert.NoError(t, err) {

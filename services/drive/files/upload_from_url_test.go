@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_UploadFromURL(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/drive/files/upload-from-url",
 		RequestData:  &files.UploadFromURLRequest{},
 		ResponseFile: "empty",
 		StatusCode:   http.StatusNoContent,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	err := client.Drive().File().UploadFromURL(files.UploadFromURLRequest{
 		URL: "test",

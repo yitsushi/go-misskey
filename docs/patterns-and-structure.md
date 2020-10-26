@@ -218,15 +218,12 @@ import (
 )
 
 func TestService_Hello(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/something/stuff",
 		RequestData:  &something.HelloRequest{},
 		ResponseFile: "create.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	resp, err := client.Something().Hello(something.HelloRequest{
 		Name: "xxxxxx"
@@ -239,8 +236,13 @@ func TestService_Hello(t *testing.T) {
 }
 
 func TestHelloRequest_Validate(t *testing.T) {
-	testCase := something.HelloRequest{}
-	assert.Error(t, testCase.Validate())
+	test.ValidateRequests(
+		t,
+		[]core.BaseRequest{
+			federation.HelloRequest{},
+		},
+		[]core.BaseRequest{},
+	)
 }
 
 func ExampleService_Hello() {

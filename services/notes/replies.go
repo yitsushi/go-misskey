@@ -1,25 +1,25 @@
-package federation
+package notes
 
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// FollowingRequest contains request information to obtain followees.
-type FollowingRequest struct {
-	Host    string `json:"host"`
+// RepliesRequest represents an Replies request.
+type RepliesRequest struct {
+	NoteID  string `json:"noteId"`
+	Limit   uint   `json:"limit"`
 	SinceID string `json:"sinceId"`
 	UntilID string `json:"untilId"`
-	Limit   int    `json:"limit"`
 }
 
 // Validate the request.
-func (r FollowingRequest) Validate() error {
-	if r.Host == "" {
+func (r RepliesRequest) Validate() error {
+	if r.NoteID == "" {
 		return core.RequestValidationError{
 			Request: r,
 			Message: core.UndefinedRequiredField,
-			Field:   "Host",
+			Field:   "NoteID",
 		}
 	}
 
@@ -34,12 +34,12 @@ func (r FollowingRequest) Validate() error {
 	return nil
 }
 
-// Following lists all followings.
-func (s *Service) Following(request FollowingRequest) ([]models.FollowStatus, error) {
-	var response []models.FollowStatus
+// Replies endpoint.
+func (s *Service) Replies(request RepliesRequest) ([]models.Note, error) {
+	var response []models.Note
 
 	err := s.Call(
-		&core.JSONRequest{Request: &request, Path: "/federation/following"},
+		&core.JSONRequest{Request: &request, Path: "/notes/replies"},
 		&response,
 	)
 

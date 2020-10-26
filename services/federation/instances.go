@@ -20,7 +20,7 @@ type InstancesRequest struct {
 }
 
 // Validate the request.
-func (r *InstancesRequest) Validate() error {
+func (r InstancesRequest) Validate() error {
 	if r.Host == "" {
 		return core.RequestValidationError{
 			Request: r,

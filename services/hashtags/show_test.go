@@ -14,15 +14,12 @@ import (
 )
 
 func TestService_Show(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/hashtags/show",
 		RequestData:  &hashtags.ShowRequest{},
 		ResponseFile: "show.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	tag, err := client.Hashtags().Show("hacktoberfest")
 	if !assert.NoError(t, err) {

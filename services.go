@@ -8,6 +8,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/federation"
 	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/services/meta"
+	"github.com/yitsushi/go-misskey/services/notes"
 	"github.com/yitsushi/go-misskey/services/notifications"
 )
 
@@ -53,4 +54,9 @@ func (c *Client) Drive() *drive.Service {
 // Federation contains all endpoints under /federation.
 func (c *Client) Federation() *federation.Service {
 	return federation.NewService(c.requestHandler)
+}
+
+// Notes contains all endpoints under /notes.
+func (c *Client) Notes() *notes.Service {
+	return notes.NewService(c.requestHandler)
 }

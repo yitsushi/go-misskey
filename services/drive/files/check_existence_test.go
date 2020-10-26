@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_CheckExistence(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/drive/files/check-existence",
 		RequestData:  &files.CheckExistenceRequest{},
 		ResponseFile: "boolean",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	found, err := client.Drive().File().CheckExistence("test")
 	if !assert.NoError(t, err) {

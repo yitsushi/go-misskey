@@ -11,6 +11,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yitsushi/go-misskey"
 )
 
 // MockRequestHandler is just an alias for the function signature
@@ -117,4 +119,13 @@ func SimpleMockEndpoint(options *SimpleMockOptions) *MockHTTPClient {
 	})
 
 	return mockClient
+}
+
+// MakeMockClient creates a new Client with SimpleMockOptions.
+func MakeMockClient(mockOptions SimpleMockOptions) *misskey.Client {
+	mockClient := SimpleMockEndpoint(&mockOptions)
+	client := misskey.NewClient("https://localhost", "thisistoken")
+	client.HTTPClient = mockClient
+
+	return client
 }

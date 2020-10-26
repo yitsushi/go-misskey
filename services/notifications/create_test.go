@@ -14,15 +14,12 @@ import (
 )
 
 func TestService_Create(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/notifications/create",
 		RequestData:  &notifications.CreateRequest{},
 		ResponseFile: "empty",
 		StatusCode:   http.StatusNoContent,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	err := client.Notifications().Create(notifications.CreateRequest{
 		Body:   "This is the body",

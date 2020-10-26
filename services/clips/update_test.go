@@ -9,20 +9,18 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Update(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/clips/update",
 		RequestData:  &clips.UpdateRequest{},
 		ResponseFile: "update.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	clip, err := client.Clips().Update(clips.UpdateRequest{
 		ClipID: "8drxu3ckca",
@@ -36,19 +34,22 @@ func TestService_Update(t *testing.T) {
 }
 
 func TestUpdateRequest_Validate(t *testing.T) {
-	testCase := clips.UpdateRequest{}
-	assert.Error(t, testCase.Validate())
-
-	testCase = clips.UpdateRequest{
-		ClipID: "8drxu3ckca",
-	}
-	assert.Error(t, testCase.Validate())
-
-	testCase = clips.UpdateRequest{
-		ClipID: "8drxu3ckca",
-		Name:   strings.Repeat("a", 101),
-	}
-	assert.Error(t, testCase.Validate())
+	test.ValidateRequests(
+		t,
+		[]core.BaseRequest{
+			clips.UpdateRequest{ClipID: "8drxu3ckca"},
+			clips.UpdateRequest{
+				ClipID: "8drxu3ckca",
+				Name:   strings.Repeat("a", 101),
+			},
+		},
+		[]core.BaseRequest{
+			clips.UpdateRequest{
+				ClipID: "8drxu3ckca",
+				Name:   "asd",
+			},
+		},
+	)
 }
 
 func ExampleService_Update() {

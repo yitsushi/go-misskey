@@ -14,16 +14,12 @@ import (
 )
 
 func TestService_Announcements_auth(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/announcements",
 		RequestData:  &meta.AnnouncementsRequest{},
 		ResponseFile: "auth/announcements.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
-	// client.LogLevel(logrus.DebugLevel)
 
 	response, err := client.Meta().Announcements(meta.AnnouncementsRequest{})
 	if !assert.NoError(t, err) {
@@ -44,15 +40,12 @@ func TestService_Announcements_auth(t *testing.T) {
 }
 
 func TestService_Announcements_anon(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/announcements",
 		RequestData:  &meta.AnnouncementsRequest{},
 		ResponseFile: "anon/announcements.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	response, err := client.Meta().Announcements(meta.AnnouncementsRequest{})
 	if !assert.NoError(t, err) {

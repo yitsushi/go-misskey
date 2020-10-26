@@ -1,0 +1,135 @@
+[
+    {
+        "id": "8dsrui13dj",
+        "createdAt": "2020-10-25T14:28:28.743Z",
+        "userId": "83yz8h0uad",
+        "user": {
+            "id": "83yz8h0uad",
+            "name": "しゅいろ",
+            "username": "syuilo",
+            "host": "misskey.io",
+            "avatarUrl": "https://slippy.xyz/files/thumbnail-c782f620-3343-4b53-8597-8f3be68b5baf",
+            "avatarBlurhash": "yCGI1PWB00xtE0jZ8{00a{yERkx^WB^+?wof={of00kB%MD%WBRkV[?HkCIp%Lt7E1ofxvRQ%2o~RjniRkoc%2IV0Kof-;t7oLIokV",
+            "avatarColor": null,
+            "emojis": []
+        },
+        "text": "@efertone@slippy.xyz hmm\nI will investigate whether there is a bug in Vue3 or a problem with the Misskey code. Thank you for the informatio!.",
+        "cw": null,
+        "visibility": "public",
+        "renoteCount": 0,
+        "repliesCount": 0,
+        "reactions": {
+            "👍": 1
+        },
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": "8dsk7x47y3",
+        "renoteId": null,
+        "mentions": [
+            "83sv4lyx22"
+        ],
+        "uri": "https://misskey.io/notes/8dsrui13vy",
+        "reply": {
+            "id": "8dsk7x47y3",
+            "createdAt": "2020-10-25T10:54:57.895Z",
+            "userId": "83sv4lyx22",
+            "user": {
+                "id": "83sv4lyx22",
+                "name": ":ffxivmsq_comp: Efertone",
+                "username": "efertone",
+                "host": null,
+                "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+                "avatarBlurhash": null,
+                "avatarColor": null,
+                "isAdmin": true,
+                "isModerator": true,
+                "emojis": [
+                    {
+                        "name": "ffxivmsq_comp",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb",
+                        "aliases": []
+                    },
+                    {
+                        "name": "heart_bi",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51",
+                        "aliases": []
+                    },
+                    {
+                        "name": "heart_trans",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b",
+                        "aliases": [
+                            ""
+                        ]
+                    }
+                ]
+            },
+            "text": "@syuilo@misskey.io That's what I feel. The FPS is around 50-60 after page refresh, but if I leave it there for a while, the avg FPS drops down to 1-2 which feels like an image viewer in the 90s.\n\nI see a lot of setTimeout and `setInterval` calls. maybe, is it possible there are `setInterval` creations without destroying the `setInterval` when it is not needed anymore?",
+            "cw": null,
+            "visibility": "public",
+            "renoteCount": 0,
+            "repliesCount": 1,
+            "reactions": {
+                "😮": 1
+            },
+            "emojis": [],
+            "fileIds": [
+                "8dsk2tknws",
+                "8dsk41y8x0"
+            ],
+            "files": [
+                {
+                    "id": "8dsk2tknws",
+                    "createdAt": "2020-10-25T10:51:00.023Z",
+                    "name": "2020-10-25 11-50-58 1.png",
+                    "type": "image/png",
+                    "md5": "424729094b02c20588d2c7d94e374f5e",
+                    "size": 116466,
+                    "isSensitive": false,
+                    "blurhash": "y4QTAe-=v#.AxI_4bd00E4E8E5IvRjN200IpNeM|RlM{Rj00V@t6skt2WAs+00xU$|$_$|jX$|00-j-i-k%0of%000-m$|%0xsofxZ",
+                    "properties": {
+                        "width": 1861,
+                        "height": 892
+                    },
+                    "url": "https://slippy.xyz/files/webpublic-d1a533b6-8a18-4a63-953c-89a2f3ea0632",
+                    "thumbnailUrl": "https://slippy.xyz/files/thumbnail-fc47794a-f171-4168-b1db-b95c432bf6b8",
+                    "comment": null,
+                    "folderId": null,
+                    "folder": null,
+                    "userId": null,
+                    "user": null
+                },
+                {
+                    "id": "8dsk41y8x0",
+                    "createdAt": "2020-10-25T10:51:57.536Z",
+                    "name": "2020-10-25 11-51-56 1.png",
+                    "type": "image/png",
+                    "md5": "935ead273715018b3737e4554dd97f5f",
+                    "size": 6676,
+                    "isSensitive": false,
+                    "blurhash": "y%Q^HmbYsEbYnmt7WU?uW-n,W-jaofaxR%kBaxbGayj[fQ_3a{jba|jaj[ayR%WUo3WVjbj[ay~qkCofkBj[ofa|R%WUo3WVjbj[ay",
+                    "properties": {
+                        "width": 507,
+                        "height": 41
+                    },
+                    "url": "https://slippy.xyz/files/webpublic-267db19b-5d42-42a2-a614-a3037fdf84f6",
+                    "thumbnailUrl": "https://slippy.xyz/files/thumbnail-fecd0b38-88eb-4d70-975e-ae2c33adfd0f",
+                    "comment": null,
+                    "folderId": null,
+                    "folder": null,
+                    "userId": null,
+                    "user": null
+                }
+            ],
+            "replyId": "8dpz71s548",
+            "renoteId": null,
+            "mentions": [
+                "83yz8h0uad"
+            ]
+        },
+        "myReaction": "👍"
+    }
+]
