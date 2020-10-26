@@ -5,7 +5,7 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// InstancesRequest contains request information to obtain followers.
+// InstancesRequest contains request information to obtain instances.
 type InstancesRequest struct {
 	Host          string `json:"host"`
 	Blocked       bool   `json:"blocked"`
