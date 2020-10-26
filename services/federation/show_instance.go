@@ -11,7 +11,7 @@ type ShowInstanceRequest struct {
 }
 
 // Validate the request.
-func (r *ShowInstanceRequest) Validate() error {
+func (r ShowInstanceRequest) Validate() error {
 	if r.Host == "" {
 		return core.RequestValidationError{
 			Request: r,
@@ -19,6 +19,7 @@ func (r *ShowInstanceRequest) Validate() error {
 			Field:   "Host",
 		}
 	}
+
 	return nil
 }
 

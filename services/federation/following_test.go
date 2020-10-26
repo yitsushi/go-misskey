@@ -8,46 +8,40 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/federation"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Following(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/federation/following",
 		RequestData:  &federation.FollowersRequest{},
-		ResponseFile: "followers.json",
+		ResponseFile: "following.json",
 		StatusCode:   http.StatusOK,
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
-
-	followers, err := client.Federation().Following(federation.FollowingRequest{
-		Limit: 10,
+	following, err := client.Federation().Following(federation.FollowingRequest{
+		Limit: 1,
 		Host:  "slippy.xyz",
 	})
 	if !assert.NoError(t, err) {
 		return
 	}
 
-	assert.Len(t, followers, 2)
+	assert.Len(t, following, 1)
+	assert.Equal(t, "84wi1id9ev", following[0].FollowerID)
 }
 
 func TestFollowingRequest_Validate(t *testing.T) {
-	testCase := federation.FollowingRequest{}
-	assert.Error(t, testCase.Validate())
-
-	testCase = federation.FollowingRequest{
-		Host: "slippy.xyz",
-	}
-	assert.Error(t, testCase.Validate())
-
-	testCase = federation.FollowingRequest{
-		Host:  "slippy.xyz",
-		Limit: 10,
-	}
-	assert.NoError(t, testCase.Validate())
+	test.ValidateRequests(
+		t,
+		[]core.BaseRequest{
+			federation.FollowingRequest{},
+			federation.FollowingRequest{Host: "slippy.xyz"},
+		},
+		[]core.BaseRequest{},
+	)
 }
 
 func ExampleService_Following() {

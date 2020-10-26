@@ -14,15 +14,12 @@ import (
 )
 
 func TestService_Trend(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/hashtags/trend",
 		RequestData:  &hashtags.TrendRequest{},
 		ResponseFile: "trend.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	trend, err := client.Hashtags().Trend()
 	if !assert.NoError(t, err) {

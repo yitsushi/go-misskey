@@ -9,20 +9,18 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Create(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/clips/create",
 		RequestData:  &clips.CreateRequest{},
 		ResponseFile: "create.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	clip, err := client.Clips().Create(clips.CreateRequest{
 		Name: "test clip",
@@ -35,13 +33,18 @@ func TestService_Create(t *testing.T) {
 }
 
 func TestCreateRequest_Validate(t *testing.T) {
-	testCase := clips.CreateRequest{}
-	assert.Error(t, testCase.Validate())
-
-	testCase = clips.CreateRequest{
-		Name: strings.Repeat("a", 101),
-	}
-	assert.Error(t, testCase.Validate())
+	test.ValidateRequests(
+		t,
+		[]core.BaseRequest{
+			clips.CreateRequest{},
+			clips.CreateRequest{
+				Name: strings.Repeat("a", 101),
+			},
+		},
+		[]core.BaseRequest{
+			clips.CreateRequest{Name: "asd"},
+		},
+	)
 }
 
 func ExampleService_Create() {

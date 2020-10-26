@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_MarkAllAsRead(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/notifications/mark-all-as-read",
 		RequestData:  &notifications.MarkAllAsReadRequest{},
 		ResponseFile: "empty",
 		StatusCode:   http.StatusNoContent,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	err := client.Notifications().MarkAllAsRead()
 	if !assert.NoError(t, err) {

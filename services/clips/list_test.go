@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_List(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/clips/list",
 		RequestData:  &clips.ListRequest{},
 		ResponseFile: "list.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	clips, err := client.Clips().List()
 	if !assert.NoError(t, err) {

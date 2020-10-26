@@ -8,23 +8,21 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/federation"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Instances(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/federation/instances",
 		RequestData:  &federation.InstancesRequest{},
 		ResponseFile: "instances.json",
 		StatusCode:   http.StatusOK,
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
-
 	instances, err := client.Federation().Instances(federation.InstancesRequest{
-		Limit: 10,
+		Limit: 2,
 		Host:  "slippy.xyz",
 	})
 	if !assert.NoError(t, err) {
@@ -35,26 +33,21 @@ func TestService_Instances(t *testing.T) {
 }
 
 func TestInstanceRequest_Validate(t *testing.T) {
-	testCase := federation.InstancesRequest{}
-	assert.Error(t, testCase.Validate())
-
-	testCase = federation.InstancesRequest{
-		Host: "slippy.xyz",
-	}
-	assert.Error(t, testCase.Validate())
-
-	testCase = federation.InstancesRequest{
-		Host:  "slippy.xyz",
-		Limit: 10,
-	}
-	assert.NoError(t, testCase.Validate())
+	test.ValidateRequests(
+		t,
+		[]core.BaseRequest{
+			federation.InstancesRequest{},
+			federation.InstancesRequest{Host: "slippy.xyz"},
+		},
+		[]core.BaseRequest{},
+	)
 }
 
 func ExampleService_Instances() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
 	resp, err := client.Federation().Instances(federation.InstancesRequest{
-		Limit: 100,
+		Limit: 90,
 		Host:  "slippy.xyz",
 	})
 	if err != nil {

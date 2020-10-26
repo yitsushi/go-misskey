@@ -9,20 +9,18 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Users(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/hashtags/users",
 		RequestData:  &hashtags.UsersRequest{},
 		ResponseFile: "users.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	users, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Tag:   "vim",
@@ -37,15 +35,12 @@ func TestService_Users(t *testing.T) {
 }
 
 func TestService_Users_auth(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/hashtags/users",
 		RequestData:  &hashtags.UsersRequest{},
 		ResponseFile: "users_auth.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	users, err := client.Hashtags().Users(hashtags.UsersRequest{
 		Tag:   "vim",
@@ -59,63 +54,21 @@ func TestService_Users_auth(t *testing.T) {
 	assert.Len(t, users, 7)
 }
 
-func TestService_Users_missingSort(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
-		Endpoint:     "/api/hashtags/users",
-		RequestData:  &hashtags.UsersRequest{},
-		ResponseFile: "users.json",
-		StatusCode:   http.StatusOK,
-	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
-
-	_, err := client.Hashtags().Users(hashtags.UsersRequest{
-		Limit: 7,
-		Tag:   "vim",
-	})
-
-	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "[Sort]")
-}
-
-func TestService_Users_missingTag(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
-		Endpoint:     "/api/hashtags/users",
-		RequestData:  &hashtags.UsersRequest{},
-		ResponseFile: "users.json",
-		StatusCode:   http.StatusOK,
-	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
-
-	_, err := client.Hashtags().Users(hashtags.UsersRequest{
-		Limit: 7,
-		Sort:  hashtags.SortUsersByFollowers.Descending(),
-	})
-
-	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "[Tag]")
-}
-
-func TestService_Users_missingSortAndTag(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
-		Endpoint:     "/api/hashtags/users",
-		RequestData:  &hashtags.UsersRequest{},
-		ResponseFile: "users.json",
-		StatusCode:   http.StatusOK,
-	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
-
-	_, err := client.Hashtags().Users(hashtags.UsersRequest{
-		Limit: 7,
-	})
-
-	assert.Error(t, err)
-	assert.Contains(t, err.Error(), "[Sort]")
+func TestUsersRequest_Validate(t *testing.T) {
+	test.ValidateRequests(
+		t,
+		[]core.BaseRequest{
+			hashtags.UsersRequest{},
+			hashtags.UsersRequest{
+				Sort: hashtags.SortUsersByFollowers.Descending(),
+			},
+			hashtags.UsersRequest{
+				Sort: hashtags.SortUsersByFollowers.Descending(),
+				Tag:  "asd",
+			},
+		},
+		[]core.BaseRequest{},
+	)
 }
 
 func ExampleService_Users() {

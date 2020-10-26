@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_Delete(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/antennas/delete",
 		RequestData:  &antennas.DeleteRequest{},
 		ResponseFile: "empty",
 		StatusCode:   http.StatusNoContent,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	err := client.Antennas().Delete("test")
 	if !assert.NoError(t, err) {

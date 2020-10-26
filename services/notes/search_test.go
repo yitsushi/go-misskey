@@ -1,4 +1,4 @@
-package hashtags_test
+package notes_test
 
 import (
 	"log"
@@ -10,35 +10,40 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/services/hashtags"
+	"github.com/yitsushi/go-misskey/services/notes"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Search(t *testing.T) {
 	client := test.MakeMockClient(test.SimpleMockOptions{
-		Endpoint:     "/api/hashtags/search",
-		RequestData:  &hashtags.SearchRequest{},
+		Endpoint:     "/api/notes/search",
+		RequestData:  &notes.SearchRequest{},
 		ResponseFile: "search.json",
 		StatusCode:   http.StatusOK,
 	})
 
-	tags, err := client.Hashtags().Search(hashtags.SearchRequest{
-		Query: "hack%",
+	noteList, err := client.Notes().Search(notes.SearchRequest{
+		Query: "Winter first movement",
+		Limit: 10,
 	})
 	if !assert.NoError(t, err) {
 		return
 	}
 
-	assert.Len(t, tags, 10)
+	assert.Len(t, noteList, 2)
+	assert.Equal(t, "efertone", noteList[0].User.Username)
 }
 
 func TestSearchRequest_Validate(t *testing.T) {
 	test.ValidateRequests(
 		t,
 		[]core.BaseRequest{
-			hashtags.SearchRequest{},
+			notes.SearchRequest{},
+			notes.SearchRequest{Query: "asd"},
 		},
-		[]core.BaseRequest{},
+		[]core.BaseRequest{
+			notes.SearchRequest{Query: "asd", Limit: 20},
+		},
 	)
 }
 
@@ -46,17 +51,17 @@ func ExampleService_Search() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 	client.LogLevel(logrus.DebugLevel)
 
-	tags, err := client.Hashtags().Search(hashtags.SearchRequest{
-		Limit: 10,
+	noteList, err := client.Notes().Search(notes.SearchRequest{
 		Query: "hack%",
+		Limit: 10,
 	})
 	if err != nil {
-		log.Printf("[Hashtags] Error happened: %s", err)
+		log.Printf("[Notes] Error happened: %s", err)
 
 		return
 	}
 
-	for _, tag := range tags {
-		log.Printf(" - %s", tag)
+	for _, note := range noteList {
+		log.Printf(" - %s", note.Text)
 	}
 }

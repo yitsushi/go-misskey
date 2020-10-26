@@ -13,15 +13,12 @@ import (
 )
 
 func TestService_Stats(t *testing.T) {
-	mockClient := test.SimpleMockEndpoint(&test.SimpleMockOptions{
+	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/stats",
 		RequestData:  &meta.StatsRequest{},
 		ResponseFile: "auth/stats.json",
 		StatusCode:   http.StatusOK,
 	})
-
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
 
 	response, err := client.Meta().Stats()
 	if !assert.NoError(t, err) {

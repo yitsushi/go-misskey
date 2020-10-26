@@ -14,7 +14,7 @@ type FollowersRequest struct {
 }
 
 // Validate the request.
-func (r *FollowersRequest) Validate() error {
+func (r FollowersRequest) Validate() error {
 	if r.Host == "" {
 		return core.RequestValidationError{
 			Request: r,
