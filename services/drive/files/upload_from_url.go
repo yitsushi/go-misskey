@@ -32,6 +32,6 @@ func (r UploadFromURLRequest) Validate() error {
 func (s *Service) UploadFromURL(request UploadFromURLRequest) error {
 	return s.Call(
 		&core.JSONRequest{Request: &request, Path: "/drive/files/upload-from-url"},
-		&core.DummyResponse{},
+		&core.EmptyResponse{},
 	)
 }

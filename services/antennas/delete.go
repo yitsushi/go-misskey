@@ -14,7 +14,7 @@ func (r DeleteRequest) Validate() error {
 
 // Delete is the endpoint to delete an existing antenna.
 func (s *Service) Delete(antennaID string) error {
-	var response core.DummyResponse
+	var response core.EmptyResponse
 	err := s.Call(
 		&core.JSONRequest{
 			Request: &DeleteRequest{

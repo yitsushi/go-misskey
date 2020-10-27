@@ -18,7 +18,7 @@ func (r CreateRequest) Validate() error {
 
 // Create endpoint.
 func (s *Service) Create(request CreateRequest) error {
-	var response core.DummyResponse
+	var response core.EmptyResponse
 	err := s.Call(
 		&core.JSONRequest{Request: &request, Path: "/notifications/create"},
 		&response,

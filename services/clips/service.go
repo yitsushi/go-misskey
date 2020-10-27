@@ -3,8 +3,8 @@ package clips
 import "github.com/yitsushi/go-misskey/core"
 
 const (
-	// MaximumNameLength is the maximum length of the name of the clip.
-	MaximumNameLength = 100
+	// maximumNameLength is the maximum length of the name of the clip.
+	maximumNameLength = 100
 )
 
 // Service is the base for all the endpoints on this service.

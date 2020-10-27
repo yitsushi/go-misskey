@@ -7,28 +7,29 @@ service may have sub-services for readability and better structure.
 
 All global models are living under the `models` directory. There are only
 structs, no functions (yet, maybe later). They represent a given resource like
-User, Note or Page. Some of the endpoints are returning with a response where
-some of the fields are not populated.
+User, Note or Page. Some endpoints are returning with a response where
+some fields are not populated.
 
 The `core` directory is a nice place for anything that has nothing to do with
 endpoints, but they make the communication easier and helps services to make
 calls without code duplication.
 
-Note: The official documentation is just a guide, it has a lot of problems
-      like most of the endpoints has no response body based on the
+Note: The official documentation is just a guide, it has a lot of problems,
+      like most of the endpoints have no response body based on the
       documentation, but in reality, they have.
 
 ## Request Types
 
-There are two types of requests, JSON and Multipart request. Most of the time
-JSON request. The only exceptions are when we upload files, they are handled as
-a `multipartform` request.
+There are two types of requests, JSON and Multipart. Most used is the JSON
+request. The only occasion for the Multipart is during file upload. Those are
+handled as `multipartform` requests.
 
 The client expects a struct that implements the `Request` interface. If we have
 to add a new request type, it's enough to implement the `Request` interface.
 
-There is a `BaseRequest` interface, all request handler expect structs with
-`BaseRequest` implementation as they will call the `Validate` function on them.
+All request handlers expect the request to implement the `BaseRequest` interface.
+This is necessary because each request is responsible for defining its own validation
+rule by means of implementing the `Validate` method.
 
 For Multipart requests, we have a custom tag, so it's easy to write "forms" for
 multipart form request.
@@ -49,7 +50,7 @@ type CreateRequest struct {
 The name of the field stands alone without `=`. If a field refers to another
 one as their name (it's used for files, I don't think it has any other use), we
 don't give it a name, but define `ref` and the value will be the referred name.
-In this case, `Content` will be send as a file and the name of the file will be
+In this case, `Content` will be sent as a file, and the name of the file will be
 the same as the value of the `Name` field.
 
 ## Service structure
@@ -58,7 +59,7 @@ Each service has to be registered in the `services.go` in the repository root.
 
 Each service has a `service.go` file, that defines the service itself.  In this
 file, we can define additional sub-services the same way as we register root
-services. All global constants live there.
+services. All constants which are relevant for that service live there.
 
 Example `service.go`:
 
@@ -93,7 +94,8 @@ func (s *Service) Stuff() *files.Service {
 
 Each request has its own file. Even if two requests are similar,
 we don't reuse. All endpoints are exposed with their function
-and their request.
+and their request. This will later on make it easy to define service
+based rules, such as, permissions or extra routing information.
 
 Example endpoint:
 ```go
@@ -138,12 +140,12 @@ func (s *Service) Hello(request HelloRequest) (HelloResponse, error) {
 }
 ```
 
-If the endpoint returns with an array, the return value should be an array too,
-expect if it's reasonable to return with a single struct, for example, the 
+If the endpoint returns with an array, the return value should be an array too.
+Except if it's reasonable to return with a single struct, for example, the 
 struct has functions like aggregator or filter, but based on the Misskey API,
-all request limit values has a upper bound of 100.
+all request limit values have an upper bound of 100.
 
-Example endpoint with array:
+Example endpoint with an array:
 
 ```go
 package something
@@ -180,7 +182,7 @@ func (s *Service) Hello(request HelloRequest) ([]Hello, error) {
 }
 ```
 An Endpoint function can have a request argument or a single value, like on
-delete, it's easier to use if we just ask for an ID, instead of a DeleteRequest
+delete. It's easier to use if we just ask for an ID, instead of a DeleteRequest
 with only an ID field. In the function, we still create a DeleteRequest, but
 the user of this library does not have to use that request as an argument for
 the function.
@@ -188,14 +190,14 @@ the function.
 ## Testing
 
 Right now, testing is kind of useless, but still has some value. Especially if
-we want to extend or change something and we want to be sure everything is
-working as intended. For the endpoint itself, there is a Mock server.  For
-Validation, we can simply create a new Request and call the Validate function
+we want to extend or change something, and we want to be sure everything is
+working as intended. For the endpoint itself, there is a Mock server. For
+validation, we can simply create a new Request and call the Validate function
 and check for errors. The endpoint function test does not check for validation
-errors, it will make a valid request always as all validation tests are tested
+errors. It will make a valid always make a valid request as all validation tests are tested
 separately. For testing, we are using real responses from the server in fixture
 files. They are living under the service directory (see any of the services,
-there is a fixtures directory with files in it).
+there is a `fixtures` directory with json payload files in it).
 
 Each endpoint has a full example in their test file.
 
@@ -264,11 +266,10 @@ func ExampleService_Hello() {
 ## Get real world responses
 
 As you write the request and the function itself, you can specify the response
-as `core.DummyResponse`. It does nothing, it's an empty response struct and it
+as `core.EmptyResponse`. It does nothing, it's an empty response struct, and it
 will fail on parsing the response JSON data, but with
-`client.LogLevel(logrus.DebugLevel)`, you can see what was the response body.
-Same it as a fixture file and you can write test for it and you can create an
-accurate Response struct.
+`client.LogLevel(logrus.DebugLevel)`, you can see what the response body was.
+You can write test for it and you can create an accurate Response struct.
 
 ## Manual testing
 

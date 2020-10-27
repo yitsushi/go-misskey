@@ -6,27 +6,27 @@ import (
 )
 
 const (
-	// ResponseReadError occues when error happened while we tried to
+	// ResponseReadError occurs when error happened while we tried to
 	// read the response.
 	ResponseReadError = "Error reading body"
-	// ResponseReadBodyError occues when error happened while we tried to
+	// ResponseReadBodyError occurs when error happened while we tried to
 	// read the body of the response.
 	ResponseReadBodyError = "Error reading body"
-	// ErrorResponseParseError occues when the response was an error,
+	// ErrorResponseParseError occurs when the response was an error,
 	// but something went wrong with parsing it as an Error.
 	ErrorResponseParseError = "Error response parse error"
-	// UndefinedRequiredField occures when a mandatory field is not defined
+	// UndefinedRequiredField occurs when a mandatory field is not defined
 	// in a request.
 	UndefinedRequiredField = "Undefined required field"
 	// OutOfRangeError is a template error where a given value
 	// has to be in a given range.
 	OutOfRangeError = "Out of range [%d..%d]"
-	// ExceedMaximumLengthError occures when a parameter is longer
-	// than accepted on an endpoint.
-	ExceedMaximumLengthError = "Valus is too long"
+	// ExceedMaximumLengthError occurs when a parameter is longer
+	// than expected on an endpoint.
+	ExceedMaximumLengthError = "Value is too long"
 )
 
-// NewRangeError generates an error message for a an OutOfRangeError.
+// NewRangeError generates an error message for an OutOfRangeError.
 func NewRangeError(from, to int64) string {
 	return fmt.Sprintf(OutOfRangeError, from, to)
 }
@@ -46,7 +46,7 @@ type ErrorResponseWrapper struct {
 	Error json.RawMessage `json:"error"`
 }
 
-// UnknownError occues when we coudn't determine the source of the error.
+// UnknownError occurs when we couldn't determine the source of the error.
 type UnknownError struct {
 	Response ErrorResponse
 }
@@ -55,7 +55,7 @@ func (e UnknownError) Error() string {
 	return fmt.Sprintf("<%s> %s -> %s", e.Response.Code, e.Response.Info.Param, e.Response.Info.Reason)
 }
 
-// InvalidFieldReferenceError occues when we coudn't determine the source of the error.
+// InvalidFieldReferenceError occurs when we couldn't determine the source of the error.
 type InvalidFieldReferenceError struct {
 	Name      string
 	Type      string
@@ -72,7 +72,7 @@ func (e InvalidFieldReferenceError) Error() string {
 	)
 }
 
-// RequestValidationError occues when we one of more
+// RequestValidationError occurs when one or more
 // mandatory fields are missing.
 type RequestValidationError struct {
 	Request BaseRequest
