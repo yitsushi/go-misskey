@@ -14,7 +14,7 @@ issues:
         - gosec
 
 linters:
-#  disable-all: true
+  disable-all: true
   enable:
     - deadcode
     - errcheck
