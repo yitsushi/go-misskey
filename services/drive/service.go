@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	// defaultListLimit is the default value for the limit lists.
-	defaultListLimit = 10
+	// DefaultListLimit is the default value for the limit lists.
+	DefaultListLimit = 10
 )
 
 // Service is the base for all the endpoints on this service.

@@ -13,7 +13,7 @@ type UpdateRequest struct {
 
 // Validate request.
 func (r UpdateRequest) Validate() error {
-	if len(r.Name) > maximumNameLength {
+	if len(r.Name) > MaximumNameLength {
 		return core.RequestValidationError{
 			Request: r,
 			Message: core.ExceedMaximumLengthError,

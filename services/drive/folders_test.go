@@ -12,7 +12,7 @@ func ExampleService_Folders() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
 	folderList, err := client.Drive().Folders(drive.FoldersRequest{
-		Limit: drive.defaultListLimit,
+		Limit: drive.DefaultListLimit,
 	})
 	if err != nil {
 		log.Printf("[Drive/Folders] %s", err)

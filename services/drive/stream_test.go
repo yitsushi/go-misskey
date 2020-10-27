@@ -12,7 +12,7 @@ func ExampleService_Stream() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
 	fileList, err := client.Drive().Stream(drive.StreamRequest{
-		Limit: drive.defaultListLimit,
+		Limit: drive.DefaultListLimit,
 	})
 	if err != nil {
 		log.Printf("[Drive/Stream] %s", err)
