@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/federation"
