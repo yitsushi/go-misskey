@@ -18,16 +18,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Get dependencies
-        run: |
-          go get -v -t -d ./...
-          go get -u golang.org/x/lint/golint
-
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v2
         with:
           version: v1.31.0
           args: --enable-all
+
+      - name: Get dependencies
+        run: |
+          go get -v -t -d ./...
+          go get -u golang.org/x/lint/golint
 
       - name: go vet
         run: go vet ./...
