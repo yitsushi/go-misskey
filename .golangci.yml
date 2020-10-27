@@ -1,0 +1,73 @@
+run:
+  timeout: 5m
+  issues-exit-code: 1
+  tests: true
+  modules-download-mode: readonly
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+
+linters:
+  disable-all: true
+  enable:
+    - deadcode
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - structcheck
+    - typecheck
+    - unused
+    - varcheck
+    - bodyclose
+    - depguard
+    - dogsled
+    - dupl
+    - exhaustive
+    - exportloopref
+    - funlen
+    - gci
+    - gochecknoglobals
+    - gochecknoinits
+    - gocognit
+    - goconst
+    - gocritic
+    - gocyclo
+    - godot
+    - godox
+    - goerr113
+    - gofmt
+    - gofumpt
+    - goheader
+    - goimports
+    - golint
+    - gomnd
+    - gomodguard
+    - goprintffuncname
+    - gosec
+    - interfacer
+    - lll
+    - maligned
+    - misspell
+    - nakedret
+    - nestif
+    - nlreturn
+    - noctx
+    - nolintlint
+    - prealloc
+    - rowserrcheck
+    - scopelint
+    - sqlclosecheck
+    - stylecheck
+    - testpackage
+    - unconvert
+    - unparam
+    - whitespace
+    - wsl

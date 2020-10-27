@@ -1,7 +1,7 @@
 .PHONY: lint
 lint:
 	golint -set_exit_status ./...
-	golangci-lint run --enable-all
+	golangci-lint run
 	go vet ./...
 
 .PHONY: test
