@@ -26,7 +26,7 @@ func (r UploadFromURLRequest) Validate() error {
 // It seems the server completely ignores the Name, Comment and Marker
 // fields. To be honest, I don't even know what Comment and Marker means,
 // as there is no "alt text" support on images with Misskey. I think it was
-// supported with v11 and it was never re-implemented in v12.
+// supported in v11 and it was never re-implemented in v12.
 //
 // Advise: Use CreateFromURL instead of UploadFromURL.
 func (s *Service) UploadFromURL(request UploadFromURLRequest) error {

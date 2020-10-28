@@ -18,11 +18,11 @@ type CreateFromURLOptions struct {
 	URL         string
 }
 
-// CreateFromURL downloads a file and then uploads to the server.
+// CreateFromURL downloads a file and then uploads it to the server.
 //
 // It's not a Misskey endpoint. It's a pseudo endpoint.
 //
-// Purpose: Replace UploadFromURL with a more convinient approach,
+// Purpose: Replace UploadFromURL with a more convenient approach,
 // so we can upload files from external URLs without using the async
 // UploadFromURL. That way, we can get back a File from the request.
 // And of course, because something stinks to me around that endpoint.
