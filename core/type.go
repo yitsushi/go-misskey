@@ -1,6 +1,6 @@
 package core
 
-// String is simple string that can be nil.
+// String is a simple string that can be nil.
 type String *string
 
 // NewString transforms a string into a nillable string.
