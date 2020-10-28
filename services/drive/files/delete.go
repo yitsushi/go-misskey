@@ -23,6 +23,6 @@ func (s *Service) Delete(fileID string) error {
 			},
 			Path: "/drive/files/delete",
 		},
-		&core.DummyResponse{},
+		&core.EmptyResponse{},
 	)
 }

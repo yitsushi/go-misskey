@@ -19,7 +19,7 @@ func (s *Service) MarkAllAsRead() error {
 			Request: &MarkAllAsReadRequest{},
 			Path:    "/notifications/mark-all-as-read",
 		},
-		&core.DummyResponse{},
+		&core.EmptyResponse{},
 	)
 
 	return err

@@ -3,11 +3,11 @@ package hashtags
 import "fmt"
 
 // SortFlag is used for sorting on the List and Users endpoint.
-// Here there are two functions on it, Ascending and Descending,
-// and they specify how the tags or users should be sorted.
+// Here, there are two functions on it, Ascending and Descending.
+// They specify how the tags or users should be sorted.
 //
-// In the background, the endpoint expect a string
-// with a + or a - sign.
+// In the background, the endpoint expects a string
+// with a + or - sign.
 type SortFlag string
 
 const (

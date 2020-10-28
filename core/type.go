@@ -1,15 +1,15 @@
 package core
 
-// String is simple string that can be null.
+// String is a simple string that can be nil.
 type String *string
 
-// NewString transforms a string into a nullable string.
+// NewString transforms a string into a nillable string.
 func NewString(value string) String {
 	return &value
 }
 
 // StringValue returns the value of a core.String as string.
-// If th value is nil, it returns with an empty string.
+// If the value is nil, it returns with an empty string.
 func StringValue(s String) string {
 	if s == nil {
 		return ""
@@ -19,15 +19,15 @@ func StringValue(s String) string {
 }
 
 // RequestHandlerFunc is the function signature for request
-// handlers called by services to make requests.
+// handlers called by services.
 type RequestHandlerFunc func(Request, interface{}) error
 
 // DataSize is an alias for uint64 with extra functions for easier
-// conversion between sizes. The value should contains bytes.
+// conversion between sizes. The value should contain bytes.
 //
 // I know I should use github.com/catalint/datasize or something similar,
-// but I don't know if I want to support that later or not or I want to add
-// extra functionality on it or not.
+// but I don't know if I want to support that later on or if I want to add
+// extra functionality to it.
 type DataSize uint64
 
 // Bytes returns with its value as a uint64.
