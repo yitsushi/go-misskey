@@ -3,6 +3,7 @@ package notes
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/notes/reactions"
+	"github.com/yitsushi/go-misskey/services/notes/timeline"
 )
 
 // Service is the base for all the endpoints on this service.
@@ -17,5 +18,10 @@ func NewService(requestHandler core.RequestHandlerFunc) *Service {
 
 // Reactions contains all endpoints under /notes/reactions.
 func (s *Service) Reactions() *reactions.Service {
-	return &reactions.Service{Call: s.Call}
+	return reactions.NewService(s.Call)
+}
+
+// Timeline contains all endpoints related to /notes/timeline.
+func (s *Service) Timeline() *timeline.Service {
+	return timeline.NewService(s.Call)
 }
