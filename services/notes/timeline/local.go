@@ -7,8 +7,8 @@ import (
 
 // LocalRequest represents an Local request.
 type LocalRequest struct {
-	OnlyWithFiles    bool     `json:"withFiles"`
 	OnlyWithFileType []string `json:"fileType,omitempty"`
+	OnlyWithFiles    bool     `json:"withFiles"`
 	ExcludeNSFW      bool     `json:"excludeNsfw"`
 	Limit            uint     `json:"limit"`
 	SinceID          string   `json:"sinceId"`
