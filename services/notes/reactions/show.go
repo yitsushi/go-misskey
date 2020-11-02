@@ -1,12 +1,12 @@
-package notes
+package reactions
 
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// ReactionsRequest represents an Reactions request.
-type ReactionsRequest struct {
+// ShowRequest represents an /reactions request.
+type ShowRequest struct {
 	NoteID  string      `json:"noteId"`
 	Type    core.String `json:"type"`
 	Limit   uint        `json:"Limit"`
@@ -16,7 +16,7 @@ type ReactionsRequest struct {
 }
 
 // Validate the request.
-func (r ReactionsRequest) Validate() error {
+func (r ShowRequest) Validate() error {
 	if r.NoteID == "" {
 		return core.RequestValidationError{
 			Request: r,
@@ -36,8 +36,8 @@ func (r ReactionsRequest) Validate() error {
 	return nil
 }
 
-// Reactions endpoint.
-func (s *Service) Reactions(request ReactionsRequest) ([]models.Reaction, error) {
+// Show endpoint.
+func (s *Service) Show(request ShowRequest) ([]models.Reaction, error) {
 	var response []models.Reaction
 
 	err := s.Call(

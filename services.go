@@ -10,6 +10,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/meta"
 	"github.com/yitsushi/go-misskey/services/notes"
 	"github.com/yitsushi/go-misskey/services/notifications"
+	"github.com/yitsushi/go-misskey/services/promo"
 )
 
 func (c *Client) requestHandler(request core.Request, response interface{}) error {
@@ -59,4 +60,9 @@ func (c *Client) Federation() *federation.Service {
 // Notes contains all endpoints under /notes.
 func (c *Client) Notes() *notes.Service {
 	return notes.NewService(c.requestHandler)
+}
+
+// Promo contains all endpoints under /promo.
+func (c *Client) Promo() *promo.Service {
+	return promo.NewService(c.requestHandler)
 }
