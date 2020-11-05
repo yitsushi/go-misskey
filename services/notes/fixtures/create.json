@@ -1,0 +1,72 @@
+{
+    "createdNote": {
+        "id": "8e8ym6ye18",
+        "createdAt": "2020-11-05T22:22:17.270Z",
+        "userId": "83sv4lyx22",
+        "user": {
+            "id": "83sv4lyx22",
+            "name": ":ffxivmsq_comp: Efertone",
+            "username": "efertone",
+            "host": null,
+            "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+            "avatarBlurhash": null,
+            "avatarColor": null,
+            "isAdmin": true,
+            "isModerator": true,
+            "emojis": [
+                {
+                    "name": "ffxivmsq_comp",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb",
+                    "aliases": []
+                },
+                {
+                    "name": "heart_bi",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51",
+                    "aliases": []
+                },
+                {
+                    "name": "heart_trans",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b",
+                    "aliases": [
+                        ""
+                    ]
+                }
+            ]
+        },
+        "text": "test",
+        "cw": null,
+        "visibility": "home",
+        "renoteCount": 0,
+        "repliesCount": 0,
+        "reactions": {},
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": null,
+        "renoteId": null,
+        "poll": {
+            "multiple": false,
+            "expiresAt": null,
+            "choices": [
+                {
+                    "text": "a",
+                    "votes": 0,
+                    "isVoted": false
+                },
+                {
+                    "text": "b",
+                    "votes": 0,
+                    "isVoted": false
+                },
+                {
+                    "text": "c",
+                    "votes": 0,
+                    "isVoted": false
+                }
+            ]
+        }
+    }
+}
