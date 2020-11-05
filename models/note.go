@@ -28,4 +28,5 @@ type Note struct {
 	RenoteID     core.String       `json:"renoteId"`
 	URI          string            `json:"uri"`
 	URL          string            `json:"url"`
+	Instance     *Instance         `json:"instance"`
 }

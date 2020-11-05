@@ -66,7 +66,7 @@ func (r CreateRequest) Validate() error {
 		return core.RequestValidationError{
 			Request: r,
 			Message: core.UndefinedRequiredField,
-			Field:   "Text || FileIDs || Poll",
+			Field:   "Text || RenoteID || FileIDs || Poll",
 		}
 	}
 

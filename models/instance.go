@@ -22,7 +22,9 @@ type Instance struct {
 	MaintainerName          string `json:"maintainerName"`
 	MaintainerEmail         string `json:"maintainerEmail"`
 	IconURL                 string `json:"iconUrl"`
+	FaviconURL              string `json:"faviconUrl"`
 	InfoUpdatedAt           string `json:"infoUpdatedAt"`
+	ThemeColor              string `json:"86b300"`
 	IsNotResponding         bool   `json:"isNotResponding"`
 	IsSuspended             bool   `json:"isSuspended"`
 	OpenRegistrations       bool   `json:"openRegistrations"`
