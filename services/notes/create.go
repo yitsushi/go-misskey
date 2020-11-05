@@ -36,10 +36,16 @@ type CreateResponse struct {
 	CreatedNote models.Note `json:"createdNote"`
 }
 
+const (
+	// MinimumNumberOfChoices is the minimum number
+	// of choices in a poll.
+	MinimumNumberOfChoices = 2
+)
+
 // Validate the request.
 func (r CreateRequest) Validate() error {
 	if r.Poll != nil {
-		if len(r.Poll.Choices) < 2 {
+		if len(r.Poll.Choices) < MinimumNumberOfChoices {
 			return core.RequestValidationError{
 				Request: r,
 				Message: core.UndefinedRequiredField,
