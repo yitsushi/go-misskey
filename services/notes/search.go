@@ -9,10 +9,10 @@ import (
 type SearchRequest struct {
 	Query   string      `json:"query"`
 	Limit   uint        `json:"limit"`
-	SinceID string      `json:"sinceId"`
-	UntilID string      `json:"untilId"`
-	Host    core.String `json:"host"`
-	UserID  core.String `json:"userId"`
+	SinceID string      `json:"sinceId,omitempty"`
+	UntilID string      `json:"untilId,omitempty"`
+	Host    core.String `json:"host,omitempty"`
+	UserID  core.String `json:"userId,omitempty"`
 }
 
 // Validate the request.

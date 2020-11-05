@@ -1,0 +1,74 @@
+[
+    {
+        "id": "8e90eyjcy1",
+        "createdAt": "2020-11-05T23:12:39.000Z",
+        "userId": "846um7m67z",
+        "user": {
+            "id": "846um7m67z",
+            "name": "Demoonic Dork Succubus",
+            "username": "maxine",
+            "host": "social.mootech.eu",
+            "avatarUrl": "https://slippy.xyz/files/thumbnail-2b74eb20-7bf5-45c9-9a59-358efa0922d2",
+            "avatarBlurhash": "yBIEk8.GEHDI0405iyD$91Mm?W----Ir00$+07Ed?F?qx.$-tMM{~Ux@MhRR4roy=|M~?pw#wO04%J%vIVjd9aRU8}NL.0D,sCofRj",
+            "avatarColor": null,
+            "instance": {
+                "name": "Mootech",
+                "softwareName": "mastodon",
+                "softwareVersion": "3.2.1+mootech4",
+                "iconUrl": "https://social.mootech.eu/android-chrome-192x192.png",
+                "faviconUrl": "https://social.mootech.eu/favicon.ico",
+                "themeColor": "#282c37"
+            },
+            "emojis": []
+        },
+        "text": "Seriously though. Fascists always use the same tactic and it works every time on privileged people.\n\nPresent a (supposedly) very dangerous enemy/situation, that most people ignore/can't see. Then pose those who belief you as smart, cunning, etc. for also believing that (made up) story.\n\nThrow in a few \"facts\" and bam, people follow.\n\nI fell for it myself, then starred listening to other marginalized folks and admit that I know shit.\n\nThat helped a ton",
+        "cw": "general pol, fascist tactics",
+        "visibility": "public",
+        "renoteCount": 1,
+        "repliesCount": 0,
+        "reactions": {},
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": "8e907l3sy0",
+        "renoteId": null,
+        "uri": "https://social.mootech.eu/users/maxine/statuses/105160242556438262",
+        "url": "https://social.mootech.eu/@maxine/105160242556438262",
+        "reply": {
+            "id": "8e907l3sy0",
+            "createdAt": "2020-11-05T23:06:55.000Z",
+            "userId": "846um7m67z",
+            "user": {
+                "id": "846um7m67z",
+                "name": "Demoonic Dork Succubus",
+                "username": "maxine",
+                "host": "social.mootech.eu",
+                "avatarUrl": "https://slippy.xyz/files/thumbnail-2b74eb20-7bf5-45c9-9a59-358efa0922d2",
+                "avatarBlurhash": "yBIEk8.GEHDI0405iyD$91Mm?W----Ir00$+07Ed?F?qx.$-tMM{~Ux@MhRR4roy=|M~?pw#wO04%J%vIVjd9aRU8}NL.0D,sCofRj",
+                "avatarColor": null,
+                "instance": {
+                    "name": "Mootech",
+                    "softwareName": "mastodon",
+                    "softwareVersion": "3.2.1+mootech4",
+                    "iconUrl": "https://social.mootech.eu/android-chrome-192x192.png",
+                    "faviconUrl": "https://social.mootech.eu/favicon.ico",
+                    "themeColor": "#282c37"
+                },
+                "emojis": []
+            },
+            "text": "fascists: The world is ending, because a super powerful enemy is there, but you can defeat it, you're the smart one. Join us. Listen only to us the troth tellers!\n\nCommunists: Now here's the deal. You listen to marginalized folks, really listen, and protect them. In return we let you play games with us and share cookies. Good? Good.",
+            "cw": "general pol",
+            "visibility": "public",
+            "renoteCount": 0,
+            "repliesCount": 1,
+            "reactions": {},
+            "emojis": [],
+            "fileIds": [],
+            "files": [],
+            "replyId": null,
+            "renoteId": null,
+            "uri": "https://social.mootech.eu/users/maxine/statuses/105160220030964687",
+            "url": "https://social.mootech.eu/@maxine/105160220030964687"
+        }
+    }
+]
