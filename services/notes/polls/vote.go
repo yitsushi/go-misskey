@@ -17,7 +17,7 @@ func (r VoteRequest) Validate() error {
 
 // Vote endpoint.
 func (s *Service) Vote(noteID string, choice int) error {
-	err := s.Call(
+	return s.Call(
 		&core.JSONRequest{
 			Request: &VoteRequest{
 				NoteID: noteID,
@@ -27,6 +27,4 @@ func (s *Service) Vote(noteID string, choice int) error {
 		},
 		&core.EmptyResponse{},
 	)
-
-	return err
 }
