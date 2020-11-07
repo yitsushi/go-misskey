@@ -1,0 +1,386 @@
+[
+    {
+        "id": "8ebrysa8fl",
+        "createdAt": "2020-11-07T21:39:26.000Z",
+        "userId": "86ol464n9u",
+        "user": {
+            "id": "86ol464n9u",
+            "name": "Sophie Jane",
+            "username": "ghost_bird",
+            "host": "mythago.space",
+            "avatarUrl": "https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/mythagospace/accounts/avatars/000/000/002/original/5b1e02c8a925373b.jpeg",
+            "avatarBlurhash": null,
+            "avatarColor": null,
+            "instance": {
+                "name": "Mythago.space",
+                "softwareName": "mastodon",
+                "softwareVersion": "3.2.1",
+                "iconUrl": "https://mythago.space/android-chrome-192x192.png",
+                "faviconUrl": "https://mythago.space/favicon.ico",
+                "themeColor": "#282c37"
+            },
+            "emojis": []
+        },
+        "text": "@efertone@slippy.xyz Easy to miss if you’re not in the Apple ecosystem.",
+        "cw": null,
+        "visibility": "public",
+        "renoteCount": 0,
+        "repliesCount": 1,
+        "reactions": {},
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": "8ebr5mhps6",
+        "renoteId": null,
+        "mentions": [
+            "83sv4lyx22"
+        ],
+        "uri": "https://mythago.space/users/ghost_bird/statuses/105171200664179272",
+        "url": "https://mythago.space/@ghost_bird/105171200664179272",
+        "reply": {
+            "id": "8ebr5mhps6",
+            "createdAt": "2020-11-07T21:16:45.469Z",
+            "userId": "83sv4lyx22",
+            "user": {
+                "id": "83sv4lyx22",
+                "name": ":ffxivmsq_comp: Efertone",
+                "username": "efertone",
+                "host": null,
+                "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+                "avatarBlurhash": null,
+                "avatarColor": null,
+                "isAdmin": true,
+                "isModerator": true,
+                "emojis": [
+                    {
+                        "name": "ffxivmsq_comp",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb",
+                        "aliases": []
+                    },
+                    {
+                        "name": "heart_bi",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51",
+                        "aliases": []
+                    },
+                    {
+                        "name": "heart_trans",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b",
+                        "aliases": [
+                            ""
+                        ]
+                    }
+                ]
+            },
+            "text": "@ghost_bird@mythago.space oh, I knew I missed something from the big list :/",
+            "cw": null,
+            "visibility": "public",
+            "renoteCount": 0,
+            "repliesCount": 1,
+            "reactions": {
+                "⭐": 1
+            },
+            "emojis": [],
+            "fileIds": [],
+            "files": [],
+            "replyId": "8ebr53m0zs",
+            "renoteId": null,
+            "mentions": [
+                "86ol464n9u"
+            ]
+        }
+    },
+    {
+        "id": "8ebr5mhps6",
+        "createdAt": "2020-11-07T21:16:45.469Z",
+        "userId": "83sv4lyx22",
+        "user": {
+            "id": "83sv4lyx22",
+            "name": ":ffxivmsq_comp: Efertone",
+            "username": "efertone",
+            "host": null,
+            "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+            "avatarBlurhash": null,
+            "avatarColor": null,
+            "isAdmin": true,
+            "isModerator": true,
+            "emojis": [
+                {
+                    "name": "ffxivmsq_comp",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb",
+                    "aliases": []
+                },
+                {
+                    "name": "heart_bi",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51",
+                    "aliases": []
+                },
+                {
+                    "name": "heart_trans",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b",
+                    "aliases": [
+                        ""
+                    ]
+                }
+            ]
+        },
+        "text": "@ghost_bird@mythago.space oh, I knew I missed something from the big list :/",
+        "cw": null,
+        "visibility": "public",
+        "renoteCount": 0,
+        "repliesCount": 1,
+        "reactions": {
+            "⭐": 1
+        },
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": "8ebr53m0zs",
+        "renoteId": null,
+        "mentions": [
+            "86ol464n9u"
+        ],
+        "reply": {
+            "id": "8ebr53m0zs",
+            "createdAt": "2020-11-07T21:16:21.000Z",
+            "userId": "86ol464n9u",
+            "user": {
+                "id": "86ol464n9u",
+                "name": "Sophie Jane",
+                "username": "ghost_bird",
+                "host": "mythago.space",
+                "avatarUrl": "https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/mythagospace/accounts/avatars/000/000/002/original/5b1e02c8a925373b.jpeg",
+                "avatarBlurhash": null,
+                "avatarColor": null,
+                "instance": {
+                    "name": "Mythago.space",
+                    "softwareName": "mastodon",
+                    "softwareVersion": "3.2.1",
+                    "iconUrl": "https://mythago.space/android-chrome-192x192.png",
+                    "faviconUrl": "https://mythago.space/favicon.ico",
+                    "themeColor": "#282c37"
+                },
+                "emojis": []
+            },
+            "text": "@efertone@slippy.xyz Safari",
+            "cw": null,
+            "visibility": "public",
+            "renoteCount": 0,
+            "repliesCount": 1,
+            "reactions": {
+                "👍": 1
+            },
+            "emojis": [],
+            "fileIds": [],
+            "files": [],
+            "replyId": "8ebr49xcpj",
+            "renoteId": null,
+            "mentions": [
+                "83sv4lyx22"
+            ],
+            "uri": "https://mythago.space/users/ghost_bird/statuses/105171109926448290",
+            "url": "https://mythago.space/@ghost_bird/105171109926448290"
+        }
+    },
+    {
+        "id": "8ebr53m0zs",
+        "createdAt": "2020-11-07T21:16:21.000Z",
+        "userId": "86ol464n9u",
+        "user": {
+            "id": "86ol464n9u",
+            "name": "Sophie Jane",
+            "username": "ghost_bird",
+            "host": "mythago.space",
+            "avatarUrl": "https://cf.mastohost.com/v1/AUTH_91eb37814936490c95da7b85993cc2ff/mythagospace/accounts/avatars/000/000/002/original/5b1e02c8a925373b.jpeg",
+            "avatarBlurhash": null,
+            "avatarColor": null,
+            "instance": {
+                "name": "Mythago.space",
+                "softwareName": "mastodon",
+                "softwareVersion": "3.2.1",
+                "iconUrl": "https://mythago.space/android-chrome-192x192.png",
+                "faviconUrl": "https://mythago.space/favicon.ico",
+                "themeColor": "#282c37"
+            },
+            "emojis": []
+        },
+        "text": "@efertone@slippy.xyz Safari",
+        "cw": null,
+        "visibility": "public",
+        "renoteCount": 0,
+        "repliesCount": 1,
+        "reactions": {
+            "👍": 1
+        },
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": "8ebr49xcpj",
+        "renoteId": null,
+        "mentions": [
+            "83sv4lyx22"
+        ],
+        "uri": "https://mythago.space/users/ghost_bird/statuses/105171109926448290",
+        "url": "https://mythago.space/@ghost_bird/105171109926448290",
+        "reply": {
+            "id": "8ebr49xcpj",
+            "createdAt": "2020-11-07T21:15:42.528Z",
+            "userId": "83sv4lyx22",
+            "user": {
+                "id": "83sv4lyx22",
+                "name": ":ffxivmsq_comp: Efertone",
+                "username": "efertone",
+                "host": null,
+                "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+                "avatarBlurhash": null,
+                "avatarColor": null,
+                "isAdmin": true,
+                "isModerator": true,
+                "emojis": [
+                    {
+                        "name": "ffxivmsq_comp",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb",
+                        "aliases": []
+                    },
+                    {
+                        "name": "heart_bi",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51",
+                        "aliases": []
+                    },
+                    {
+                        "name": "heart_trans",
+                        "host": null,
+                        "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b",
+                        "aliases": [
+                            ""
+                        ]
+                    }
+                ]
+            },
+            "text": "What browsers do you use?\n\n\t\t(Ordering in alphabetical order)",
+            "cw": null,
+            "visibility": "public",
+            "renoteCount": 1,
+            "repliesCount": 1,
+            "reactions": {},
+            "emojis": [],
+            "fileIds": [],
+            "files": [],
+            "replyId": null,
+            "renoteId": null
+        },
+        "myReaction": "👍"
+    },
+    {
+        "id": "8ebr49xcpj",
+        "createdAt": "2020-11-07T21:15:42.528Z",
+        "userId": "83sv4lyx22",
+        "user": {
+            "id": "83sv4lyx22",
+            "name": ":ffxivmsq_comp: Efertone",
+            "username": "efertone",
+            "host": null,
+            "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+            "avatarBlurhash": null,
+            "avatarColor": null,
+            "isAdmin": true,
+            "isModerator": true,
+            "emojis": [
+                {
+                    "name": "ffxivmsq_comp",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb",
+                    "aliases": []
+                },
+                {
+                    "name": "heart_bi",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51",
+                    "aliases": []
+                },
+                {
+                    "name": "heart_trans",
+                    "host": null,
+                    "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b",
+                    "aliases": [
+                        ""
+                    ]
+                }
+            ]
+        },
+        "text": "What browsers do you use?\n\n\t\t(Ordering in alphabetical order)",
+        "cw": null,
+        "visibility": "public",
+        "renoteCount": 1,
+        "repliesCount": 1,
+        "reactions": {},
+        "emojis": [],
+        "fileIds": [],
+        "files": [],
+        "replyId": null,
+        "renoteId": null,
+        "poll": {
+            "multiple": true,
+            "expiresAt": null,
+            "choices": [
+                {
+                    "text": "Brave",
+                    "votes": 0,
+                    "isVoted": false
+                },
+                {
+                    "text": "Chrome",
+                    "votes": 2,
+                    "isVoted": false
+                },
+                {
+                    "text": "Chromium",
+                    "votes": 1,
+                    "isVoted": false
+                },
+                {
+                    "text": "Edge",
+                    "votes": 2,
+                    "isVoted": false
+                },
+                {
+                    "text": "Firefox",
+                    "votes": 8,
+                    "isVoted": true
+                },
+                {
+                    "text": "Min",
+                    "votes": 1,
+                    "isVoted": true
+                },
+                {
+                    "text": "qutebrowser",
+                    "votes": 1,
+                    "isVoted": true
+                },
+                {
+                    "text": "surf",
+                    "votes": 2,
+                    "isVoted": true
+                },
+                {
+                    "text": "Vivaldi",
+                    "votes": 1,
+                    "isVoted": false
+                },
+                {
+                    "text": "other... (reply)",
+                    "votes": 1,
+                    "isVoted": false
+                }
+            ]
+        }
+    }
+]

@@ -94,3 +94,17 @@ func (e RequestValidationError) Error() string {
 		e.Message,
 	)
 }
+
+// NotImplementedYet is an error for endpoint without implementation.
+// The error will contain a reason for that, for example
+// we don't know what is the response structure yet.
+type NotImplementedYet struct {
+	Reason string
+}
+
+func (e NotImplementedYet) Error() string {
+	return fmt.Sprintf(
+		"Not implemented yet, reason: %s",
+		e.Reason,
+	)
+}

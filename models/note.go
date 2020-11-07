@@ -29,4 +29,5 @@ type Note struct {
 	URI          string            `json:"uri"`
 	URL          string            `json:"url"`
 	Instance     *Instance         `json:"instance"`
+	Poll         *Poll             `json:"poll"`
 }
