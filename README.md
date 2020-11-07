@@ -22,7 +22,7 @@ Check the `docs` directory for more information.
 | :x: | [auth](https://misskey.io/api-doc#tag/auth) |||
 | :x: | [account](https://misskey.io/api-doc#tag/account) |||
 | :x: | [channels](https://misskey.io/api-doc#tag/channels) |||
-| :x: | [notes](https://misskey.io/api-doc#tag/notes) | [#6](https://github.com/yitsushi/go-misskey/issues/6) ||
+| :white_check_mark: | [notes](https://misskey.io/api-doc#tag/notes) | [#6](https://github.com/yitsushi/go-misskey/issues/6) ||
 | :x: | [charts](https://misskey.io/api-doc#tag/charts) | [#7](https://github.com/yitsushi/go-misskey/issues/7) ||
 | :white_check_mark: | [clips](https://misskey.io/api-doc#tag/clips) | [#8](https://github.com/yitsushi/go-misskey/issues/8) ||
 | :white_check_mark: | [drive](https://misskey.io/api-doc#tag/drive) | [#9](https://github.com/yitsushi/go-misskey/issues/9) ||
