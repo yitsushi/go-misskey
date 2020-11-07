@@ -2,6 +2,7 @@ package notes
 
 import (
 	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/services/notes/polls"
 	"github.com/yitsushi/go-misskey/services/notes/reactions"
 	"github.com/yitsushi/go-misskey/services/notes/timeline"
 )
@@ -24,4 +25,9 @@ func (s *Service) Reactions() *reactions.Service {
 // Timeline contains all endpoints related to /notes/timeline.
 func (s *Service) Timeline() *timeline.Service {
 	return timeline.NewService(s.Call)
+}
+
+// Polls contains all endpoints related to /notes/polls.
+func (s *Service) Polls() *polls.Service {
+	return polls.NewService(s.Call)
 }
