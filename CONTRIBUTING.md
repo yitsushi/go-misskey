@@ -13,22 +13,24 @@ Please read our [Code of Conduct][code-of-conduct].
 [What should I know before I get started?](#what-should-i-know-before-i-get-started)
 
 [How Can I Contribute?](#how-can-i-contribute)
-  * [Reporting Bugs](#reporting-bugs)
-  * [Suggesting Enhancements](#suggesting-enhancements)
-  * [Your First Code Contribution](#your-first-code-contribution)
-  * [Pull Requests](#pull-requests)
+
+* [Reporting Bugs](#reporting-bugs)
+* [Suggesting Enhancements](#suggesting-enhancements)
+* [Your First Code Contribution](#your-first-code-contribution)
+* [Pull Requests](#pull-requests)
 
 [Styleguides](#styleguides)
-  * [Git Commit Messages](#git-commit-messages)
-  * [Documentation Styleguide](#documentation-styleguide)
+
+* [Git Commit Messages](#git-commit-messages)
+* [Documentation Styleguide](#documentation-styleguide)
 
 [Additional Notes](#additional-notes)
   * [Issue and Pull Request Labels](#issue-and-pull-request-labels)
 
-## What should I know before I get started?
+## What should I know before I get started
 
-Other then Go, not so much. If you are present on any of the Misskey instances,
-it may be a bit of advantage, but you can contribute without any experiences
+Other then Go, not much. If you are present on any of the Misskey instances,
+it may be a bit of an advantage, but you can contribute without any experiences
 with Misskey.
 
 However, implementing and testing endpoints requires an API token, as the
@@ -37,21 +39,21 @@ response body with `201 No Content` status code, but in reality it's
 `200 OK` and it has a response body.
 
 We try to map 1:1 on endpoints with services under the `services` directory,
-but sometimes it's better to create sub-packages or renaming functions.
+but sometimes it's better to create sub-packages or to rename functions.
 
-## How Can I Contribute?
+## How Can I Contribute
 
 ### Reporting Bugs
 
 This section guides you through submitting a bug report.
 Following these guidelines helps maintainers and
-the community understand your report 📝, reproduce the behavior 💻 💻,
+the community to understand your report 📝, reproduce the behavior 💻 💻,
 and find related reports 🔎.
 
-We have a template for bugs, if you are reporting a Bug, please
-give us as much details as you can and use the template as a guideline.
+We have a template for bugs, if you are reporting one, please
+give us as much detail as you can and use the template as a guideline.
 The `Bug report` template is not a strict template, you can format your report
-in different formats if they help understanding the issue better.
+in different ways as long as it helps understanding the issue better.
 
 #### Before Submitting A Bug Report
 
@@ -64,14 +66,13 @@ the existing issue instead of opening a new one.
 This section guides you through submitting an enhancement suggestion,
 including completely new features and minor improvements to existing
 functionality. Following these guidelines helps maintainers and the
-community understand your suggestion 📝 and find related suggestions 🔎.
+community to understand your suggestion 📝 and find related suggestions 🔎.
 
 We have a template for `Feature requests`, if you are submitting an
-enhancement suggestion, please give us as much details as you can
+enhancement suggestion, please give us as much detail as you can
 and use the template as a guideline. The `Feature requests` template
-is not a strict template, you can format your report
-in different formats if they help understanding the issue better.
-
+is not a strict template, you can format your report in different ways
+as long as it helps understanding the issue better.
 
 #### Before Submitting An Enhancement Suggestion
 
@@ -85,22 +86,24 @@ Unsure where to begin contributing?
 You can start by looking through these `❤️ Good first issue`,
 `📖 Documentation` and `🏳️ Help wanted` issues:
 
-- [❤️ Good first issue][good-first-issue] - issues which should be easy to
+* [❤️ Good first issue][good-first-issue] - issues which should be easy to
     to implement based on existing code. They are mostly an endpoint or
     endpoint group with straightforward implementation.
-- [🏳️ Help wanted][help-wanted] - issues which should be a bit more involved
+* [🏳️ Help wanted][help-wanted] - issues which should be a bit more involved
     than `❤️ Good first issue` issues.
-- [📖 Documentation][documentation] - issues which may not require deep understanding
+* [📖 Documentation][documentation] - issues which may not require deep understanding
     of the system, but requires to understand go.
 
 #### Local development
 
-As a requirement, you will need Go to be installed and a Misskey API token.
+As a requirement, you will need Go to be installed and a Misskey API token
+to test service endpoints which need authentication.
 If you don't have an API Token yet, you can create a new user on Slippy.
 The registration requires only a `username` and a `password`
 (yes, no `email` or `phone`).
 
-I recommend to create a simple Go file where you can test your endpoints like this:
+To test your local changes, simply create a small Go program inside the
+repository so it compiles with the code, running your modifications:
 
 ```go
 package main
@@ -190,9 +193,9 @@ Content-Type: application/json
 
 The process described here has several goals:
 
-- Maintain quality
-- Fix problems that are important to users
-- Enable a sustainable system for maintainers to review contributions
+* Maintain quality
+* Fix problems that are important to users
+* Enable a sustainable system for maintainers to review contributions
 
 Please follow these steps to have your contribution considered by the maintainers:
 
@@ -216,16 +219,16 @@ request reviewed, the reviewer(s) may ask you to complete additional
 design work, tests, or other changes before your pull request can
 be ultimately accepted.
 
-A Pull Request may will be rejected without related issue.
+A Pull Request will be rejected without a related issue.
 
 ## Styleguides
 
 ### Git Commit Messages
 
-- Use the present tense ("Add feature" not "Added feature")
-- Use the imperative mood ("Set the header..." not "Sets the header...")
-- Limit the first line to 72 characters or less
-- Reference issues and pull requests liberally after the first line
+* Use the present tense ("Add feature" not "Added feature")
+* Use the imperative mood ("Set the header..." not "Sets the header...")
+* Limit the first line to 72 characters or less
+* Reference issues and pull requests liberally after the first line
 
 ### Documentation Styleguide
 
@@ -234,18 +237,18 @@ documentation, follow the [Go guidelines for documentation][godoc]. Some of them
 are tested with linter.
 
 Any other documentation lives under the `docs/` directory and
-use [Markdown][markdown] for these files.
+uses [Markdown][markdown] format.
 
 ## Additional Notes
 
 ### Issue and Pull Request Labels
 
-This section lists the labels we use to help us track and manage issues and pull requests. 
+This section lists the labels we use to help track and manage issues and pull requests.
 
 The labels are loosely grouped by their purpose, but it's not required that every issue
 have a label from every group or that an issue can't have more than one label from the same group.
 
-**Type of Issue and Issue State**
+### Type of Issue and Issue State
 
 | Label | Issues | Description |
 |-------|--------|-------------|
@@ -258,7 +261,7 @@ have a label from every group or that an issue can't have more than one label fr
 | 💬 Question           | [Link][label-question] | Further information is requested |
 | 🤡 Wontfix            | [Link][label-wontfix] | The team has decided not to fix these issues for now |
 
-**Topic Categories**
+### Topic Categories
 
 | Label | Issues | Description |
 |-------|--------|-------------|
@@ -267,7 +270,6 @@ have a label from every group or that an issue can't have more than one label fr
 | 📖 Documentation  | [Link][label-documentation]   | Improvements or additions to documentation |
 | 🔒 Security       | [Link][label-security]        | Security issues |
 | 🛠️ Service        | [Link][label-service]         | Related to any of the services/endpoints |
-
 
 [code-of-conduct]: https://github.com/yitsushi/go-misskey/blob/main/CODE_OF_CONDUCT.md
 [issue-search]: https://github.com/search?q=is%3Aissue+repo%3Ayitsushi%2Fgo-misskey
