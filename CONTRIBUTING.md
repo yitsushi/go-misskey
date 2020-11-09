@@ -219,7 +219,7 @@ request reviewed, the reviewer(s) may ask you to complete additional
 design work, tests, or other changes before your pull request can
 be ultimately accepted.
 
-A Pull Request will be rejected without a related issue.
+A Pull Request may be rejected without a related issue.
 
 ## Styleguides
 
