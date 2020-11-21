@@ -14,8 +14,8 @@ type InstancesRequest struct {
 	Federating    bool   `json:"federating"`
 	Subscribing   bool   `json:"subscribing"`
 	Publishing    bool   `json:"publishing"`
-	Limit         int    `json:"limit"`
-	Offset        int    `json:"offset"`
+	Limit         uint   `json:"limit"`
+	Offset        uint   `json:"offset"`
 	Sort          string `json:"sort"`
 }
 

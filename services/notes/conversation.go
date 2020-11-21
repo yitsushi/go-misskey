@@ -9,7 +9,7 @@ import (
 type ConversationRequest struct {
 	NoteID string `json:"noteId"`
 	Limit  uint   `json:"limit"`
-	Offset uint   `json:"offset,omitempty"`
+	Offset uint64 `json:"offset,omitempty"`
 }
 
 // Validate the request.

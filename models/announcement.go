@@ -15,4 +15,5 @@ type Announcement struct {
 	Text      core.String `json:"text"`
 	ImageURL  core.String `json:"imageUrl"`
 	IsRead    bool        `json:"isRead"`
+	Reads     uint64      `json:"reads"`
 }

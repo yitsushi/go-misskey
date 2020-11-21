@@ -14,7 +14,7 @@ Check the `docs` directory for more information.
 
 | Status | Endpoint Group | Implementation Issue | Note |
 |--------|----------------|----------------------|------|
-| :x: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) ||
+| :warning: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) | In Progress |
 | :white_check_mark: | [meta](https://misskey.io/api-doc#tag/meta) | ||
 | :white_check_mark: | [antennas](https://misskey.io/api-doc#tag/antennas) | [#3](https://github.com/yitsushi/go-misskey/issues/3) ||
 | :white_check_mark: | [federation](https://misskey.io/api-doc#tag/federation) | [#4](https://github.com/yitsushi/go-misskey/issues/4) ||
