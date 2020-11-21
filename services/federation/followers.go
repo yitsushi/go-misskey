@@ -10,7 +10,7 @@ type FollowersRequest struct {
 	Host    string `json:"host"`
 	SinceID string `json:"sinceId"`
 	UntilID string `json:"untilId"`
-	Limit   int    `json:"limit"`
+	Limit   uint   `json:"limit"`
 }
 
 // Validate the request.

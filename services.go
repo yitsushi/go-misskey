@@ -2,6 +2,7 @@ package misskey
 
 import (
 	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/services/admin"
 	"github.com/yitsushi/go-misskey/services/antennas"
 	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/services/drive"
@@ -65,4 +66,9 @@ func (c *Client) Notes() *notes.Service {
 // Promo contains all endpoints under /promo.
 func (c *Client) Promo() *promo.Service {
 	return promo.NewService(c.requestHandler)
+}
+
+// Admin contains all endpoints under /admin.
+func (c *Client) Admin() *admin.Service {
+	return admin.NewService(c.requestHandler)
 }

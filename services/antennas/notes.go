@@ -13,7 +13,7 @@ const (
 // NotesRequest represents a request to fetch notes for a given Antenna.
 type NotesRequest struct {
 	AntennaID string `json:"antennaId"`
-	Limit     uint64 `json:"limit"`
+	Limit     uint   `json:"limit"`
 	SinceID   string `json:"sinceId"`
 	UntilID   string `json:"untilId"`
 }

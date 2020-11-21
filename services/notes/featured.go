@@ -7,8 +7,8 @@ import (
 
 // FeaturedRequest represents an Featured request.
 type FeaturedRequest struct {
-	Limit  uint `json:"limit"`
-	Offset uint `json:"offset"`
+	Limit  uint   `json:"limit"`
+	Offset uint64 `json:"offset"`
 }
 
 // Validate the request.

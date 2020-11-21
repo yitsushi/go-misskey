@@ -8,7 +8,7 @@ import (
 type SearchRequest struct {
 	Limit  uint   `json:"limit"`
 	Query  string `json:"query"`
-	Offset int64  `json:"offset"`
+	Offset uint64 `json:"offset"`
 }
 
 // Validate options.

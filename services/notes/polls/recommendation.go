@@ -6,8 +6,8 @@ import (
 
 // RecommendationRequest represents an Recommendation request.
 type RecommendationRequest struct {
-	Limit  uint `json:"limit"`
-	Offset uint `json:"offset"`
+	Limit  uint   `json:"limit"`
+	Offset uint64 `json:"offset"`
 }
 
 // Validate the request.
