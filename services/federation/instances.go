@@ -15,7 +15,7 @@ type InstancesRequest struct {
 	Subscribing   bool   `json:"subscribing"`
 	Publishing    bool   `json:"publishing"`
 	Limit         uint   `json:"limit"`
-	Offset        uint   `json:"offset"`
+	Offset        uint64 `json:"offset"`
 	Sort          string `json:"sort"`
 }
 

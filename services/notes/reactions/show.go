@@ -10,7 +10,7 @@ type ShowRequest struct {
 	NoteID  string      `json:"noteId"`
 	Type    core.String `json:"type"`
 	Limit   uint        `json:"Limit"`
-	Offset  uint        `json:"offset"`
+	Offset  uint64      `json:"offset"`
 	SinceID string      `json:"sinceId"`
 	UntilID string      `json:"untilId"`
 }

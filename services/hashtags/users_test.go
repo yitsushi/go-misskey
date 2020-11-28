@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/models"
 	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/test"
 )
@@ -79,7 +80,7 @@ func ExampleService_Users() {
 		Tag:    "vim",
 		Limit:  20,
 		State:  hashtags.DefaultState,
-		Origin: hashtags.OriginCombined,
+		Origin: models.OriginCombined,
 		Sort:   hashtags.SortUsersByFollowers.Descending(),
 	})
 	if err != nil {

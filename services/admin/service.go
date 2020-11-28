@@ -4,6 +4,7 @@ import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/admin/announcements"
 	"github.com/yitsushi/go-misskey/services/admin/moderation"
+	"github.com/yitsushi/go-misskey/services/admin/users"
 )
 
 // Service is the base for all the endpoints on this service.
@@ -24,4 +25,9 @@ func (s *Service) Accouncements() *announcements.Service {
 // Moderation contains all endpoints for moderation.
 func (s *Service) Moderation() *moderation.Service {
 	return moderation.NewService(s.Call)
+}
+
+// Users contains all endpoints for users.
+func (s *Service) Users() *users.Service {
+	return users.NewService(s.Call)
 }

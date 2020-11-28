@@ -57,3 +57,21 @@ type User struct {
 	PinnedPageID                   core.String `json:"pinnedPageId"`
 	PinnedPage                     core.String `json:"pinnedPage"`
 }
+
+// UserFromAdmin represents a user from admin/users/show.
+// Usually user has an Emoji list of 'Emoji',
+// but from /api/admin/show-user, it's a list of strings.
+type UserFromAdmin struct {
+	User
+
+	InjectFeaturedNote bool     `json:"injectFeaturedNote"`
+	AlwaysMarkNSFW     bool     `json:"alwaysMarkNsfw"`
+	CarefulBot         bool     `json:"carefulBot"`
+	AutoAcceptFollowed bool     `json:"autoAcceptFollowed"`
+	EmailVerified      bool     `json:"emailVerified"`
+	Email              string   `json:"email"`
+	Token              string   `json:"token"`
+	SecurityKeysList   []string `json:"securityKeysList"`
+
+	Emojis []string `json:"emojis"`
+}

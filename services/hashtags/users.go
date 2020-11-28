@@ -8,35 +8,25 @@ import (
 // UserState of user.
 type UserState string
 
-// UserOrigin of a user.
-type UserOrigin string
-
 const (
 	// StateAll for all users.
 	StateAll UserState = "all"
 	// StateAlive for only alive users.
 	StateAlive UserState = "alive"
 
-	// OriginCombined for local and remote users.
-	OriginCombined UserOrigin = "combined"
-	// OriginLocal for only local users.
-	OriginLocal UserOrigin = "local"
-	// OriginRemote for only remote users.
-	OriginRemote UserOrigin = "remote"
-
 	// DefaultState is the default state.
 	DefaultState UserState = StateAll
 	// DefaultOrigin is the default origin.
-	DefaultOrigin UserOrigin = OriginLocal
+	DefaultOrigin models.UserOrigin = models.OriginLocal
 )
 
 // UsersRequest represents an Users request.
 type UsersRequest struct {
-	Tag    string     `json:"tag"`
-	Limit  uint       `json:"limit"`
-	Sort   string     `json:"sort"`
-	State  UserState  `json:"state"`
-	Origin UserOrigin `json:"origin"`
+	Tag    string            `json:"tag"`
+	Limit  uint              `json:"limit"`
+	Sort   string            `json:"sort"`
+	State  UserState         `json:"state"`
+	Origin models.UserOrigin `json:"origin"`
 }
 
 // Validate options.
