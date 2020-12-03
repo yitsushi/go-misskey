@@ -3,6 +3,7 @@ package admin
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/admin/announcements"
+	"github.com/yitsushi/go-misskey/services/admin/emoji"
 	"github.com/yitsushi/go-misskey/services/admin/moderation"
 	"github.com/yitsushi/go-misskey/services/admin/users"
 )
@@ -30,4 +31,9 @@ func (s *Service) Moderation() *moderation.Service {
 // Users contains all endpoints for users.
 func (s *Service) Users() *users.Service {
 	return users.NewService(s.Call)
+}
+
+// Emoji contains all endpoints for emoji.
+func (s *Service) Emoji() *emoji.Service {
+	return emoji.NewService(s.Call)
 }
