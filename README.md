@@ -1,6 +1,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/yitsushi/go-misskey)](https://goreportcard.com/report/github.com/yitsushi/go-misskey)
 [![Coverage Status](https://coveralls.io/repos/github/yitsushi/go-misskey/badge.svg?branch=main)](https://coveralls.io/github/yitsushi/go-misskey?branch=main)
-[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/yitsushi/go-misskey)
+[![GoDoc](https://img.shields.io/badge/pkg.go.dev-doc-blue)](http://pkg.go.dev/github.com/yitsushi/go-misskey) [![Join the chat at https://gitter.im/yitsushi/go-misskey](https://badges.gitter.im/yitsushi/go-misskey.svg)](https://gitter.im/yitsushi/go-misskey?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Misskey Go SDK
 
