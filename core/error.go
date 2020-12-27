@@ -41,6 +41,15 @@ func (e RequestError) Error() string {
 	return fmt.Sprintf("%s: %s", e.Message, e.Origin.Error())
 }
 
+// EndpointNotFound happens when the requested endpoint returs with 404 error code.
+type EndpointNotFound struct {
+	Endpoint string
+}
+
+func (e EndpointNotFound) Error() string {
+	return fmt.Sprintf("404 - Not found: %s", e.Endpoint)
+}
+
 // ErrorResponseWrapper is the wrapper for error responses.
 type ErrorResponseWrapper struct {
 	Error json.RawMessage `json:"error"`

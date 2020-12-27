@@ -82,10 +82,11 @@ func (r BadReadCloser) Close() error {
 
 // SimpleMockOptions is the parameter list for SimpleMockEndpoint.
 type SimpleMockOptions struct {
-	Endpoint     string
-	ResponseFile string
-	RequestData  interface{}
-	StatusCode   int
+	Endpoint         string
+	ResponseFile     string
+	ResponseFileFunc func(interface{}) string
+	RequestData      interface{}
+	StatusCode       int
 }
 
 // SimpleMockEndpoint creates a simple MockHTTPClient that
@@ -111,9 +112,19 @@ func SimpleMockEndpoint(options *SimpleMockOptions) *MockHTTPClient {
 			)
 		}
 
+		var file string
+
+		if options.ResponseFileFunc != nil {
+			file = options.ResponseFileFunc(options.RequestData)
+		}
+
+		if file == "" {
+			file = options.ResponseFile
+		}
+
 		return NewMockResponse(
 			options.StatusCode,
-			Must(LoadFixture(options.ResponseFile)),
+			Must(LoadFixture(file)),
 			nil,
 		)
 	})
