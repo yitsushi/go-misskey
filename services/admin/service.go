@@ -4,6 +4,7 @@ import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/admin/announcements"
 	"github.com/yitsushi/go-misskey/services/admin/emoji"
+	"github.com/yitsushi/go-misskey/services/admin/logs"
 	"github.com/yitsushi/go-misskey/services/admin/moderation"
 	"github.com/yitsushi/go-misskey/services/admin/queue"
 	"github.com/yitsushi/go-misskey/services/admin/users"
@@ -42,4 +43,9 @@ func (s *Service) Emoji() *emoji.Service {
 // Queue contains all endpoints for queue.
 func (s *Service) Queue() *queue.Service {
 	return queue.NewService(s.Call)
+}
+
+// Logs contains all endpoints for logs.
+func (s *Service) Logs() *logs.Service {
+	return logs.NewService(s.Call)
 }
