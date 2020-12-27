@@ -112,6 +112,12 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 		return nil
 	}
 
+	if resp.StatusCode == http.StatusNotFound {
+		return core.EndpointNotFound{
+			Endpoint: request.EndpointPath(),
+		}
+	}
+
 	return unwrapError(body)
 }
 

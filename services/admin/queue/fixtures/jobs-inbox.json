@@ -1,0 +1,93 @@
+[
+    {
+        "id": "1633434",
+        "data": {
+            "activity": {
+                "@context": [],
+                "id": "https://monads.online/users/georgespolitzer#updates/1609075308",
+                "type": "Update",
+                "actor": "https://monads.online/users/georgespolitzer",
+                "to": [
+                    "https://www.w3.org/ns/activitystreams#Public"
+                ],
+                "object": {
+                    "id": "https://monads.online/users/georgespolitzer",
+                    "type": "Person",
+                    "following": "https://monads.online/users/georgespolitzer/following",
+                    "followers": "https://monads.online/users/georgespolitzer/followers",
+                    "inbox": "https://monads.online/users/georgespolitzer/inbox",
+                    "outbox": "https://monads.online/users/georgespolitzer/outbox",
+                    "featured": "https://monads.online/users/georgespolitzer/collections/featured",
+                    "featuredTags": "https://monads.online/users/georgespolitzer/collections/tags",
+                    "preferredUsername": "georgespolitzer",
+                    "name": "DSA Hidden Sound Village",
+                    "summary": "<p>I am a marxist-leninist and a 5&apos;10&quot; manlet chad. death to empire. Your wife&apos;s favorite cringelord.<br />Instance Wars Veteran</p>",
+                    "url": "https://monads.online/@georgespolitzer",
+                    "manuallyApprovesFollowers": false,
+                    "discoverable": false,
+                    "devices": "https://monads.online/users/georgespolitzer/collections/devices",
+                    "alsoKnownAs": [
+                        "https://radical.town/users/wintgenstein"
+                    ],
+                    "publicKey": {
+                        "id": "https://monads.online/users/georgespolitzer#main-key",
+                        "owner": "https://monads.online/users/georgespolitzer",
+                        "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArxEaO7efrD56bRlOpNUZ\n9HpjXcncwpH+XF1UHSSWrGW97rCi6MdOwywSIHc3PZ3dj6W0TQSLM6brP0/BLiee\nXkzN3a3k50mylggdgFhxnpYMZtPpdFZKn4b3Tn4OMfuCil2RtpVpmHEPHsI0dntc\nJxn4DiWwjaqkwSsyDyMpVc1xWVoOlvdrUUx+jjEwRbrEY/diDVe04hoibxyab3Wj\nQpo3435/DdBII/AufKUqGRoUttUbp8Gikf+d3J52rSxe1SMXpPXcFBGRXm18pI+k\nbqRcd+YmAV7aoN8WJgRZ64gOX1d882RKPWzgoDeBs/l4aw75cEiCwotcNj6aKBRf\nqQIDAQAB\n-----END PUBLIC KEY-----\n"
+                    },
+                    "tag": [],
+                    "attachment": [
+                        {
+                            "type": "PropertyValue",
+                            "name": "Pronouns",
+                            "value": "they/them"
+                        },
+                        {
+                            "type": "PropertyValue",
+                            "name": "FKA",
+                            "value": "wintgenstein"
+                        },
+                        {
+                            "type": "PropertyValue",
+                            "name": "Currently Reading 📖",
+                            "value": "Settlers by J Sakai"
+                        }
+                    ],
+                    "endpoints": {
+                        "sharedInbox": "https://monads.online/inbox"
+                    },
+                    "icon": {
+                        "type": "Image",
+                        "mediaType": "image/jpeg",
+                        "url": "https://media.monads.online/monads-online-mastodon/accounts/avatars/000/035/519/original/1cda7f102f4a9e8c.jpg"
+                    },
+                    "image": {
+                        "type": "Image",
+                        "mediaType": "image/jpeg",
+                        "url": "https://media.monads.online/monads-online-mastodon/accounts/headers/000/035/519/original/a1fba0c71b7494ac.jpeg"
+                    }
+                }
+            },
+            "signature": {
+                "scheme": "Signature",
+                "params": {
+                    "keyId": "https://monads.online/users/georgespolitzer#main-key",
+                    "algorithm": "rsa-sha256",
+                    "headers": [
+                        "(request-target)",
+                        "host",
+                        "date",
+                        "digest",
+                        "content-type"
+                    ],
+                    "signature": "AjdBYfwgGkBYnuhcKXE3ObFXPDYymTcQmCjqNB35ZfdHHnmfX3qgNGN4Objp6w6yQuQyTYDuK1GcY5xZb1s2j8/44lMWeeg2VNmvhW3p1zdlOOJcgXzD0QHb+Tc+OaygbzK07cDlpfi9BTde/yrhHzQQUuo9/OtOp+SJjTJw2WAiIhesavkleqKwgAaX9TmYqD7Dwd4abwsj77QwjIsV417K4CJzR16bFqYFXCE8VQ9dB78Hf5UqFM9MLg13HnMdbDlcmLW1ziIIMuiAeyXPoVfY+l7ou0gCB/OpiOwX16iyDxKXuHxYJGEfxR36eg86Liko//yG05MhIOIPhRVvWw=="
+                },
+                "signingString": "(request-target): post /inbox\nhost: slippy.xyz\ndate: Sun, 27 Dec 2020 13:21:50 GMT\ndigest: SHA-256=ksGmD61Oyiaz+H23qNkX4S5P8KrLiw6I0u9Lcgj9zEc=\ncontent-type: application/activity+json",
+                "algorithm": "RSA-SHA256",
+                "keyId": "https://monads.online/users/georgespolitzer#main-key"
+            }
+        },
+        "attempts": 2,
+        "maxAttempts": 8,
+        "timestamp": 1609075310524
+    }
+]
