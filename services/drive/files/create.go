@@ -23,7 +23,7 @@ func (r CreateRequest) Validate() error {
 func (s *Service) Create(request CreateRequest) (models.File, error) {
 	var response models.File
 	err := s.Call(
-		&core.MultipartRequest{Request: &request, Path: "/drive/files/create"},
+		&core.MultipartRequest{Request: request, Path: "/drive/files/create"},
 		&response,
 	)
 
