@@ -6,8 +6,7 @@ import (
 )
 
 // ListRequest represents an List request.
-type ListRequest struct {
-}
+type ListRequest struct{}
 
 // Validate the request.
 func (r ListRequest) Validate() error {

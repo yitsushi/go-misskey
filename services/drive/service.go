@@ -9,6 +9,7 @@ import (
 const (
 	// DefaultListLimit is the default value for the limit lists.
 	DefaultListLimit = 10
+	maxLimit         = 100
 )
 
 // Service is the base for all the endpoints on this service.

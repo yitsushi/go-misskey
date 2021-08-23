@@ -47,14 +47,15 @@ linters:
     - gofumpt
     - goheader
     - goimports
-    - golint
+    # - golint # Replaced by revive.
+    - revive
     - gomnd
     - gomodguard
     - goprintffuncname
     - gosec
-    - interfacer
+    # - interfacer # The repository of the linter has been archived by the owner.
     - lll
-    - maligned
+    # - maligned # Replaced by govet 'fieldalignment'.
     - misspell
     - nakedret
     - nestif
@@ -63,7 +64,8 @@ linters:
     - nolintlint
     - prealloc
     - rowserrcheck
-    - scopelint
+    # - scopelint  # Replaced by exportloopref.
+    - exportloopref
     - sqlclosecheck
     - stylecheck
     - testpackage

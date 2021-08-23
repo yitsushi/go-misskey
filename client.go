@@ -10,28 +10,14 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/services/antennas"
-	"github.com/yitsushi/go-misskey/services/meta"
 	"golang.org/x/net/context"
 )
-
-// HTTPClient is a simple intreface for http.Client.
-type HTTPClient interface {
-	Do(req *http.Request) (*http.Response, error)
-}
-
-// ClientInterface is an interface to describe how a Client looks like.
-// Mostly for Mocking. Or later if Misskey gets multiple API versions.
-type ClientInterface interface {
-	Meta() *meta.Service
-	Antennas() *antennas.Service
-}
 
 // Client is the main Misskey client struct.
 type Client struct {
 	BaseURL    string
 	Token      string
-	HTTPClient HTTPClient
+	HTTPClient core.HTTPClient
 
 	logger *logrus.Logger
 }

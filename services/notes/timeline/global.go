@@ -17,10 +17,10 @@ type GlobalRequest struct {
 
 // Validate the request.
 func (r GlobalRequest) Validate() error {
-	if r.Limit < 1 || r.Limit > 100 {
+	if r.Limit < 1 || r.Limit > maxLimit {
 		return core.RequestValidationError{
 			Request: r,
-			Message: core.NewRangeError(1, 100),
+			Message: core.NewRangeError(1, maxLimit),
 			Field:   "Limit",
 		}
 	}

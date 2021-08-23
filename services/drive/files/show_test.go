@@ -32,7 +32,7 @@ func ExampleService_Show_byURL() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
 	file, err := client.Drive().File().Show(files.ShowRequest{
-		URL: "https://slippy.xyz/files/7387e4d8-5c44-450d-aa85-9a89a580696e", //nolint:lll
+		URL: "https://slippy.xyz/files/7387e4d8-5c44-450d-aa85-9a89a580696e",
 	})
 	if err != nil {
 		log.Printf("[Drive/File/Show] %s", err)

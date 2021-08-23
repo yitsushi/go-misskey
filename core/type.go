@@ -1,5 +1,7 @@
 package core
 
+const unitMultiplier = 1024
+
 // String is a simple string that can be nil.
 type String *string
 
@@ -37,20 +39,20 @@ func (d DataSize) Bytes() uint64 {
 
 // Kilobytes returns with the calculated kilobytes value as a float.
 func (d DataSize) Kilobytes() float64 {
-	return float64(d.Bytes()) / 1024
+	return float64(d.Bytes()) / unitMultiplier
 }
 
 // Megabytes returns with the calculated megabytes value as a float.
 func (d DataSize) Megabytes() float64 {
-	return d.Kilobytes() / 1024
+	return d.Kilobytes() / unitMultiplier
 }
 
 // Gigabytes returns with the calculated gigabytes value as a float.
 func (d DataSize) Gigabytes() float64 {
-	return d.Megabytes() / 1024
+	return d.Megabytes() / unitMultiplier
 }
 
 // Terabytes returns with the calculated terabytes value as a float.
 func (d DataSize) Terabytes() float64 {
-	return d.Gigabytes() / 1024
+	return d.Gigabytes() / unitMultiplier
 }

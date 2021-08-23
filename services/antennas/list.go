@@ -6,8 +6,7 @@ import (
 )
 
 // ListRequest is empty, but keep it as it is for consistency.
-type ListRequest struct {
-}
+type ListRequest struct{}
 
 // Validate the request.
 func (r ListRequest) Validate() error {
