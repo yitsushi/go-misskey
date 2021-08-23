@@ -5,8 +5,7 @@ import (
 )
 
 // StatsRequest represents an Stats request.
-type StatsRequest struct {
-}
+type StatsRequest struct{}
 
 // Validate the request.
 func (r StatsRequest) Validate() error {

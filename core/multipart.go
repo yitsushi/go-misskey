@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+const numberOfPartsKeyValue = 2
+
 type multipartField struct {
 	Type  string
 	Name  string
@@ -16,6 +18,10 @@ func parseMultipartFields(r BaseRequest) map[string]multipartField {
 	fields := map[string]multipartField{}
 
 	v := reflect.ValueOf(r)
+	if v.Kind() == reflect.Ptr {
+		v = v.Elem()
+	}
+
 	for i := 0; i < v.NumField(); i++ {
 		tag := v.Type().Field(i).Tag.Get("multipart")
 		if tag == "" || tag == "-" {
@@ -45,7 +51,7 @@ func parseTag(tag string) multipartField {
 			continue
 		}
 
-		parts := strings.SplitN(part, "=", 2)
+		parts := strings.SplitN(part, "=", numberOfPartsKeyValue)
 		key, value := parts[0], parts[1]
 
 		switch key {

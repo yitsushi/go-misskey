@@ -5,8 +5,7 @@ import (
 )
 
 // TrendRequest represents an Trend request.
-type TrendRequest struct {
-}
+type TrendRequest struct{}
 
 // Trend represents one item in the response of the Trend response.
 type Trend struct {

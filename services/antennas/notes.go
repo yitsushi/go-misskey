@@ -8,6 +8,7 @@ import (
 const (
 	// NoteListDefaultLimit is the default value for notes list.
 	NoteListDefaultLimit = 10
+	noteMaxLimit         = 100
 )
 
 // NotesRequest represents a request to fetch notes for a given Antenna.
@@ -20,10 +21,10 @@ type NotesRequest struct {
 
 // Validate the request.
 func (r NotesRequest) Validate() error {
-	if r.Limit < 1 || r.Limit > 100 {
+	if r.Limit < 1 || r.Limit > noteMaxLimit {
 		return core.RequestValidationError{
 			Request: r,
-			Message: core.NewRangeError(1, 100),
+			Message: core.NewRangeError(1, noteMaxLimit),
 			Field:   "Limit",
 		}
 	}
