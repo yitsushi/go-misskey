@@ -3,6 +3,7 @@ package admin
 import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/admin/announcements"
+	"github.com/yitsushi/go-misskey/services/admin/drive"
 	"github.com/yitsushi/go-misskey/services/admin/emoji"
 	"github.com/yitsushi/go-misskey/services/admin/federation"
 	"github.com/yitsushi/go-misskey/services/admin/logs"
@@ -54,4 +55,9 @@ func (s *Service) Logs() *logs.Service {
 // Federation contains all endpoints for federation.
 func (s *Service) Federation() *federation.Service {
 	return federation.NewService(s.Call)
+}
+
+// Drive contains all endpoints for drive.
+func (s *Service) Drive() *drive.Service {
+	return drive.NewService(s.Call)
 }
