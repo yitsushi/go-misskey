@@ -20,15 +20,18 @@ type File struct {
 	Blurhash     string         `json:"blurhash"`
 	Properties   FileProperties `json:"properties"`
 	URL          string         `json:"url"`
+	Comment      string         `json:"comment"`
 	ThumbnailURL string         `json:"thumbnailUrl"`
 	FolderID     core.String    `json:"folderId"`
-	Folder       interface{}    `json:"folder"`
-	User         interface{}    `json:"user"`
+	Folder       *Folder        `json:"folder"`
+	User         *User          `json:"user"`
 }
 
 // FileProperties holds the properties of the file like width and height.
 // I don't know if there are other too, so I'll go that way now.
 type FileProperties struct {
-	Width  int `json:"width"`
-	Height int `json:"height"`
+	Width       int    `json:"width"`
+	Height      int    `json:"height"`
+	Orientation int    `json:"orientation"`
+	AvgColor    string `json:"avgColor"`
 }
