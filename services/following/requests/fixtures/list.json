@@ -1,0 +1,43 @@
+[
+  {
+    "followee": {
+      "avatarBlurhash": null,
+      "avatarColor": null,
+      "avatarUrl": "https://slippy.xyz/identicon/88v9vu5nbu",
+      "emojis": [],
+      "host": null,
+      "id": "88v9vu5nbu",
+      "isBot": true,
+      "name": null,
+      "onlineStatus": "unknown",
+      "username": "kiki_test"
+    },
+    "follower": {
+      "avatarBlurhash": null,
+      "avatarColor": null,
+      "avatarUrl": "https://slippy.xyz/files/thumbnail-26260544-87af-4d04-b284-f15eb05157a3",
+      "emojis": [
+        {
+          "name": "ffxivmsq_comp",
+          "url": "https://slippy.xyz/files/fe13318a-43c8-482f-bdd5-a9cefc8518bb"
+        },
+        {
+          "name": "heart_trans",
+          "url": "https://slippy.xyz/files/ee8e7d54-1121-46ad-83c3-b6cbeff6b52b"
+        },
+        {
+          "name": "heart_bi",
+          "url": "https://slippy.xyz/files/aefe2f46-6003-46de-a0a5-83c4e0029e51"
+        }
+      ],
+      "host": null,
+      "id": "83sv4lyx22",
+      "isAdmin": true,
+      "isModerator": true,
+      "name": ":ffxivmsq_comp: Efertone 🏳️‍⚧️",
+      "onlineStatus": "online",
+      "username": "efertone"
+    },
+    "id": "8y1u07q7yt"
+  }
+]

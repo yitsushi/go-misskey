@@ -7,6 +7,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/services/drive"
 	"github.com/yitsushi/go-misskey/services/federation"
+	"github.com/yitsushi/go-misskey/services/following"
 	"github.com/yitsushi/go-misskey/services/hashtags"
 	"github.com/yitsushi/go-misskey/services/meta"
 	"github.com/yitsushi/go-misskey/services/notes"
@@ -71,4 +72,9 @@ func (c *Client) Promo() *promo.Service {
 // Admin contains all endpoints under /admin.
 func (c *Client) Admin() *admin.Service {
 	return admin.NewService(c.requestHandler)
+}
+
+// Following contains all endpoints under /following.
+func (c *Client) Following() *following.Service {
+	return following.NewService(c.requestHandler)
 }
