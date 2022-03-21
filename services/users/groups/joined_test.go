@@ -1,14 +1,15 @@
 package groups_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"github.com/yitsushi/go-misskey"
-	"github.com/yitsushi/go-misskey/services/users/groups"
-	"github.com/yitsushi/go-misskey/test"
 	"log"
 	"net/http"
 	"os"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/services/users/groups"
+	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Joined(t *testing.T) {
