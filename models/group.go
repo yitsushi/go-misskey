@@ -10,3 +10,9 @@ type Group struct {
 	OwnerID   string    `json:"ownerId"`
 	UserIDs   []string  `json:"userIds"`
 }
+
+// GroupInvitation represents a group invitation.
+type GroupInvitation struct {
+	ID    string `json:"id"`
+	Group Group  `json:"group"`
+}
