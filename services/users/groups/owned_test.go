@@ -29,7 +29,7 @@ func TestService_Owned(t *testing.T) {
 }
 
 func ExampleService_Owned() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	resp, err := client.Users().Groups().Owned()
 	if err != nil {

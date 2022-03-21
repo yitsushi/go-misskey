@@ -29,7 +29,7 @@ func TestService_CheckExistence(t *testing.T) {
 }
 
 func ExampleService_CheckExistence() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	hash := "e960345a4fd3d8413ade5bf1104b1480"
 

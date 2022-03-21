@@ -47,7 +47,7 @@ func TestRepliesRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Replies() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	replies, err := client.Notes().Replies(notes.RepliesRequest{
 		NoteID: "8dsk7x47y3",

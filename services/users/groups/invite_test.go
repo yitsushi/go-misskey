@@ -42,7 +42,7 @@ func TestInviteRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Invite() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Users().Groups().Invite("93tyd132e7", "83sv4lyx22")
 	if err != nil {

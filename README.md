@@ -53,8 +53,14 @@ import (
 )
 
 func main() {
-  client := misskey.NewClient("https://slippy.xyz", "my misskey token")
-  client.LogLevel(logrus.DebugLevel)
+	client, err := misskey.NewClientWithOptions(
+		misskey.WithAPIToken(os.Getenv("MISSKEY_TOKEN")),
+		misskey.WithBaseURL("https", "slippy.xyz", ""),
+		misskey.WithLogLevel(logrus.DebugLevel),
+	)
+	if err != nil {
+		logrus.Error(err.Error())
+	}
 
   stats, err := client.Meta().Stats()
   if err != nil {
@@ -84,8 +90,11 @@ in the codebase, but if you turn it on, you will be able to see:
 To enable debug mode, just change the `LogLevel` to `DebugLevel`:
 
 ```go
-client := misskey.NewClient("https://slippy.xyz", "my misskey token")
-client.LogLevel(logrus.DebugLevel)
+client, _ := misskey.NewClientWithOptions(
+  misskey.WithAPIToken(os.Getenv("MISSKEY_TOKEN")),
+  misskey.WithBaseURL("https", "slippy.xyz", ""),
+  misskey.WithLogLevel(logrus.DebugLevel),
+)
 ```
 
 The output should look like this:

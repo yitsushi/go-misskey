@@ -39,7 +39,7 @@ func TestRemoveRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Remove() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Admin().Emoji().Remove("8fbtx0k2ok")
 	if err != nil {

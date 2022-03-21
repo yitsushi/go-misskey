@@ -10,7 +10,7 @@ import (
 )
 
 func ExampleService_Update() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	file, err := client.Drive().File().Show(files.ShowRequest{
 		FileID: "8a0snrdwsy",

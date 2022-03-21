@@ -43,7 +43,7 @@ func TestCreateRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Create() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	user, err := client.Following().Create("88v9vu5nbu")
 	if err != nil {

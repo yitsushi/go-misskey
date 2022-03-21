@@ -45,7 +45,7 @@ func TestListRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_List() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Announcements().List(announcements.ListRequest{
 		Limit: 10,

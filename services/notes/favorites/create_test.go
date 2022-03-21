@@ -26,7 +26,7 @@ func TestService_Create(t *testing.T) {
 }
 
 func ExampleService_Create() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	err := client.Notes().Favorites().Create("noteid")

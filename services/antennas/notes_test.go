@@ -9,7 +9,7 @@ import (
 )
 
 func ExampleService_Notes() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	notes, err := client.Antennas().Notes(antennas.NotesRequest{
 		AntennaID: "8dbpybhulw",

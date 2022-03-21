@@ -60,7 +60,7 @@ func TestService_Announcements_anon(t *testing.T) {
 }
 
 func ExampleService_Announcements() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	announcements, err := client.Meta().Announcements(
 		meta.AnnouncementsRequest{

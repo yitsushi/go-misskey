@@ -41,7 +41,7 @@ func TestListRemoteRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_ListRemote() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Emoji().ListRemote(emoji.ListRemoteRequest{})
 	if err != nil {

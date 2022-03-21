@@ -44,7 +44,7 @@ func TestTransferRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Transfer() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	group, err := client.Users().Groups().Transfer("93tyd132e7", "83sv4lyx22")
 	if err != nil {

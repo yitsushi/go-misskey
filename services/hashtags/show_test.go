@@ -36,7 +36,7 @@ func TestService_Show(t *testing.T) {
 }
 
 func ExampleService_Show() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	tag, err := client.Hashtags().Show("hacktoberfest")

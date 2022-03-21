@@ -23,7 +23,7 @@ func TestService_Users(t *testing.T) {
 
 	users, err := client.Federation().Users(federation.UsersRequest{
 		Limit: 2,
-		Host:  "misskey.io",
+		Host:  "slippy.xyz",
 	})
 	if !assert.NoError(t, err) {
 		return
@@ -44,7 +44,7 @@ func TestUsersRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Users() {
-	client := misskey.NewClient("https://misskey.io", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	resp, err := client.Federation().Users(federation.UsersRequest{
 		Limit: 90,

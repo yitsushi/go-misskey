@@ -49,7 +49,7 @@ func TestShowRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Show() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	reactions, err := client.Notes().Reactions().Show(reactions.ShowRequest{
 		NoteID: "8dsk7x47y3",

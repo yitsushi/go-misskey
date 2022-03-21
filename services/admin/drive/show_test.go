@@ -41,7 +41,7 @@ func TestShowRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Show() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Drive().Show(drive.ShowRequest{})
 	if err != nil {

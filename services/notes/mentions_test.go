@@ -47,7 +47,7 @@ func TestMentionsRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Mentions() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	noteList, err := client.Notes().Mentions(notes.MentionsRequest{

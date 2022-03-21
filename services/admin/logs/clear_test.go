@@ -37,7 +37,7 @@ func TestClearRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Clear() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Admin().Logs().Clear()
 	if err != nil {

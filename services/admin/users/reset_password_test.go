@@ -42,7 +42,7 @@ func TestResetPasswordRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_ResetPassword() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	newPassword, err := client.Admin().Users().ResetPassword("83sv4lyx22")
 	if err != nil {

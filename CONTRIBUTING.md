@@ -116,11 +116,16 @@ import (
 )
 
 func main() {
-	client := misskey.NewClient(
-        "https://slippy.xyz",
-        os.Getenv("MISSKEY_TOKEN"),
-    )
-	client.LogLevel(logrus.DebugLevel)
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithAPIToken(os.Getenv("MISSKEY_TOKEN")),
+		misskey.WithBaseURL("https", "slippy.xyz", ""),
+    misskey.WithLogLevel(logrus.DebugLevel),
+	)
+	if err != nil {
+		log.Printf("Error happened: %s", err)
+
+		return
+	}
 
 	response, err := client.Notes().Show("8ebr49xcpj")
 	if err != nil {

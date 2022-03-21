@@ -42,7 +42,7 @@ func TestStatsRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Stats() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Queue().Stats()
 	if err != nil {

@@ -27,7 +27,7 @@ func TestService_MarkAllAsRead(t *testing.T) {
 }
 
 func ExampleService_MarkAllAsRead() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Notifications().MarkAllAsRead()
 	if err != nil {

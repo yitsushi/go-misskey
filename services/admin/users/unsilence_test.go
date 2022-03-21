@@ -38,7 +38,7 @@ func TestUnsilenceRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Unsilence() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Admin().Users().Unsilence("83sv4lyx22")
 	if err != nil {

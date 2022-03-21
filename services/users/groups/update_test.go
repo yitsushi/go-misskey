@@ -44,7 +44,7 @@ func TestUpdateRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Update() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	group, err := client.Users().Groups().Update("93tyd132e7", "New Name")
 	if err != nil {

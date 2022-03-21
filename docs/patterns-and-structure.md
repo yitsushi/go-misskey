@@ -248,7 +248,7 @@ func TestHelloRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Hello() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	resp, err := client.Something().Hello(something.HelloRequest{
 		Name: "xxxxxx",
@@ -289,7 +289,7 @@ import (
 )
 
 func main() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	clips, err := client.Clips().Update(clips.UpdateRequest{

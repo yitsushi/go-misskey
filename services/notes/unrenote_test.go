@@ -28,7 +28,7 @@ func TestService_Unrenote(t *testing.T) {
 }
 
 func ExampleService_Unrenote() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	err := client.Notes().Unrenote("noteid")

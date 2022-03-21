@@ -46,7 +46,7 @@ func TestAddRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Add() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	emojiID, err := client.Admin().Emoji().Add(emoji.AddRequest{
 		FileID: "8fbtx0k2ok",

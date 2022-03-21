@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"testing"
 
+	"github.com/sirupsen/logrus"
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/test"
@@ -34,12 +35,58 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 		return test.NewMockResponse(http.StatusOK, []byte("{}"), nil)
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithAPIToken("thisistoken"),
+		misskey.WithBaseURL("https", "localhost", ""),
+		misskey.WithHTTPClient(mockClient),
+	)
 
 	_, err := client.Meta().Stats()
 	if err != nil {
 		t.Errorf("Unexpected error = %s", err)
+	}
+}
+
+func TestNewClient_oldConstructorShouldStillWork(t *testing.T) {
+	client := misskey.NewClient("https://localhost", "thisistoken")
+
+	if client.HTTPClient == nil {
+		t.Error("If HTTPClient is not defined, a default one should be created")
+	}
+}
+
+func TestNewClient_undefinedDomain(t *testing.T) {
+	client, err := misskey.NewClientWithOptions(
+		misskey.WithLogLevel(logrus.DebugLevel),
+		misskey.WithBaseURL("", "", ""),
+	)
+
+	if err == nil {
+		t.Error("Expected error, but never happened")
+
+		return
+	}
+
+	expectedErrorMessage := "client options error: undefined value: domain"
+	if err.Error() != expectedErrorMessage {
+		t.Errorf("expected error = %s; got = %s", expectedErrorMessage, err.Error())
+	}
+
+	if client != nil {
+		t.Error("NewClientWithOptions should return nil as client if error happened")
+	}
+}
+
+func TestNewClient_createDefaultHTTPClient(t *testing.T) {
+	client, err := misskey.NewClientWithOptions()
+	if err != nil {
+		t.Errorf("Unexpected error = %s", err)
+
+		return
+	}
+
+	if client.HTTPClient == nil {
+		t.Error("If HTTPClient is not defined, a default one should be created")
 	}
 }
 
@@ -49,8 +96,10 @@ func TestNewClient_RequestError(t *testing.T) {
 		return test.NewMockResponse(http.StatusNotImplemented, []byte{}, errors.New("bad")) //nolint:goerr113
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithSimpleConfig("https://localhost", "thisistoken"),
+		misskey.WithHTTPClient(mockClient),
+	)
 
 	_, err := client.Meta().Stats()
 	if err == nil {
@@ -77,8 +126,11 @@ func TestNewClient_ReadError(t *testing.T) {
 		}, nil
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithAPIToken("thisistoken"),
+		misskey.WithBaseURL("https", "localhost", ""),
+		misskey.WithHTTPClient(mockClient),
+	)
 
 	_, err := client.Meta().Stats()
 	if err == nil {
@@ -104,8 +156,11 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithAPIToken("thisistoken"),
+		misskey.WithBaseURL("https", "localhost", ""),
+		misskey.WithHTTPClient(mockClient),
+	)
 
 	_, err := client.Meta().Stats()
 	if err == nil {
@@ -131,8 +186,11 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithAPIToken("thisistoken"),
+		misskey.WithBaseURL("https", "localhost", ""),
+		misskey.WithHTTPClient(mockClient),
+	)
 
 	_, err := client.Meta().Stats()
 	if err == nil {
@@ -165,8 +223,11 @@ func TestNewClient_ValidErrorResponse(t *testing.T) {
 		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
 	})
 
-	client := misskey.NewClient("https://localhost", "thisistoken")
-	client.HTTPClient = mockClient
+	client, _ := misskey.NewClientWithOptions(
+		misskey.WithAPIToken("thisistoken"),
+		misskey.WithBaseURL("https", "localhost", ""),
+		misskey.WithHTTPClient(mockClient),
+	)
 
 	_, err := client.Meta().Stats()
 

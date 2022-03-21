@@ -9,7 +9,7 @@ import (
 )
 
 func ExampleService_Stream() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	fileList, err := client.Drive().Stream(drive.StreamRequest{
 		Limit: drive.DefaultListLimit,

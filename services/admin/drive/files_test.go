@@ -41,7 +41,7 @@ func TestFilesRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Files() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Drive().Files(drive.FilesRequest{})
 	if err != nil {

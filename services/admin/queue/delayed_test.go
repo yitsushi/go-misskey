@@ -64,7 +64,7 @@ func TestDelayedRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_DeliverDelayed() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Queue().DeliverDelayed()
 	if err != nil {
@@ -79,7 +79,7 @@ func ExampleService_DeliverDelayed() {
 }
 
 func ExampleService_InboxDelayed() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Queue().InboxDelayed()
 	if err != nil {
