@@ -43,7 +43,7 @@ func TestDeleteAllFilesRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_DeleteAllFiles() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Admin().Federation().DeleteAllFiles(federation.DeleteAllFilesRequest{
 		Host: "quey.org",

@@ -53,8 +53,14 @@ import (
 )
 
 func main() {
-  client := misskey.NewClient("https://slippy.xyz", "my misskey token")
-  client.LogLevel(logrus.DebugLevel)
+	client, err := misskey.NewClientWithOptions(
+		misskey.WithAPIToken(os.Getenv("MISSKEY_TOKEN")),
+		misskey.WithBaseURL("https", "slippy.xyz", ""),
+		misskey.WithLogLevel(logrus.DebugLevel),
+	)
+	if err != nil {
+		logrus.Error(err.Error())
+	}
 
   stats, err := client.Meta().Stats()
   if err != nil {

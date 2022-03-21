@@ -49,7 +49,7 @@ func TestRenotesRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Renotes() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	renotes, err := client.Notes().Renotes(notes.RenotesRequest{
 		NoteID: "8dsk7x47y3",

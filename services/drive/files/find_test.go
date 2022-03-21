@@ -10,7 +10,7 @@ import (
 )
 
 func ExampleService_Find() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	fileList, err := client.Drive().File().Find(files.FindRequest{
 		Name:     "file-i-really-really-want.png",

@@ -45,7 +45,7 @@ func TestCopyRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Copy() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	emojiID, err := client.Admin().Emoji().Copy(emoji.CopyRequest{
 		EmojiID: "8fbtx0k2ok",

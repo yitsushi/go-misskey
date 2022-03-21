@@ -159,7 +159,7 @@ func SimpleMockEndpoint(options *SimpleMockOptions) *MockHTTPClient {
 // MakeMockClient creates a new Client with SimpleMockOptions.
 func MakeMockClient(mockOptions SimpleMockOptions) *misskey.Client {
 	mockClient := SimpleMockEndpoint(&mockOptions)
-	client := misskey.NewClient("https://localhost", "thisistoken")
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://localhost", "thisistoken"))
 	client.HTTPClient = mockClient
 
 	return client

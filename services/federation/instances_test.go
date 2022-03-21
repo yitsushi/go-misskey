@@ -44,7 +44,7 @@ func TestInstanceRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Instances() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	resp, err := client.Federation().Instances(federation.InstancesRequest{
 		Limit: 90,

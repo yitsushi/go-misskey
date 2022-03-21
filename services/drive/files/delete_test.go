@@ -25,7 +25,7 @@ func TestService_Delete(t *testing.T) {
 }
 
 func ExampleService_Delete() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Drive().File().Delete("8a0snrdwsy")
 	if err != nil {

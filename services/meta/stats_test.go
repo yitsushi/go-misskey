@@ -35,7 +35,7 @@ func TestService_Stats(t *testing.T) {
 }
 
 func ExampleService_Stats() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	stats, err := client.Meta().Stats()
 	if err != nil {

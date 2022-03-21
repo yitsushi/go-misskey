@@ -40,7 +40,7 @@ func TestDeleteRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Delete() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Users().Groups().Delete("8y4nlhyx3v")
 	if err != nil {

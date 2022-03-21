@@ -59,7 +59,7 @@ func TestCreateRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Create() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Announcements().Create(announcements.CreateRequest{
 		Title: "New Announcement",

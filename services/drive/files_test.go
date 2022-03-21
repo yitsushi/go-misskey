@@ -9,7 +9,7 @@ import (
 )
 
 func ExampleService_Files() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	fileList, err := client.Drive().Files(drive.FilesRequest{
 		Limit: drive.DefaultListLimit,

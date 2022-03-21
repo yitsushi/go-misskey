@@ -30,7 +30,7 @@ func TestService_Information(t *testing.T) {
 }
 
 func ExampleService_Information() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	info, err := client.Drive().Information()
 	if err != nil {

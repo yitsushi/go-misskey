@@ -43,7 +43,7 @@ func TestListRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_List() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	tags, err := client.Hashtags().List(hashtags.ListRequest{

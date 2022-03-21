@@ -8,7 +8,7 @@ import (
 )
 
 func ExampleService_Show() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	antenna, err := client.Antennas().Show("8dbpybhulw")
 	if err != nil {

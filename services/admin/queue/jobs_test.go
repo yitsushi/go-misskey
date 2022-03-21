@@ -83,7 +83,7 @@ func TestJobsRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Jobs() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Queue().Jobs(queue.JobsRequest{})
 	if err != nil {

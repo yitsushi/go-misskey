@@ -26,6 +26,8 @@ type Client struct {
 const RequestTimout = 10
 
 // NewClient creates a new Misskey Client.
+//
+// Deprecated: use NewClientWithOptions instead.
 func NewClient(baseURL, token string) *Client {
 	return &Client{
 		Token:   token,
@@ -35,6 +37,27 @@ func NewClient(baseURL, token string) *Client {
 		},
 		logger: logrus.New(),
 	}
+}
+
+// NewClientWithOptions creates a new Misskey Client with defined options.
+func NewClientWithOptions(options ...ClientOption) (*Client, error) {
+	client := &Client{
+		Token:   "",
+		BaseURL: "",
+		HTTPClient: &http.Client{
+			Timeout: time.Second * RequestTimout,
+		},
+		logger: logrus.New(),
+	}
+
+	for _, opt := range options {
+		err := opt(client)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return client, nil
 }
 
 // LogLevel sets logger level.

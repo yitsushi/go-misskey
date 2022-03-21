@@ -8,7 +8,7 @@ import (
 )
 
 func ExampleService_AttachedNotes() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	notes, err := client.Drive().File().AttachedNotes("8a0snrdwsy")
 	if err != nil {

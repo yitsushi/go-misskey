@@ -44,7 +44,7 @@ func TestShowInstanceRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_ShowInstance() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	resp, err := client.Federation().ShowInstance(federation.ShowInstanceRequest{
 		Host: "slippy.xyz",

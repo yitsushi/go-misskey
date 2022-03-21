@@ -31,7 +31,7 @@ func TestService_Create(t *testing.T) {
 }
 
 func ExampleService_Create() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Notifications().Create(notifications.CreateRequest{
 		Header: core.NewString("Thi is the header"),

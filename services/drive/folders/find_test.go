@@ -9,7 +9,7 @@ import (
 )
 
 func ExampleService_Find() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	folderList, err := client.Drive().Folder().Find(folders.FindRequest{
 		Name: "Board Games",

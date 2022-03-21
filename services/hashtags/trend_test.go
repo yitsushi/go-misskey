@@ -36,7 +36,7 @@ func TestService_Trend(t *testing.T) {
 }
 
 func ExampleService_Trend() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	trend, err := client.Hashtags().Trend()

@@ -49,7 +49,7 @@ func TestUpdateInstanceRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_UpdateInstance() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Admin().Federation().UpdateInstance(federation.UpdateInstanceRequest{
 		Host:        "misskey.io",

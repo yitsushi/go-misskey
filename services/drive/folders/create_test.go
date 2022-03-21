@@ -9,7 +9,7 @@ import (
 )
 
 func ExampleService_Create() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	folder, err := client.Drive().Folder().Create(folders.CreateRequest{
 		Name: "Test with Go library",

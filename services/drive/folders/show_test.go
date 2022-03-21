@@ -8,7 +8,7 @@ import (
 )
 
 func ExampleService_Show() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	folder, err := client.Drive().Folder().Show("8dmwisynnu")
 	if err != nil {

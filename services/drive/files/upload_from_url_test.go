@@ -27,7 +27,7 @@ func TestService_UploadFromURL(t *testing.T) {
 }
 
 func ExampleService_UploadFromURL() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	// Just don't use this one, use CreateFromURL instead.
 	err := client.Drive().File().UploadFromURL(files.UploadFromURLRequest{

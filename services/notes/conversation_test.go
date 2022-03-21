@@ -48,7 +48,7 @@ func TestConversationRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_Conversation() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 	client.LogLevel(logrus.DebugLevel)
 
 	noteList, err := client.Notes().Conversation(notes.ConversationRequest{

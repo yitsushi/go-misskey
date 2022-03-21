@@ -41,7 +41,7 @@ func TestUserReportsRequest_Validate(t *testing.T) {
 }
 
 func ExampleService_UserReports() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Moderation().UserReports(moderation.UserReportsRequest{})
 	if err != nil {

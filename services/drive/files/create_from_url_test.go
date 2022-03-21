@@ -52,7 +52,7 @@ func TestService_CreateFromURL(t *testing.T) {
 }
 
 func ExampleService_CreateFromURL() {
-	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	file, err := client.Drive().File().CreateFromURL(files.CreateFromURLOptions{
 		Name:     "test-filename",
