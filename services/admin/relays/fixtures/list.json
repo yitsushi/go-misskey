@@ -1,0 +1,17 @@
+[
+  {
+    "id": "8xzywf6q3s",
+    "inbox": "https://relay.fedi.agency/inbox",
+    "status": "accepted"
+  },
+  {
+    "id": "8y02979kdo",
+    "inbox": "https://relay.blob.cat/inbox",
+    "status": "accepted"
+  },
+  {
+    "id": "8y02ain6ea",
+    "inbox": "https://relay.pettingzoo.co/inbox",
+    "status": "accepted"
+  }
+]
