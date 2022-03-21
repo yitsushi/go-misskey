@@ -42,18 +42,22 @@ func NewClient(baseURL, token string) *Client {
 // NewClientWithOptions creates a new Misskey Client with defined options.
 func NewClientWithOptions(options ...ClientOption) (*Client, error) {
 	client := &Client{
-		Token:   "",
-		BaseURL: "",
-		HTTPClient: &http.Client{
-			Timeout: time.Second * RequestTimout,
-		},
-		logger: logrus.New(),
+		Token:      "",
+		BaseURL:    "",
+		HTTPClient: nil,
+		logger:     logrus.New(),
 	}
 
 	for _, opt := range options {
 		err := opt(client)
 		if err != nil {
 			return nil, err
+		}
+	}
+
+	if client.HTTPClient == nil {
+		client.HTTPClient = &http.Client{
+			Timeout: time.Second * RequestTimout,
 		}
 	}
 

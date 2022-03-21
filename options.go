@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/sirupsen/logrus"
+	"github.com/yitsushi/go-misskey/core"
 )
 
 // ClientOption is a function that can be used to configure a client.
@@ -70,6 +71,15 @@ func WithSimpleConfig(baseURL, token string) ClientOption {
 	return func(client *Client) error {
 		client.BaseURL = baseURL
 		client.Token = token
+
+		return nil
+	}
+}
+
+// WithHTTPClient configures an HTTP Client instead of creating a new one.
+func WithHTTPClient(httpClient core.HTTPClient) ClientOption {
+	return func(client *Client) error {
+		client.HTTPClient = httpClient
 
 		return nil
 	}
