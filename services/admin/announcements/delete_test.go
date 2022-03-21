@@ -21,7 +21,7 @@ func TestService_Delete(t *testing.T) {
 		StatusCode:   http.StatusNoContent,
 	})
 
-	err := client.Admin().Accouncements().Delete("8d44utwtj6")
+	err := client.Admin().Announcements().Delete("8d44utwtj6")
 
 	assert.NoError(t, err)
 }
@@ -42,7 +42,7 @@ func TestDeleteRequest_Validate(t *testing.T) {
 func ExampleService_Delete() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	err := client.Admin().Accouncements().Delete("8d44utwtj6")
+	err := client.Admin().Announcements().Delete("8d44utwtj6")
 	if err != nil {
 		log.Printf("[Admin/Announcements] %s", err)
 

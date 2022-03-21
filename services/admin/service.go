@@ -24,8 +24,8 @@ func NewService(requestHandler core.RequestHandlerFunc) *Service {
 	return &Service{Call: requestHandler}
 }
 
-// Accouncements contains all endpoints under /admin/announcements.
-func (s *Service) Accouncements() *announcements.Service {
+// Announcements contains all endpoints under /admin/announcements.
+func (s *Service) Announcements() *announcements.Service {
 	return announcements.NewService(s.Call)
 }
 

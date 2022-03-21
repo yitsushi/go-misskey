@@ -21,7 +21,7 @@ func TestService_Create(t *testing.T) {
 		StatusCode:   http.StatusOK,
 	})
 
-	response, err := client.Admin().Accouncements().Create(announcements.CreateRequest{
+	response, err := client.Admin().Announcements().Create(announcements.CreateRequest{
 		Title: "title",
 		Text:  "text",
 	})
@@ -61,7 +61,7 @@ func TestCreateRequest_Validate(t *testing.T) {
 func ExampleService_Create() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	response, err := client.Admin().Accouncements().Create(announcements.CreateRequest{
+	response, err := client.Admin().Announcements().Create(announcements.CreateRequest{
 		Title: "New Announcement",
 		Text:  "Because we can do it!",
 	})

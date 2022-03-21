@@ -21,7 +21,7 @@ func TestService_List(t *testing.T) {
 		StatusCode:   http.StatusOK,
 	})
 
-	response, err := client.Admin().Accouncements().List(announcements.ListRequest{
+	response, err := client.Admin().Announcements().List(announcements.ListRequest{
 		Limit: 1,
 	})
 	if !assert.NoError(t, err) {
@@ -47,7 +47,7 @@ func TestListRequest_Validate(t *testing.T) {
 func ExampleService_List() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	response, err := client.Admin().Accouncements().List(announcements.ListRequest{
+	response, err := client.Admin().Announcements().List(announcements.ListRequest{
 		Limit: 10,
 	})
 	if err != nil {
