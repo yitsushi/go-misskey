@@ -10,6 +10,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/admin/moderation"
 	"github.com/yitsushi/go-misskey/services/admin/moderators"
 	"github.com/yitsushi/go-misskey/services/admin/queue"
+	"github.com/yitsushi/go-misskey/services/admin/relays"
 	"github.com/yitsushi/go-misskey/services/admin/users"
 )
 
@@ -66,4 +67,9 @@ func (s *Service) Drive() *drive.Service {
 // Moderators contains all endpoints for moderators.
 func (s *Service) Moderators() *moderators.Service {
 	return moderators.NewService(s.Call)
+}
+
+// Relays contains all endpoints for relays.
+func (s *Service) Relays() *relays.Service {
+	return relays.NewService(s.Call)
 }
