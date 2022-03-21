@@ -5,7 +5,7 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// ShowRequest represents an List request.
+// ShowRequest represents an Show request.
 type ShowRequest struct {
 	GroupID string `json:"groupId"`
 }
@@ -23,7 +23,7 @@ func (r ShowRequest) Validate() error {
 	return nil
 }
 
-// Show clips.
+// Show group.
 func (s *Service) Show(groupID string) (models.Group, error) {
 	request := ShowRequest{GroupID: groupID}
 	response := models.Group{}
