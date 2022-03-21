@@ -26,13 +26,15 @@ func (r *MultipartRequest) ToBody(token string) ([]byte, string, error) {
 	body := bytes.Buffer{}
 	writer := multipart.NewWriter(&body)
 
-	tokenPart, _ := writer.CreateFormField("i")
+	if token != "" {
+		tokenPart, _ := writer.CreateFormField("i")
 
-	_, err := tokenPart.Write([]byte(token))
-	if err != nil {
-		writer.Close()
+		_, err := tokenPart.Write([]byte(token))
+		if err != nil {
+			writer.Close()
 
-		return body.Bytes(), "", err
+			return body.Bytes(), "", err
+		}
 	}
 
 	fields := parseMultipartFields(r.Request)
