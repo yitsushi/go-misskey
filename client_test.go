@@ -47,6 +47,14 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 	}
 }
 
+func TestNewClient_oldConstructorShouldStillWork(t *testing.T) {
+	client := misskey.NewClient("https://localhost", "thisistoken")
+
+	if client.HTTPClient == nil {
+		t.Error("If HTTPClient is not defined, a default one should be created")
+	}
+}
+
 func TestNewClient_undefinedDomain(t *testing.T) {
 	client, err := misskey.NewClientWithOptions(
 		misskey.WithLogLevel(logrus.DebugLevel),
@@ -66,6 +74,19 @@ func TestNewClient_undefinedDomain(t *testing.T) {
 
 	if client != nil {
 		t.Error("NewClientWithOptions should return nil as client if error happened")
+	}
+}
+
+func TestNewClient_createDefaultHTTPClient(t *testing.T) {
+	client, err := misskey.NewClientWithOptions()
+	if err != nil {
+		t.Errorf("Unexpected error = %s", err)
+
+		return
+	}
+
+	if client.HTTPClient == nil {
+		t.Error("If HTTPClient is not defined, a default one should be created")
 	}
 }
 
