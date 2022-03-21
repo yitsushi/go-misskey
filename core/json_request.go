@@ -32,7 +32,9 @@ func (r JSONRequest) ToBody(token string) ([]byte, string, error) {
 		return requestBody, jsonContentType, err
 	}
 
-	repack["i"] = token
+	if token != "" {
+		repack["i"] = token
+	}
 
 	content, err := json.Marshal(repack)
 
