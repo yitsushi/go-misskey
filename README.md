@@ -23,7 +23,7 @@ Check the `docs` directory for more information.
 | :white_check_mark: | [notes](https://misskey.io/api-doc#tag/notes) | [#6](https://github.com/yitsushi/go-misskey/issues/6) ||
 | :white_check_mark: | [notifications](https://misskey.io/api-doc#tag/notifications) | [#15](https://github.com/yitsushi/go-misskey/issues/15) ||
 | :white_check_mark: | [reactions](https://misskey.io/api-doc#tag/reactions) | [#14](https://github.com/yitsushi/go-misskey/issues/14) ||
-| :warning: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) | In Progress (74%) |
+| :warning: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) | In Progress (84%) |
 | :x: | [account](https://misskey.io/api-doc#tag/account) |||
 | :x: | [app](https://misskey.io/api-doc#tag/app) | [#5](https://github.com/yitsushi/go-misskey/issues/5) ||
 | :x: | [auth](https://misskey.io/api-doc#tag/auth) |||
