@@ -13,6 +13,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/notes"
 	"github.com/yitsushi/go-misskey/services/notifications"
 	"github.com/yitsushi/go-misskey/services/promo"
+	"github.com/yitsushi/go-misskey/services/users"
 )
 
 func (c *Client) requestHandler(request core.Request, response interface{}) error {
@@ -77,4 +78,9 @@ func (c *Client) Admin() *admin.Service {
 // Following contains all endpoints under /following.
 func (c *Client) Following() *following.Service {
 	return following.NewService(c.requestHandler)
+}
+
+// Users contains all endpoints under /users.
+func (c *Client) Users() *users.Service {
+	return users.NewService(c.requestHandler)
 }

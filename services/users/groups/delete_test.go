@@ -1,4 +1,4 @@
-package announcements_test
+package groups_test
 
 import (
 	"log"
@@ -9,32 +9,32 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
-	"github.com/yitsushi/go-misskey/services/admin/announcements"
+	"github.com/yitsushi/go-misskey/services/users/groups"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Delete(t *testing.T) {
 	client := test.MakeMockClient(test.SimpleMockOptions{
-		Endpoint:     "/api/admin/announcements/delete",
-		RequestData:  &announcements.DeleteRequest{},
+		Endpoint:     "/api/users/groups/delete",
+		RequestData:  &groups.DeleteRequest{},
 		ResponseFile: "empty",
 		StatusCode:   http.StatusNoContent,
 	})
 
-	err := client.Admin().Announcements().Delete("8d44utwtj6")
-
-	assert.NoError(t, err)
+	err := client.Users().Groups().Delete("8y4nlhyx3v")
+	if !assert.NoError(t, err) {
+		return
+	}
 }
 
 func TestDeleteRequest_Validate(t *testing.T) {
 	test.ValidateRequests(
 		t,
 		[]core.BaseRequest{
-			announcements.DeleteRequest{},
-			announcements.DeleteRequest{ID: ""},
+			groups.DeleteRequest{},
 		},
 		[]core.BaseRequest{
-			announcements.DeleteRequest{ID: "8d44utwtj6"},
+			groups.DeleteRequest{GroupID: "8y4nlhyx3v"},
 		},
 	)
 }
@@ -42,9 +42,9 @@ func TestDeleteRequest_Validate(t *testing.T) {
 func ExampleService_Delete() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	err := client.Admin().Announcements().Delete("8d44utwtj6")
+	err := client.Users().Groups().Delete("8y4nlhyx3v")
 	if err != nil {
-		log.Printf("[Admin/Announcements] %s", err)
+		log.Printf("[Users/Groups/Delete] %s", err)
 
 		return
 	}

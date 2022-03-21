@@ -21,7 +21,7 @@ func TestService_Update(t *testing.T) {
 		StatusCode:   http.StatusNoContent,
 	})
 
-	err := client.Admin().Accouncements().Update(announcements.UpdateRequest{
+	err := client.Admin().Announcements().Update(announcements.UpdateRequest{
 		ID:    "8d44utwtj6",
 		Title: "New Title",
 		Text:  "New text",
@@ -63,7 +63,7 @@ func TestUpdateRequest_Validate(t *testing.T) {
 func ExampleService_Update() {
 	client := misskey.NewClient("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN"))
 
-	err := client.Admin().Accouncements().Update(announcements.UpdateRequest{
+	err := client.Admin().Announcements().Update(announcements.UpdateRequest{
 		ID:    "8d44utwtj6",
 		Title: "New Title",
 		Text:  "New text",
