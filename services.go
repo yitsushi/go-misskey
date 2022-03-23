@@ -4,6 +4,7 @@ import (
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/admin"
 	"github.com/yitsushi/go-misskey/services/antennas"
+	"github.com/yitsushi/go-misskey/services/app"
 	"github.com/yitsushi/go-misskey/services/clips"
 	"github.com/yitsushi/go-misskey/services/drive"
 	"github.com/yitsushi/go-misskey/services/federation"
@@ -83,4 +84,9 @@ func (c *Client) Following() *following.Service {
 // Users contains all endpoints under /users.
 func (c *Client) Users() *users.Service {
 	return users.NewService(c.requestHandler)
+}
+
+// App contains all endpoints under /app.
+func (c *Client) App() *app.Service {
+	return app.NewService(c.requestHandler)
 }

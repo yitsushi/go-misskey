@@ -1,0 +1,9 @@
+{
+  "callbackUrl": null,
+  "id": "8y7eu4z91l",
+  "name": "test app",
+  "permission": [
+    "read:account"
+  ],
+  "secret": "verysecretstuff"
+}

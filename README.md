@@ -14,6 +14,7 @@ Check the `docs` directory for more information.
 | Status | Endpoint Group | Implementation Issue | Note |
 |--------|----------------|----------------------|------|
 | :white_check_mark: | [antennas](https://misskey.io/api-doc#tag/antennas) | [#3](https://github.com/yitsushi/go-misskey/issues/3) ||
+| :white_check_mark: | [app](https://misskey.io/api-doc#tag/app) | [#5](https://github.com/yitsushi/go-misskey/issues/5) ||
 | :white_check_mark: | [clips](https://misskey.io/api-doc#tag/clips) | [#8](https://github.com/yitsushi/go-misskey/issues/8) ||
 | :white_check_mark: | [drive](https://misskey.io/api-doc#tag/drive) | [#9](https://github.com/yitsushi/go-misskey/issues/9) ||
 | :white_check_mark: | [federation](https://misskey.io/api-doc#tag/federation) | [#4](https://github.com/yitsushi/go-misskey/issues/4) ||
@@ -26,7 +27,6 @@ Check the `docs` directory for more information.
 | :warning: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) | In Progress (84%) |
 | :warning: | [users](https://misskey.io/api-doc#tag/users) | [#17](https://github.com/yitsushi/go-misskey/issues/17) | In Progress |
 | :x: | [account](https://misskey.io/api-doc#tag/account) |||
-| :x: | [app](https://misskey.io/api-doc#tag/app) | [#5](https://github.com/yitsushi/go-misskey/issues/5) ||
 | :x: | [auth](https://misskey.io/api-doc#tag/auth) |||
 | :x: | [channels](https://misskey.io/api-doc#tag/channels) |||
 | :x: | [charts](https://misskey.io/api-doc#tag/charts) | [#7](https://github.com/yitsushi/go-misskey/issues/7) ||
