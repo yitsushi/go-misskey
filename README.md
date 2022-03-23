@@ -9,6 +9,14 @@ Official Misskey API Documentation: https://misskey.io/api-doc
 
 Check the `docs` directory for more information.
 
+For examples on given endpoints, please check the corresponding `_test.go` file,
+they have at least one `ExampleService_XYZ` function, examples:
+
+- [How to create a note](https://github.com/yitsushi/go-misskey/blob/main/services/notes/create_test.go#L73)
+- [How to renote](https://github.com/yitsushi/go-misskey/blob/main/services/notes/renotes_test.go#L51)
+- [How to upload a file](https://github.com/yitsushi/go-misskey/blob/main/services/drive/files/create_test.go#L39)
+- [How to create a notification](https://github.com/yitsushi/go-misskey/blob/main/services/notifications/create_test.go#L33)
+
 ## Progress
 
 | Status | Endpoint Group | Implementation Issue | Note |
@@ -19,21 +27,21 @@ Check the `docs` directory for more information.
 | :white_check_mark: | [drive](https://misskey.io/api-doc#tag/drive) | [#9](https://github.com/yitsushi/go-misskey/issues/9) ||
 | :white_check_mark: | [federation](https://misskey.io/api-doc#tag/federation) | [#4](https://github.com/yitsushi/go-misskey/issues/4) ||
 | :white_check_mark: | [following](https://misskey.io/api-doc#tag/following) | [#10](https://github.com/yitsushi/go-misskey/issues/10) ||
+| :white_check_mark: | [groups](https://misskey.io/api-doc#tag/groups) | [#19](https://github.com/yitsushi/go-misskey/issues/19) ||
 | :white_check_mark: | [hashtags](https://misskey.io/api-doc#tag/hashtags) | [#12](https://github.com/yitsushi/go-misskey/issues/12) ||
 | :white_check_mark: | [meta](https://misskey.io/api-doc#tag/meta) | ||
 | :white_check_mark: | [notes](https://misskey.io/api-doc#tag/notes) | [#6](https://github.com/yitsushi/go-misskey/issues/6) ||
 | :white_check_mark: | [notifications](https://misskey.io/api-doc#tag/notifications) | [#15](https://github.com/yitsushi/go-misskey/issues/15) ||
 | :white_check_mark: | [reactions](https://misskey.io/api-doc#tag/reactions) | [#14](https://github.com/yitsushi/go-misskey/issues/14) ||
 | :warning: | [admin](https://misskey.io/api-doc#tag/admin) | [#21](https://github.com/yitsushi/go-misskey/issues/21) | In Progress (84%) |
-| :warning: | [users](https://misskey.io/api-doc#tag/users) | [#17](https://github.com/yitsushi/go-misskey/issues/17) | In Progress |
 | :x: | [account](https://misskey.io/api-doc#tag/account) |||
 | :x: | [auth](https://misskey.io/api-doc#tag/auth) |||
 | :x: | [channels](https://misskey.io/api-doc#tag/channels) |||
 | :x: | [charts](https://misskey.io/api-doc#tag/charts) | [#7](https://github.com/yitsushi/go-misskey/issues/7) ||
-| :x: | [groups](https://misskey.io/api-doc#tag/groups) | [#19](https://github.com/yitsushi/go-misskey/issues/19) ||
 | :x: | [list](https://misskey.io/api-doc#tag/lists) | [#20](https://github.com/yitsushi/go-misskey/issues/20) ||
 | :x: | [messaging](https://misskey.io/api-doc#tag/messaging) | [#13](https://github.com/yitsushi/go-misskey/issues/13) ||
 | :x: | [pages](https://misskey.io/api-doc#tag/pages) | [#16](https://github.com/yitsushi/go-misskey/issues/16) ||
+| :x: | [users](https://misskey.io/api-doc#tag/users) | [#17](https://github.com/yitsushi/go-misskey/issues/17) | |
 
 
 ## How to use
