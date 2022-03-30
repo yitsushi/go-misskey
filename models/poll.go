@@ -1,10 +1,12 @@
 package models
 
+import "time"
+
 // Poll represents a Poll data structure for Misskey.
 type Poll struct {
-	Multiple  bool     `json:"multiple"`
-	ExpiresAt uint64   `json:"expiresAt"`
-	Choices   []Choice `json:"choices"`
+	Multiple  bool      `json:"multiple"`
+	ExpiresAt time.Time `json:"expiresAt"`
+	Choices   []Choice  `json:"choices"`
 }
 
 // Choice is a sinple Choice in a Poll.

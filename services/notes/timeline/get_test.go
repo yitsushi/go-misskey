@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
@@ -31,6 +32,28 @@ func TestService_Get(t *testing.T) {
 
 	assert.Len(t, noteList, 3)
 	assert.Equal(t, "aoife", noteList[0].User.Username)
+}
+
+func TestService_Get_withPoll(t *testing.T) {
+	client := test.MakeMockClient(test.SimpleMockOptions{
+		Endpoint:     "/api/notes/timeline",
+		RequestData:  &timeline.GetRequest{},
+		ResponseFile: "get-with-poll.json",
+		StatusCode:   http.StatusOK,
+	})
+
+	noteList, err := client.Notes().Timeline().Get(timeline.GetRequest{
+		Limit: 3,
+	})
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	expectedTime, _ := time.Parse(time.RFC3339, "2022-03-30T17:46:55.000Z")
+
+	assert.Len(t, noteList, 1)
+	assert.Equal(t, "VoteChess", noteList[0].User.Username)
+	assert.Equal(t, expectedTime, noteList[0].Poll.ExpiresAt)
 }
 
 func TestGetRequest_Validate(t *testing.T) {

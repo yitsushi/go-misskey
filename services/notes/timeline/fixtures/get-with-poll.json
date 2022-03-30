@@ -1,0 +1,126 @@
+[{
+  "id": "8yhdb7egva",
+  "createdAt": "2022-03-30T16:49:55.000Z",
+  "userId": "89jyid1ia2",
+  "user": {
+    "id": "89jyid1ia2",
+    "name": "Vote Chess",
+    "username": "VoteChess",
+    "host": "botsin.space",
+    "avatarUrl": "https://slippy.xyz/files/thumbnail-ba736f75-ade5-4f57-bdd7-a7a056dfecd3",
+    "avatarBlurhash": null,
+    "avatarColor": null,
+    "isBot": true,
+    "instance": {
+      "name": "botsin.space",
+      "softwareName": "mastodon",
+      "softwareVersion": "3.4.6",
+      "iconUrl": "https://botsin.space/android-chrome-192x192.png",
+      "faviconUrl": "https://botsin.space/favicon.ico",
+      "themeColor": "#282c37"
+    },
+    "emojis": [],
+    "onlineStatus": "unknown"
+  },
+  "text": "Choose a move to reply to 16...O-O:",
+  "cw": null,
+  "visibility": "public",
+  "renoteCount": 0,
+  "repliesCount": 0,
+  "reactions": {},
+  "emojis": [],
+  "fileIds": [],
+  "files": [],
+  "replyId": "8yhda4tkv4",
+  "renoteId": null,
+  "uri": "https://botsin.space/users/VoteChess/statuses/108046515947266576",
+  "url": "https://botsin.space/@VoteChess/108046515947266576",
+  "reply": {
+    "id": "8yhda4tkv4",
+    "createdAt": "2022-03-30T16:49:05.000Z",
+    "userId": "89jyid1ia2",
+    "user": {
+      "id": "89jyid1ia2",
+      "name": "Vote Chess",
+      "username": "VoteChess",
+      "host": "botsin.space",
+      "avatarUrl": "https://slippy.xyz/files/thumbnail-ba736f75-ade5-4f57-bdd7-a7a056dfecd3",
+      "avatarBlurhash": null,
+      "avatarColor": null,
+      "isBot": true,
+      "instance": {
+        "name": "botsin.space",
+        "softwareName": "mastodon",
+        "softwareVersion": "3.4.6",
+        "iconUrl": "https://botsin.space/android-chrome-192x192.png",
+        "faviconUrl": "https://botsin.space/favicon.ico",
+        "themeColor": "#282c37"
+      },
+      "emojis": [],
+      "onlineStatus": "unknown"
+    },
+    "text": "Poll result: 16. Qd4nStockfish's move: 16...O-O",
+    "cw": null,
+    "visibility": "public",
+    "renoteCount": 0,
+    "repliesCount": 1,
+    "reactions": {},
+    "emojis": [],
+    "fileIds": [
+      "8yhdacqbv3"
+    ],
+    "files": [
+      {
+        "id": "8yhdacqbv3",
+        "createdAt": "2022-03-30T16:49:15.251Z",
+        "name": "88cad94d0a6e13d3.png",
+        "type": "image/png",
+        "md5": "b67ea8f11a6a91b7b3b47bd31fbd917b",
+        "size": 50140,
+        "isSensitive": false,
+        "blurhash": "y6NblB$*03EL01t704D~$*MzJ*o}s:$+01$%sq9]^hS5rspGs=$Os*NGWX%202e:^OXSS5I;kD~Aoeo#%1NGEMV@0MNfn$xC$%ocoz",
+        "properties": {
+          "width": 585,
+          "height": 585
+        },
+        "url": "https://slippy.xyz/files/e70ed3d4-a754-41b9-bda7-ab53fe54f773",
+        "thumbnailUrl": "https://slippy.xyz/files/thumbnail-0d0a0776-f710-44f0-9d9a-85b8183786bd",
+        "comment": "Position after 16...O-OnFEN: r2q1rk1/pb2bppp/8/3p4/3QpP2/1PN5/1P4PP/R1B2RK1 w - - 4 17",
+        "folderId": null,
+        "folder": null,
+        "userId": null,
+        "user": null
+      }
+    ],
+    "replyId": "8yhb62e8d2",
+    "renoteId": null,
+    "uri": "https://botsin.space/users/VoteChess/statuses/108046512647502020",
+    "url": "https://botsin.space/@VoteChess/108046512647502020"
+  },
+  "poll": {
+    "multiple": false,
+    "expiresAt": "2022-03-30T17:46:55.000Z",
+    "choices": [
+      {
+        "text": "Be3",
+        "votes": 0,
+        "isVoted": false
+      },
+      {
+        "text": "Ne2",
+        "votes": 0,
+        "isVoted": false
+      },
+      {
+        "text": "Rd1",
+        "votes": 0,
+        "isVoted": false
+      },
+      {
+        "text": "Rxa7",
+        "votes": 0,
+        "isVoted": false
+      }
+    ]
+  }
+}]
