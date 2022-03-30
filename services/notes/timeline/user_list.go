@@ -9,10 +9,10 @@ import (
 type UserListRequest struct {
 	ListID                string `json:"listId"`
 	Limit                 uint   `json:"limit"`
-	SinceID               string `json:"sinceId"`
-	UntilID               string `json:"untilId"`
-	SinceDate             uint64 `json:"sinceDate"`
-	UntilDate             uint64 `json:"untilDate"`
+	SinceID               string `json:"sinceId,omitempty"`
+	UntilID               string `json:"untilId,omitempty"`
+	SinceDate             uint64 `json:"sinceDate,omitempty"`
+	UntilDate             uint64 `json:"untilDate,omitempty"`
 	IncludeMyRenotes      bool   `json:"includeMyRenotes"`
 	IncludeRenotedMyNotes bool   `json:"includeRenotedMyNotes"`
 	IncludeLocalRenotes   bool   `json:"includeLocalRenotes"`
