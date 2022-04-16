@@ -5,7 +5,7 @@
 
 # Misskey Go SDK
 
-Official Misskey API Documentation: https://misskey.io/api-doc
+Misskey API Documentation: https://slippy.xyz/api-doc
 
 Check the `docs` directory for more information.
 
