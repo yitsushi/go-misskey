@@ -31,10 +31,10 @@ func WithAPIToken(token string) ClientOption {
 
 // WithBaseURL configures the base url of the Misskey instance.
 //
-// - Protocol: http, https
-// - Domain: Well, that's the domain name
-// - Path: Leave it empty, unless the target instance is not served from the
-//         root path. Important: Do not add a tailing slash.
+//   - Protocol: http, https
+//   - Domain: Well, that's the domain name
+//   - Path: Leave it empty, unless the target instance is not served from the
+//     root path. Important: Do not add a tailing slash.
 func WithBaseURL(protocol, domain, path string) ClientOption {
 	return func(client *Client) error {
 		if domain == "" {
