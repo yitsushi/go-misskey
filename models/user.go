@@ -23,7 +23,6 @@ type User struct {
 	AvatarColor                    core.String `json:"avatarColor"`
 	CreatedAt                      *time.Time  `json:"createdAt"`
 	UpdatedAt                      *time.Time  `json:"updatedAt"`
-	Emojis                         []Emoji     `json:"emojis"`
 	URL                            core.String `json:"url"`
 	BannerURL                      string      `json:"BannerUrl"`
 	BannerBlurhash                 core.String `json:"BannerBlurhash"`
