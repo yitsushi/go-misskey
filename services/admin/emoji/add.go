@@ -19,6 +19,7 @@ func (r AddRequest) Validate() error {
 			Field:   "Name",
 		}
 	}
+
 	if r.FileID == "" {
 		return core.RequestValidationError{
 			Request: r,
