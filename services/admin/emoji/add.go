@@ -6,11 +6,20 @@ import (
 
 // AddRequest represents an Add request.
 type AddRequest struct {
+	Name   string `json:"name"`
 	FileID string `json:"fileId"`
 }
 
 // Validate the request.
 func (r AddRequest) Validate() error {
+	if r.Name == "" {
+		return core.RequestValidationError{
+			Request: r,
+			Message: core.UndefinedRequiredField,
+			Field:   "Name",
+		}
+	}
+
 	if r.FileID == "" {
 		return core.RequestValidationError{
 			Request: r,
