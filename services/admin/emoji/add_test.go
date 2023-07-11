@@ -22,6 +22,7 @@ func TestService_Add(t *testing.T) {
 	})
 
 	response, err := client.Admin().Emoji().Add(emoji.AddRequest{
+		Name:   "Test",
 		FileID: "8fbtx0k2ok",
 	})
 
@@ -37,10 +38,15 @@ func TestAddRequest_Validate(t *testing.T) {
 		t,
 		[]core.BaseRequest{
 			emoji.AddRequest{},
+			emoji.AddRequest{Name: ""},
 			emoji.AddRequest{FileID: ""},
+			emoji.AddRequest{Name: "", FileID: ""},
 		},
 		[]core.BaseRequest{
-			emoji.AddRequest{FileID: "asd"},
+			emoji.AddRequest{
+				Name:   "test",
+				FileID: "8fbtx0k2ok",
+			},
 		},
 	)
 }
@@ -49,6 +55,7 @@ func ExampleService_Add() {
 	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	emojiID, err := client.Admin().Emoji().Add(emoji.AddRequest{
+		Name:   "EmojiName",
 		FileID: "8fbtx0k2ok",
 	})
 	if err != nil {
