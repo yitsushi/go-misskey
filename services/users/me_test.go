@@ -9,7 +9,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/services/users"
-	_ "github.com/yitsushi/go-misskey/services/users"
 	"github.com/yitsushi/go-misskey/test"
 )
 
