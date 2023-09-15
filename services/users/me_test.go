@@ -39,5 +39,5 @@ func ExampleService_Me() {
 		return
 	}
 
-	log.Printf("[Users/Me] <%s> %s", user.Username, user.Name)
+	log.Printf("[Users/Me] %s %s", user.Username, user.Name)
 }
