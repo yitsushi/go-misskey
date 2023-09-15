@@ -8,6 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/services/users"
 	_ "github.com/yitsushi/go-misskey/services/users"
 	"github.com/yitsushi/go-misskey/test"
 )
@@ -17,6 +18,7 @@ func TestService_Me(t *testing.T) {
 		Endpoint:     "/api/i",
 		ResponseFile: "i.json",
 		StatusCode:   http.StatusOK,
+		RequestData:  &users.MeRequest{},
 	})
 
 	user, err := client.Users().Me()
