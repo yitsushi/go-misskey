@@ -33,6 +33,7 @@ func parseMultipartFields(r BaseRequest) map[string]multipartField {
 		if field.OmitEmpty && v.Field(i).IsZero() {
 			continue
 		}
+
 		if field.Name == "" {
 			field.Name = v.Type().Field(i).Name
 		}
