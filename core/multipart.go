@@ -8,10 +8,11 @@ import (
 const numberOfPartsKeyValue = 2
 
 type multipartField struct {
-	Type  string
-	Name  string
-	Value []byte
-	Ref   string
+	Type      string
+	Name      string
+	Value     []byte
+	Ref       string
+	OmitEmpty bool
 }
 
 func parseMultipartFields(r BaseRequest) map[string]multipartField {
@@ -29,6 +30,9 @@ func parseMultipartFields(r BaseRequest) map[string]multipartField {
 		}
 
 		field := parseTag(tag)
+		if field.OmitEmpty && v.Field(i).IsZero() {
+			continue
+		}
 		if field.Name == "" {
 			field.Name = v.Type().Field(i).Name
 		}
@@ -46,7 +50,11 @@ func parseTag(tag string) multipartField {
 
 	for _, part := range strings.Split(tag, ",") {
 		if !strings.Contains(part, "=") {
-			field.Name = part
+			if part == "omitempty" {
+				field.OmitEmpty = true
+			} else {
+				field.Name = part
+			}
 
 			continue
 		}
