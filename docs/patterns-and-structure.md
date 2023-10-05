@@ -39,7 +39,7 @@ Example multipart request struct:
 ```go
 // CreateRequest represents a request to create a file.
 type CreateRequest struct {
-	FolderID    string `multipart:"folderId,type=field"`
+	FolderID    string `multipart:"folderId,type=field,omitempty"`
 	Name        string `multipart:"name,type=field"`
 	IsSensitive bool   `multipart:"isSensitive,type=field"`
 	Force       bool   `multipart:"force,type=field"`
