@@ -52,12 +52,13 @@ For detailed examples, check the `example` directory.
 package main
 
 import (
-  "log"
+	"log"
+	"os"
 
-  "github.com/sirupsen/logrus"
-  "github.com/yitsushi/go-misskey"
-  "github.com/yitsushi/go-misskey/core"
-  "github.com/yitsushi/go-misskey/services/meta"
+	"github.com/sirupsen/logrus"
+	"github.com/yitsushi/go-misskey"
+	"github.com/yitsushi/go-misskey/core"
+	"github.com/yitsushi/go-misskey/services/meta"
 )
 
 func main() {
@@ -70,17 +71,17 @@ func main() {
 		logrus.Error(err.Error())
 	}
 
-  stats, err := client.Meta().Stats()
-  if err != nil {
-    log.Printf("[Meta] Error happened: %s", err)
-    return
-  }
+	stats, err := client.Meta().Stats()
+	if err != nil {
+		log.Printf("[Meta] Error happened: %s", err)
+		return
+	}
 
-  log.Printf("[Stats] Instances:          %d", stats.Instances)
-  log.Printf("[Stats] NotesCount:         %d", stats.NotesCount)
-  log.Printf("[Stats] UsersCount:         %d", stats.UsersCount)
-  log.Printf("[Stats] OriginalNotesCount: %d", stats.OriginalNotesCount)
-  log.Printf("[Stats] OriginalUsersCount: %d", stats.OriginalUsersCount)
+	log.Printf("[Stats] Instances:          %d", stats.Instances)
+	log.Printf("[Stats] NotesCount:         %d", stats.NotesCount)
+	log.Printf("[Stats] UsersCount:         %d", stats.UsersCount)
+	log.Printf("[Stats] OriginalNotesCount: %d", stats.OriginalNotesCount)
+	log.Printf("[Stats] OriginalUsersCount: %d", stats.OriginalUsersCount)
 }
 ```
 
@@ -99,9 +100,9 @@ To enable debug mode, just change the `LogLevel` to `DebugLevel`:
 
 ```go
 client, _ := misskey.NewClientWithOptions(
-  misskey.WithAPIToken(os.Getenv("MISSKEY_TOKEN")),
-  misskey.WithBaseURL("https", "slippy.xyz", ""),
-  misskey.WithLogLevel(logrus.DebugLevel),
+	misskey.WithAPIToken(os.Getenv("MISSKEY_TOKEN")),
+	misskey.WithBaseURL("https", "slippy.xyz", ""),
+	misskey.WithLogLevel(logrus.DebugLevel),
 )
 ```
 
