@@ -1,11 +1,14 @@
 package promo_test
 
 import (
+	"log"
 	"net/http"
+	"os"
 	"testing"
 	"time"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/yitsushi/go-misskey"
 	"github.com/yitsushi/go-misskey/core"
 	"github.com/yitsushi/go-misskey/services/admin/promo"
 	"github.com/yitsushi/go-misskey/test"
@@ -58,4 +61,18 @@ func TestPromoRequest_Validate(t *testing.T) {
 			promo.CreateRequest{NoteID: "8zwxx3cpy9", ExpiresAt: time.Now().Add(86400 * 24 * time.Hour).Unix()},
 		},
 	)
+}
+
+func ExampleService_CreatePromo() {
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
+
+	err := client.Admin().Promo().Create(promo.CreateRequest{
+		NoteID:    "8dsk7x47y3",
+		ExpiresAt: time.Now().Add(24 * time.Hour).Unix(),
+	})
+	if err != nil {
+		log.Printf("[Admin/Promo/Create] %s", err)
+
+		return
+	}
 }
