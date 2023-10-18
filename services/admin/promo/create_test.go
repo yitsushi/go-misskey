@@ -1,7 +1,6 @@
 package promo_test
 
 import (
-	"log"
 	"net/http"
 	"testing"
 	"time"
@@ -43,13 +42,8 @@ func TestService_Create_Error(t *testing.T) {
 		ExpiresAt: time.Now().Add(86400 * 24 * time.Hour).Unix(),
 	})
 	if !assert.NoError(t, err) {
-		log.Printf("[Admin/Promos/Create] %s", err)
-
 		return
 	}
-
-	// error
-
 }
 
 func TestPromoRequest_Validate(t *testing.T) {

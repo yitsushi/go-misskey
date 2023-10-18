@@ -75,7 +75,7 @@ func (s *Service) Relays() *relays.Service {
 	return relays.NewService(s.Call)
 }
 
-// Propmo contains all endpoints for promos.
+// Promo contains all endpoints for promos.
 func (s *Service) Promo() *promo.Service {
 	return promo.NewService(s.Call)
 }
