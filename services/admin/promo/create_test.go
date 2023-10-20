@@ -63,7 +63,7 @@ func TestPromoRequest_Validate(t *testing.T) {
 	)
 }
 
-func ExampleService_CreatePromo() {
+func ExampleService_Create() {
 	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	err := client.Admin().Promo().Create(promo.CreateRequest{
