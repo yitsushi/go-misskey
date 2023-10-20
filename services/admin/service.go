@@ -9,6 +9,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/admin/logs"
 	"github.com/yitsushi/go-misskey/services/admin/moderation"
 	"github.com/yitsushi/go-misskey/services/admin/moderators"
+	"github.com/yitsushi/go-misskey/services/admin/promo"
 	"github.com/yitsushi/go-misskey/services/admin/queue"
 	"github.com/yitsushi/go-misskey/services/admin/relays"
 	"github.com/yitsushi/go-misskey/services/admin/users"
@@ -72,4 +73,9 @@ func (s *Service) Moderators() *moderators.Service {
 // Relays contains all endpoints for relays.
 func (s *Service) Relays() *relays.Service {
 	return relays.NewService(s.Call)
+}
+
+// Promo contains all endpoints for promos.
+func (s *Service) Promo() *promo.Service {
+	return promo.NewService(s.Call)
 }
