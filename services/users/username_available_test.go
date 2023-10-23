@@ -1,4 +1,4 @@
-package username_test
+package users_test
 
 import (
 	"log"
@@ -7,19 +7,19 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/yitsushi/go-misskey"
-	"github.com/yitsushi/go-misskey/services/username"
+	"github.com/yitsushi/go-misskey/services/users"
 	"github.com/yitsushi/go-misskey/test"
 )
 
 func TestService_Available(t *testing.T) {
 	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/username/available",
-		RequestData:  &username.AvailableRequest{},
-		ResponseFile: "available.json",
+		RequestData:  &users.AvailableRequest{},
+		ResponseFile: "username-available.json",
 		StatusCode:   http.StatusOK,
 	})
 
-	available, err := client.Username().Available("t")
+	available, err := client.Users().IsUsernameAvailable("t")
 	if !assert.NoError(t, err) {
 		return
 	}
@@ -30,12 +30,12 @@ func TestService_Available(t *testing.T) {
 func TestService_NotAvailable(t *testing.T) {
 	client := test.MakeMockClient(test.SimpleMockOptions{
 		Endpoint:     "/api/username/available",
-		RequestData:  &username.AvailableRequest{},
-		ResponseFile: "not-available.json",
+		RequestData:  &users.AvailableRequest{},
+		ResponseFile: "username-not-available.json",
 		StatusCode:   http.StatusOK,
 	})
 
-	available, err := client.Username().Available("t")
+	available, err := client.Users().IsUsernameAvailable("support")
 	if !assert.NoError(t, err) {
 		return
 	}
@@ -44,56 +44,48 @@ func TestService_NotAvailable(t *testing.T) {
 }
 
 func TestValidate(t *testing.T) {
+	err := users.AvailableRequest{
+		Username: "support",
+	}.Validate()
+	assert.NoError(t, err)
+}
+
+func TestValidate_Invalid(t *testing.T) {
 	tests := []struct {
-		name        string
-		username    string
-		expectError bool
+		name     string
+		username string
 	}{
 		{
-			name:        "valid",
-			username:    "support",
-			expectError: false,
+			name:     "invalid",
+			username: "bad-username",
 		},
 		{
-			name:        "invalid",
-			username:    "bad-username",
-			expectError: true,
+			name:     "invalid",
+			username: "space containing",
 		},
 		{
-			name:        "invalid",
-			username:    "space containing",
-			expectError: true,
+			name:     "empty",
+			username: "",
 		},
 		{
-			name:        "empty",
-			username:    "",
-			expectError: true,
-		},
-		{
-			name:        "too long",
-			username:    "asdffdsaasdffdsaasdffdsa",
-			expectError: true,
+			name:     "too long",
+			username: "asdffdsaasdffdsaasdffdsa",
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := username.AvailableRequest{
+			err := users.AvailableRequest{
 				Username: tt.username,
 			}.Validate()
-			switch tt.expectError {
-			case true:
-				assert.Error(t, err)
-			case false:
-				assert.NoError(t, err)
-			}
+			assert.Error(t, err)
 		})
 	}
 }
 
-func ExampleService_Available() {
+func ExampleService_IsUsernameAvailable() {
 	client, _ := misskey.NewClientWithOptions(misskey.WithBaseURL("https", "slippy.xyz", ""))
-	username := "t"
-	available, err := client.Username().Available(username)
+	username := "admin"
+	available, err := client.Users().IsUsernameAvailable(username)
 
 	switch {
 	case err != nil:

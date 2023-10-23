@@ -1,4 +1,4 @@
-package username
+package users
 
 import (
 	"regexp"
@@ -31,12 +31,14 @@ func (r AvailableRequest) Validate() error {
 	return nil
 }
 
-// Available endpoint returns an error if the username is invalid.
+// IsUsernameAvailable is used to determine if a given username is available.
+// It does not require authentication.
+// It returns an error if the username is invalid.
 // The response will be true if the username is available; false if not.
-func (s *Service) Available(username string) (bool, error) {
-	request := AvailableRequest{Username: username}
-
+func (s *Service) IsUsernameAvailable(username string) (bool, error) {
 	var response AvailableResponse
+
+	request := AvailableRequest{Username: username}
 
 	err := s.Call(
 		&core.JSONRequest{Request: &request, Path: "/username/available"},
