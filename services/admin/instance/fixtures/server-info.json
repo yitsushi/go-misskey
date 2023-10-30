@@ -1,0 +1,20 @@
+{
+   "machine": "string",
+   "os": "linux",
+   "node": "20.2.0",
+   "psql": "string",
+   "cpu": {
+     "model": "arm64",
+     "cores": 20
+   },
+   "mem": {
+     "total": 5254
+   },
+   "fs": {
+     "total": 654,
+     "used": 3
+   },
+   "net": {
+     "interface": "eth0"
+   }
+ }

@@ -29,3 +29,25 @@ type Instance struct {
 	IsSuspended             bool   `json:"isSuspended"`
 	OpenRegistrations       bool   `json:"openRegistrations"`
 }
+
+// ServerInfo has server information about a single instance.
+type ServerInfo struct {
+	Machine string `json:"machine"`
+	OS      string `json:"os"`
+	Node    string `json:"node"`
+	PSQL    string `json:"psql"`
+	CPU     struct {
+		Model string  `json:"model"`
+		Cores float64 `json:"cores"`
+	} `json:"cpu"`
+	Mem struct {
+		Total float64 `json:"total"`
+	} `json:"mem"`
+	FS struct {
+		Total float64 `json:"total"`
+		Used  float64 `json:"used"`
+	} `json:"fs"`
+	Net struct {
+		Interface string `json:"interface"`
+	} `json:"net"`
+}
