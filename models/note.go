@@ -29,4 +29,5 @@ type Note struct {
 	URL          string            `json:"url"`
 	Instance     *Instance         `json:"instance"`
 	Poll         *Poll             `json:"poll"`
+	LocalOnly    bool              `json:"localOnly"`
 }
