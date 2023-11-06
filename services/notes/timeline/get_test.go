@@ -32,6 +32,7 @@ func TestService_Get(t *testing.T) {
 
 	assert.Len(t, noteList, 3)
 	assert.Equal(t, "aoife", noteList[0].User.Username)
+	assert.Equal(t, false, noteList[0].LocalOnly)
 }
 
 func TestService_Get_withPoll(t *testing.T) {
