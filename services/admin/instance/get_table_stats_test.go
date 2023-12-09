@@ -26,12 +26,12 @@ func TestService_GetTableStats(t *testing.T) {
 		return
 	}
 
-	assert.Equal(t, 66, response.Migrations.Count)
-	assert.Equal(t, 32768, response.Migrations.Size)
+	assert.Equal(t, 262, response.Migrations.Count)
+	assert.Equal(t, 73728, response.Migrations.Size)
 }
 
-// ExampleService_ServerInfo demonstrates how to use Admin.Instance.ServerInfo.
-func TestExampleService_GetTableStats() {
+// ExampleService_GetTableStats demonstrates how to use Admin.Instance.GetTableStats.
+func ExampleService_GetTableStats() {
 	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Instance().GetTableStats()

@@ -5,7 +5,7 @@ import (
 	"github.com/yitsushi/go-misskey/models"
 )
 
-// ServerInfoRequest represents a Clear request.
+// GetTableStatsRequest represents a GetTableStats request.
 type GetTableStatsRequest struct{}
 
 // Validate the request.
