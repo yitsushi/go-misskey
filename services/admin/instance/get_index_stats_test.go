@@ -34,7 +34,7 @@ func TestGetIndexStats(t *testing.T) {
 
 // ExampleService_GetIndexStats demonstrates how to use Admin.Instance.GetIndexStats.
 func ExampleService_GetIndexStats() {
-	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("http://localho.st:4000", os.Getenv("MISSKEY_TOKEN")))
+	client, _ := misskey.NewClientWithOptions(misskey.WithSimpleConfig("https://slippy.xyz", os.Getenv("MISSKEY_TOKEN")))
 
 	response, err := client.Admin().Instance().GetIndexStats()
 	if err != nil {

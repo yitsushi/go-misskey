@@ -60,7 +60,7 @@ type TableStats struct {
 	} `json:"migrations"`
 }
 
-// TableStats has server instance information about the database tables.
+// IndexStats has server instance information about the database tables.
 type IndexStats []struct {
 	Schemaname string  `json:"schemaname"`
 	Tablename  string  `json:"tablename"`
