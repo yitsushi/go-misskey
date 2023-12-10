@@ -25,7 +25,8 @@ func TestGetIndexStats(t *testing.T) {
 
 	require.NoError(t, err)
 	require.Len(t, response, 518)
-	assert.Contains(t, "CREATE UNIQUE INDEX pg_proc_proname_args_nsp_index ON p", response[0].Indexdef)
+	assert.Contains(t, response[0].Indexdef,
+		"CREATE UNIQUE INDEX pg_proc_proname_args_nsp_index ON pg_catalog.pg_proc USING btree")
 	assert.Equal(t, "pg_proc_proname_args_nsp_index", response[0].Indexname)
 	assert.Equal(t, "pg_catalog", response[0].Schemaname)
 	assert.Equal(t, "pg_proc", response[0].Tablename)
