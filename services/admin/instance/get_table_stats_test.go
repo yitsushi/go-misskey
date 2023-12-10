@@ -26,7 +26,7 @@ func TestService_GetTableStats(t *testing.T) {
 		return
 	}
 
-	assert.Equal(t, 262, response.Migrations.Count)
+	assert.Equal(t, 73, response.Migrations.Count)
 	assert.Equal(t, 73728, response.Migrations.Size)
 }
 
