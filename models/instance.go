@@ -51,3 +51,20 @@ type ServerInfo struct {
 		Interface string `json:"interface"`
 	} `json:"net"`
 }
+
+// TableStats has server instance information about the database tables.
+type TableStats struct {
+	Migrations struct {
+		Count int `json:"count"`
+		Size  int `json:"size"`
+	} `json:"migrations"`
+}
+
+// IndexStats has server instance information about the database tables.
+type IndexStats []struct {
+	Schemaname string  `json:"schemaname"`
+	Tablename  string  `json:"tablename"`
+	Indexname  string  `json:"indexname"`
+	Tablespace *string `json:"tablespace"`
+	Indexdef   string  `json:"indexdef"`
+}

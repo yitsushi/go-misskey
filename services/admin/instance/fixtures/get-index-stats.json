@@ -1,0 +1,3628 @@
+[
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_proc",
+    "indexname": "pg_proc_proname_args_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_proc_proname_args_nsp_index ON pg_catalog.pg_proc USING btree (proname, proargtypes, pronamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_type",
+    "indexname": "pg_type_typname_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_type_typname_nsp_index ON pg_catalog.pg_type USING btree (typname, typnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_attribute",
+    "indexname": "pg_attribute_relid_attnam_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_attribute_relid_attnam_index ON pg_catalog.pg_attribute USING btree (attrelid, attname)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "migrations",
+    "indexname": "PK_8c82d7f526340ab734260ea46be",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_8c82d7f526340ab734260ea46be` ON public.migrations USING btree (id)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_class",
+    "indexname": "pg_class_relname_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_class_relname_nsp_index ON pg_catalog.pg_class USING btree (relname, relnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_class",
+    "indexname": "pg_class_tblspc_relfilenode_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_class_tblspc_relfilenode_index ON pg_catalog.pg_class USING btree (reltablespace, relfilenode)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_type",
+    "indexname": "pg_type_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_type_oid_index ON pg_catalog.pg_type USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_attribute",
+    "indexname": "pg_attribute_relid_attnum_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_attribute_relid_attnum_index ON pg_catalog.pg_attribute USING btree (attrelid, attnum)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_attrdef",
+    "indexname": "pg_attrdef_adrelid_adnum_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_attrdef_adrelid_adnum_index ON pg_catalog.pg_attrdef USING btree (adrelid, adnum)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_constraint",
+    "indexname": "pg_constraint_conname_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_constraint_conname_nsp_index ON pg_catalog.pg_constraint USING btree (conname, connamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_constraint",
+    "indexname": "pg_constraint_conrelid_contypid_conname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_constraint_conrelid_contypid_conname_index ON pg_catalog.pg_constraint USING btree (conrelid, contypid, conname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_constraint",
+    "indexname": "pg_constraint_contypid_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_constraint_contypid_index ON pg_catalog.pg_constraint USING btree (contypid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_constraint",
+    "indexname": "pg_constraint_conparentid_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_constraint_conparentid_index ON pg_catalog.pg_constraint USING btree (conparentid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_inherits",
+    "indexname": "pg_inherits_parent_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_inherits_parent_index ON pg_catalog.pg_inherits USING btree (inhparent)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_index",
+    "indexname": "pg_index_indrelid_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_index_indrelid_index ON pg_catalog.pg_index USING btree (indrelid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_operator",
+    "indexname": "pg_operator_oprname_l_r_n_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_operator_oprname_l_r_n_index ON pg_catalog.pg_operator USING btree (oprname, oprleft, oprright, oprnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_opfamily",
+    "indexname": "pg_opfamily_am_name_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_opfamily_am_name_nsp_index ON pg_catalog.pg_opfamily USING btree (opfmethod, opfname, opfnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_opclass",
+    "indexname": "pg_opclass_am_name_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_opclass_am_name_nsp_index ON pg_catalog.pg_opclass USING btree (opcmethod, opcname, opcnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_am",
+    "indexname": "pg_am_name_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_am_name_index ON pg_catalog.pg_am USING btree (amname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_amop",
+    "indexname": "pg_amop_fam_strat_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_amop_fam_strat_index ON pg_catalog.pg_amop USING btree (amopfamily, amoplefttype, amoprighttype, amopstrategy)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_amop",
+    "indexname": "pg_amop_opr_fam_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_amop_opr_fam_index ON pg_catalog.pg_amop USING btree (amopopr, amoppurpose, amopfamily)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_amproc",
+    "indexname": "pg_amproc_fam_proc_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_amproc_fam_proc_index ON pg_catalog.pg_amproc USING btree (amprocfamily, amproclefttype, amprocrighttype, amprocnum)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_language",
+    "indexname": "pg_language_name_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_language_name_index ON pg_catalog.pg_language USING btree (lanname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_statistic_ext",
+    "indexname": "pg_statistic_ext_name_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_statistic_ext_name_index ON pg_catalog.pg_statistic_ext USING btree (stxname, stxnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_statistic_ext",
+    "indexname": "pg_statistic_ext_relid_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_statistic_ext_relid_index ON pg_catalog.pg_statistic_ext USING btree (stxrelid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_rewrite",
+    "indexname": "pg_rewrite_rel_rulename_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_rewrite_rel_rulename_index ON pg_catalog.pg_rewrite USING btree (ev_class, rulename)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_trigger",
+    "indexname": "pg_trigger_tgconstraint_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_trigger_tgconstraint_index ON pg_catalog.pg_trigger USING btree (tgconstraint)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_trigger",
+    "indexname": "pg_trigger_tgrelid_tgname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_trigger_tgrelid_tgname_index ON pg_catalog.pg_trigger USING btree (tgrelid, tgname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_event_trigger",
+    "indexname": "pg_event_trigger_evtname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_event_trigger_evtname_index ON pg_catalog.pg_event_trigger USING btree (evtname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_cast",
+    "indexname": "pg_cast_source_target_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_cast_source_target_index ON pg_catalog.pg_cast USING btree (castsource, casttarget)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_inherits",
+    "indexname": "pg_inherits_relid_seqno_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_inherits_relid_seqno_index ON pg_catalog.pg_inherits USING btree (inhrelid, inhseqno)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_index",
+    "indexname": "pg_index_indexrelid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_index_indexrelid_index ON pg_catalog.pg_index USING btree (indexrelid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_operator",
+    "indexname": "pg_operator_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_operator_oid_index ON pg_catalog.pg_operator USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_opfamily",
+    "indexname": "pg_opfamily_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_opfamily_oid_index ON pg_catalog.pg_opfamily USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_opclass",
+    "indexname": "pg_opclass_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_opclass_oid_index ON pg_catalog.pg_opclass USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_am",
+    "indexname": "pg_am_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_am_oid_index ON pg_catalog.pg_am USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_amop",
+    "indexname": "pg_amop_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_amop_oid_index ON pg_catalog.pg_amop USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_amproc",
+    "indexname": "pg_amproc_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_amproc_oid_index ON pg_catalog.pg_amproc USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_language",
+    "indexname": "pg_language_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_language_oid_index ON pg_catalog.pg_language USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_largeobject_metadata",
+    "indexname": "pg_largeobject_metadata_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_largeobject_metadata_oid_index ON pg_catalog.pg_largeobject_metadata USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_largeobject",
+    "indexname": "pg_largeobject_loid_pn_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_largeobject_loid_pn_index ON pg_catalog.pg_largeobject USING btree (loid, pageno)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_aggregate",
+    "indexname": "pg_aggregate_fnoid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_aggregate_fnoid_index ON pg_catalog.pg_aggregate USING btree (aggfnoid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_statistic",
+    "indexname": "pg_statistic_relid_att_inh_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_statistic_relid_att_inh_index ON pg_catalog.pg_statistic USING btree (starelid, staattnum, stainherit)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_statistic_ext",
+    "indexname": "pg_statistic_ext_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_statistic_ext_oid_index ON pg_catalog.pg_statistic_ext USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_statistic_ext_data",
+    "indexname": "pg_statistic_ext_data_stxoid_inh_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_statistic_ext_data_stxoid_inh_index ON pg_catalog.pg_statistic_ext_data USING btree (stxoid, stxdinherit)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_rewrite",
+    "indexname": "pg_rewrite_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_rewrite_oid_index ON pg_catalog.pg_rewrite USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_trigger",
+    "indexname": "pg_trigger_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_trigger_oid_index ON pg_catalog.pg_trigger USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_event_trigger",
+    "indexname": "pg_event_trigger_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_event_trigger_oid_index ON pg_catalog.pg_event_trigger USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_description",
+    "indexname": "pg_description_o_c_o_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_description_o_c_o_index ON pg_catalog.pg_description USING btree (objoid, classoid, objsubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_cast",
+    "indexname": "pg_cast_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_cast_oid_index ON pg_catalog.pg_cast USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_enum",
+    "indexname": "pg_enum_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_enum_oid_index ON pg_catalog.pg_enum USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_enum",
+    "indexname": "pg_enum_typid_label_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_enum_typid_label_index ON pg_catalog.pg_enum USING btree (enumtypid, enumlabel)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_enum",
+    "indexname": "pg_enum_typid_sortorder_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_enum_typid_sortorder_index ON pg_catalog.pg_enum USING btree (enumtypid, enumsortorder)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_namespace",
+    "indexname": "pg_namespace_nspname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_namespace_nspname_index ON pg_catalog.pg_namespace USING btree (nspname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_conversion",
+    "indexname": "pg_conversion_default_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_conversion_default_index ON pg_catalog.pg_conversion USING btree (connamespace, conforencoding, contoencoding, oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_conversion",
+    "indexname": "pg_conversion_name_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_conversion_name_nsp_index ON pg_catalog.pg_conversion USING btree (conname, connamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_depend",
+    "indexname": "pg_depend_depender_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_depend_depender_index ON pg_catalog.pg_depend USING btree (classid, objid, objsubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_depend",
+    "indexname": "pg_depend_reference_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_depend_reference_index ON pg_catalog.pg_depend USING btree (refclassid, refobjid, refobjsubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_database",
+    "indexname": "pg_database_datname_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_database_datname_index ON pg_catalog.pg_database USING btree (datname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_tablespace",
+    "indexname": "pg_tablespace_spcname_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_tablespace_spcname_index ON pg_catalog.pg_tablespace USING btree (spcname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_authid",
+    "indexname": "pg_authid_rolname_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_authid_rolname_index ON pg_catalog.pg_authid USING btree (rolname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_auth_members",
+    "indexname": "pg_auth_members_member_role_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_auth_members_member_role_index ON pg_catalog.pg_auth_members USING btree (member, roleid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_shdepend",
+    "indexname": "pg_shdepend_depender_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE INDEX pg_shdepend_depender_index ON pg_catalog.pg_shdepend USING btree (dbid, classid, objid, objsubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_shdepend",
+    "indexname": "pg_shdepend_reference_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE INDEX pg_shdepend_reference_index ON pg_catalog.pg_shdepend USING btree (refclassid, refobjid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_config",
+    "indexname": "pg_ts_config_cfgname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_config_cfgname_index ON pg_catalog.pg_ts_config USING btree (cfgname, cfgnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_dict",
+    "indexname": "pg_ts_dict_dictname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_dict_dictname_index ON pg_catalog.pg_ts_dict USING btree (dictname, dictnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_parser",
+    "indexname": "pg_ts_parser_prsname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_parser_prsname_index ON pg_catalog.pg_ts_parser USING btree (prsname, prsnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_template",
+    "indexname": "pg_ts_template_tmplname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_template_tmplname_index ON pg_catalog.pg_ts_template USING btree (tmplname, tmplnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_extension",
+    "indexname": "pg_extension_name_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_extension_name_index ON pg_catalog.pg_extension USING btree (extname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_foreign_data_wrapper",
+    "indexname": "pg_foreign_data_wrapper_name_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_foreign_data_wrapper_name_index ON pg_catalog.pg_foreign_data_wrapper USING btree (fdwname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_foreign_server",
+    "indexname": "pg_foreign_server_name_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_foreign_server_name_index ON pg_catalog.pg_foreign_server USING btree (srvname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_user_mapping",
+    "indexname": "pg_user_mapping_user_server_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_user_mapping_user_server_index ON pg_catalog.pg_user_mapping USING btree (umuser, umserver)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_policy",
+    "indexname": "pg_policy_polrelid_polname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_policy_polrelid_polname_index ON pg_catalog.pg_policy USING btree (polrelid, polname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_replication_origin",
+    "indexname": "pg_replication_origin_roname_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_replication_origin_roname_index ON pg_catalog.pg_replication_origin USING btree (roname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_default_acl",
+    "indexname": "pg_default_acl_role_nsp_obj_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_default_acl_role_nsp_obj_index ON pg_catalog.pg_default_acl USING btree (defaclrole, defaclnamespace, defaclobjtype)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_conversion",
+    "indexname": "pg_conversion_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_conversion_oid_index ON pg_catalog.pg_conversion USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_database",
+    "indexname": "pg_database_oid_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_database_oid_index ON pg_catalog.pg_database USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_db_role_setting",
+    "indexname": "pg_db_role_setting_databaseid_rol_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_db_role_setting_databaseid_rol_index ON pg_catalog.pg_db_role_setting USING btree (setdatabase, setrole)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_tablespace",
+    "indexname": "pg_tablespace_oid_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_tablespace_oid_index ON pg_catalog.pg_tablespace USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_auth_members",
+    "indexname": "pg_auth_members_role_member_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_auth_members_role_member_index ON pg_catalog.pg_auth_members USING btree (roleid, member)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_shdescription",
+    "indexname": "pg_shdescription_o_c_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_shdescription_o_c_index ON pg_catalog.pg_shdescription USING btree (objoid, classoid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_config",
+    "indexname": "pg_ts_config_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_config_oid_index ON pg_catalog.pg_ts_config USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_config_map",
+    "indexname": "pg_ts_config_map_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_config_map_index ON pg_catalog.pg_ts_config_map USING btree (mapcfg, maptokentype, mapseqno)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_dict",
+    "indexname": "pg_ts_dict_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_dict_oid_index ON pg_catalog.pg_ts_dict USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_parser",
+    "indexname": "pg_ts_parser_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_parser_oid_index ON pg_catalog.pg_ts_parser USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_ts_template",
+    "indexname": "pg_ts_template_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_ts_template_oid_index ON pg_catalog.pg_ts_template USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_extension",
+    "indexname": "pg_extension_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_extension_oid_index ON pg_catalog.pg_extension USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_foreign_data_wrapper",
+    "indexname": "pg_foreign_data_wrapper_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_foreign_data_wrapper_oid_index ON pg_catalog.pg_foreign_data_wrapper USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_foreign_server",
+    "indexname": "pg_foreign_server_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_foreign_server_oid_index ON pg_catalog.pg_foreign_server USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_user_mapping",
+    "indexname": "pg_user_mapping_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_user_mapping_oid_index ON pg_catalog.pg_user_mapping USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_foreign_table",
+    "indexname": "pg_foreign_table_relid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_foreign_table_relid_index ON pg_catalog.pg_foreign_table USING btree (ftrelid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_policy",
+    "indexname": "pg_policy_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_policy_oid_index ON pg_catalog.pg_policy USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_replication_origin",
+    "indexname": "pg_replication_origin_roiident_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_replication_origin_roiident_index ON pg_catalog.pg_replication_origin USING btree (roident)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_default_acl",
+    "indexname": "pg_default_acl_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_default_acl_oid_index ON pg_catalog.pg_default_acl USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_collation",
+    "indexname": "pg_collation_name_enc_nsp_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_collation_name_enc_nsp_index ON pg_catalog.pg_collation USING btree (collname, collencoding, collnamespace)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_parameter_acl",
+    "indexname": "pg_parameter_acl_parname_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_parameter_acl_parname_index ON pg_catalog.pg_parameter_acl USING btree (parname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_range",
+    "indexname": "pg_range_rngmultitypid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_range_rngmultitypid_index ON pg_catalog.pg_range USING btree (rngmultitypid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_transform",
+    "indexname": "pg_transform_type_lang_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_transform_type_lang_index ON pg_catalog.pg_transform USING btree (trftype, trflang)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication",
+    "indexname": "pg_publication_pubname_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_publication_pubname_index ON pg_catalog.pg_publication USING btree (pubname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication_namespace",
+    "indexname": "pg_publication_namespace_pnnspid_pnpubid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_publication_namespace_pnnspid_pnpubid_index ON pg_catalog.pg_publication_namespace USING btree (pnnspid, pnpubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication_rel",
+    "indexname": "pg_publication_rel_prrelid_prpubid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_publication_rel_prrelid_prpubid_index ON pg_catalog.pg_publication_rel USING btree (prrelid, prpubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication_rel",
+    "indexname": "pg_publication_rel_prpubid_index",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX pg_publication_rel_prpubid_index ON pg_catalog.pg_publication_rel USING btree (prpubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_subscription",
+    "indexname": "pg_subscription_subname_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_subscription_subname_index ON pg_catalog.pg_subscription USING btree (subdbid, subname)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_proc",
+    "indexname": "pg_proc_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_proc_oid_index ON pg_catalog.pg_proc USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_class",
+    "indexname": "pg_class_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_class_oid_index ON pg_catalog.pg_class USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_attrdef",
+    "indexname": "pg_attrdef_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_attrdef_oid_index ON pg_catalog.pg_attrdef USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_constraint",
+    "indexname": "pg_constraint_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_constraint_oid_index ON pg_catalog.pg_constraint USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_namespace",
+    "indexname": "pg_namespace_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_namespace_oid_index ON pg_catalog.pg_namespace USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_authid",
+    "indexname": "pg_authid_oid_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_authid_oid_index ON pg_catalog.pg_authid USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_init_privs",
+    "indexname": "pg_init_privs_o_c_o_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_init_privs_o_c_o_index ON pg_catalog.pg_init_privs USING btree (objoid, classoid, objsubid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_seclabel",
+    "indexname": "pg_seclabel_object_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_seclabel_object_index ON pg_catalog.pg_seclabel USING btree (objoid, classoid, objsubid, provider)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_shseclabel",
+    "indexname": "pg_shseclabel_object_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_shseclabel_object_index ON pg_catalog.pg_shseclabel USING btree (objoid, classoid, provider)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_collation",
+    "indexname": "pg_collation_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_collation_oid_index ON pg_catalog.pg_collation USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_parameter_acl",
+    "indexname": "pg_parameter_acl_oid_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_parameter_acl_oid_index ON pg_catalog.pg_parameter_acl USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_partitioned_table",
+    "indexname": "pg_partitioned_table_partrelid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_partitioned_table_partrelid_index ON pg_catalog.pg_partitioned_table USING btree (partrelid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_range",
+    "indexname": "pg_range_rngtypid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_range_rngtypid_index ON pg_catalog.pg_range USING btree (rngtypid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_transform",
+    "indexname": "pg_transform_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_transform_oid_index ON pg_catalog.pg_transform USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_sequence",
+    "indexname": "pg_sequence_seqrelid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_sequence_seqrelid_index ON pg_catalog.pg_sequence USING btree (seqrelid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication",
+    "indexname": "pg_publication_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_publication_oid_index ON pg_catalog.pg_publication USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication_namespace",
+    "indexname": "pg_publication_namespace_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_publication_namespace_oid_index ON pg_catalog.pg_publication_namespace USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_publication_rel",
+    "indexname": "pg_publication_rel_oid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_publication_rel_oid_index ON pg_catalog.pg_publication_rel USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_subscription",
+    "indexname": "pg_subscription_oid_index",
+    "tablespace": "pg_global",
+    "indexdef": "CREATE UNIQUE INDEX pg_subscription_oid_index ON pg_catalog.pg_subscription USING btree (oid)"
+  },
+  {
+    "schemaname": "pg_catalog",
+    "tablename": "pg_subscription_rel",
+    "indexname": "pg_subscription_rel_srrelid_srsubid_index",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX pg_subscription_rel_srrelid_srsubid_index ON pg_catalog.pg_subscription_rel USING btree (srrelid, srsubid)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_folder",
+    "indexname": "PK_7a0c089191f5ebdc214e0af808a",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_7a0c089191f5ebdc214e0af808a` ON public.drive_folder USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_folder",
+    "indexname": "IDX_f4fc06e49c0171c85f1c48060d",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f4fc06e49c0171c85f1c48060d` ON public.drive_folder USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_folder",
+    "indexname": "IDX_00ceffb0cdc238b3233294f08f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_00ceffb0cdc238b3233294f08f` ON public.drive_folder USING btree (`parentId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "PK_43ddaaaf18c9e68029b7cbb032e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_43ddaaaf18c9e68029b7cbb032e` ON public.drive_file USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_860fa6f6c7df5bb887249fba22",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_860fa6f6c7df5bb887249fba22` ON public.drive_file USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_92779627994ac79277f070c91e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_92779627994ac79277f070c91e` ON public.drive_file USING btree (`userHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_37bb9a1b4585f8a3beb24c62d6",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_37bb9a1b4585f8a3beb24c62d6` ON public.drive_file USING btree (md5)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_a40b8df8c989d7db937ea27cf6",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a40b8df8c989d7db937ea27cf6` ON public.drive_file USING btree (type)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_d85a184c2540d2deba33daf642",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d85a184c2540d2deba33daf642` ON public.drive_file USING btree (`accessKey`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_e74022ce9a074b3866f70e0d27",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_e74022ce9a074b3866f70e0d27` ON public.drive_file USING btree (`thumbnailAccessKey`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_c55b2b7c284d9fef98026fc88e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_c55b2b7c284d9fef98026fc88e` ON public.drive_file USING btree (`webpublicAccessKey`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_e5848eac4940934e23dbc17581",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_e5848eac4940934e23dbc17581` ON public.drive_file USING btree (uri)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_bb90d1956dafc4068c28aa7560",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_bb90d1956dafc4068c28aa7560` ON public.drive_file USING btree (`folderId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "PK_cace4a159ff9f2512dd42373760",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_cace4a159ff9f2512dd42373760` ON public.`user` USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "UQ_a854e557b1b14814750c7c7b0c9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_a854e557b1b14814750c7c7b0c9` ON public.`user` USING btree (token)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "REL_58f5c71eaab331645112cf8cfa",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `REL_58f5c71eaab331645112cf8cfa` ON public.`user` USING btree (`avatarId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "REL_afc64b53f8db3707ceb34eb28e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `REL_afc64b53f8db3707ceb34eb28e` ON public.`user` USING btree (`bannerId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_80ca6e6ef65fb9ef34ea8c90f4",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_80ca6e6ef65fb9ef34ea8c90f4` ON public.`user` USING btree (`updatedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_a27b942a0d6dcff90e3ee9b5e8",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a27b942a0d6dcff90e3ee9b5e8` ON public.`user` USING btree (`usernameLower`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_fa99d777623947a5b05f394cae",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_fa99d777623947a5b05f394cae` ON public.`user` USING btree (tags)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_3252a5df8d5bbd16b281f7799e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3252a5df8d5bbd16b281f7799e` ON public.`user` USING btree (host)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_be623adaa4c566baf5d29ce0c8",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_be623adaa4c566baf5d29ce0c8` ON public.`user` USING btree (uri)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_a854e557b1b14814750c7c7b0c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_a854e557b1b14814750c7c7b0c` ON public.`user` USING btree (token)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_5deb01ae162d1d70b80d064c27",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_5deb01ae162d1d70b80d064c27` ON public.`user` USING btree (`usernameLower`, host)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "app",
+    "indexname": "PK_9478629fc093d229df09e560aea",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_9478629fc093d229df09e560aea` ON public.app USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "app",
+    "indexname": "IDX_3f5b0899ef90527a3462d7c2cb",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3f5b0899ef90527a3462d7c2cb` ON public.app USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "app",
+    "indexname": "IDX_f49922d511d666848f250663c4",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f49922d511d666848f250663c4` ON public.app USING btree (secret)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "access_token",
+    "indexname": "PK_f20f028607b2603deabd8182d12",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_f20f028607b2603deabd8182d12` ON public.access_token USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "access_token",
+    "indexname": "IDX_70ba8f6af34bc924fc9e12adb8",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_70ba8f6af34bc924fc9e12adb8` ON public.access_token USING btree (token)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "access_token",
+    "indexname": "IDX_64c327441248bae40f7d92f34f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_64c327441248bae40f7d92f34f` ON public.access_token USING btree (hash)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "access_token",
+    "indexname": "IDX_9949557d0e1b2c19e5344c171e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_9949557d0e1b2c19e5344c171e` ON public.access_token USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "PK_96d0c172a4fba276b1bbed43058",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_96d0c172a4fba276b1bbed43058` ON public.note USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_17cb3553c700a4985dff5a30ff",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_17cb3553c700a4985dff5a30ff` ON public.note USING btree (`replyId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_52ccc804d7c69037d558bac4c9",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_52ccc804d7c69037d558bac4c9` ON public.note USING btree (`renoteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_5b87d9d19127bd5d92026017a7",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_5b87d9d19127bd5d92026017a7` ON public.note USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_153536c67d05e9adb24e99fc2b",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_153536c67d05e9adb24e99fc2b` ON public.note USING btree (uri)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_51c063b6a133a9cb87145450f5",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_51c063b6a133a9cb87145450f5` ON public.note USING btree (`fileIds`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_796a8c03959361f97dc2be1d5c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_796a8c03959361f97dc2be1d5c` ON public.note USING btree (`visibleUserIds`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_54ebcb6d27222913b908d56fd8",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_54ebcb6d27222913b908d56fd8` ON public.note USING btree (mentions)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_88937d94d7443d9a99a76fa5c0",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_88937d94d7443d9a99a76fa5c0` ON public.note USING btree (tags)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_7125a826ab192eb27e11d358a5",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_7125a826ab192eb27e11d358a5` ON public.note USING btree (`userHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll_vote",
+    "indexname": "PK_fd002d371201c472490ba89c6a0",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_fd002d371201c472490ba89c6a0` ON public.poll_vote USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll_vote",
+    "indexname": "IDX_66d2bd2ee31d14bcc23069a89f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_66d2bd2ee31d14bcc23069a89f` ON public.poll_vote USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll_vote",
+    "indexname": "IDX_aecfbd5ef60374918e63ee95fa",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_aecfbd5ef60374918e63ee95fa` ON public.poll_vote USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll_vote",
+    "indexname": "IDX_50bd7164c5b78f1f4a42c4d21f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_50bd7164c5b78f1f4a42c4d21f` ON public.poll_vote USING btree (`userId`, `noteId`, choice)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_reaction",
+    "indexname": "PK_767ec729b108799b587a3fcc9cf",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_767ec729b108799b587a3fcc9cf` ON public.note_reaction USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_reaction",
+    "indexname": "IDX_13761f64257f40c5636d0ff95e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_13761f64257f40c5636d0ff95e` ON public.note_reaction USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_reaction",
+    "indexname": "IDX_45145e4953780f3cd5656f0ea6",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_45145e4953780f3cd5656f0ea6` ON public.note_reaction USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_reaction",
+    "indexname": "IDX_ad0c221b25672daf2df320a817",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_ad0c221b25672daf2df320a817` ON public.note_reaction USING btree (`userId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_watching",
+    "indexname": "PK_49286fdb23725945a74aa27d757",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_49286fdb23725945a74aa27d757` ON public.note_watching USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_watching",
+    "indexname": "IDX_318cdf42a9cfc11f479bd802bb",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_318cdf42a9cfc11f479bd802bb` ON public.note_watching USING btree (`createdAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_watching",
+    "indexname": "IDX_b0134ec406e8d09a540f818288",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b0134ec406e8d09a540f818288` ON public.note_watching USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_watching",
+    "indexname": "IDX_03e7028ab8388a3f5e3ce2a861",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_03e7028ab8388a3f5e3ce2a861` ON public.note_watching USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_watching",
+    "indexname": "IDX_44499765eec6b5489d72c4253b",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_44499765eec6b5489d72c4253b` ON public.note_watching USING btree (`noteUserId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_watching",
+    "indexname": "IDX_a42c93c69989ce1d09959df4cf",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_a42c93c69989ce1d09959df4cf` ON public.note_watching USING btree (`userId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "PK_1904eda61a784f57e6e51fa9c1f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_1904eda61a784f57e6e51fa9c1f` ON public.note_unread USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_56b0166d34ddae49d8ef7610bb",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_56b0166d34ddae49d8ef7610bb` ON public.note_unread USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_e637cba4dc4410218c4251260e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_e637cba4dc4410218c4251260e` ON public.note_unread USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_d908433a4953cc13216cd9c274",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d908433a4953cc13216cd9c274` ON public.note_unread USING btree (`userId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "meta",
+    "indexname": "PK_c4c17a6c2bd7651338b60fc590b",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_c4c17a6c2bd7651338b60fc590b` ON public.meta USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "PK_c76c6e044bdf76ecf8bfb82a645",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_c76c6e044bdf76ecf8bfb82a645` ON public.following USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_24e0042143a18157b234df186c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_24e0042143a18157b234df186c` ON public.following USING btree (`followeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_6516c5a6f3c015b4eed39978be",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_6516c5a6f3c015b4eed39978be` ON public.following USING btree (`followerId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_307be5f1d1252e0388662acb96",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_307be5f1d1252e0388662acb96` ON public.following USING btree (`followerId`, `followeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "instance",
+    "indexname": "PK_eaf60e4a0c399c9935413e06474",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_eaf60e4a0c399c9935413e06474` ON public.instance USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "instance",
+    "indexname": "IDX_8d5afc98982185799b160e10eb",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_8d5afc98982185799b160e10eb` ON public.instance USING btree (host)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "muting",
+    "indexname": "PK_2e92d06c8b5c602eeb27ca9ba48",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_2e92d06c8b5c602eeb27ca9ba48` ON public.muting USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "muting",
+    "indexname": "IDX_ec96b4fed9dae517e0dbbe0675",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_ec96b4fed9dae517e0dbbe0675` ON public.muting USING btree (`muteeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "muting",
+    "indexname": "IDX_93060675b4a79a577f31d260c6",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_93060675b4a79a577f31d260c6` ON public.muting USING btree (`muterId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "muting",
+    "indexname": "IDX_1eb9d9824a630321a29fd3b290",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_1eb9d9824a630321a29fd3b290` ON public.muting USING btree (`muterId`, `muteeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "sw_subscription",
+    "indexname": "PK_e8f763631530051b95eb6279b91",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e8f763631530051b95eb6279b91` ON public.sw_subscription USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "sw_subscription",
+    "indexname": "IDX_97754ca6f2baff9b4abb7f853d",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_97754ca6f2baff9b4abb7f853d` ON public.sw_subscription USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "blocking",
+    "indexname": "PK_e5d9a541cc1965ee7e048ea09dd",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e5d9a541cc1965ee7e048ea09dd` ON public.blocking USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "blocking",
+    "indexname": "IDX_2cd4a2743a99671308f5417759",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2cd4a2743a99671308f5417759` ON public.blocking USING btree (`blockeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "blocking",
+    "indexname": "IDX_0627125f1a8a42c9a1929edb55",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0627125f1a8a42c9a1929edb55` ON public.blocking USING btree (`blockerId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "blocking",
+    "indexname": "IDX_98a1bc5cb30dfd159de056549f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_98a1bc5cb30dfd159de056549f` ON public.blocking USING btree (`blockerId`, `blockeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list",
+    "indexname": "PK_87bab75775fd9b1ff822b656402",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_87bab75775fd9b1ff822b656402` ON public.user_list USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list",
+    "indexname": "IDX_b7fcefbdd1c18dce86687531f9",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b7fcefbdd1c18dce86687531f9` ON public.user_list USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_membership",
+    "indexname": "PK_11abb3768da1c5f8de101c9df45",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_11abb3768da1c5f8de101c9df45` ON public.user_list_membership USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "PK_cb36eb8af8412bfa978f1165d78",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_cb36eb8af8412bfa978f1165d78` ON public.hashtag USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_347fec870eafea7b26c8a73bac",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_347fec870eafea7b26c8a73bac` ON public.hashtag USING btree (name)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_2710a55f826ee236ea1a62698f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2710a55f826ee236ea1a62698f` ON public.hashtag USING btree (`mentionedUsersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_0e206cec573f1edff4a3062923",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0e206cec573f1edff4a3062923` ON public.hashtag USING btree (`mentionedLocalUsersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_4c02d38a976c3ae132228c6fce",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_4c02d38a976c3ae132228c6fce` ON public.hashtag USING btree (`mentionedRemoteUsersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_d57f9030cd3af7f63ffb1c267c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_d57f9030cd3af7f63ffb1c267c` ON public.hashtag USING btree (`attachedUsersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_0c44bf4f680964145f2a68a341",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0c44bf4f680964145f2a68a341` ON public.hashtag USING btree (`attachedLocalUsersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "hashtag",
+    "indexname": "IDX_0b03cbcd7e6a7ce068efa8ecc2",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0b03cbcd7e6a7ce068efa8ecc2` ON public.hashtag USING btree (`attachedRemoteUsersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_favorite",
+    "indexname": "PK_af0da35a60b9fa4463a62082b36",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_af0da35a60b9fa4463a62082b36` ON public.note_favorite USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_favorite",
+    "indexname": "IDX_47f4b1892f5d6ba8efb3057d81",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_47f4b1892f5d6ba8efb3057d81` ON public.note_favorite USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_favorite",
+    "indexname": "IDX_0f4fb9ad355f3effff221ef245",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0f4fb9ad355f3effff221ef245` ON public.note_favorite USING btree (`userId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "abuse_user_report",
+    "indexname": "PK_87873f5f5cc5c321a1306b2d18c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_87873f5f5cc5c321a1306b2d18c` ON public.abuse_user_report USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "abuse_user_report",
+    "indexname": "IDX_04cc96756f89d0b7f9473e8cdf",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_04cc96756f89d0b7f9473e8cdf` ON public.abuse_user_report USING btree (`reporterId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registration_ticket",
+    "indexname": "PK_f11696b6fafcf3662d4292734f8",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_f11696b6fafcf3662d4292734f8` ON public.registration_ticket USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registration_ticket",
+    "indexname": "IDX_0ff69e8dfa9fe31bb4a4660f59",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0ff69e8dfa9fe31bb4a4660f59` ON public.registration_ticket USING btree (code)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "messaging_message",
+    "indexname": "PK_db398fd79dc95d0eb8c30456eaa",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_db398fd79dc95d0eb8c30456eaa` ON public.messaging_message USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "messaging_message",
+    "indexname": "IDX_e21cd3646e52ef9c94aaf17c2e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_e21cd3646e52ef9c94aaf17c2e` ON public.messaging_message USING btree (`createdAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "messaging_message",
+    "indexname": "IDX_5377c307783fce2b6d352e1203",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_5377c307783fce2b6d352e1203` ON public.messaging_message USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "messaging_message",
+    "indexname": "IDX_cac14a4e3944454a5ce7daa514",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_cac14a4e3944454a5ce7daa514` ON public.messaging_message USING btree (`recipientId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "signin",
+    "indexname": "PK_9e96ddc025712616fc492b3b588",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_9e96ddc025712616fc492b3b588` ON public.signin USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "signin",
+    "indexname": "IDX_2c308dbdc50d94dc625670055f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2c308dbdc50d94dc625670055f` ON public.signin USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "auth_session",
+    "indexname": "PK_19354ed146424a728c1112a8cbf",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_19354ed146424a728c1112a8cbf` ON public.auth_session USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "auth_session",
+    "indexname": "IDX_62cb09e1129f6ec024ef66e183",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_62cb09e1129f6ec024ef66e183` ON public.auth_session USING btree (token)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "follow_request",
+    "indexname": "PK_53a9aa3725f7a3deb150b39dbfc",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_53a9aa3725f7a3deb150b39dbfc` ON public.follow_request USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "follow_request",
+    "indexname": "IDX_12c01c0d1a79f77d9f6c15fadd",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_12c01c0d1a79f77d9f6c15fadd` ON public.follow_request USING btree (`followeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "follow_request",
+    "indexname": "IDX_a7fd92dd6dc519e6fb435dd108",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a7fd92dd6dc519e6fb435dd108` ON public.follow_request USING btree (`followerId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "follow_request",
+    "indexname": "IDX_d54a512b822fac7ed52800f6b4",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d54a512b822fac7ed52800f6b4` ON public.follow_request USING btree (`followerId`, `followeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "emoji",
+    "indexname": "PK_df74ce05e24999ee01ea0bc50a3",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_df74ce05e24999ee01ea0bc50a3` ON public.emoji USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "emoji",
+    "indexname": "IDX_b37dafc86e9af007e3295c2781",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b37dafc86e9af007e3295c2781` ON public.emoji USING btree (name)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "emoji",
+    "indexname": "IDX_5900e907bb46516ddf2871327c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_5900e907bb46516ddf2871327c` ON public.emoji USING btree (host)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "emoji",
+    "indexname": "IDX_4f4d35e1256c84ae3d1f0eab10",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_4f4d35e1256c84ae3d1f0eab10` ON public.emoji USING btree (name, host)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "reversi_game",
+    "indexname": "PK_76b30eeba71b1193ad7c5311c3f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_76b30eeba71b1193ad7c5311c3f` ON public.reversi_game USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "reversi_game",
+    "indexname": "IDX_b46ec40746efceac604142be1c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b46ec40746efceac604142be1c` ON public.reversi_game USING btree (`createdAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "reversi_matching",
+    "indexname": "PK_880bd0afbab232f21c8b9d146cf",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_880bd0afbab232f21c8b9d146cf` ON public.reversi_matching USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "reversi_matching",
+    "indexname": "IDX_b604d92d6c7aec38627f6eaf16",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b604d92d6c7aec38627f6eaf16` ON public.reversi_matching USING btree (`createdAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "reversi_matching",
+    "indexname": "IDX_3b25402709dd9882048c2bbade",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3b25402709dd9882048c2bbade` ON public.reversi_matching USING btree (`parentId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "reversi_matching",
+    "indexname": "IDX_e247b23a3c9b45f89ec1299d06",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_e247b23a3c9b45f89ec1299d06` ON public.reversi_matching USING btree (`childId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_note_pining",
+    "indexname": "PK_a6a2dad4ae000abce2ea9d9b103",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_a6a2dad4ae000abce2ea9d9b103` ON public.user_note_pining USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_note_pining",
+    "indexname": "IDX_bfbc6f79ba4007b4ce5097f08d",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_bfbc6f79ba4007b4ce5097f08d` ON public.user_note_pining USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_note_pining",
+    "indexname": "IDX_410cd649884b501c02d6e72738",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_410cd649884b501c02d6e72738` ON public.user_note_pining USING btree (`userId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll",
+    "indexname": "PK_da851e06d0dfe2ef397d8b1bf1b",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_da851e06d0dfe2ef397d8b1bf1b` ON public.poll USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll",
+    "indexname": "IDX_0610ebcfcfb4a18441a9bcdab2",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0610ebcfcfb4a18441a9bcdab2` ON public.poll USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "poll",
+    "indexname": "IDX_7fa20a12319c7f6dc3aed98c0a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_7fa20a12319c7f6dc3aed98c0a` ON public.poll USING btree (`userHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_keypair",
+    "indexname": "PK_f4853eb41ab722fe05f81cedeb6",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_f4853eb41ab722fe05f81cedeb6` ON public.user_keypair USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_publickey",
+    "indexname": "PK_10c146e4b39b443ede016f6736d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_10c146e4b39b443ede016f6736d` ON public.user_publickey USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_publickey",
+    "indexname": "IDX_171e64971c780ebd23fae140bb",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_171e64971c780ebd23fae140bb` ON public.user_publickey USING btree (`keyId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_profile",
+    "indexname": "PK_51cb79b5555effaf7d69ba1cff9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_51cb79b5555effaf7d69ba1cff9` ON public.user_profile USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_profile",
+    "indexname": "IDX_dce530b98e454793dac5ec2f5a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_dce530b98e454793dac5ec2f5a` ON public.user_profile USING btree (`userHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__active_users",
+    "indexname": "PK_317237a9f733b970604a11e314f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_317237a9f733b970604a11e314f` ON public.__chart__active_users USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__drive",
+    "indexname": "PK_f96bc548a765cd4b3b354221ce7",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_f96bc548a765cd4b3b354221ce7` ON public.__chart__drive USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__federation",
+    "indexname": "PK_b39dcd31a0fe1a7757e348e85fd",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_b39dcd31a0fe1a7757e348e85fd` ON public.__chart__federation USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__hashtag",
+    "indexname": "PK_c32f1ea2b44a5d2f7881e37f8f9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_c32f1ea2b44a5d2f7881e37f8f9` ON public.__chart__hashtag USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__instance",
+    "indexname": "PK_1267c67c7c2d47b4903975f2c00",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_1267c67c7c2d47b4903975f2c00` ON public.__chart__instance USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__network",
+    "indexname": "PK_bc4290c2e27fad14ef0c1ca93f3",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_bc4290c2e27fad14ef0c1ca93f3` ON public.__chart__network USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__notes",
+    "indexname": "PK_0aec823fa85c7f901bdb3863b14",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_0aec823fa85c7f901bdb3863b14` ON public.__chart__notes USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_drive",
+    "indexname": "PK_d0ef23d24d666e1a44a0cd3d208",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_d0ef23d24d666e1a44a0cd3d208` ON public.__chart__per_user_drive USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_following",
+    "indexname": "PK_85bb1b540363a29c2fec83bd907",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_85bb1b540363a29c2fec83bd907` ON public.__chart__per_user_following USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_notes",
+    "indexname": "PK_334acf6e915af2f29edc11b8e50",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_334acf6e915af2f29edc11b8e50` ON public.__chart__per_user_notes USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_reaction",
+    "indexname": "PK_984f54dae441e65b633e8d27a7f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_984f54dae441e65b633e8d27a7f` ON public.__chart__per_user_reaction USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test_grouped",
+    "indexname": "PK_f4a2b175d308695af30d4293272",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_f4a2b175d308695af30d4293272` ON public.__chart__test_grouped USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test_unique",
+    "indexname": "PK_409bac9c97cc612d8500012319d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_409bac9c97cc612d8500012319d` ON public.__chart__test_unique USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test",
+    "indexname": "PK_b4bc31dffbd1b785276a3ecfc1e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_b4bc31dffbd1b785276a3ecfc1e` ON public.__chart__test USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__users",
+    "indexname": "PK_4dfcf2c78d03524b9eb2c99d328",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_4dfcf2c78d03524b9eb2c99d328` ON public.__chart__users USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page",
+    "indexname": "PK_742f4117e065c5b6ad21b37ba1f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_742f4117e065c5b6ad21b37ba1f` ON public.page USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page",
+    "indexname": "IDX_af639b066dfbca78b01a920f8a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_af639b066dfbca78b01a920f8a` ON public.page USING btree (`updatedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page",
+    "indexname": "IDX_b82c19c08afb292de4600d99e4",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b82c19c08afb292de4600d99e4` ON public.page USING btree (name)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page",
+    "indexname": "IDX_ae1d917992dd0c9d9bbdad06c4",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_ae1d917992dd0c9d9bbdad06c4` ON public.page USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page",
+    "indexname": "IDX_90148bbc2bf0854428786bfc15",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_90148bbc2bf0854428786bfc15` ON public.page USING btree (`visibleUserIds`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page",
+    "indexname": "IDX_2133ef8317e4bdb839c0dcbf13",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_2133ef8317e4bdb839c0dcbf13` ON public.page USING btree (`userId`, name)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page_like",
+    "indexname": "PK_813f034843af992d3ae0f43c64c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_813f034843af992d3ae0f43c64c` ON public.page_like USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page_like",
+    "indexname": "IDX_0e61efab7f88dbb79c9166dbb4",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0e61efab7f88dbb79c9166dbb4` ON public.page_like USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "page_like",
+    "indexname": "IDX_4ce6fb9c70529b4c8ac46c9bfa",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_4ce6fb9c70529b4c8ac46c9bfa` ON public.page_like USING btree (`userId`, `pageId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group",
+    "indexname": "PK_3c29fba6fe013ec8724378ce7c9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_3c29fba6fe013ec8724378ce7c9` ON public.user_group USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group",
+    "indexname": "IDX_20e30aa35180e317e133d75316",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_20e30aa35180e317e133d75316` ON public.user_group USING btree (`createdAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group",
+    "indexname": "IDX_3d6b372788ab01be58853003c9",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3d6b372788ab01be58853003c9` ON public.user_group USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_joining",
+    "indexname": "PK_15f2425885253c5507e1599cfe7",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_15f2425885253c5507e1599cfe7` ON public.user_group_joining USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_joining",
+    "indexname": "IDX_f3a1b4bd0c7cabba958a0c0b23",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f3a1b4bd0c7cabba958a0c0b23` ON public.user_group_joining USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_joining",
+    "indexname": "IDX_67dc758bc0566985d1b3d39986",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_67dc758bc0566985d1b3d39986` ON public.user_group_joining USING btree (`userGroupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "messaging_message",
+    "indexname": "IDX_2c4be03b446884f9e9c502135b",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2c4be03b446884f9e9c502135b` ON public.messaging_message USING btree (`groupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invite",
+    "indexname": "PK_3893884af0d3a5f4d01e7921a97",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_3893884af0d3a5f4d01e7921a97` ON public.user_group_invite USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invite",
+    "indexname": "IDX_1039988afa3bf991185b277fe0",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_1039988afa3bf991185b277fe0` ON public.user_group_invite USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invite",
+    "indexname": "IDX_e10924607d058004304611a436",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_e10924607d058004304611a436` ON public.user_group_invite USING btree (`userGroupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invite",
+    "indexname": "IDX_78787741f9010886796f2320a4",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_78787741f9010886796f2320a4` ON public.user_group_invite USING btree (`userId`, `userGroupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_joining",
+    "indexname": "IDX_d9ecaed8c6dc43f3592c229282",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d9ecaed8c6dc43f3592c229282` ON public.user_group_joining USING btree (`userId`, `userGroupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_security_key",
+    "indexname": "PK_3e508571121ab39c5f85d10c166",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_3e508571121ab39c5f85d10c166` ON public.user_security_key USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_security_key",
+    "indexname": "IDX_ff9ca3b5f3ee3d0681367a9b44",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_ff9ca3b5f3ee3d0681367a9b44` ON public.user_security_key USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_security_key",
+    "indexname": "IDX_0d7718e562dcedd0aa5cf2c9f7",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0d7718e562dcedd0aa5cf2c9f7` ON public.user_security_key USING btree (`publicKey`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_profile",
+    "indexname": "UQ_6dc44f1ceb65b1e72bacef2ca27",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_6dc44f1ceb65b1e72bacef2ca27` ON public.user_profile USING btree (`pinnedPageId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "moderation_log",
+    "indexname": "PK_d0adca6ecfd068db83e4526cc26",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_d0adca6ecfd068db83e4526cc26` ON public.moderation_log USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "moderation_log",
+    "indexname": "IDX_a08ad074601d204e0f69da9a95",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a08ad074601d204e0f69da9a95` ON public.moderation_log USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "used_username",
+    "indexname": "PK_78fd79d2d24c6ac2f4cc9a31a5d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_78fd79d2d24c6ac2f4cc9a31a5d` ON public.used_username USING btree (username)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement",
+    "indexname": "PK_e0ef0550174fd1099a308fd18a0",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e0ef0550174fd1099a308fd18a0` ON public.announcement USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement_read",
+    "indexname": "PK_4b90ad1f42681d97b2683890c5e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_4b90ad1f42681d97b2683890c5e` ON public.announcement_read USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement_read",
+    "indexname": "IDX_8288151386172b8109f7239ab2",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_8288151386172b8109f7239ab2` ON public.announcement_read USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement_read",
+    "indexname": "IDX_603a7b1e7aa0533c6c88e9bfaf",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_603a7b1e7aa0533c6c88e9bfaf` ON public.announcement_read USING btree (`announcementId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement_read",
+    "indexname": "IDX_924fa71815cfa3941d003702a0",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_924fa71815cfa3941d003702a0` ON public.announcement_read USING btree (`userId`, `announcementId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip",
+    "indexname": "PK_f0685dac8d4dd056d7255670b75",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_f0685dac8d4dd056d7255670b75` ON public.clip USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip",
+    "indexname": "IDX_2b5ec6c574d6802c94c80313fb",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2b5ec6c574d6802c94c80313fb` ON public.clip USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_note",
+    "indexname": "PK_e94cda2f40a99b57e032a1a738b",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e94cda2f40a99b57e032a1a738b` ON public.clip_note USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_note",
+    "indexname": "IDX_a012eaf5c87c65da1deb5fdbfa",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a012eaf5c87c65da1deb5fdbfa` ON public.clip_note USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_note",
+    "indexname": "IDX_ebe99317bbbe9968a0c6f579ad",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_ebe99317bbbe9968a0c6f579ad` ON public.clip_note USING btree (`clipId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_note",
+    "indexname": "IDX_6fc0ec357d55a18646262fdfff",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_6fc0ec357d55a18646262fdfff` ON public.clip_note USING btree (`noteId`, `clipId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "antenna",
+    "indexname": "PK_c170b99775e1dccca947c9f2d5f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_c170b99775e1dccca947c9f2d5f` ON public.antenna USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "antenna",
+    "indexname": "IDX_6446c571a0e8d0f05f01c78909",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_6446c571a0e8d0f05f01c78909` ON public.antenna USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "instance",
+    "indexname": "IDX_34500da2e38ac393f7bb6b299c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_34500da2e38ac393f7bb6b299c` ON public.instance USING btree (`isSuspended`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_NOTE_TAGS",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_NOTE_TAGS` ON public.note USING gin (tags)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invitation",
+    "indexname": "PK_160c63ec02bf23f6a5c5e8140d6",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_160c63ec02bf23f6a5c5e8140d6` ON public.user_group_invitation USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invitation",
+    "indexname": "IDX_bfbc6305547539369fe73eb144",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_bfbc6305547539369fe73eb144` ON public.user_group_invitation USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invitation",
+    "indexname": "IDX_5cc8c468090e129857e9fecce5",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_5cc8c468090e129857e9fecce5` ON public.user_group_invitation USING btree (`userGroupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_group_invitation",
+    "indexname": "IDX_e9793f65f504e5a31fbaedbf2f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_e9793f65f504e5a31fbaedbf2f` ON public.user_group_invitation USING btree (`userId`, `userGroupId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_55720b33a61a7c806a8215b825",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_55720b33a61a7c806a8215b825` ON public.drive_file USING btree (`userId`, `folderId`, id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "promo_note",
+    "indexname": "PK_e263909ca4fe5d57f8d4230dd5c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e263909ca4fe5d57f8d4230dd5c` ON public.promo_note USING btree (`noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "promo_note",
+    "indexname": "IDX_83f0862e9bae44af52ced7099e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_83f0862e9bae44af52ced7099e` ON public.promo_note USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "promo_read",
+    "indexname": "PK_61917c1541002422b703318b7c9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_61917c1541002422b703318b7c9` ON public.promo_read USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "promo_read",
+    "indexname": "IDX_9657d55550c3d37bfafaf7d4b0",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_9657d55550c3d37bfafaf7d4b0` ON public.promo_read USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "promo_read",
+    "indexname": "IDX_2882b8a1a07c7d281a98b6db16",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_2882b8a1a07c7d281a98b6db16` ON public.promo_read USING btree (`userId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "access_token",
+    "indexname": "IDX_bf3a053c07d9fb5d87317c56ee",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_bf3a053c07d9fb5d87317c56ee` ON public.access_token USING btree (session)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "relay",
+    "indexname": "PK_78ebc9cfddf4292633b7ba57aee",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_78ebc9cfddf4292633b7ba57aee` ON public.relay USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "relay",
+    "indexname": "IDX_0d9a1738f2cf7f3b1c3334dfab",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0d9a1738f2cf7f3b1c3334dfab` ON public.relay USING btree (inbox)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_profile",
+    "indexname": "IDX_3befe6f999c86aff06eb0257b4",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3befe6f999c86aff06eb0257b4` ON public.user_profile USING btree (`enableWordMute`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel",
+    "indexname": "PK_590f33ee6ee7d76437acf362e39",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_590f33ee6ee7d76437acf362e39` ON public.channel USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel",
+    "indexname": "IDX_29ef80c6f13bcea998447fce43",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_29ef80c6f13bcea998447fce43` ON public.channel USING btree (`lastNotedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel",
+    "indexname": "IDX_823bae55bd81b3be6e05cff438",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_823bae55bd81b3be6e05cff438` ON public.channel USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel",
+    "indexname": "IDX_0f58c11241e649d2a638a8de94",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0f58c11241e649d2a638a8de94` ON public.channel USING btree (`notesCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel",
+    "indexname": "IDX_094b86cd36bb805d1aa1e8cc9a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_094b86cd36bb805d1aa1e8cc9a` ON public.channel USING btree (`usersCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_following",
+    "indexname": "PK_8b104be7f7415113f2a02cd5bdd",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_8b104be7f7415113f2a02cd5bdd` ON public.channel_following USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_following",
+    "indexname": "IDX_0e43068c3f92cab197c3d3cd86",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0e43068c3f92cab197c3d3cd86` ON public.channel_following USING btree (`followeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_following",
+    "indexname": "IDX_6d8084ec9496e7334a4602707e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_6d8084ec9496e7334a4602707e` ON public.channel_following USING btree (`followerId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_following",
+    "indexname": "IDX_2e230dd45a10e671d781d99f3e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_2e230dd45a10e671d781d99f3e` ON public.channel_following USING btree (`followerId`, `followeeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_note_pining",
+    "indexname": "PK_44f7474496bcf2e4b741681146d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_44f7474496bcf2e4b741681146d` ON public.channel_note_pining USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_note_pining",
+    "indexname": "IDX_8125f950afd3093acb10d2db8a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_8125f950afd3093acb10d2db8a` ON public.channel_note_pining USING btree (`channelId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_note_pining",
+    "indexname": "IDX_f36fed37d6d4cdcc68c803cd9c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_f36fed37d6d4cdcc68c803cd9c` ON public.channel_note_pining USING btree (`channelId`, `noteId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_a7eba67f8b3fa27271e85d2e26",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a7eba67f8b3fa27271e85d2e26` ON public.drive_file USING btree (`isSensitive`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_25b1dd384bec391b07b74b861c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_25b1dd384bec391b07b74b861c` ON public.note_unread USING btree (`isMentioned`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_89a29c9237b8c3b6b3cbb4cb30",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_89a29c9237b8c3b6b3cbb4cb30` ON public.note_unread USING btree (`isSpecified`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_29e8c1d579af54d4232939f994",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_29e8c1d579af54d4232939f994` ON public.note_unread USING btree (`noteUserId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_unread",
+    "indexname": "IDX_6a57f051d82c6d4036c141e107",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_6a57f051d82c6d4036c141e107` ON public.note_unread USING btree (`noteChannelId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "abuse_user_report",
+    "indexname": "IDX_2b15aaf4a0dc5be3499af7ab6a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2b15aaf4a0dc5be3499af7ab6a` ON public.abuse_user_report USING btree (resolved)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "abuse_user_report",
+    "indexname": "IDX_4ebbf7f93cdc10e8d1ef2fc6cd",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_4ebbf7f93cdc10e8d1ef2fc6cd` ON public.abuse_user_report USING btree (`targetUserHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "abuse_user_report",
+    "indexname": "IDX_f8d8b93740ad12c4ce8213a199",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f8d8b93740ad12c4ce8213a199` ON public.abuse_user_report USING btree (`reporterHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_d5a1b83c7cab66f167e6888188",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_d5a1b83c7cab66f167e6888188` ON public.`user` USING btree (`isExplorable`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registry_item",
+    "indexname": "PK_64b3f7e6008b4d89b826cd3af95",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_64b3f7e6008b4d89b826cd3af95` ON public.registry_item USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registry_item",
+    "indexname": "IDX_fb9d21ba0abb83223263df6bcb",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_fb9d21ba0abb83223263df6bcb` ON public.registry_item USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registry_item",
+    "indexname": "IDX_22baca135bb8a3ea1a83d13df3",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_22baca135bb8a3ea1a83d13df3` ON public.registry_item USING btree (scope)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registry_item",
+    "indexname": "IDX_0a72bdfcdb97c0eca11fe7ecad",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_0a72bdfcdb97c0eca11fe7ecad` ON public.registry_item USING btree (domain)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "PK_8e90d7b6015f2c4518881b14753",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_8e90d7b6015f2c4518881b14753` ON public.gallery_post USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "IDX_f631d37835adb04792e361807c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f631d37835adb04792e361807c` ON public.gallery_post USING btree (`updatedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "IDX_985b836dddd8615e432d7043dd",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_985b836dddd8615e432d7043dd` ON public.gallery_post USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "IDX_3ca50563facd913c425e7a89ee",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3ca50563facd913c425e7a89ee` ON public.gallery_post USING btree (`fileIds`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "IDX_f2d744d9a14d0dfb8b96cb7fc5",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f2d744d9a14d0dfb8b96cb7fc5` ON public.gallery_post USING btree (`isSensitive`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "IDX_1a165c68a49d08f11caffbd206",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_1a165c68a49d08f11caffbd206` ON public.gallery_post USING btree (`likedCount`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_post",
+    "indexname": "IDX_05cca34b985d1b8edc1d1e28df",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_05cca34b985d1b8edc1d1e28df` ON public.gallery_post USING btree (tags)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_like",
+    "indexname": "PK_853ab02be39b8de45cd720cc15f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_853ab02be39b8de45cd720cc15f` ON public.gallery_like USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_like",
+    "indexname": "IDX_8fd5215095473061855ceb948c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_8fd5215095473061855ceb948c` ON public.gallery_like USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "gallery_like",
+    "indexname": "IDX_df1b5f4099e99fb0bc5eae53b6",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_df1b5f4099e99fb0bc5eae53b6` ON public.gallery_like USING btree (`userId`, `postId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user",
+    "indexname": "IDX_c8cc87bd0f2f4487d17c651fbf",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_c8cc87bd0f2f4487d17c651fbf` ON public.`user` USING btree (`lastActiveDate`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "password_reset_request",
+    "indexname": "PK_fcf4b02eae1403a2edaf87fd074",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_fcf4b02eae1403a2edaf87fd074` ON public.password_reset_request USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "password_reset_request",
+    "indexname": "IDX_0b575fa9a4cfe638a925949285",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0b575fa9a4cfe638a925949285` ON public.password_reset_request USING btree (token)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "password_reset_request",
+    "indexname": "IDX_4bb7fd4a34492ae0e6cc8d30ac",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_4bb7fd4a34492ae0e6cc8d30ac` ON public.password_reset_request USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "ad",
+    "indexname": "PK_0193d5ef09746e88e9ea92c634d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_0193d5ef09746e88e9ea92c634d` ON public.ad USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "ad",
+    "indexname": "IDX_2da24ce20ad209f1d9dc032457",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_2da24ce20ad209f1d9dc032457` ON public.ad USING btree (`expiresAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_NOTE_MENTIONS",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_NOTE_MENTIONS` ON public.note USING gin (mentions)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_NOTE_VISIBLE_USER_IDS",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_NOTE_VISIBLE_USER_IDS` ON public.note USING gin (`visibleUserIds`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test_grouped",
+    "indexname": "IDX_b14489029e4b3aaf4bba5fb524",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_b14489029e4b3aaf4bba5fb524` ON public.__chart__test_grouped USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test_grouped",
+    "indexname": "IDX_da522b4008a9f5d7743b87ad55",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_da522b4008a9f5d7743b87ad55` ON public.__chart__test_grouped USING btree (date) WHERE (`group` IS NULL)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test_unique",
+    "indexname": "IDX_a0cd75442dd10d0643a17c4a49",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_a0cd75442dd10d0643a17c4a49` ON public.__chart__test_unique USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test_unique",
+    "indexname": "IDX_16effb2e888f6763673b579f80",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_16effb2e888f6763673b579f80` ON public.__chart__test_unique USING btree (date) WHERE (`group` IS NULL)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test",
+    "indexname": "IDX_a319e5dbf47e8a17497623beae",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_a319e5dbf47e8a17497623beae` ON public.__chart__test USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__test",
+    "indexname": "IDX_dab383a36f3c9db4a0c9b02cf3",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_dab383a36f3c9db4a0c9b02cf3` ON public.__chart__test USING btree (date) WHERE (`group` IS NULL)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_pending",
+    "indexname": "PK_d4c84e013c98ec02d19b8fbbafa",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_d4c84e013c98ec02d19b8fbbafa` ON public.user_pending USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_pending",
+    "indexname": "IDX_4e5c4c99175638ec0761714ab0",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_4e5c4c99175638ec0761714ab0` ON public.user_pending USING btree (code)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_thread_muting",
+    "indexname": "PK_ec5936d94d1a0369646d12a3a47",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_ec5936d94d1a0369646d12a3a47` ON public.note_thread_muting USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_thread_muting",
+    "indexname": "IDX_29c11c7deb06615076f8c95b80",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_29c11c7deb06615076f8c95b80` ON public.note_thread_muting USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_thread_muting",
+    "indexname": "IDX_c426394644267453e76f036926",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_c426394644267453e76f036926` ON public.note_thread_muting USING btree (`threadId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note_thread_muting",
+    "indexname": "IDX_ae7aab18a2641d3e5f25e0c4ea",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_ae7aab18a2641d3e5f25e0c4ea` ON public.note_thread_muting USING btree (`userId`, `threadId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_d4ebdef929896d6dc4a3c5bb48",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_d4ebdef929896d6dc4a3c5bb48` ON public.note USING btree (`threadId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__federation",
+    "indexname": "PK_7ca721c769f31698e0e1331e8e6",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_7ca721c769f31698e0e1331e8e6` ON public.__chart_day__federation USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__federation",
+    "indexname": "UQ_617a8fe225a6e701d89e02d2c74",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_617a8fe225a6e701d89e02d2c74` ON public.__chart_day__federation USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__federation",
+    "indexname": "IDX_617a8fe225a6e701d89e02d2c7",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_617a8fe225a6e701d89e02d2c7` ON public.__chart_day__federation USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__notes",
+    "indexname": "PK_1fa4139e1f338272b758d05e090",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_1fa4139e1f338272b758d05e090` ON public.__chart_day__notes USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__notes",
+    "indexname": "UQ_1a527b423ad0858a1af5a056d43",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_1a527b423ad0858a1af5a056d43` ON public.__chart_day__notes USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__notes",
+    "indexname": "IDX_1a527b423ad0858a1af5a056d4",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_1a527b423ad0858a1af5a056d4` ON public.__chart_day__notes USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__users",
+    "indexname": "PK_d7f7185abb9851f70c4726c54bd",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_d7f7185abb9851f70c4726c54bd` ON public.__chart_day__users USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__users",
+    "indexname": "UQ_cad6e07c20037f31cdba8a350c3",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_cad6e07c20037f31cdba8a350c3` ON public.__chart_day__users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__users",
+    "indexname": "IDX_cad6e07c20037f31cdba8a350c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_cad6e07c20037f31cdba8a350c` ON public.__chart_day__users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__network",
+    "indexname": "PK_cac499d6f471042dfed1e7e0132",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_cac499d6f471042dfed1e7e0132` ON public.__chart_day__network USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__network",
+    "indexname": "UQ_8bfa548c2b31f9e07db113773ee",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_8bfa548c2b31f9e07db113773ee` ON public.__chart_day__network USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__network",
+    "indexname": "IDX_8bfa548c2b31f9e07db113773e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_8bfa548c2b31f9e07db113773e` ON public.__chart_day__network USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__active_users",
+    "indexname": "PK_b1790489b14f005ae8f404f5795",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_b1790489b14f005ae8f404f5795` ON public.__chart_day__active_users USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__active_users",
+    "indexname": "UQ_d5954f3df5e5e3bdfc3c03f3906",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_d5954f3df5e5e3bdfc3c03f3906` ON public.__chart_day__active_users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__active_users",
+    "indexname": "IDX_d5954f3df5e5e3bdfc3c03f390",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d5954f3df5e5e3bdfc3c03f390` ON public.__chart_day__active_users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__instance",
+    "indexname": "PK_479a8ff9d959274981087043023",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_479a8ff9d959274981087043023` ON public.__chart_day__instance USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__instance",
+    "indexname": "UQ_fea7c0278325a1a2492f2d6acbf",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_fea7c0278325a1a2492f2d6acbf` ON public.__chart_day__instance USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__instance",
+    "indexname": "IDX_fea7c0278325a1a2492f2d6acb",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_fea7c0278325a1a2492f2d6acb` ON public.__chart_day__instance USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_notes",
+    "indexname": "PK_58bab6b6d3ad9310cbc7460fd28",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_58bab6b6d3ad9310cbc7460fd28` ON public.__chart_day__per_user_notes USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_notes",
+    "indexname": "UQ_c5545d4b31cdc684034e33b81c3",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_c5545d4b31cdc684034e33b81c3` ON public.__chart_day__per_user_notes USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_notes",
+    "indexname": "IDX_c5545d4b31cdc684034e33b81c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_c5545d4b31cdc684034e33b81c` ON public.__chart_day__per_user_notes USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__drive",
+    "indexname": "PK_e7ec0de057c77c40fc8d8b62151",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e7ec0de057c77c40fc8d8b62151` ON public.__chart_day__drive USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__drive",
+    "indexname": "UQ_0b60ebb3aa0065f10b0616c1171",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_0b60ebb3aa0065f10b0616c1171` ON public.__chart_day__drive USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__drive",
+    "indexname": "IDX_0b60ebb3aa0065f10b0616c117",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0b60ebb3aa0065f10b0616c117` ON public.__chart_day__drive USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_reaction",
+    "indexname": "PK_8af24e2d51ff781a354fe595eda",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_8af24e2d51ff781a354fe595eda` ON public.__chart_day__per_user_reaction USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_reaction",
+    "indexname": "UQ_d54b653660d808b118e36c184c0",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_d54b653660d808b118e36c184c0` ON public.__chart_day__per_user_reaction USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_reaction",
+    "indexname": "IDX_d54b653660d808b118e36c184c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d54b653660d808b118e36c184c` ON public.__chart_day__per_user_reaction USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__hashtag",
+    "indexname": "PK_13d5a3b089344e5557f8e0980b4",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_13d5a3b089344e5557f8e0980b4` ON public.__chart_day__hashtag USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__hashtag",
+    "indexname": "UQ_8f589cf056ff51f09d6096f6450",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_8f589cf056ff51f09d6096f6450` ON public.__chart_day__hashtag USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__hashtag",
+    "indexname": "IDX_8f589cf056ff51f09d6096f645",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_8f589cf056ff51f09d6096f645` ON public.__chart_day__hashtag USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_following",
+    "indexname": "PK_68ce6b67da57166da66fc8fb27e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_68ce6b67da57166da66fc8fb27e` ON public.__chart_day__per_user_following USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_following",
+    "indexname": "UQ_e4849a3231f38281280ea4c0eee",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_e4849a3231f38281280ea4c0eee` ON public.__chart_day__per_user_following USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_following",
+    "indexname": "IDX_e4849a3231f38281280ea4c0ee",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_e4849a3231f38281280ea4c0ee` ON public.__chart_day__per_user_following USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_drive",
+    "indexname": "PK_1ae135254c137011645da7f4045",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_1ae135254c137011645da7f4045` ON public.__chart_day__per_user_drive USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_drive",
+    "indexname": "UQ_62aa5047b5aec92524f24c701d7",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_62aa5047b5aec92524f24c701d7` ON public.__chart_day__per_user_drive USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_drive",
+    "indexname": "IDX_62aa5047b5aec92524f24c701d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_62aa5047b5aec92524f24c701d` ON public.__chart_day__per_user_drive USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__federation",
+    "indexname": "UQ_36cb699c49580d4e6c2e6159f97",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_36cb699c49580d4e6c2e6159f97` ON public.__chart__federation USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__notes",
+    "indexname": "UQ_42eb716a37d381cdf566192b2be",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_42eb716a37d381cdf566192b2be` ON public.__chart__notes USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__users",
+    "indexname": "UQ_845254b3eaf708ae8a6cac30265",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_845254b3eaf708ae8a6cac30265` ON public.__chart__users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__network",
+    "indexname": "UQ_a1efd3e0048a5f2793a47360dc6",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_a1efd3e0048a5f2793a47360dc6` ON public.__chart__network USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__active_users",
+    "indexname": "UQ_0ad37b7ef50f4ddc84363d7ccca",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_0ad37b7ef50f4ddc84363d7ccca` ON public.__chart__active_users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__drive",
+    "indexname": "UQ_13565815f618a1ff53886c5b28a",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_13565815f618a1ff53886c5b28a` ON public.__chart__drive USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__federation",
+    "indexname": "IDX_36cb699c49580d4e6c2e6159f9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_36cb699c49580d4e6c2e6159f9` ON public.__chart__federation USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__notes",
+    "indexname": "IDX_42eb716a37d381cdf566192b2b",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_42eb716a37d381cdf566192b2b` ON public.__chart__notes USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__users",
+    "indexname": "IDX_845254b3eaf708ae8a6cac3026",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_845254b3eaf708ae8a6cac3026` ON public.__chart__users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__network",
+    "indexname": "IDX_a1efd3e0048a5f2793a47360dc",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_a1efd3e0048a5f2793a47360dc` ON public.__chart__network USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__active_users",
+    "indexname": "IDX_0ad37b7ef50f4ddc84363d7ccc",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0ad37b7ef50f4ddc84363d7ccc` ON public.__chart__active_users USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__instance",
+    "indexname": "IDX_39ee857ab2f23493037c6b6631",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_39ee857ab2f23493037c6b6631` ON public.__chart__instance USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_notes",
+    "indexname": "IDX_5048e9daccbbbc6d567bb142d3",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_5048e9daccbbbc6d567bb142d3` ON public.__chart__per_user_notes USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__drive",
+    "indexname": "IDX_13565815f618a1ff53886c5b28",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_13565815f618a1ff53886c5b28` ON public.__chart__drive USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_reaction",
+    "indexname": "IDX_229a41ad465f9205f1f5703291",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_229a41ad465f9205f1f5703291` ON public.__chart__per_user_reaction USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__hashtag",
+    "indexname": "IDX_25a97c02003338124b2b75fdbc",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_25a97c02003338124b2b75fdbc` ON public.__chart__hashtag USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_following",
+    "indexname": "IDX_b77d4dd9562c3a899d9a286fcd",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_b77d4dd9562c3a899d9a286fcd` ON public.__chart__per_user_following USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_drive",
+    "indexname": "IDX_30bf67687f483ace115c5ca642",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_30bf67687f483ace115c5ca642` ON public.__chart__per_user_drive USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__instance",
+    "indexname": "UQ_39ee857ab2f23493037c6b66311",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_39ee857ab2f23493037c6b66311` ON public.__chart__instance USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_notes",
+    "indexname": "UQ_5048e9daccbbbc6d567bb142d34",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_5048e9daccbbbc6d567bb142d34` ON public.__chart__per_user_notes USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_reaction",
+    "indexname": "UQ_229a41ad465f9205f1f57032910",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_229a41ad465f9205f1f57032910` ON public.__chart__per_user_reaction USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__hashtag",
+    "indexname": "UQ_25a97c02003338124b2b75fdbc8",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_25a97c02003338124b2b75fdbc8` ON public.__chart__hashtag USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_following",
+    "indexname": "UQ_b77d4dd9562c3a899d9a286fcd7",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_b77d4dd9562c3a899d9a286fcd7` ON public.__chart__per_user_following USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_drive",
+    "indexname": "UQ_30bf67687f483ace115c5ca6429",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_30bf67687f483ace115c5ca6429` ON public.__chart__per_user_drive USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__ap_request",
+    "indexname": "PK_56a25cd447c7ee08876b3baf8d8",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_56a25cd447c7ee08876b3baf8d8` ON public.__chart__ap_request USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__ap_request",
+    "indexname": "UQ_e56f4beac5746d44bc3e19c80d0",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_e56f4beac5746d44bc3e19c80d0` ON public.__chart__ap_request USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__ap_request",
+    "indexname": "IDX_e56f4beac5746d44bc3e19c80d",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_e56f4beac5746d44bc3e19c80d` ON public.__chart__ap_request USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__ap_request",
+    "indexname": "PK_9318b49daee320194e23f712e69",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_9318b49daee320194e23f712e69` ON public.__chart_day__ap_request USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__ap_request",
+    "indexname": "UQ_a848f66d6cec11980a5dd595822",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_a848f66d6cec11980a5dd595822` ON public.__chart_day__ap_request USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__ap_request",
+    "indexname": "IDX_a848f66d6cec11980a5dd59582",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_a848f66d6cec11980a5dd59582` ON public.__chart_day__ap_request USING btree (date)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_4ccd2239268ebbd1b35e318754",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_4ccd2239268ebbd1b35e318754` ON public.following USING btree (`followerHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_fcdafee716dfe9c3b5fde90f30",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_fcdafee716dfe9c3b5fde90f30` ON public.following USING btree (`followeeHost`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "muting",
+    "indexname": "IDX_c1fd1c3dfb0627aa36c253fd14",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_c1fd1c3dfb0627aa36c253fd14` ON public.muting USING btree (`expiresAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "webhook",
+    "indexname": "PK_e6765510c2d078db49632b59020",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e6765510c2d078db49632b59020` ON public.webhook USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "webhook",
+    "indexname": "IDX_f272c8c8805969e6a6449c77b3",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f272c8c8805969e6a6449c77b3` ON public.webhook USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "webhook",
+    "indexname": "IDX_8063a0586ed1dfbe86e982d961",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_8063a0586ed1dfbe86e982d961` ON public.webhook USING btree (`on`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "webhook",
+    "indexname": "IDX_5a056076f76b2efe08216ba655",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_5a056076f76b2efe08216ba655` ON public.webhook USING btree (active)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_315c779174fe8247ab324f036e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_315c779174fe8247ab324f036e` ON public.drive_file USING btree (`isLink`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "note",
+    "indexname": "IDX_f22169eb10657bded6d875ac8f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f22169eb10657bded6d875ac8f` ON public.note USING btree (`channelId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_ip",
+    "indexname": "PK_2c44ddfbf7c0464d028dcef325e",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_2c44ddfbf7c0464d028dcef325e` ON public.user_ip USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_ip",
+    "indexname": "IDX_7f7f1c66f48e9a8e18a33bc515",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_7f7f1c66f48e9a8e18a33bc515` ON public.user_ip USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_ip",
+    "indexname": "IDX_361b500e06721013c124b7b6c5",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_361b500e06721013c124b7b6c5` ON public.user_ip USING btree (`userId`, ip)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_3b33dff77bb64b23c88151d23e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3b33dff77bb64b23c88151d23e` ON public.drive_file USING btree (`maybeSensitive`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "drive_file",
+    "indexname": "IDX_8bdcd3dd2bddb78014999a16ce",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_8bdcd3dd2bddb78014999a16ce` ON public.drive_file USING btree (`maybePorn`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "renote_muting",
+    "indexname": "PK_renoteMuting_id",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_renoteMuting_id` ON public.renote_muting USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "retention_aggregation",
+    "indexname": "PK_22aad3e8640b15fb3b90ee02d18",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_22aad3e8640b15fb3b90ee02d18` ON public.retention_aggregation USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "retention_aggregation",
+    "indexname": "IDX_09f4e5b9e4a2f268d3e284e4b3",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_09f4e5b9e4a2f268d3e284e4b3` ON public.retention_aggregation USING btree (`createdAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_pv",
+    "indexname": "PK_3c938a24f0203b5bd13fab51059",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_3c938a24f0203b5bd13fab51059` ON public.__chart__per_user_pv USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_pv",
+    "indexname": "UQ_f2a56da57921ca8439f45c1d95f",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_f2a56da57921ca8439f45c1d95f` ON public.__chart__per_user_pv USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart__per_user_pv",
+    "indexname": "IDX_f2a56da57921ca8439f45c1d95",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_f2a56da57921ca8439f45c1d95` ON public.__chart__per_user_pv USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_pv",
+    "indexname": "PK_0085d7542f6772e99b9dcfb0a9c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_0085d7542f6772e99b9dcfb0a9c` ON public.__chart_day__per_user_pv USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_pv",
+    "indexname": "UQ_f221e45cfac5bea0ce0f3149fbb",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_f221e45cfac5bea0ce0f3149fbb` ON public.__chart_day__per_user_pv USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "__chart_day__per_user_pv",
+    "indexname": "IDX_f221e45cfac5bea0ce0f3149fb",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_f221e45cfac5bea0ce0f3149fb` ON public.__chart_day__per_user_pv USING btree (date, `group`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "flash",
+    "indexname": "PK_0c01a2c1c5f2266942dd1b3fdbc",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_0c01a2c1c5f2266942dd1b3fdbc` ON public.flash USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "flash",
+    "indexname": "IDX_3aa8ea9a8f15214ad91638c0a7",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3aa8ea9a8f15214ad91638c0a7` ON public.flash USING btree (`updatedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "flash",
+    "indexname": "IDX_9b88250fc2fd009b8f1b5623ed",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_9b88250fc2fd009b8f1b5623ed` ON public.flash USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "flash_like",
+    "indexname": "PK_d110109ee310588d63d6183b233",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_d110109ee310588d63d6183b233` ON public.flash_like USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "flash_like",
+    "indexname": "IDX_60c4af1c19a7a75f1592f93b28",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_60c4af1c19a7a75f1592f93b28` ON public.flash_like USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "flash_like",
+    "indexname": "IDX_cfbfeeccb0cbedcd660b17eb07",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_cfbfeeccb0cbedcd660b17eb07` ON public.flash_like USING btree (`userId`, `flashId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "role",
+    "indexname": "PK_b36bcfe02fc8de3c57a8b2391c2",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_b36bcfe02fc8de3c57a8b2391c2` ON public.role USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "role_assignment",
+    "indexname": "PK_7e79671a8a5db18936173148cb4",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_7e79671a8a5db18936173148cb4` ON public.role_assignment USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "role_assignment",
+    "indexname": "IDX_db5b72c16227c97ca88734d5c2",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_db5b72c16227c97ca88734d5c2` ON public.role_assignment USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "role_assignment",
+    "indexname": "IDX_f0de67fd09cd3cd0aabca79994",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f0de67fd09cd3cd0aabca79994` ON public.role_assignment USING btree (`roleId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "role_assignment",
+    "indexname": "IDX_0953deda7ce6e1448e935859e5",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0953deda7ce6e1448e935859e5` ON public.role_assignment USING btree (`userId`, `roleId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "abuse_user_report",
+    "indexname": "IDX_a9021cc2e1feb5f72d3db6e9f5",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a9021cc2e1feb5f72d3db6e9f5` ON public.abuse_user_report USING btree (`targetUserId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "role_assignment",
+    "indexname": "IDX_539b6c08c05067599743bb6389",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_539b6c08c05067599743bb6389` ON public.role_assignment USING btree (`expiresAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "retention_aggregation",
+    "indexname": "IDX_f7c3576b37bd2eec966ae24477",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_f7c3576b37bd2eec966ae24477` ON public.retention_aggregation USING btree (`dateKey`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_favorite",
+    "indexname": "PK_1b539f43906f05ebcabe752a977",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_1b539f43906f05ebcabe752a977` ON public.clip_favorite USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_favorite",
+    "indexname": "IDX_25a31662b0b0cc9af6549a9d71",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_25a31662b0b0cc9af6549a9d71` ON public.clip_favorite USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip_favorite",
+    "indexname": "IDX_b1754a39d0b281e07ed7c078ec",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_b1754a39d0b281e07ed7c078ec` ON public.clip_favorite USING btree (`userId`, `clipId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "clip",
+    "indexname": "IDX_a3eac04ae2aa9e221e7596114a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_a3eac04ae2aa9e221e7596114a` ON public.clip USING btree (`lastClippedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "antenna",
+    "indexname": "IDX_084c2abb8948ef59a37dce6ac1",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_084c2abb8948ef59a37dce6ac1` ON public.antenna USING btree (`lastUsedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "antenna",
+    "indexname": "IDX_36ef5192a1ce55ed0e40aa4db5",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_36ef5192a1ce55ed0e40aa4db5` ON public.antenna USING btree (`isActive`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_favorite",
+    "indexname": "PK_59bddfd54d48689a298d41af00c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_59bddfd54d48689a298d41af00c` ON public.channel_favorite USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_favorite",
+    "indexname": "IDX_d3ca0db011b75ac2a940a2337d",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_d3ca0db011b75ac2a940a2337d` ON public.channel_favorite USING btree (`channelId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_favorite",
+    "indexname": "IDX_8302bd27226605ece14842fb25",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_8302bd27226605ece14842fb25` ON public.channel_favorite USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_memo",
+    "indexname": "PK_e9aaa58f7d3699a84d79078f4d9",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_e9aaa58f7d3699a84d79078f4d9` ON public.user_memo USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_memo",
+    "indexname": "IDX_650b49c5639b5840ee6a2b8f83",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_650b49c5639b5840ee6a2b8f83` ON public.user_memo USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_memo",
+    "indexname": "IDX_66ac4a82894297fd09ba61f3d3",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_66ac4a82894297fd09ba61f3d3` ON public.user_memo USING btree (`targetUserId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_memo",
+    "indexname": "IDX_faef300913c738265638ba3ebc",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_faef300913c738265638ba3ebc` ON public.user_memo USING btree (`userId`, `targetUserId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel",
+    "indexname": "IDX_cc7c72974f1b2f385a8921f094",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_cc7c72974f1b2f385a8921f094` ON public.channel USING btree (`isArchived`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list",
+    "indexname": "IDX_48a00f08598662b9ca540521eb",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_48a00f08598662b9ca540521eb` ON public.user_list USING btree (`isPublic`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_favorite",
+    "indexname": "PK_c0974b21e18502a4c8178e09fe6",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_c0974b21e18502a4c8178e09fe6` ON public.user_list_favorite USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_favorite",
+    "indexname": "IDX_016f613dc4feb807e03e3e7da9",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_016f613dc4feb807e03e3e7da9` ON public.user_list_favorite USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_favorite",
+    "indexname": "IDX_d6765a8c2a4c17c33f9d7f948b",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_d6765a8c2a4c17c33f9d7f948b` ON public.user_list_favorite USING btree (`userId`, `userListId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registration_ticket",
+    "indexname": "UQ_b6f93f2f30bdbb9a5ebdc7c7189",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `UQ_b6f93f2f30bdbb9a5ebdc7c7189` ON public.registration_ticket USING btree (`usedById`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registration_ticket",
+    "indexname": "IDX_beba993576db0261a15364ea96",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_beba993576db0261a15364ea96` ON public.registration_ticket USING btree (`createdById`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "registration_ticket",
+    "indexname": "IDX_b6f93f2f30bdbb9a5ebdc7c718",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_b6f93f2f30bdbb9a5ebdc7c718` ON public.registration_ticket USING btree (`usedById`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "ad",
+    "indexname": "IDX_3fcc2c589eaefc205e0714b99c",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_3fcc2c589eaefc205e0714b99c` ON public.ad USING btree (`startsAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "channel_favorite",
+    "indexname": "IDX_c71faf11f0a28a5c0bb506203c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_c71faf11f0a28a5c0bb506203c` ON public.channel_favorite USING btree (`userId`, `channelId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "instance",
+    "indexname": "IDX_f7b9d338207e40e768e4a5265a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_f7b9d338207e40e768e4a5265a` ON public.instance USING btree (`firstRetrievedAt`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "renote_muting",
+    "indexname": "IDX_7eac97594bcac5ffcf2068089b",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_7eac97594bcac5ffcf2068089b` ON public.renote_muting USING btree (`muteeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "renote_muting",
+    "indexname": "IDX_7aa72a5fe76019bfe8e5e0e8b7",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_7aa72a5fe76019bfe8e5e0e8b7` ON public.renote_muting USING btree (`muterId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "renote_muting",
+    "indexname": "IDX_0d801c609cec4e9eb4b6b4490c",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_0d801c609cec4e9eb4b6b4490c` ON public.renote_muting USING btree (`muterId`, `muteeId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement",
+    "indexname": "IDX_bc1afcc8ef7e9400cdc3c0a87e",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_bc1afcc8ef7e9400cdc3c0a87e` ON public.announcement USING btree (`isActive`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement",
+    "indexname": "IDX_da795d3a83187e8832005ba19d",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_da795d3a83187e8832005ba19d` ON public.announcement USING btree (`forExistingUsers`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement",
+    "indexname": "IDX_fd25dfe3da37df1715f11ba6ec",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_fd25dfe3da37df1715f11ba6ec` ON public.announcement USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_5108098457488634a4768e1d12",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_5108098457488634a4768e1d12` ON public.following USING btree (notify)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "following",
+    "indexname": "IDX_ce62b50d882d4e9dee10ad0d2f",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_ce62b50d882d4e9dee10ad0d2f` ON public.following USING btree (`followeeId`, `followerHost`, `isFollowerHibernated`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_membership",
+    "indexname": "IDX_021015e6683570ae9f6b0c62be",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_021015e6683570ae9f6b0c62be` ON public.user_list_membership USING btree (`userId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_membership",
+    "indexname": "IDX_cddcaf418dc4d392ecfcca842a",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_cddcaf418dc4d392ecfcca842a` ON public.user_list_membership USING btree (`userListId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "user_list_membership",
+    "indexname": "IDX_e4f3094c43f2d665e6030b0337",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `IDX_e4f3094c43f2d665e6030b0337` ON public.user_list_membership USING btree (`userId`, `userListId`)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "avatar_decoration",
+    "indexname": "PK_b6de9296f6097078e1dc53f7603",
+    "tablespace": null,
+    "indexdef": "CREATE UNIQUE INDEX `PK_b6de9296f6097078e1dc53f7603` ON public.avatar_decoration USING btree (id)"
+  },
+  {
+    "schemaname": "public",
+    "tablename": "announcement",
+    "indexname": "IDX_7b8d9225168e962f94ea517e00",
+    "tablespace": null,
+    "indexdef": "CREATE INDEX `IDX_7b8d9225168e962f94ea517e00` ON public.announcement USING btree (silence)"
+  }
+]
