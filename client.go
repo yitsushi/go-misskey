@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
@@ -81,12 +81,12 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 
 	req, err := http.NewRequestWithContext(
 		context.Background(),
-		"POST",
+		http.MethodPost,
 		c.url(request.EndpointPath()),
 		bytes.NewBuffer(requestBody),
 	)
 	if err != nil {
-		return err
+		return fmt.Errorf("unable to create new request: %w", err)
 	}
 
 	req.Header.Set("Content-Type", contentType)
@@ -101,7 +101,7 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 
 	defer resp.Body.Close()
 
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return core.RequestError{Message: core.ResponseReadBodyError, Origin: err}
 	}
@@ -113,9 +113,11 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 	}).Debugf("%s", body)
 
 	if resp.StatusCode == http.StatusOK {
-		err = json.Unmarshal(body, response)
+		if err := json.Unmarshal(body, response); err != nil {
+			return fmt.Errorf("unable to parse response: %w", err)
+		}
 
-		return err
+		return nil
 	}
 
 	if resp.StatusCode == http.StatusNoContent {
@@ -126,7 +128,7 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 	}
 
 	if resp.StatusCode == http.StatusNotFound {
-		return core.EndpointNotFound{
+		return core.EndpointNotFoundError{
 			Endpoint: request.EndpointPath(),
 		}
 	}
@@ -135,7 +137,7 @@ func (c Client) sendRequest(request core.Request, response interface{}) error {
 }
 
 func unwrapError(body []byte) error {
-	var errorWrapper core.ErrorResponseWrapper
+	var errorWrapper core.ErrorResponseWrapperError
 
 	err := json.Unmarshal(body, &errorWrapper)
 	if err != nil {

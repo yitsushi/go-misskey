@@ -25,9 +25,19 @@ func (s *Service) DeliverDelayed() ([]models.Delayed, error) {
 	delayed := []models.Delayed{}
 
 	for _, item := range response {
+		host, ok := item[0].(string)
+		if !ok {
+			host = ""
+		}
+
+		count, ok := item[1].(float64)
+		if !ok {
+			count = 0
+		}
+
 		delayed = append(delayed, models.Delayed{
-			Host:  item[0].(string),
-			Count: int64(item[1].(float64)),
+			Host:  host,
+			Count: int64(count),
 		})
 	}
 
@@ -46,9 +56,19 @@ func (s *Service) InboxDelayed() ([]models.Delayed, error) {
 	delayed := []models.Delayed{}
 
 	for _, item := range response {
+		host, ok := item[0].(string)
+		if !ok {
+			host = ""
+		}
+
+		count, ok := item[1].(float64)
+		if !ok {
+			count = 0
+		}
+
 		delayed = append(delayed, models.Delayed{
-			Host:  item[0].(string),
-			Count: int64(item[1].(float64)),
+			Host:  host,
+			Count: int64(count),
 		})
 	}
 

@@ -20,7 +20,7 @@ type Note struct {
 	RepliesCount uint64            `json:"repliesCount"`
 	Reactions    map[string]uint64 `json:"reactions"`
 	Tags         []string          `json:"tags"`
-	FileIds      []string          `json:"fileIds"`
+	FileIDs      []string          `json:"fileIds"`
 	Files        []File            `json:"files"`
 	Reply        *Note             `json:"reply"`
 	ReplyID      core.String       `json:"replyId"`

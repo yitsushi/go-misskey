@@ -41,17 +41,17 @@ func (e RequestError) Error() string {
 	return fmt.Sprintf("%s: %s", e.Message, e.Origin.Error())
 }
 
-// EndpointNotFound happens when the requested endpoint returs with 404 error code.
-type EndpointNotFound struct {
+// EndpointNotFoundError happens when the requested endpoint returs with 404 error code.
+type EndpointNotFoundError struct {
 	Endpoint string
 }
 
-func (e EndpointNotFound) Error() string {
+func (e EndpointNotFoundError) Error() string {
 	return fmt.Sprintf("404 - Not found: %s", e.Endpoint)
 }
 
-// ErrorResponseWrapper is the wrapper for error responses.
-type ErrorResponseWrapper struct {
+// ErrorResponseWrapperError is the wrapper for error responses.
+type ErrorResponseWrapperError struct {
 	Error json.RawMessage `json:"error"`
 }
 
@@ -104,14 +104,14 @@ func (e RequestValidationError) Error() string {
 	)
 }
 
-// NotImplementedYet is an error for endpoint without implementation.
+// NotImplementedYetError is an error for endpoint without implementation.
 // The error will contain a reason for that, for example
 // we don't know what is the response structure yet.
-type NotImplementedYet struct {
+type NotImplementedYetError struct {
 	Reason string
 }
 
-func (e NotImplementedYet) Error() string {
+func (e NotImplementedYetError) Error() string {
 	return fmt.Sprintf(
 		"Not implemented yet, reason: %s",
 		e.Reason,

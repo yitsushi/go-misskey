@@ -2,7 +2,7 @@ package files
 
 import (
 	"context"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 
@@ -43,7 +43,7 @@ func (s *Service) CreateFromURL(options CreateFromURLOptions) (models.File, erro
 }
 
 func downloadFile(url string, client core.HTTPClient) []byte {
-	req, err := http.NewRequestWithContext(context.Background(), "GET", url, nil)
+	req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, url, nil)
 	if err != nil {
 		return []byte{}
 	}
@@ -61,7 +61,7 @@ func downloadFile(url string, client core.HTTPClient) []byte {
 
 	defer resp.Body.Close()
 
-	content, err := ioutil.ReadAll(resp.Body)
+	content, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return []byte{}
 	}

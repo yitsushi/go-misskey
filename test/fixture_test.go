@@ -47,5 +47,5 @@ func TestMust_hasError(t *testing.T) {
 		}
 	}()
 
-	_ = test.Must([]byte{}, test.FixtureFileNotFound{Path: "/path", Name: "file"})
+	_ = test.Must([]byte{}, test.FixtureFileNotFoundError{Path: "/path", Name: "file"})
 }

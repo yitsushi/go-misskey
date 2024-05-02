@@ -10,6 +10,8 @@ import (
 // ValidateRequests validates requests with their Validate function and check if
 // error occurred or not.
 func ValidateRequests(t *testing.T, invalidRequests []core.BaseRequest, validRequests []core.BaseRequest) {
+	t.Helper()
+
 	for _, testCase := range invalidRequests {
 		assert.Error(t, testCase.Validate())
 	}
