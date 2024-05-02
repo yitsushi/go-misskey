@@ -17,10 +17,10 @@ import (
 
 type MockCreateFromURLHTTPClient struct{}
 
-func (c *MockCreateFromURLHTTPClient) Do(req *http.Request) (*http.Response, error) {
+func (c *MockCreateFromURLHTTPClient) Do(_ *http.Request) (*http.Response, error) {
 	return &http.Response{
 		Status:     "200 OK",
-		StatusCode: 200,
+		StatusCode: http.StatusOK,
 		Proto:      "HTTP/1.0",
 		ProtoMajor: 1,
 		ProtoMinor: 0,
@@ -57,7 +57,7 @@ func ExampleService_CreateFromURL() {
 	file, err := client.Drive().File().CreateFromURL(files.CreateFromURLOptions{
 		Name:     "test-filename",
 		FolderID: "8dmwisynnu",
-		URL:      "https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235641/862478b1ad52546192af60ff03efbde9-700.jpg", //nolint:lll
+		URL:      "https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235641/862478b1ad52546192af60ff03efbde9-700.jpg",
 	})
 	if err != nil {
 		log.Printf("[Drive/File/CreateFromURL] %s", err)

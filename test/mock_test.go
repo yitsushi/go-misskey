@@ -28,9 +28,9 @@ func TestSimpleMockEndpoint(t *testing.T) {
 
 	req, err := http.NewRequestWithContext(
 		context.Background(),
-		"POST",
+		http.MethodPost,
 		"/something",
-		bytes.NewBuffer([]byte(`{"id": 12}`)),
+		bytes.NewBufferString(`{"id": 12}`),
 	)
 	if !assert.NoError(t, err) {
 		return
@@ -49,9 +49,9 @@ func TestSimpleMockEndpoint_invalidRequest(t *testing.T) {
 
 	req, err := http.NewRequestWithContext(
 		context.Background(),
-		"POST",
+		http.MethodPost,
 		"/something",
-		bytes.NewBuffer([]byte(`booo`)),
+		bytes.NewBufferString(`booo`),
 	)
 	if !assert.NoError(t, err) {
 		return
@@ -72,9 +72,9 @@ func TestSimpleMockEndpoint_noEndpoint(t *testing.T) {
 
 	req, err := http.NewRequestWithContext(
 		context.Background(),
-		"POST",
+		http.MethodPost,
 		"/something/else",
-		bytes.NewBuffer([]byte(`{"id": 12}`)),
+		bytes.NewBufferString(`{"id": 12}`),
 	)
 	if !assert.NoError(t, err) {
 		return

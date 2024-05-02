@@ -1,6 +1,6 @@
 module github.com/yitsushi/go-misskey
 
-go 1.18
+go 1.22
 
 require (
 	github.com/sirupsen/logrus v1.7.0

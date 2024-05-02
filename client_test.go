@@ -3,7 +3,7 @@ package misskey_test
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"testing"
 
@@ -17,7 +17,7 @@ func TestNewClient_NormalRequestContent(t *testing.T) {
 	mockClient := test.NewMockHTTPClient()
 	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
 		defer request.Body.Close()
-		body, _ := ioutil.ReadAll(request.Body)
+		body, _ := io.ReadAll(request.Body)
 
 		var statsRequest map[string]interface{}
 
@@ -92,8 +92,8 @@ func TestNewClient_createDefaultHTTPClient(t *testing.T) {
 
 func TestNewClient_RequestError(t *testing.T) {
 	mockClient := test.NewMockHTTPClient()
-	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
-		return test.NewMockResponse(http.StatusNotImplemented, []byte{}, errors.New("bad")) //nolint:goerr113
+	mockClient.MockRequest("/api/stats", func(_ *http.Request) (*http.Response, error) {
+		return test.NewMockResponse(http.StatusNotImplemented, []byte{}, errors.New("bad"))
 	})
 
 	client, _ := misskey.NewClientWithOptions(
@@ -110,7 +110,7 @@ func TestNewClient_RequestError(t *testing.T) {
 
 	expected := core.RequestError{
 		Message: core.ResponseReadError,
-		Origin:  errors.New("bad"), //nolint:goerr113
+		Origin:  errors.New("bad"),
 	}
 	if err.Error() != expected.Error() {
 		t.Errorf("Expected error = %s, got = %s", expected.Error(), err.Error())
@@ -119,7 +119,7 @@ func TestNewClient_RequestError(t *testing.T) {
 
 func TestNewClient_ReadError(t *testing.T) {
 	mockClient := test.NewMockHTTPClient()
-	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
+	mockClient.MockRequest("/api/stats", func(_ *http.Request) (*http.Response, error) {
 		return &http.Response{
 			StatusCode: http.StatusOK,
 			Body:       test.BadReadCloser{},
@@ -141,7 +141,7 @@ func TestNewClient_ReadError(t *testing.T) {
 
 	expected := core.RequestError{
 		Message: core.ResponseReadBodyError,
-		Origin:  errors.New("Read error"), //nolint:goerr113
+		Origin:  errors.New("read error"),
 	}
 	if err.Error() != expected.Error() {
 		t.Errorf("Expected error = %s, got = %s", expected.Error(), err.Error())
@@ -150,7 +150,7 @@ func TestNewClient_ReadError(t *testing.T) {
 
 func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 	mockClient := test.NewMockHTTPClient()
-	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
+	mockClient.MockRequest("/api/stats", func(_ *http.Request) (*http.Response, error) {
 		content := []byte("something")
 
 		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
@@ -171,7 +171,7 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 
 	expected := core.RequestError{
 		Message: core.ErrorResponseParseError,
-		Origin:  errors.New("invalid character 's' looking for beginning of value"), //nolint:goerr113
+		Origin:  errors.New("invalid character 's' looking for beginning of value"),
 	}
 	if err.Error() != expected.Error() {
 		t.Errorf("Expected error = %s, got = %s", expected.Error(), err.Error())
@@ -180,7 +180,7 @@ func TestNewClient_ErrorResponseWrapper_Error(t *testing.T) {
 
 func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 	mockClient := test.NewMockHTTPClient()
-	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
+	mockClient.MockRequest("/api/stats", func(_ *http.Request) (*http.Response, error) {
 		content := []byte("{\"error\": true}")
 
 		return test.NewMockResponse(http.StatusInternalServerError, content, nil)
@@ -201,7 +201,7 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 
 	expected := core.RequestError{
 		Message: core.ErrorResponseParseError,
-		Origin:  errors.New("json: cannot unmarshal bool into Go value of type core.ErrorResponse"), //nolint:goerr113
+		Origin:  errors.New("json: cannot unmarshal bool into Go value of type core.ErrorResponse"),
 	}
 	if err.Error() != expected.Error() {
 		t.Errorf("Expected error = %s, got = %s", expected.Error(), err.Error())
@@ -210,7 +210,7 @@ func TestNewClient_ErrorResponseParse_Error(t *testing.T) {
 
 func TestNewClient_ValidErrorResponse(t *testing.T) {
 	mockClient := test.NewMockHTTPClient()
-	mockClient.MockRequest("/api/stats", func(request *http.Request) (*http.Response, error) {
+	mockClient.MockRequest("/api/stats", func(_ *http.Request) (*http.Response, error) {
 		content := []byte(`{
 			"error": {
 				"info": {

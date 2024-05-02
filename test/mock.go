@@ -9,7 +9,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 
 	"github.com/yitsushi/go-misskey"
@@ -66,17 +66,24 @@ func (c *MockHTTPClient) Do(request *http.Request) (*http.Response, error) {
 	return NewMockResponse(http.StatusNotFound, []byte{}, nil)
 }
 
+var (
+	// ErrRead is a read error with ReadCloser.
+	ErrRead = errors.New("read error")
+	// ErrClose is a close error with ReadCloser.
+	ErrClose = errors.New("close error")
+)
+
 // BadReadCloser is a basic ReadCloser with error. The only purpose
 // is to test what is the connection dropped or something.
 type BadReadCloser struct{}
 
-func (r BadReadCloser) Read(c []byte) (int, error) {
-	return 0, errors.New("Read error") //nolint:goerr113
+func (r BadReadCloser) Read(_ []byte) (int, error) {
+	return 0, ErrRead
 }
 
 // Close the reader.
 func (r BadReadCloser) Close() error {
-	return errors.New("Close error") //nolint:goerr113
+	return ErrClose
 }
 
 // MockType defined what type of request it expects.
@@ -110,7 +117,7 @@ func SimpleMockEndpoint(options *SimpleMockOptions) *MockHTTPClient {
 	mockClient := NewMockHTTPClient()
 	mockClient.MockRequest(options.Endpoint, func(request *http.Request) (*http.Response, error) {
 		defer request.Body.Close()
-		body, _ := ioutil.ReadAll(request.Body)
+		body, _ := io.ReadAll(request.Body)
 
 		switch options.Type {
 		case JSONMockType:

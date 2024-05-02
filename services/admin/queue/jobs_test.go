@@ -18,7 +18,10 @@ func jobServer() *misskey.Client {
 		Endpoint:    "/api/admin/queue/jobs",
 		RequestData: &queue.JobsRequest{},
 		ResponseFileFunc: func(r interface{}) string {
-			request := r.(*queue.JobsRequest)
+			request, ok := r.(*queue.JobsRequest)
+			if !ok {
+				return ""
+			}
 
 			switch request.Domain {
 			case queue.DeliverDomain:

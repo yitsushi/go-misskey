@@ -29,7 +29,7 @@ func TestService_ShowInstance(t *testing.T) {
 	}
 
 	assert.NotEmpty(t, instance)
-	// Do a random check to ensure marshalling went okay.
+	// Do a random check to ensure marshaling went okay.
 	assert.Equal(t, "12.50.0", instance.SoftwareVersion)
 }
 

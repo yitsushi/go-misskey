@@ -2,70 +2,76 @@ run:
   timeout: 5m
   issues-exit-code: 1
   tests: true
+  skip-dirs: []
+  skip-files: []
   modules-download-mode: readonly
+
+linters-settings:
+  gci:
+    local-prefix: github.com/yitsushi/go-misskey
+  goimports:
+    local-prefix: github.com/yitsushi/go-misskey
+  misspell:
+    locale: US
+  nolintlint:
+    allow-leading-space: false
+    allow-unused: false
+    require-explanation: true
+    require-specific: false
+  gocognit:
+    min-complexity: 40
+  varnamelen:
+    ignore-names:
+      - err
+      - ok
+      - wg
 
 issues:
   exclude-rules:
     - path: _test\.go
       linters:
-        - gocyclo
-        - errcheck
         - dupl
+        - exhaustruct
+        - goconst
+        - gocyclo
+        - goerr113
         - gosec
+        - lll
+        - paralleltest
+        - wastedassign
+        - wrapcheck
+    - text: "sig: func github.com/yitsushi/go-misskey/"
+      linters:
+      - wrapcheck
+    - text: "sig: func \\(\\*?github.com/yitsushi/go-misskey/"
+      linters:
+      - wrapcheck
 
 linters:
-  disable-all: true
-  enable:
-    - errcheck
-    - gosimple
-    - govet
-    - ineffassign
-    - staticcheck
-    - unused
-    - bodyclose
+  enable-all: true
+  disable:
+    # Deprecated
+    - golint
+    - varcheck
+    - interfacer
+    - ifshort
+    - scopelint
+    - maligned
+    - structcheck
+    - deadcode
+    - nosnakecase
+    - exhaustivestruct
+
+    # Disabled for now
     - depguard
-    - dogsled
-    - dupl
-    - exhaustive
-    - exportloopref
-    - funlen
-    - gci
-    - gochecknoglobals
-    - gochecknoinits
-    - gocognit
-    - goconst
-    - gocritic
-    - gocyclo
-    - godot
-    - godox
-    - goerr113
-    - gofmt
-    - gofumpt
-    - goheader
-    - goimports
-    # - golint # Replaced by revive.
-    - revive
-    - gomnd
-    - gomodguard
-    - goprintffuncname
-    - gosec
-    # - interfacer # The repository of the linter has been archived by the owner.
-    - lll
-    # - maligned # Replaced by govet 'fieldalignment'.
-    - misspell
-    - nakedret
-    - nestif
-    - nlreturn
-    - noctx
-    - nolintlint
-    - prealloc
-    - rowserrcheck
-    # - scopelint  # Replaced by exportloopref.
-    - exportloopref
-    - sqlclosecheck
-    - stylecheck
-    - testpackage
-    - unconvert
-    - unparam
-    - whitespace
-    - wsl
+    - testableexamples
+    - testifylint
+
+    # We have no control over JSON keys in Misskey
+    - tagliatelle
+    
+    # I don't agree with these
+    - perfsprint
+
+    # Mostly just annoying
+    - exhaustruct

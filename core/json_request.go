@@ -2,6 +2,7 @@ package core
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // JSONRequest is the base request.
@@ -24,12 +25,15 @@ func (r JSONRequest) EndpointPath() string {
 
 // ToBody returns with the JSON []byte representation of the request.
 func (r JSONRequest) ToBody(token string) ([]byte, string, error) {
-	requestBody, _ := json.Marshal(r.Request)
+	requestBody, err := json.Marshal(r.Request)
+	if err != nil {
+		return requestBody, jsonContentType, fmt.Errorf("unable to encode request: %w", err)
+	}
 
 	var repack map[string]interface{}
 
 	if err := json.Unmarshal(requestBody, &repack); err != nil {
-		return requestBody, jsonContentType, err
+		return requestBody, jsonContentType, fmt.Errorf("failed to decode body: %w", err)
 	}
 
 	if token != "" {
@@ -37,6 +41,9 @@ func (r JSONRequest) ToBody(token string) ([]byte, string, error) {
 	}
 
 	content, err := json.Marshal(repack)
+	if err != nil {
+		return content, jsonContentType, fmt.Errorf("failed to encode body: %w", err)
+	}
 
-	return content, jsonContentType, err
+	return content, jsonContentType, nil
 }

@@ -16,8 +16,8 @@ func (r RecommendationRequest) Validate() error {
 }
 
 // Recommendation endpoint.
-func (s *Service) Recommendation(request RecommendationRequest) error {
-	return core.NotImplementedYet{
+func (s *Service) Recommendation(_ RecommendationRequest) error {
+	return core.NotImplementedYetError{
 		Reason: "We don't know the response structure",
 	}
 }

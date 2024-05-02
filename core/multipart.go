@@ -18,27 +18,27 @@ type multipartField struct {
 func parseMultipartFields(r BaseRequest) map[string]multipartField {
 	fields := map[string]multipartField{}
 
-	v := reflect.ValueOf(r)
-	if v.Kind() == reflect.Ptr {
-		v = v.Elem()
+	value := reflect.ValueOf(r)
+	if value.Kind() == reflect.Ptr {
+		value = value.Elem()
 	}
 
-	for i := 0; i < v.NumField(); i++ {
-		tag := v.Type().Field(i).Tag.Get("multipart")
+	for index := range value.NumField() {
+		tag := value.Type().Field(index).Tag.Get("multipart")
 		if tag == "" || tag == "-" {
 			continue
 		}
 
 		field := parseTag(tag)
-		if field.OmitEmpty && v.Field(i).IsZero() {
+		if field.OmitEmpty && value.Field(index).IsZero() {
 			continue
 		}
 
 		if field.Name == "" {
-			field.Name = v.Type().Field(i).Name
+			field.Name = value.Type().Field(index).Name
 		}
 
-		field.Value = parseValueToBytes(v.Field(i))
+		field.Value = parseValueToBytes(value.Field(index))
 
 		fields[field.Name] = field
 	}

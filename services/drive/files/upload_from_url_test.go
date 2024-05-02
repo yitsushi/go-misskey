@@ -31,7 +31,7 @@ func ExampleService_UploadFromURL() {
 
 	// Just don't use this one, use CreateFromURL instead.
 	err := client.Drive().File().UploadFromURL(files.UploadFromURLRequest{
-		URL:         "https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235641/862478b1ad52546192af60ff03efbde9-700.jpg", //nolint:lll
+		URL:         "https://www.wallpaperup.com/uploads/wallpapers/2014/01/23/235641/862478b1ad52546192af60ff03efbde9-700.jpg",
 		Name:        "test-filename",
 		IsSensitive: false,
 		Force:       false,
