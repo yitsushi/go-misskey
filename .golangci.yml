@@ -25,6 +25,7 @@ linters-settings:
       - err
       - ok
       - wg
+      - tc
 
 issues:
   exclude-rules:
@@ -75,3 +76,4 @@ linters:
 
     # Mostly just annoying
     - exhaustruct
+    - funlen

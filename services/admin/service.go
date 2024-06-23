@@ -7,6 +7,7 @@ import (
 	"github.com/yitsushi/go-misskey/services/admin/emoji"
 	"github.com/yitsushi/go-misskey/services/admin/federation"
 	"github.com/yitsushi/go-misskey/services/admin/instance"
+	"github.com/yitsushi/go-misskey/services/admin/invite"
 	"github.com/yitsushi/go-misskey/services/admin/logs"
 	"github.com/yitsushi/go-misskey/services/admin/moderation"
 	"github.com/yitsushi/go-misskey/services/admin/moderators"
@@ -84,4 +85,9 @@ func (s *Service) Promo() *promo.Service {
 // Instance contains all endpoints for info about the instance.
 func (s *Service) Instance() *instance.Service {
 	return instance.NewService(s.Call)
+}
+
+// Invite contains all endpoints for invite.
+func (s *Service) Invite() *invite.Service {
+	return invite.NewService(s.Call)
 }
