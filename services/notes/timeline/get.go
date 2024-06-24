@@ -8,8 +8,8 @@ import (
 // GetRequest represents an Get request.
 type GetRequest struct {
 	Limit                 uint   `json:"limit"`
-	SinceID               string `json:"sinceId"`
-	UntilID               string `json:"untilId"`
+	SinceID               string `json:"sinceId,omitempty"`
+	UntilID               string `json:"untilId,omitempty"`
 	SinceDate             uint64 `json:"sinceDate"`
 	UntilDate             uint64 `json:"untilDate"`
 	IncludeMyRenotes      bool   `json:"includeMyRenotes"`
