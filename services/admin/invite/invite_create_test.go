@@ -6,7 +6,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/yitsushi/go-misskey/core"
@@ -142,7 +141,7 @@ func TestInviteCreate_ResponseParse(t *testing.T) {
 	response, err := cli.Admin().Invite().Create(1, time.Now())
 	require.NoError(t, err)
 
-	diff := cmp.Diff([]*models.Invite{
+	assert.EqualValues(t, []*models.Invite{
 		{
 			ID:        "xxxxxxxxxx",
 			Code:      "GR6S02ERUA5VR",
@@ -174,5 +173,4 @@ func TestInviteCreate_ResponseParse(t *testing.T) {
 	},
 		response,
 	)
-	assert.Empty(t, diff)
 }
