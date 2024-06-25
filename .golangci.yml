@@ -25,6 +25,7 @@ linters-settings:
       - err
       - ok
       - wg
+      - tc
 
 issues:
   exclude-rules:
@@ -40,6 +41,7 @@ issues:
         - paralleltest
         - wastedassign
         - wrapcheck
+        - funlen
     - text: "sig: func github.com/yitsushi/go-misskey/"
       linters:
       - wrapcheck
