@@ -41,6 +41,7 @@ issues:
         - paralleltest
         - wastedassign
         - wrapcheck
+        - funlen
     - text: "sig: func github.com/yitsushi/go-misskey/"
       linters:
       - wrapcheck
@@ -76,4 +77,3 @@ linters:
 
     # Mostly just annoying
     - exhaustruct
-    - funlen
