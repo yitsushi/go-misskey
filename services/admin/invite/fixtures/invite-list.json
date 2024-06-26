@@ -1,0 +1,182 @@
+[
+  {
+    "id": "xxxxxxxxxx",
+    "code": "GR6S02ERUA5VR",
+    "expiresAt": "2019-08-24T14:15:22Z",
+    "createdAt": "2019-08-24T14:15:22Z",
+    "createdBy": {
+      "id": "xxxxxxxxxx",
+      "name": "藍",
+      "username": "ai",
+      "host": "misskey.example.com",
+      "avatarUrl": "string",
+      "avatarBlurhash": "string",
+      "avatarDecorations": [
+        {
+          "id": "string",
+          "angle": 0,
+          "flipH": true,
+          "url": "string",
+          "offsetX": 0,
+          "offsetY": 0
+        }
+      ],
+      "isBot": true,
+      "isCat": true,
+      "instance": {
+        "name": "string",
+        "softwareName": "string",
+        "softwareVersion": "string",
+        "iconUrl": "string",
+        "faviconUrl": "string",
+        "themeColor": "string"
+      },
+      "emojis": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "onlineStatus": "unknown",
+      "badgeRoles": [
+        {
+          "name": "string",
+          "iconUrl": "string",
+          "displayOrder": 0,
+          "behavior": "string"
+        }
+      ]
+    },
+    "usedBy": {
+      "id": "xxxxxxxxxx",
+      "name": "藍",
+      "username": "ai",
+      "host": "misskey.example.com",
+      "avatarUrl": "string",
+      "avatarBlurhash": "string",
+      "avatarDecorations": [
+        {
+          "id": "string",
+          "angle": 0,
+          "flipH": true,
+          "url": "string",
+          "offsetX": 0,
+          "offsetY": 0
+        }
+      ],
+      "isBot": true,
+      "isCat": true,
+      "instance": {
+        "name": "string",
+        "softwareName": "string",
+        "softwareVersion": "string",
+        "iconUrl": "string",
+        "faviconUrl": "string",
+        "themeColor": "string"
+      },
+      "emojis": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "onlineStatus": "unknown",
+      "badgeRoles": [
+        {
+          "name": "string",
+          "iconUrl": "string",
+          "displayOrder": 0,
+          "behavior": "string"
+        }
+      ]
+    },
+    "usedAt": "2019-08-24T14:15:22Z",
+    "used": true
+  },
+  {
+    "id": "yyyyyyyyyy",
+    "code": "GR6S02ERUA5VR",
+    "expiresAt": "2019-08-24T14:15:22Z",
+    "createdAt": "2019-08-24T14:15:22Z",
+    "createdBy": {
+      "id": "yyyyyyyyyy",
+      "name": "藍",
+      "username": "ai",
+      "host": "misskey.example.com",
+      "avatarUrl": "string",
+      "avatarBlurhash": "string",
+      "avatarDecorations": [
+        {
+          "id": "string",
+          "angle": 0,
+          "flipH": true,
+          "url": "string",
+          "offsetX": 0,
+          "offsetY": 0
+        }
+      ],
+      "isBot": true,
+      "isCat": true,
+      "instance": {
+        "name": "string",
+        "softwareName": "string",
+        "softwareVersion": "string",
+        "iconUrl": "string",
+        "faviconUrl": "string",
+        "themeColor": "string"
+      },
+      "emojis": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "onlineStatus": "unknown",
+      "badgeRoles": [
+        {
+          "name": "string",
+          "iconUrl": "string",
+          "displayOrder": 0,
+          "behavior": "string"
+        }
+      ]
+    },
+    "usedBy": {
+      "id": "yyyyyyyyyy",
+      "name": "藍",
+      "username": "ai",
+      "host": "misskey.example.com",
+      "avatarUrl": "string",
+      "avatarBlurhash": "string",
+      "avatarDecorations": [
+        {
+          "id": "string",
+          "angle": 0,
+          "flipH": true,
+          "url": "string",
+          "offsetX": 0,
+          "offsetY": 0
+        }
+      ],
+      "isBot": true,
+      "isCat": true,
+      "instance": {
+        "name": "string",
+        "softwareName": "string",
+        "softwareVersion": "string",
+        "iconUrl": "string",
+        "faviconUrl": "string",
+        "themeColor": "string"
+      },
+      "emojis": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "onlineStatus": "unknown",
+      "badgeRoles": [
+        {
+          "name": "string",
+          "iconUrl": "string",
+          "displayOrder": 0,
+          "behavior": "string"
+        }
+      ]
+    },
+    "usedAt": "2019-08-24T14:15:22Z",
+    "used": true
+  }
+]
