@@ -22,6 +22,6 @@ func ExampleService_Notes() {
 	}
 
 	for _, note := range notes {
-		log.Printf(note.Text)
+		log.Println(note.Text)
 	}
 }

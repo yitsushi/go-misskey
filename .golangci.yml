@@ -5,6 +5,7 @@ run:
   skip-dirs: []
   skip-files: []
   modules-download-mode: readonly
+  go: 1.22
 
 linters-settings:
   gci:
@@ -35,7 +36,7 @@ issues:
         - exhaustruct
         - goconst
         - gocyclo
-        - goerr113
+        - err113
         - gosec
         - lll
         - paralleltest
@@ -53,16 +54,9 @@ linters:
   enable-all: true
   disable:
     # Deprecated
-    - golint
-    - varcheck
-    - interfacer
-    - ifshort
-    - scopelint
-    - maligned
-    - structcheck
-    - deadcode
-    - nosnakecase
-    - exhaustivestruct
+    - exportloopref
+    - gomnd
+    - execinquery
 
     # Disabled for now
     - depguard
